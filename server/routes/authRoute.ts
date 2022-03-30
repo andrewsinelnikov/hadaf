@@ -24,4 +24,9 @@ router.post("/login", authCtrl.login);
 // @access Public
 router.get("/logout", authCtrl.logout);
 
+// @route  GET api/refresh_token
+// @desc   Refresh Token
+// @access Public
+router.get("/refresh_token", authCtrl.refreshToken);
+
 export default router;
