@@ -93,6 +93,38 @@ const authCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  refreshToken: async (req: Request, res: Response) => {
+    try {
+      const rf_token = req.cookies.resettoken;
+      if (!rf_token) return res.status(400).json({ msg: "Please, log in" });
+
+      const decoded = <IDecodedToken>(
+        jwt.verify(rf_token, `${process.env.REFRESH_TOKEN_SECRET}`)
+      );
+      if (!decoded.id) return res.status(400).json({ msg: "Please, log in" });
+
+      const user = await Users.findById(decoded.id).select(
+        "-password +rf_token"
+      );
+      if (!user)
+        return res.status(400).json({ msg: "The account does not exist" });
+
+      if (rf_token !== user.rf_token)
+        return res.status(400).json({ msg: "Please, log in" });
+
+      const access_token = generateAccessToken({ id: user._id });
+      const refresh_token = generateRefreshToken({ id: user._id }, res);
+
+      await Users.findOneAndUpdate(
+        { _id: user._id },
+        { rf_token: refresh_token }
+      );
+
+      return res.json({ access_token, user });
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
 };
 
 const loginUser = async (user: IUser, password: string, res: Response) => {
