@@ -1,0 +1,126 @@
+import { Request, Response } from "express";
+import Users from "../models/userModel";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import {
+  generateActiveToken,
+  generateAccessToken,
+  generateRefreshToken,
+} from "../config/generateToken";
+import sendEmail from "../config/sendMail";
+import { validateEmail, validatePhone } from "../middleware/valid";
+import { sendSMS } from "../config/sendSMS";
+import { IDecodedToken, IUser, IReqAuth } from "../config/interface";
+
+const CLIENT_URL = `${process.env.BASE_URL}`;
+
+const authCtrl = {
+  register: async (req: Request, res: Response) => {
+    try {
+      const { name, account, password } = req.body;
+      const user = await Users.findOne({ account });
+
+      if (user)
+        return res
+          .status(400)
+          .json({ msg: "Email or Phone number already exists" });
+
+      const passwordHash = await bcrypt.hash(password, 12);
+
+      const newUser = { name, account, password: passwordHash };
+
+      const active_token = generateActiveToken({ newUser });
+      const url = `${CLIENT_URL}/active/${active_token}`;
+
+      if (validateEmail(account)) {
+        sendEmail(account, url, "Verify your email address");
+        return res.json({ msg: "Success! Please check your email" });
+      } else if (validatePhone(account)) {
+        sendSMS(account, url, "Verify your phone number");
+        return res.json({ msg: "Success! Please check your phone" });
+      }
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  activeAccount: async (req: Request, res: Response) => {
+    try {
+      const { active_token } = req.body;
+
+      const decoded = <IDecodedToken>(
+        jwt.verify(active_token, `${process.env.ACTIVE_TOKEN_SECRET}`)
+      );
+
+      const { newUser } = decoded;
+
+      if (!newUser)
+        return res.status(400).json({ msg: "Invalid authentication" });
+
+      const user = await Users.findOne({ account: newUser.account });
+      if (user) return res.status(400).json({ msg: "Account already exists" });
+
+      const new_user = new Users(newUser);
+
+      await new_user.save();
+
+      res.json({ msg: "Account has been activated" });
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  login: async (req: Request, res: Response) => {
+    try {
+      const { account, password } = req.body;
+
+      const user = await Users.findOne({ account });
+
+      if (!user) return res.status(400).json({ msg: "Invalid credentials" });
+
+      loginUser(user, password, res);
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  logout: async (req: IReqAuth, res: Response) => {
+    if (!req.user)
+      return res.status(400).json({ msg: "Invalid Authentication" });
+    try {
+      res.clearCookie("refreshtoken", { path: `/api/refresh_token` });
+      await Users.findOneAndUpdate({ _id: req.user._id }, { rf_token: "" });
+
+      return res.json({ msg: "Logged out" });
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+};
+
+const loginUser = async (user: IUser, password: string, res: Response) => {
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if (!isMatch) {
+    let msgError =
+      user.type === "register"
+        ? "Password is incorrect"
+        : `Password is incorrect. This account login with ${user.type}`;
+    return res.status(400).json({ msg: msgError });
+  }
+
+  const access_token = generateAccessToken({ id: user._id });
+  const refresh_token = generateRefreshToken({ id: user._id }, res);
+
+  await Users.findOneAndUpdate(
+    { _id: user._id },
+    {
+      rf_token: refresh_token,
+    }
+  );
+
+  res.json({
+    msg: "Login Success",
+    access_token,
+    user: { ...user._doc, password: "" },
+  });
+};
+
+export default authCtrl;
