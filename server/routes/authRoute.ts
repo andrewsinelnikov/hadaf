@@ -19,4 +19,9 @@ router.post("/active", authCtrl.activeAccount);
 // @access Public
 router.post("/login", authCtrl.login);
 
+// @route  GET api/logout
+// @desc   Logout user
+// @access Public
+router.get("/logout", authCtrl.logout);
+
 export default router;
