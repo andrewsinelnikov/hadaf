@@ -1,3 +1,17 @@
+:root {
+  --primary-color: #ab915d;
+  --light-color: #fdfdf7;
+  --lightmiddle-color: #ece9d2;
+  --lightdark-color: #e7e0b9;
+  --success-color: #895602;
+  --fontdark-color: #333;
+
+  --darklight-color: #1e3957;
+  --darkmiddle-color: #0a2749;
+  --dark-color: #0f1f2f;
+  --max-width: 1140px;
+}
+
 * {
   margin: 0;
   padding: 0;
