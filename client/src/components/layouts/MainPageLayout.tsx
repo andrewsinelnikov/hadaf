@@ -1,9 +1,11 @@
 import React from "react";
+import Navbar from "../global/Navbar";
 
-const MainPageLayout = () => {
+const MainPageLayout: React.FC<{}> = (props) => {
   return (
     <div>
-      <h2>MainPageLayout</h2>
+      <Navbar />
+      {props.children}
     </div>
   );
 };
