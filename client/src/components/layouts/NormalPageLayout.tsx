@@ -4,10 +4,10 @@ import Footer from "../global/Footer";
 
 const NormalPageLayout: React.FC<{}> = (props) => {
   return (
-    <MainPageLayout>
-      {props.children}
+    <>
+      <MainPageLayout>{props.children}</MainPageLayout>
       <Footer />
-    </MainPageLayout>
+    </>
   );
 };
 
