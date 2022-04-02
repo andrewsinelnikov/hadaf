@@ -1,0 +1,12 @@
+.notFound {
+  position: relative;
+  min-height: calc(100vh - 70px);
+}
+
+.notFound h2 {
+  position: absolute;
+  color: rgb(108, 117, 125);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
