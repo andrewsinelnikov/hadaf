@@ -54,5 +54,5 @@ code {
   }
 }
 
-/* -------- Not Found --------- */
-@import url("./notFound.css");
+/* -------- Global --------- */
+@import url("./global.css");
