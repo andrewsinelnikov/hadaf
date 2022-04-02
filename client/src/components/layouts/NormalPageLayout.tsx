@@ -1,7 +1,14 @@
 import React from "react";
+import MainPageLayout from "./MainPageLayout";
+import Footer from "../global/Footer";
 
-const NormalPageLayout = () => {
-  return <div>NormalPageLayout</div>;
+const NormalPageLayout: React.FC<{}> = (props) => {
+  return (
+    <MainPageLayout>
+      {props.children}
+      <Footer />
+    </MainPageLayout>
+  );
 };
 
 export default NormalPageLayout;
