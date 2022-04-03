@@ -13,7 +13,7 @@ const LoginPass = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <div className='form-group mb-3'>
         <label htmlFor='account' className='form-label'>
           Email / Phone number
