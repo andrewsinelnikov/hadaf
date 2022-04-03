@@ -56,3 +56,5 @@ code {
 
 /* -------- Global --------- */
 @import url("./global.css");
+/* -------- Auth --------- */
+@import url("./auth.css");
