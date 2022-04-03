@@ -22,6 +22,13 @@ const Login = () => {
             {sms ? "Sign in with password" : "Sign in with SMS"}
           </span>
         </small>
+
+        <p>
+          Don't have an account?
+          <Link to={`/register${location.search}`} style={{ color: "crimson" }}>
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );
