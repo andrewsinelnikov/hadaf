@@ -2,8 +2,10 @@ import React from "react";
 
 const Login = () => {
   return (
-    <div>
-      <h2>Login page</h2>
+    <div className='auth_page'>
+      <div className='auth_box'>
+        <h3 className='text-uppercase text-center mb-4'>Login</h3>
+      </div>
     </div>
   );
 };
