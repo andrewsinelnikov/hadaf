@@ -5,3 +5,11 @@
   display: flex;
   justify-content: center;
 }
+
+.auth_page .auth_box {
+  background: #fff;
+  min-width: 400px;
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 2.7rem 1.7rem;
+}
