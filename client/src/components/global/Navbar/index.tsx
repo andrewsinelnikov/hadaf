@@ -4,13 +4,18 @@ import Menu from "./Menu";
 
 const Navbar = () => {
   return (
-    <nav
-      className='navbar'
-      style={{ position: "sticky", top: 0, left: 0, zIndex: 9 }}>
+    <nav className='navbar'>
       <div className='navbar__wrapper'>
-        <Link className='navbar__brand' to='/'>
-          Navbar
-        </Link>
+        <h1 className='navbar__left'>
+          <Link to='/' className='navbar__brand'>
+            <img
+              src='../../../../logo-gold2.png'
+              alt='logo'
+              className='navbar__logo'
+            />{" "}
+            HADAF
+          </Link>
+        </h1>
         <button
           className='navbar__toggler'
           type='button'
