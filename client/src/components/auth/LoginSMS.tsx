@@ -4,7 +4,7 @@ const LoginSMS = () => {
   const [phone, setPhone] = useState("");
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <div className='form-group mb-3'>
         <label htmlFor='phone' className='form-label'>
           Phone number
@@ -16,7 +16,7 @@ const LoginSMS = () => {
           id='phone'
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          placeholder='+380321231111'
+          placeholder='+012345678912'
         />
       </div>
 
