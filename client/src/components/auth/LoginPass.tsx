@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { login } from "../../redux/actions/authAction";
 import { InputChange, FormSubmit } from "../../utils/TypeScript";
 
 const LoginPass = () => {
@@ -7,6 +8,8 @@ const LoginPass = () => {
   const [userLogin, setUserLogin] = useState(initialState);
   const { account, password } = userLogin;
   const [typePass, setTypePass] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleChangeInput = (e: InputChange) => {
     const { value, name } = e.target;
