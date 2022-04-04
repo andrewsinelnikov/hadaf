@@ -1,10 +1,11 @@
 import React from "react";
+import ExceptionalPageLayout from "../components/layouts/ExceptionalPageLayout";
 
 const Home = () => {
   return (
-    <div>
+    <ExceptionalPageLayout>
       <h2>Home page</h2>
-    </div>
+    </ExceptionalPageLayout>
   );
 };
 

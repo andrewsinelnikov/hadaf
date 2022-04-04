@@ -26,7 +26,7 @@ const Login = () => {
 
         <p>
           {`Don't have an account? `}
-          <Link to={`/register${location.search}`} style={{ color: "crimson" }}>
+          <Link to={`/register`} style={{ color: "crimson" }}>
             Register
           </Link>
         </p>
