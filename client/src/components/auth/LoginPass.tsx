@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { InputChange } from "../../utils/TypeScript";
+import { InputChange, FormSubmit } from "../../utils/TypeScript";
 
 const LoginPass = () => {
   const initialState = { account: "", password: "" };
