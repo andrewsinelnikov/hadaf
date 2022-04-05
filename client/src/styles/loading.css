@@ -12,3 +12,22 @@
   left: 0;
   z-index: 99;
 }
+
+.loading svg i {
+  color: var(--lightdark-color);
+}
+
+.arrow {
+  transform-origin: 0% 50%;
+  animation: slide 4s linear infinite;
+}
+
+@keyframes slide4 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
