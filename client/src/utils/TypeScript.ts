@@ -25,3 +25,9 @@ export interface IUser extends IUserLogin {
   updatedAt: string;
   _id: string;
 }
+
+export interface IAlert {
+  loading?: boolean;
+  success?: string | string[];
+  errors?: string | string[];
+}
