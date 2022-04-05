@@ -1,9 +1,11 @@
 import React from "react";
 
+import Loading from "./Loading";
+
 const Alert = () => {
   return (
     <div>
-      <h2>Alert</h2>
+      <Loading />
     </div>
   );
 };
