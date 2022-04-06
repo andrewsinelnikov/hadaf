@@ -2,10 +2,22 @@ import { useSelector } from "react-redux";
 import { RootStore } from "../../utils/TypeScript";
 
 import Loading from "./Loading";
+import Toast from "./Toast";
 
-const Alert = () => {
+export const Alert = () => {
   const { alert } = useSelector((state: RootStore) => state);
-  return <>{alert.loading && <Loading />}</>;
+
+  return (
+    <>
+      {alert.loading && <Loading />}
+      {alert.errors && (
+        <Toast title='Errors' body={alert.errors} bgColor='#dc3545' />
+      )}
+      {alert.success && (
+        <Toast title='Success' body={alert.success} bgColor='#198754' />
+      )}
+    </>
+  );
 };
 
 export default Alert;
