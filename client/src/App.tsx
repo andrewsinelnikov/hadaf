@@ -8,8 +8,8 @@ const App = () => {
   return (
     <>
       <Router>
+        <Alert />
         <Routes>
-          <Alert />
           <Route path='/' element={<PageRender />} />
           <Route path=':page' element={<PageRender />} />
           <Route path=':page/:slug' element={<PageRender />} />

@@ -19,6 +19,7 @@
   text-transform: uppercase;
   letter-spacing: 1.2px;
   animation: text 1s ease-in-out infinite;
+  /* animation: upDown 1s ease-in-out infinite; */
 }
 
 @keyframes text {
@@ -27,7 +28,70 @@
   }
 }
 
-.loading svg i {
+.loader-circle,
+.loader-pointer,
+.loader-line {
+  fill: none;
+  stroke-width: 5px;
+  stroke: #4d6565;
+}
+
+.loader-center {
+  fill: #4d6565;
+}
+
+.loader-pointer {
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+  animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite;
+}
+
+.loader-line {
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center;
+  animation: spin 8s linear infinite;
+  -moz-animation: spin 8s linear infinite;
+  -webkit-animation: spin 8s linear infinite;
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+    -moz-transform-origin: 50% 50%;
+  }
+  to {
+    -moz-transform: rotate(360deg);
+    -moz-transform-origin: 50% 50%;
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -webkit-transform-origin: 50% 50%;
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -webkit-transform-origin: 50% 50%;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+  }
+  to {
+    transform: rotate(360deg);
+    transform-origin: 50% 50%;
+  }
+}
+
+/* .loading svg i {
   color: var(--lightdark-color);
 }
 
@@ -44,4 +108,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
+} */
