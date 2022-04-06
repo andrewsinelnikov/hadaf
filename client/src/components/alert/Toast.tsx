@@ -1,4 +1,5 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { ALERT } from "../../redux/types/alertType";
 
 interface IProps {
   title: string;
@@ -6,10 +7,30 @@ interface IProps {
   bgColor: string;
 }
 
-const Toast = () => {
+const Toast = ({ title, body, bgColor }: IProps) => {
   return (
-    <div>
-      <h2>Toast</h2>
+    <div className={`toast show`} style={{ background: `${bgColor}` }}>
+      <div className='toast-header' style={{ background: `${bgColor}` }}>
+        <strong className='me-auto'>{title}</strong>
+        <button
+          type='button'
+          className='btn-close'
+          data-bs-dismiss='toast'
+          aria-label='Close'
+          onClick={handleClose}
+        />
+      </div>
+      <div className='toast-body'>
+        {typeof body === "string" ? (
+          body
+        ) : (
+          <ul>
+            {body.map((text, index) => (
+              <li key={index}>{text}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };
