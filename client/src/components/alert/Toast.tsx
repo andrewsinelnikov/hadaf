@@ -8,6 +8,12 @@ interface IProps {
 }
 
 const Toast = ({ title, body, bgColor }: IProps) => {
+  const dispatch = useDispatch();
+
+  const handleClose = () => {
+    dispatch({ type: ALERT, payload: {} });
+  };
+
   return (
     <div className={`toast show`} style={{ background: `${bgColor}` }}>
       <div className='toast-header' style={{ background: `${bgColor}` }}>
