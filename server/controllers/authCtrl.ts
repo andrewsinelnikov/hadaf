@@ -95,7 +95,7 @@ const authCtrl = {
   },
   refreshToken: async (req: Request, res: Response) => {
     try {
-      const rf_token = req.cookies.resettoken;
+      const rf_token = req.cookies.refreshtoken;
       if (!rf_token) return res.status(400).json({ msg: "Please, log in" });
 
       const decoded = <IDecodedToken>(

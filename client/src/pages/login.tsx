@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootStore } from "../utils/TypeScript";
 
 import LoginPass from "../components/auth/LoginPass";
 import LoginSMS from "../components/auth/LoginSMS";
 
 const Login = () => {
   const [sms, setSms] = useState(false);
+  const navigate = useNavigate();
+
+  const { auth } = useSelector((state: RootStore) => state);
+
+  useEffect(() => {
+    if (auth.access_token) navigate("/");
+  }, [auth.access_token, navigate]);
 
   return (
     <div className='auth_page'>
