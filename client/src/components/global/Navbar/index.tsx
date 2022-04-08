@@ -5,13 +5,13 @@ import Menu from "./Menu";
 const Navbar = () => {
   return (
     <nav className='navbar'>
-      <div className='navbar__wrapper'>
-        <h1 className='navbar__left'>
-          <Link to='/' className='navbar__brand'>
+      <div className='navbar-wrapper'>
+        <h1 className='navbar-left'>
+          <Link to='/' className='navbar-brand'>
             <img
               src='../../../../logo-gold2.png'
               alt='logo'
-              className='navbar__logo'
+              className='navbar-logo'
             />{" "}
             HADAF
           </Link>

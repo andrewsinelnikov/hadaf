@@ -11,7 +11,7 @@
   color: var(--lightdark-color);
 }
 
-.navbar__wrapper {
+.navbar-wrapper {
   display: flex;
   flex-wrap: inherit;
   align-items: center;
@@ -28,6 +28,7 @@
   text-decoration: none;
   white-space: nowrap;
   color: var(--primary-color);
+  cursor: pointer;
 }
 
 .navbar__logo {
