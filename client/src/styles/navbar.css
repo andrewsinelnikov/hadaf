@@ -34,6 +34,13 @@
   height: 1.3rem;
   width: 1.3rem;
 }
+
+.navbar__search {
+  position: relative;
+  width: 50%;
+  display: block;
+  margin-right: 1.5rem !important;
+}
 /*
 .navbar__toggler {
   color: rgba(0, 0, 0, 0.55);
@@ -96,12 +103,6 @@
   align-items: center;
 }
 
-.navbar__search {
-  position: relative;
-  width: 50%;
-  display: block;
-  margin-right: 1.5rem !important;
-}
 
 .navbar__search input {
   margin: 0;

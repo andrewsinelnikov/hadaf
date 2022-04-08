@@ -6,7 +6,7 @@ const Search = () => {
   return (
     <div className='navbar__search'>
       <input
-        className='navbar__form'
+        className='search-form'
         type='text'
         placeholder='Enter your search...'
         value={search}
