@@ -144,12 +144,11 @@
   padding-inline-start: 40px;
 }
 
-/*
-.navbar__item {
+.nav-item {
   display: list-item;
   text-align: -webkit-match-parent;
 }
-
+/*
 .nav__link {
   display: block;
   padding: 0.5rem 1rem;

@@ -6,7 +6,7 @@ const Menu = () => {
     { label: "Sign in", path: "/login" },
   ];
   return (
-    <ul className='navbar-nav ms-auto'>
+    <ul className='navbar-nav'>
       {bfLoginLinks.map((link, index) => (
         <li key={index} className='nav-item'>
           <Link className='nav-link' to={link.path}>
