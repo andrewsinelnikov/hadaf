@@ -24,14 +24,14 @@
   opacity: 0.9;
 }
 
-.navbar__brand {
+.navbar-brand {
   text-decoration: none;
   white-space: nowrap;
   color: var(--primary-color);
   cursor: pointer;
 }
 
-.navbar__logo {
+.navbar-logo {
   height: 1.3rem;
   width: 1.3rem;
 }
