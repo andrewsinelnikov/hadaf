@@ -171,7 +171,7 @@
 .dropdown {
   position: relative;
 }
-/*
+
 .dropdown__toggle {
   white-space: nowrap;
 }
@@ -180,6 +180,7 @@
   cursor: pointer;
 }
 
+/*
 .dropdown__menu {
   position: static;
   z-index: 1000;
