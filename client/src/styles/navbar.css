@@ -180,7 +180,6 @@
   cursor: pointer;
 }
 
-/*
 .dropdown__menu {
   position: static;
   z-index: 1000;
@@ -198,6 +197,7 @@
   border-radius: 0.25rem;
 }
 
+/*
 .dropdown__item {
   display: block;
   width: 100%;
