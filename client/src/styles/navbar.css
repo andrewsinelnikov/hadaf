@@ -122,7 +122,7 @@
 .collapse:not(.show) {
   display: none;
 }
-.navbar__collapse {
+.navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
@@ -234,7 +234,7 @@
     display: flex !important;
     flex-basis: auto;
   }
-  .navbar-menu {
+  .navbar-nav {
     flex-direction: row;
     margin-bottom: 0 !important;
   }
