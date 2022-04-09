@@ -222,28 +222,28 @@
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   opacity: 0.25;
 }
-/*
+
 @media (min-width: 992px) {
   .navbar {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-  .navbar__toggler {
+  .navbar-toggler {
     display: none !important;
   }
-  .navbar__collapse {
+  .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
   }
-  .navbar__menu {
+  .navbar-menu {
     flex-direction: row;
     margin-bottom: 0 !important;
   }
-  .nav__link {
+  .nav-link {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
   }
-  .dropdown__menu {
+  .dropdown-menu {
     position: absolute;
   }
-} */
+}
