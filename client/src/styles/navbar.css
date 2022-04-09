@@ -118,6 +118,7 @@
   background-size: 100%;
 }
 
+*/
 .collapse:not(.show) {
   display: none;
 }
@@ -127,8 +128,6 @@
   align-items: center;
 }
 
-
-*/
 .navbar-nav {
   display: flex;
   flex-direction: column;
