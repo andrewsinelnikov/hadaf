@@ -17,16 +17,16 @@ const Navbar = () => {
           </Link>
         </h1>
         <button
-          className='navbar__toggler'
+          className='navbar-toggler'
           type='button'
           data-bs-toggle='collapse'
           data-bs-target='#navbarSupportedContent'
           aria-controls='navbarSupportedContent'
           aria-expanded='false'
           aria-label='Toggle navigation'>
-          <span className='navbar__togglerIcon'></span>
+          <span className='navbar-togglerIcon'></span>
         </button>
-        <div className='collapse navbar__collapse' id='navbarSupportedContent'>
+        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <Search />
           <Menu />
         </div>
