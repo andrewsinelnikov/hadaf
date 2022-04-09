@@ -25,6 +25,11 @@
 }
 
 .navbar-brand {
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+
   text-decoration: none;
   white-space: nowrap;
   color: var(--primary-color);
@@ -119,14 +124,14 @@
 }
 
 */
-/* .collapse:not(.show) {
+.collapse:not(.show) {
   display: none;
-} */
-/* .navbar-collapse {
+}
+.navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
-} */
+}
 
 .navbar-nav {
   display: flex;

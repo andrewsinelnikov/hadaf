@@ -28,7 +28,7 @@ const Navbar = () => {
         </button> */}
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <Search />
-          {/* <Menu /> */}
+          <Menu />
         </div>
       </div>
     </nav>
