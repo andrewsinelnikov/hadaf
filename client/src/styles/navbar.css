@@ -36,14 +36,14 @@
   width: 1.3rem;
 }
 
-.navbar__search {
+.navbar-search {
   position: relative;
   width: 50%;
   display: block;
   margin-right: 1.5rem !important;
 }
 
-.navbar__search input {
+.navbar-search input {
   margin: 0;
 }
 

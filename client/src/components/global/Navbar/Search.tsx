@@ -4,7 +4,7 @@ const Search = () => {
   const [search, setSearch] = useState("");
 
   return (
-    <div className='navbar__search'>
+    <div className='navbar-search'>
       <input
         className='search-form'
         type='text'
