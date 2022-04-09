@@ -152,7 +152,8 @@
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.55);
+  /* color: rgba(0, 0, 0, 0.55); */
+  color: var(--lightdark-color);
   cursor: pointer;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
@@ -171,15 +172,15 @@
   position: relative;
 }
 
-.dropdown__toggle {
+.dropdown-toggle {
   white-space: nowrap;
 }
 
-.dropdown__toggle [role="button"] {
+.dropdown-toggle [role="button"] {
   cursor: pointer;
 }
 
-.dropdown__menu {
+.dropdown-menu {
   position: static;
   z-index: 1000;
   display: none;
