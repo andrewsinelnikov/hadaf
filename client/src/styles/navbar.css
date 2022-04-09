@@ -119,14 +119,14 @@
 }
 
 */
-.collapse:not(.show) {
+/* .collapse:not(.show) {
   display: none;
-}
-.navbar-collapse {
+} */
+/* .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
-}
+} */
 
 .navbar-nav {
   display: flex;

@@ -16,7 +16,7 @@ const Navbar = () => {
             HADAF
           </Link>
         </h1>
-        <button
+        {/* <button
           className='navbar-toggler'
           type='button'
           data-bs-toggle='collapse'
@@ -25,10 +25,10 @@ const Navbar = () => {
           aria-expanded='false'
           aria-label='Toggle navigation'>
           <span className='navbar-togglerIcon'></span>
-        </button>
+        </button> */}
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <Search />
-          <Menu />
+          {/* <Menu /> */}
         </div>
       </div>
     </nav>
