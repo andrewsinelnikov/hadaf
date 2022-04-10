@@ -3,7 +3,11 @@ import React from "react";
 const Footer = () => {
   return (
     <div className='footer'>
-      <h2>Footer</h2>
+      <div className='footer-wrapper'>
+        <div className='footer-rights'></div>
+        <ul className='footer-info'></ul>
+        <div className='footer-language'></div>
+      </div>
     </div>
   );
 };
