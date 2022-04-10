@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className='footer'>
+    <div className='footer container'>
       <div className='footer-wrapper'>
         <div className='footer-rights'>
           &copy; {new Date().getFullYear()} Hadaf
