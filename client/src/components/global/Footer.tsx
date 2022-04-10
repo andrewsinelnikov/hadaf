@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,16 +9,16 @@ const Footer = () => {
         </div>
         <ul className='footer-info'>
           <li>
-            <a href='!#'>About</a>
+            <Link to='/about'>About</Link>
           </li>
           <li>
-            <a href='!#'>Privacy</a>
+            <Link to='/privacy'>Privacy</Link>
           </li>
           <li>
-            <a href='!#'>Terms</a>
+            <Link to='/terms'>Terms</Link>
           </li>
           <li>
-            <a href='!#'>Help</a>
+            <Link to='/help'>Help</Link>
           </li>
         </ul>
         <form action='' className='footer-language'>
