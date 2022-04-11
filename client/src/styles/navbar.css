@@ -167,6 +167,11 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
 }
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
 /*
 .nav__user {
   width: 30px;
