@@ -21,6 +21,20 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--fontdark-color);
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--fontdark-color);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
 }
 
 code {
