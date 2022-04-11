@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className='footer container'>
+    <footer className='footer container'>
       <div className='footer-wrapper'>
         <div className='footer-rights'>
           &copy; {new Date().getFullYear()} Hadaf
@@ -27,7 +27,7 @@ const Footer = () => {
           </select>
         </form>
       </div>
-    </div>
+    </footer>
   );
 };
 

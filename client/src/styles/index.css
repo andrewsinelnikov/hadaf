@@ -37,6 +37,13 @@
   background-color: var(--primary-color);
 }
 
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  background-color: var(--light-color);
+  color: var(--lightdark-color);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
