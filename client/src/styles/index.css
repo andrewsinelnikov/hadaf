@@ -40,6 +40,7 @@
 body {
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
+  line-height: 1.5;
   background-color: var(--light-color);
   color: var(--lightdark-color);
 }

@@ -1,5 +1,15 @@
 .footer {
+  margin-top: 30px;
   border-top: 1px solid var(--success-color);
   background-color: var(--light-color);
   color: var(--lightdark-color);
+}
+
+.footer-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  padding-top: 30px;
+  padding-bottom: 8px;
 }
