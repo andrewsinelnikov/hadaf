@@ -4,9 +4,9 @@ const Footer = () => {
   return (
     <footer className='footer container'>
       <div className='footer-wrapper'>
-        <div className='footer-rights'>
-          &copy; {new Date().getFullYear()} Hadaf
-        </div>
+        <ul className='footer-rights'>
+          <li>&copy; {new Date().getFullYear()} Hadaf</li>
+        </ul>
         <ul className='footer-info'>
           <li>
             <Link to='/about'>About</Link>

@@ -13,3 +13,23 @@
   padding-top: 30px;
   padding-bottom: 8px;
 }
+
+.footer-rights {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 1012px) {
+  .footer-wrapper {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .footer-rights {
+    margin-bottom: 0;
+    justify-content: space-between;
+    width: 16%;
+  }
+}
