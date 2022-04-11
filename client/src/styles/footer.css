@@ -19,7 +19,12 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   list-style: none;
+  color: var(--darklight-color);
   margin-bottom: 8px;
+}
+
+.footer-info {
+  display: flex;
 }
 
 @media (min-width: 1012px) {
