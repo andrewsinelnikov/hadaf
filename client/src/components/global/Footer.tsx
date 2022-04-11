@@ -22,7 +22,7 @@ const Footer = () => {
               <Link to='/help'>Help</Link>
             </li>
           </ul>
-          <form action='' className='footer-'>
+          <form action='' className='footer-language'>
             <select id='language' name='language'>
               <option value='english'>English</option>
             </select>
