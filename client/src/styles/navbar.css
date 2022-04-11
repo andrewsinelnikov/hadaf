@@ -124,9 +124,11 @@
 }
 
 */
-.collapse:not(.show) {
+
+/* .collapse:not(.show) {
   display: none;
-}
+} */
+
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
@@ -135,7 +137,8 @@
 
 .navbar-nav {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-direction: row;
   align-items: center;
   padding-left: 0;
   list-style: none;
@@ -250,10 +253,10 @@
     display: flex !important;
     flex-basis: auto;
   }
-  .navbar-nav {
+  /* .navbar-nav {
     flex-direction: row;
-    /* margin-bottom: 0 !important; */
-  }
+    margin-bottom: 0 !important;
+  } */
   .nav-link {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
