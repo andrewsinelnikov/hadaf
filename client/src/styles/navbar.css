@@ -102,9 +102,9 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 58px;
+  top: 50px;
   width: 300px;
-  transform: translate(-45deg);
+  transform: translate(-55%);
   z-index: 1000;
   padding: 1rem;
   text-align: left;
@@ -114,8 +114,8 @@
   background-clip: padding-box;
   border: var(--border);
   border-radius: var(--border-radius);
+  overflow: hidden;
 }
-
 
 /* .navbar {
   display: flex;
