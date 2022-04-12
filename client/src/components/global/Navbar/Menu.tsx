@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Menu = () => {
+  const [open, setOpen] = useState(false);
+
   const bfLoginLinks = [
     { label: "Join now", path: "/register" },
     { label: "Sign in", path: "/login" },
@@ -15,7 +18,7 @@ const Menu = () => {
         </li>
       ))}
 
-      <li className='nav-item dropdown'>
+      <li className='nav-item dropdown' onClick={() => setOpen(!open)}>
         <span
           className='nav-link dropdown-toggle'
           id='navbarDropdown'
