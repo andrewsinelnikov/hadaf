@@ -10,6 +10,11 @@
   --darkmiddle-color: #0a2749;
   --dark-color: #0f1f2f;
   --max-width: 1140px;
+
+  --nav-size: 1140px;
+  --border: 1px solid #fdfdf7;
+  --border-radius: 8px;
+  --speed: 500ms;
 }
 
 * {
