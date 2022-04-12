@@ -60,6 +60,14 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.navbar-nav {
+  min-width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 /* .navbar {
   display: flex;
   flex-wrap: wrap;

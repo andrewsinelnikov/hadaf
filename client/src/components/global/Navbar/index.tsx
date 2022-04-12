@@ -17,6 +17,7 @@ const Navbar = () => {
           </Link>
         </h1>
         <Search />
+        <Menu />
       </div>
     </nav>
     // <nav className='navbar'>
