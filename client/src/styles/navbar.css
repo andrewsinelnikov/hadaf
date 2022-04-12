@@ -66,6 +66,33 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  list-style: none;
+  margin-right: auto;
+  margin-top: 0;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.nav-item {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.55);
+  color: var(--lightdark-color);
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
 }
 
 /* .navbar {
