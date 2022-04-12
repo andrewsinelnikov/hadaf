@@ -28,21 +28,23 @@ const Menu = () => {
           UserName
         </span>
 
-        <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
-          <li>
-            <Link className='dropdown-item' to='/profile'>
-              Profile
-            </Link>
-          </li>
-          <li>
-            <hr className='dropdown-divider' />
-          </li>
-          <li>
-            <Link className='dropdown-item' to='/'>
-              Sign out
-            </Link>
-          </li>
-        </ul>
+        {open && (
+          <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
+            <li>
+              <Link className='dropdown-item' to='/profile'>
+                Profile
+              </Link>
+            </li>
+            <li>
+              <hr className='dropdown-divider' />
+            </li>
+            <li>
+              <Link className='dropdown-item' to='/'>
+                Sign out
+              </Link>
+            </li>
+          </ul>
+        )}
       </li>
     </ul>
   );

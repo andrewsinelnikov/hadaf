@@ -1,4 +1,39 @@
 .navbar {
+  height: var(--nav-size);
+  background: var(--dark-color);
+  color: var(--lightdark-color);
+  border-top: 1px solid var(--success-color);
+  padding: 0 2rem;
+  opacity: 0.9;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.navbar-wrapper {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  /* padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem; */
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.navbar-brand a {
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--primary-color);
+}
+
+/* .navbar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -68,7 +103,7 @@
   appearance: none;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+} */
 
 /*
 .navbar__toggler {
@@ -129,6 +164,7 @@
   display: none;
 } */
 
+/*  
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
@@ -137,14 +173,14 @@
 
 .navbar-nav {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   flex-direction: row;
   align-items: center;
   padding-left: 0;
   list-style: none;
-  /* margin-bottom: 0.5rem; */
+  margin-bottom: 0.5rem;
   margin-right: auto;
-  /* margin-top: 0; */
+  margin-top: 0;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
@@ -161,7 +197,7 @@
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  /* color: rgba(0, 0, 0, 0.55); */
+  color: rgba(0, 0, 0, 0.55);
   color: var(--lightdark-color);
   cursor: pointer;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
@@ -170,7 +206,7 @@
 
 .nav-link:hover {
   color: var(--primary-color);
-}
+}  */
 
 /*
 .nav__user {
@@ -182,7 +218,7 @@
 }
 */
 
-.dropdown {
+/* .dropdown {
   position: relative;
 }
 
@@ -244,9 +280,9 @@
   .navbar-brand {
     margin-right: 0.5rem;
   }
-}
+} */
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .navbar {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -257,16 +293,16 @@
   .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
-  }
-  /* .navbar-nav {
+  } */
+/* .navbar-nav {
     flex-direction: row;
     margin-bottom: 0 !important;
   } */
-  .nav-link {
+/* .nav-link {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
   }
   .dropdown-menu {
     position: absolute;
   }
-}
+} */
