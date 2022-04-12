@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { refreshToken } from "./redux/actions/authAction";
 
 import PageRender from "./PageRender";
+import ScrollToTop from "./components/global/ScrollToTop";
 import { Alert } from "./components/alert/Alert";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Alert />
         <Routes>
           <Route path='/' element={<PageRender />} />
