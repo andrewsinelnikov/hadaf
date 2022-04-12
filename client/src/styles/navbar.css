@@ -49,10 +49,10 @@
   padding: 0.35rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: #212529;
+  color: var(--dark-color);
   background-color: var(--lightdark-color);
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: var(--border);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
