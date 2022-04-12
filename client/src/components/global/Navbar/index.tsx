@@ -16,6 +16,7 @@ const Navbar = () => {
             HADAF
           </Link>
         </h1>
+        <Search />
       </div>
     </nav>
     // <nav className='navbar'>

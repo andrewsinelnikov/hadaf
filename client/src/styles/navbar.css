@@ -20,11 +20,9 @@
 }
 
 .navbar-brand a {
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
-  vertical-align: middle;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
@@ -32,8 +30,34 @@
 }
 
 .navbar-logo {
-  height: 1.3rem;
-  width: 1.3rem;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.navbar-search {
+  display: block;
+  position: relative;
+  width: 40%;
+  margin-right: 1.5rem !important;
+}
+
+.search-form {
+  display: block;
+  width: 100%;
+  margin: 0;
+  margin-right: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #212529;
+  background-color: var(--lightdark-color);
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* .navbar {
