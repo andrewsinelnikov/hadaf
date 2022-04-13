@@ -17,7 +17,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .navbar-brand a {
@@ -144,6 +143,9 @@
 }
 
 @media (max-width: 768px) {
+  .navbar-wrapper {
+    flex-wrap: wrap;
+  }
   .navbar-search {
     flex: 100%;
   }
