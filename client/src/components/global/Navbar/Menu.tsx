@@ -25,7 +25,7 @@ const Menu = () => {
           role='button'
           data-bs-toggle='dropdown'
           aria-expanded='false'>
-          UserName
+          UserName <i className='fa fa-caret-down fa-xs' />
         </span>
 
         {open && (
