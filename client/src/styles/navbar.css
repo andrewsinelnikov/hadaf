@@ -106,15 +106,15 @@
   width: 250px;
   transform: translateX(-55%);
   background: var(--dark-color);
-  border: var(--border);
+  /* border: var(--border); */
   border-radius: var(--border-radius);
   padding: 0.25rem 0;
   overflow: hidden;
   z-index: 1000;
   text-align: left;
   list-style: none;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08),
-    0px 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 0px 1px rgba(15, 31, 47, 0.08),
+    0px 4px 4px rgba(15, 31, 47, 0.3);
   /* background-clip: padding-box; */
 }
 
