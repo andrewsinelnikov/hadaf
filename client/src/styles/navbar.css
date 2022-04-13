@@ -105,7 +105,6 @@
   top: 48px;
   width: 250px;
   transform: translateX(-55%);
-  color: var(--lightdark-color);
   background: var(--dark-color);
   border: var(--border);
   border-radius: var(--border-radius);
@@ -123,6 +122,7 @@
   align-items: center;
   transition: background var(--speed);
   padding: 0.75rem 1rem;
+  color: var(--lightdark-color);
   font-weight: 400;
   text-decoration: none;
   white-space: nowrap;
