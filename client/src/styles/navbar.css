@@ -17,6 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .navbar-brand a {
@@ -140,6 +141,12 @@
   border: 0;
   border-top: var(--border);
   opacity: 0.25;
+}
+
+@media (max-width: 768px) {
+  .navbar-search {
+    flex: 100%;
+  }
 }
 
 /* .navbar {
