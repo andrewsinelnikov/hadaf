@@ -7,11 +7,12 @@ const Search = () => {
     <div className='navbar-search'>
       <input
         className='search-form'
-        type='text'
-        placeholder='Enter your search...'
+        type='search'
+        placeholder='Search...'
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+      <button type='button'>Go</button>
     </div>
   );
 };
