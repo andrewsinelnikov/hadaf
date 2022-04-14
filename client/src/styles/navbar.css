@@ -63,8 +63,9 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-radius: var(--border-radius);
+  transition: all 0.15s ease-in-out;
+  transition-property: width, border-radius;
   /* transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
   position: relative;
 }
@@ -76,10 +77,12 @@
   right: 0;
   width: 6rem;
   height: 2.1rem;
+  font-size: 1rem;
   font-weight: bold;
   color: var(--lightdark-color);
   background: var(--primary-color);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  cursor: pointer;
 }
 
 .search-form:not(:-moz-placeholder) {
