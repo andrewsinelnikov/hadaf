@@ -41,9 +41,15 @@
   margin-right: 1.5rem !important;
 }
 
+.navbar-search input,
+.navbar-search button {
+  border: 0;
+}
+
 .search-form {
   display: block;
   width: 100%;
+  outline: 0;
   margin: 0;
   margin-right: 0.5rem;
   padding: 0.35rem 0.75rem;
@@ -52,12 +58,13 @@
   color: var(--dark-color);
   background-color: var(--lightmiddle-color);
   background-clip: padding-box;
-  border: var(--border);
+  /* border: var(--border); */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  position: relative;
 }
 
 .navbar-nav {
