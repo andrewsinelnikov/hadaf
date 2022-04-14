@@ -91,6 +91,16 @@
   width: calc(100% - 6rem);
 }
 
+.search-form:not(:-moz-placeholder-shown) + button {
+  display: block;
+}
+.search-form:not(:-ms-input-placeholder) + button {
+  display: block;
+}
+.search-form:not(:-placeholder-shown) + button {
+  display: block;
+}
+
 .navbar-nav {
   /* min-width: 40%; */
   height: 100%;
