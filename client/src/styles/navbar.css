@@ -78,6 +78,19 @@
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
+.search-form:not(:-moz-placeholder-shown) {
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  width: calc(100% - 6rem);
+}
+.search-form:not(:-ms-input-placeholder) {
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  width: calc(100% - 6rem);
+}
+.search-form:not(:-placeholder-shown) {
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  width: calc(100% - 6rem);
+}
+
 .navbar-nav {
   /* min-width: 40%; */
   height: 100%;
