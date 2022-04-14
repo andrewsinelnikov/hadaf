@@ -74,6 +74,7 @@
   right: 0;
   width: 6rem;
   font-weight: bold;
+  color: var(--primary-color);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
