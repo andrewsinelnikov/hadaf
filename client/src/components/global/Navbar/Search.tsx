@@ -12,7 +12,9 @@ const Search = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button type='button'>Go</button>
+      <button type='button' className='search-button'>
+        Go
+      </button>
     </div>
   );
 };
