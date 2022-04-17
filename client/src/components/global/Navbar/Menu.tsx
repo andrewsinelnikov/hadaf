@@ -12,7 +12,7 @@ const Menu = () => {
   return (
     <ul className='navbar-nav'>
       {bfLoginLinks.map((link, index) => (
-        <li key={index} className='nav-item'>
+        <li key={index} className='nav-item  large'>
           <Link className='nav-link' to={link.path}>
             {link.label}
           </Link>
@@ -31,7 +31,7 @@ const Menu = () => {
         </Link>
       </li>
 
-      <li className='nav-item dropdown' onClick={() => setOpen(!open)}>
+      <li className='nav-item dropdown large' onClick={() => setOpen(!open)}>
         <span
           className='nav-link dropdown-toggle'
           id='navbarDropdown'

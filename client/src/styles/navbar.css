@@ -218,6 +218,9 @@
     flex: 100%;
     order: 3;
   }
+  .large {
+    display: none;
+  }
   .mobile {
     display: block;
   }
