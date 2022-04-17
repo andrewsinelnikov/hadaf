@@ -205,6 +205,9 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
   .navbar-wrapper {
     flex-wrap: wrap;
   }
