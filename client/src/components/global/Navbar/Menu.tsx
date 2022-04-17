@@ -8,6 +8,7 @@ const Menu = () => {
     { label: "Join now", path: "/register" },
     { label: "Sign in", path: "/login" },
   ];
+
   return (
     <ul className='navbar-nav'>
       {bfLoginLinks.map((link, index) => (
@@ -17,6 +18,12 @@ const Menu = () => {
           </Link>
         </li>
       ))}
+
+      <li className='nav-item mobile'>
+        <Link className='nav-link' to='/login'>
+          <i className='fa-solid fa-arrow-right-to-bracket'></i>
+        </Link>
+      </li>
 
       <li className='nav-item dropdown' onClick={() => setOpen(!open)}>
         <span
