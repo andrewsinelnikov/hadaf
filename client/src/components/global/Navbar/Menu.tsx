@@ -27,7 +27,9 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
         <button
           className='navbar-toggler'
           type='button'
-          onClick={() => setOpenSearch(!openSearch)}
+          onClick={() => {
+            setOpenSearch(!openSearch);
+          }}
           style={{
             color: openSearch
               ? "var(--primary-color)"

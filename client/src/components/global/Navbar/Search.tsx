@@ -12,6 +12,8 @@ const Search = ({ open }: IProps) => {
         className='search-form'
         type='text'
         placeholder='Search...'
+        autoComplete='off'
+        maxLength={240}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
