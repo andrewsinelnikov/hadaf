@@ -27,7 +27,12 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
         <button
           className='navbar-toggler'
           type='button'
-          onClick={() => setOpenSearch(!openSearch)}>
+          onClick={() => setOpenSearch(!openSearch)}
+          style={{
+            color: openSearch
+              ? "var(--primary-color)"
+              : "var(--lightdark-color)",
+          }}>
           <i className='fa-solid fa-magnifying-glass fa-lg'></i>
         </button>
       </li>
