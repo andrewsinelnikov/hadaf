@@ -1,4 +1,6 @@
 .navbar {
+  display: flex;
+  align-items: center;
   height: var(--nav-size);
   background: var(--dark-color);
   color: var(--lightdark-color);
@@ -216,10 +218,12 @@
   }
   .navbar-nav {
     order: 2;
+    margin: 0;
   }
   .navbar-search {
     flex: 100%;
     order: 3;
+    margin: 0 auto;
   }
   .large {
     display: none;
