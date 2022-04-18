@@ -215,6 +215,7 @@
   }
   .navbar-brand {
     order: 1;
+    padding-left: 1rem;
   }
   .navbar-nav {
     order: 2;
@@ -237,6 +238,9 @@
   }
   .mobile {
     display: block;
+  }
+  .mobile:last-child {
+    padding-right: 1rem;
   }
 }
 
