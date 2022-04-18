@@ -12,7 +12,7 @@ const Menu = () => {
   return (
     <ul className='navbar-nav'>
       {bfLoginLinks.map((link, index) => (
-        <li key={index} className='nav-item  large'>
+        <li key={index} className='nav-item large'>
           <Link className='nav-link' to={link.path}>
             {link.label}
           </Link>

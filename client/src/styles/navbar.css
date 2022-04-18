@@ -223,6 +223,7 @@
   .navbar-search {
     flex: 100%;
     order: 3;
+    background-color: var(--darklight-color);
     margin: 0 auto;
   }
   .large {
