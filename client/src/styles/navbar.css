@@ -224,6 +224,7 @@
     padding: 0 0.5rem;
   }
   .navbar-search {
+    display: none;
     flex: 100%;
     order: 3;
     background-color: var(--darklight-color);
