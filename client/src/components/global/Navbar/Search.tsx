@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-const Search = () => {
+interface IProps {
+  open: boolean;
+}
+const Search = ({ open }: IProps) => {
   const [search, setSearch] = useState("");
 
   return (
-    <div className='navbar-search'>
+    <div className='navbar-search' style={{ display: open ? "block" : "" }}>
       <input
         className='search-form'
         type='text'

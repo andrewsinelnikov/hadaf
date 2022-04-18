@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const Menu = () => {
+interface IProps {
+  openSearch: boolean;
+  setOpenSearch: (search: boolean) => void;
+}
+const Menu = ({ openSearch, setOpenSearch }: IProps) => {
   const [open, setOpen] = useState(false);
 
   const bfLoginLinks = [
@@ -20,7 +24,10 @@ const Menu = () => {
       ))}
 
       <li className='nav-item mobile'>
-        <button className='navbar-toggler' type='button'>
+        <button
+          className='navbar-toggler'
+          type='button'
+          onClick={() => setOpenSearch(!openSearch)}>
           <i className='fa-solid fa-magnifying-glass fa-lg'></i>
         </button>
       </li>

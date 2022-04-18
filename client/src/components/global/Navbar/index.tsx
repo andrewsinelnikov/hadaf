@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import Menu from "./Menu";
 
 const Navbar = () => {
+  const [openSearch, setOpenSearch] = useState(false);
+
   return (
     <nav className='navbar'>
       <div className='navbar-wrapper'>
@@ -16,8 +19,8 @@ const Navbar = () => {
             HADAF
           </Link>
         </h1>
-        <Search />
-        <Menu />
+        <Search open={openSearch} />
+        <Menu openSearch={openSearch} setOpenSearch={setOpenSearch} />
       </div>
     </nav>
     // <nav className='navbar'>
