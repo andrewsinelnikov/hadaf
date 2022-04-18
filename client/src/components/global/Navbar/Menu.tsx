@@ -21,13 +21,13 @@ const Menu = () => {
 
       <li className='nav-item mobile'>
         <button className='navbar-toggler' type='button'>
-          <i className='fa-solid fa-magnifying-glass'></i>
+          <i className='fa-solid fa-magnifying-glass fa-lg'></i>
         </button>
       </li>
 
       <li className='nav-item mobile'>
         <Link className='nav-link' to='/login'>
-          <i className='fa-solid fa-arrow-right-to-bracket'></i>
+          <i className='fa-solid fa-arrow-right-to-bracket fa-lg'></i>
         </Link>
       </li>
 
