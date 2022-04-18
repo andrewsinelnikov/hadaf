@@ -206,7 +206,7 @@
   opacity: 0.25;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 805px) {
   .navbar {
     padding: 0 1rem;
   }
