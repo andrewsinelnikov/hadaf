@@ -208,7 +208,7 @@
 
 @media (max-width: 805px) {
   .navbar {
-    padding: 0 1rem;
+    padding: 0;
   }
   .navbar-wrapper {
     flex-wrap: wrap;
@@ -221,10 +221,16 @@
     margin: 0;
   }
   .navbar-search {
+    flex-shrink: 0;
+    flex-grow: 1;
     flex: 100%;
     order: 3;
     background-color: var(--darklight-color);
     margin: 0 auto;
+    padding: 1rem;
+  }
+  .search-form {
+    width: 100%;
   }
   .large {
     display: none;
