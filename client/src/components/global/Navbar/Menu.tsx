@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useOnClickOutside } from "./clickOutside";
 
 interface IProps {
   openSearch: boolean;
@@ -7,6 +8,8 @@ interface IProps {
 }
 const Menu = ({ openSearch, setOpenSearch }: IProps) => {
   const [open, setOpen] = useState(false);
+  const node = useRef(null);
+  useOnClickOutside(node, () => setOpen(false));
 
   const bfLoginLinks = [
     { label: "Join now", path: "/register" },
