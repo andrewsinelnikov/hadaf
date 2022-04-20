@@ -48,7 +48,10 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
         </Link>
       </li>
 
-      <li className='nav-item dropdown large' onClick={() => setOpen(!open)}>
+      <li
+        className='nav-item dropdown large'
+        ref={node}
+        onClick={() => setOpen(!open)}>
         <span
           className='nav-link dropdown-toggle'
           id='navbarDropdown'
