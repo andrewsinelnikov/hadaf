@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useOnClickOutside } from "./clickOutside";
+import { useOnClickOutside } from "./hooks";
 
 interface IProps {
   openSearch: boolean;
