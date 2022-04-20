@@ -4,10 +4,10 @@
 @import url("./footer.css");
 
 .notFound {
-  position: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  flex-direction: column;
   min-height: calc(100vh - 70px);
 }
 
