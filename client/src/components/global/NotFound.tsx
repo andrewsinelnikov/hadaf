@@ -5,7 +5,9 @@ const NotFound = () => {
   return (
     <ExceptionalPageLayout>
       <div className='notFound'>
-        <h2>404 | Page Not Found</h2>
+        <h2>
+          4<i className='far fa-question-circle fa-spin' />4 | Page Not Found
+        </h2>
         <p>Sorry, we can’t seem to find the page you’re looking for.</p>
         <p> It may be temporarily unavailable, moved or no longer exist.</p>
         <p>
@@ -24,6 +26,7 @@ const NotFound = () => {
             Let's go <a href='#'>home</a> and try from there.
           </p>
         </div>
+        <p>Go back to Instagram or let us know about the trouble</p>
       </div>
     </ExceptionalPageLayout>
   );
