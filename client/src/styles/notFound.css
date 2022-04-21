@@ -15,6 +15,10 @@
   line-height: 3;
 }
 
+.notFound h2 .err {
+  font-size: 11rem;
+}
+
 .notFound p {
   font-size: 1.2rem;
 }

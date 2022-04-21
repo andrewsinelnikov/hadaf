@@ -6,7 +6,9 @@ const NotFound = () => {
     <ExceptionalPageLayout>
       <div className='notFound'>
         <h2>
-          4<i className='far fa-question-circle fa-spin' />4 | Page Not Found
+          <span className='err'>4</span>
+          <i className='far fa-question-circle fa-spin' />
+          <span className='err'>4</span> | Page Not Found
         </h2>
         <p>Sorry, we can’t seem to find the page you’re looking for.</p>
         <div>
