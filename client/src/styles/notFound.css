@@ -1,0 +1,20 @@
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
+}
+
+.notFound h2 {
+  /* position: absolute; */
+  color: var(--darklight-color);
+  /* top: 50%;
+    left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  line-height: 3;
+}
+
+.notFound p {
+  font-size: 1.2rem;
+}
