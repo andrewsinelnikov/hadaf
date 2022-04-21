@@ -19,6 +19,10 @@
   font-size: 11rem;
 }
 
+.notFound h2 .far {
+  font-size: 8.5rem;
+}
+
 .notFound p {
   font-size: 1.2rem;
 }
