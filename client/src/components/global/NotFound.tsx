@@ -16,6 +16,10 @@ const NotFound = () => {
           The page you are looking for might have been removed, had its name
           changed or is temporarily unavailable.
         </p>
+        <p>
+          Maybe this page moved? Got deleted? Is hiding out in quarantine? Never
+          existed in the first place?
+        </p>
       </div>
     </ExceptionalPageLayout>
   );
