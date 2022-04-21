@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import ExceptionalPageLayout from "../layouts/ExceptionalPageLayout";
 
 const NotFound = () => {
@@ -30,6 +30,10 @@ const NotFound = () => {
           </p>
         </div>
         <p>Go back to Instagram or let us know about the trouble</p>
+        <div>
+          <Link to='/Home'>Home</Link>
+          <Link to='/help'>Help</Link>
+        </div>
       </div>
     </ExceptionalPageLayout>
   );
