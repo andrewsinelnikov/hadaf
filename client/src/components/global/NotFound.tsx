@@ -11,15 +11,19 @@ const NotFound = () => {
         <p>
           The link you followed may be broken, or the page may have been
           removed.
+          <i className='far fa-question-circle fa-spin' />
         </p>
         <p>
           The page you are looking for might have been removed, had its name
           changed or is temporarily unavailable.
         </p>
-        <p>
+        <div className='msg'>
           Maybe this page moved? Got deleted? Is hiding out in quarantine? Never
           existed in the first place?
-        </p>
+          <p>
+            Let's go <a href='#'>home</a> and try from there.
+          </p>
+        </div>
       </div>
     </ExceptionalPageLayout>
   );
