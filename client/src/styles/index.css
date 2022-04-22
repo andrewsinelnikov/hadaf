@@ -69,6 +69,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: var(--success-color);
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
