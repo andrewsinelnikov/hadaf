@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import ExceptionalPageLayout from "../layouts/ExceptionalPageLayout";
+import NormalPageLayout from "../layouts/NormalPageLayout";
 
 const NotFound = () => {
   return (
-    <ExceptionalPageLayout>
+    <NormalPageLayout>
       <div className='notFound'>
         <h2>
           4<i className='far fa-question-circle fa-spin' />4 | Page not found
@@ -20,7 +20,7 @@ const NotFound = () => {
           <Link to='/help'>Help</Link>
         </div>
       </div>
-    </ExceptionalPageLayout>
+    </NormalPageLayout>
   );
 };
 

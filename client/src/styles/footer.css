@@ -11,8 +11,8 @@
   flex-wrap: wrap;
   flex-direction: column-reverse;
   font-size: 12px;
-  padding-top: 30px;
-  padding-bottom: 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .footer-rights {
@@ -21,7 +21,7 @@
   flex-wrap: wrap;
   list-style: none;
   color: var(--darklight-color);
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
 .footer-info {
@@ -36,11 +36,11 @@
   justify-content: center;
   flex-wrap: wrap;
   list-style: none;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
 .footer-left li {
-  margin-right: 16px;
+  margin-right: 3rem;
 }
 
 .footer-left li a {
