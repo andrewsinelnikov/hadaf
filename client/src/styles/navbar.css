@@ -69,7 +69,7 @@
   transition: all 0.15s ease-in-out;
   transition-property: width, border-radius;
   /* transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
-  position: relative;
+  /* position: relative; */
 }
 
 .search-button {
@@ -236,6 +236,7 @@
   .search-form {
     width: 100%;
   }
+
   .large {
     display: none;
   }
