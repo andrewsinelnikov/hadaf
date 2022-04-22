@@ -15,6 +15,10 @@
   font-size: 1.4rem;
 }
 
+.notFound .msg {
+  font-size: 1.2rem;
+}
+
 .notFound p {
   font-size: 1.2rem;
 }
