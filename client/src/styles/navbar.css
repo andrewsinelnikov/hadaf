@@ -236,6 +236,10 @@
   .search-form {
     width: 100%;
   }
+  .search-button {
+    top: 0.75rem;
+    right: 1rem;
+  }
 
   .large {
     display: none;
