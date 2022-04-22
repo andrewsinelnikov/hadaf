@@ -4,11 +4,12 @@
   align-items: center;
   flex-direction: column;
   min-height: calc(100vh - 70px);
-  line-height: 2;
+  text-align: center;
 }
 
 .notFound h2 {
   color: var(--darklight-color);
+  line-height: 2;
 }
 
 .notFound h2 .far {
@@ -16,9 +17,14 @@
 }
 
 .notFound .msg {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
-.notFound p {
-  font-size: 1.2rem;
+.notFound .msg:last-child {
+  margin-top: 2rem;
+}
+
+.notFound .msg a {
+  margin-top: 6rem;
+  padding: 0 1rem;
 }
