@@ -23,7 +23,7 @@ const LoginPass = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='form-group mb-3'>
+      <div className='form-group'>
         <label htmlFor='account' className='form-label'>
           Email / Phone number
         </label>
@@ -37,7 +37,7 @@ const LoginPass = () => {
         />
       </div>
 
-      <div className='form-group mb-3'>
+      <div className='form-group'>
         <label htmlFor='password' className='form-label'>
           Password
         </label>
