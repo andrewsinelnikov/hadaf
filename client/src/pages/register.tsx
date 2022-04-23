@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import RegisterForm from "../components/auth/RegisterForm";
 import NormalPageLayout from "../components/layouts/NormalPageLayout";
+import RegisterForm from "../components/auth/RegisterForm";
 
 const Register = () => {
   const location = useLocation();
