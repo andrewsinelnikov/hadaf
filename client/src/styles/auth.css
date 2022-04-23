@@ -1,7 +1,7 @@
 .auth_page {
   width: 100%;
   padding: 2.5rem 0;
-  background: #fdfdfd;
+  background: var(--light-color);
   display: flex;
   justify-content: center;
 }
