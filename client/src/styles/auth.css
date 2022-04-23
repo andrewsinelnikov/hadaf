@@ -21,6 +21,11 @@
   margin-bottom: 1.5rem;
 }
 
+.form-group {
+  display: block;
+  margin-bottom: 1rem;
+}
+
 .auth_page .pass {
   position: relative;
 }
