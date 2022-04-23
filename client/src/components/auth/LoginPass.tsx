@@ -24,9 +24,9 @@ const LoginPass = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='form-group'>
-        <label htmlFor='account' className='form-label'>
+        {/* <label htmlFor='account' className='form-label'>
           Email / Phone number
-        </label>
+        </label> */}
         <input
           type='text'
           className='form-control'
@@ -34,13 +34,11 @@ const LoginPass = () => {
           id='account'
           value={account}
           onChange={handleChangeInput}
+          placeholder='Email / Phone number'
         />
       </div>
 
       <div className='form-group'>
-        <label htmlFor='password' className='form-label'>
-          Password
-        </label>
         <div className='pass'>
           <input
             type={typePass ? "text" : "password"}
@@ -49,6 +47,7 @@ const LoginPass = () => {
             id='password'
             value={password}
             onChange={handleChangeInput}
+            placeholder='Password'
           />
           <small onClick={(e) => setTypePass(!typePass)}>
             {typePass ? "Hide" : "Show"}
