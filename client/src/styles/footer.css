@@ -20,6 +20,7 @@
   flex-wrap: wrap;
   list-style: none;
   color: var(--darklight-color);
+  margin-top: 1rem;
 }
 
 .footer-info {
@@ -78,7 +79,7 @@
   }
   .footer-rights {
     justify-content: space-between;
-    margin-bottom: 0;
+    margin: 0 auto;
     width: 16%;
   }
   .footer-left {
