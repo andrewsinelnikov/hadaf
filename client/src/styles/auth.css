@@ -7,10 +7,11 @@
 }
 
 .auth_page .auth_box {
-  background: #fff;
-  min-width: 400px;
+  background: var(--light-color);
+  max-width: 400px;
   width: 100%;
-  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 15px var(--primary-color);
   padding: 2.7rem 1.7rem;
 }
 
