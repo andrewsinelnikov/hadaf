@@ -195,6 +195,7 @@
 }
 
 .dropdown-item:hover {
+  color: var(--lightdark-color);
   background-color: var(--darklight-color);
 }
 
