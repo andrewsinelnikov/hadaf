@@ -15,23 +15,23 @@
   padding: 2.7rem 1.7rem;
 }
 
-.auth_title {
+.auth_page .auth_box .auth_title {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.form-group {
+.auth_page .auth_box .form-group {
   display: block;
   margin-bottom: 1rem;
 }
 
-.form-label {
+.auth_page .auth_box .form-label {
   display: inline-block;
   margin-bottom: 0.5rem;
 }
 
-.form-control {
+.auth_page .auth_box .form-control {
   display: block;
   width: 100%;
   padding: 0.35rem 0.75rem;
@@ -48,20 +48,20 @@
   transition: border-color 0.15s ease-in-out;
 }
 
-.form-control:hover {
+.auth_page .auth_box .form-control:hover {
   border-color: var(--primary-color);
 }
 
-.form-control:focus {
+.auth_page .auth_box .form-control:focus {
   outline-color: var(--primary-color);
   outline-width: 2px;
 }
 
-.auth_page .pass {
+.auth_page .auth_box .pass {
   position: relative;
 }
 
-.auth_page .pass small {
+.auth_page .auth_box .pass small {
   position: absolute;
   top: 50%;
   right: 5px;
@@ -70,12 +70,12 @@
   opacity: 0.5;
 }
 
-.auth_page input::placeholder {
+/* .auth_page .auth_box input::placeholder {
   opacity: 0.5;
   font-size: 80%;
-}
+} */
 
-.auth_page .btn {
+.auth_page .auth_box .btn {
   width: 100%;
   display: inline-block;
   font-size: 1rem;
@@ -99,23 +99,23 @@
   -webkit-appearance: button;
 }
 
-.btn:hover {
+.auth_page .auth_box .btn:hover {
   background: var(--dark-color);
 }
 
-.btn:focus {
+.auth_page .auth_box .btn:focus {
   outline-color: var(--dark-color);
 }
 
-.btn:disabled {
+.auth_page .auth_box .btn:disabled {
   pointer-events: none;
   opacity: 0.65;
 }
 
-.auth_page a {
+.auth_page .auth_box a {
   text-decoration: none;
 }
 
-.auth_page a:hover {
+.auth_page .auth_box a:hover {
   text-decoration: underline;
 }
