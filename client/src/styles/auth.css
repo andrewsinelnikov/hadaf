@@ -15,7 +15,7 @@
   padding: 2.7rem 1.7rem;
 }
 
-.auth_page .auth_box h3 {
+.auth_title {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 1.5rem;
