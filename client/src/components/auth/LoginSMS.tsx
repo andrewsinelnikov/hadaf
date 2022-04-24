@@ -5,10 +5,10 @@ const LoginSMS = () => {
 
   return (
     <form>
-      <div className='form-group mb-3'>
-        <label htmlFor='phone' className='form-label'>
+      <div className='form-group'>
+        {/* <label htmlFor='phone' className='form-label'>
           Phone number
-        </label>
+        </label> */}
         <input
           type='text'
           className='form-control'
@@ -16,7 +16,7 @@ const LoginSMS = () => {
           id='phone'
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          placeholder='+012345678912'
+          placeholder='Mobile number (+012345678912)'
         />
       </div>
 
