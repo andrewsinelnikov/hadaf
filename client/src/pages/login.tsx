@@ -26,18 +26,20 @@ const Login = () => {
           {sms ? <LoginSMS /> : <LoginPass />}
 
           <small className='auth_forgot'>
-            <span className='col-6'>
+            <span>
               <Link to='/forgot_password'>Forgot password</Link>
             </span>
 
-            <span className='col-6 text-end' onClick={(e) => setSms(!sms)}>
+            <span onClick={(e) => setSms(!sms)}>
               {sms ? "Sign in with password" : "Sign in with SMS"}
             </span>
           </small>
 
           <p>
             {`Don't have an account? `}
-            <Link to={`/register`} style={{ color: "crimson" }}>
+            <Link
+              to={`/register`}
+              style={{ fontWeight: "500", textTransform: "uppercase" }}>
               Sign up
             </Link>
           </p>
