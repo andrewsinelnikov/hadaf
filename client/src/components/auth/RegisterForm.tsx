@@ -69,7 +69,12 @@ const RegisterForm = () => {
             placeholder='Password (minimum 8 chars)'
           />
           <small onClick={(e) => setTypePass(!typePass)}>
-            {typePass ? "Hide" : "Show"}
+            {/* {typePass ? "Hide" : "Show"} */}
+            {typePass ? (
+              <i className='fa-solid fa-eye-slash' />
+            ) : (
+              <i className='fa-solid fa-eye' />
+            )}
           </small>
         </div>
       </div>
@@ -89,7 +94,12 @@ const RegisterForm = () => {
             placeholder='Your password'
           />
           <small onClick={(e) => setTypeCfPass(!typeCfPass)}>
-            {typeCfPass ? "Hide" : "Show"}
+            {/* {typeCfPass ? "Hide" : "Show"} */}
+            {typePass ? (
+              <i className='fa-solid fa-eye-slash' />
+            ) : (
+              <i className='fa-solid fa-eye' />
+            )}
           </small>
         </div>
       </div>
