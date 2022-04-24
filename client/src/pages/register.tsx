@@ -14,13 +14,13 @@ const Register = () => {
           <h3 className='auth_title'>Register</h3>
           <RegisterForm />
 
-          <p style={{ marginTop: "0.5rem" }}>
-            {`Already have an account? `}
+          <p style={{ marginTop: "1.5rem", textAlign: "center" }}>
+            {`Have an account? `}
             {/* <Link to={`/login${location.search}`} style={{ color: "crimson" }}> */}
             <Link
-              to={`/login}`}
+              to={`/login`}
               style={{ fontWeight: "500", textTransform: "uppercase" }}>
-              Login
+              Sign in
             </Link>
           </p>
         </div>

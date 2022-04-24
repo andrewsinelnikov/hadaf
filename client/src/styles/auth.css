@@ -70,10 +70,10 @@
   opacity: 0.5;
 }
 
-/* .auth_page .auth_box input::placeholder {
-  opacity: 0.5;
-  font-size: 80%;
-} */
+.auth_page .auth_box input::placeholder {
+  opacity: 0.9;
+  /* font-size: 80%; */
+}
 
 .auth_page .auth_box .btn {
   width: 100%;

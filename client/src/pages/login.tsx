@@ -35,7 +35,7 @@ const Login = () => {
             </span>
           </small>
 
-          <p>
+          <p style={{ marginTop: "1.5rem", textAlign: "center" }}>
             {`Don't have an account? `}
             <Link
               to={`/register`}
