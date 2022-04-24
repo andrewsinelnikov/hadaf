@@ -93,6 +93,7 @@
   border: 1px solid transparent;
   border-radius: var(--border-radius);
   padding: 0.35rem 0.75rem;
+  margin-top: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
   -webkit-appearance: button;
@@ -104,6 +105,11 @@
 
 .btn:focus {
   outline-color: var(--dark-color);
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.65;
 }
 
 .auth_page a {
