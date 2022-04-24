@@ -76,6 +76,7 @@
 }
 
 .auth_page .btn {
+  width: 100%;
   display: inline-block;
   font-size: 1rem;
   font-weight: 400;
@@ -95,6 +96,14 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
   -webkit-appearance: button;
+}
+
+.btn:hover {
+  background: var(--dark-color);
+}
+
+.btn:focus {
+  outline-color: var(--dark-color);
 }
 
 .auth_page a {
