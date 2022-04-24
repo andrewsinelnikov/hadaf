@@ -50,7 +50,12 @@ const LoginPass = () => {
             placeholder='Password'
           />
           <small onClick={(e) => setTypePass(!typePass)}>
-            {typePass ? "Hide" : "Show"}
+            {/* {typePass ? "Hide" : "Show"} */}
+            {typePass ? (
+              <i className='fa-solid fa-eye-slash' />
+            ) : (
+              <i className='fa-solid fa-eye' />
+            )}
           </small>
         </div>
       </div>
