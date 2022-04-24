@@ -25,7 +25,7 @@ const Login = () => {
 
           {sms ? <LoginSMS /> : <LoginPass />}
 
-          <small className='row my-2 test-primary'>
+          <small className='auth_forgot'>
             <span className='col-6'>
               <Link to='/forgot_password'>Forgot password</Link>
             </span>
@@ -38,7 +38,7 @@ const Login = () => {
           <p>
             {`Don't have an account? `}
             <Link to={`/register`} style={{ color: "crimson" }}>
-              Register
+              Sign up
             </Link>
           </p>
         </div>

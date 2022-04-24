@@ -112,10 +112,16 @@
   opacity: 0.65;
 }
 
-.auth_page .auth_box a {
+.auth_page .auth_box .auth_forgot {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+}
+
+/* .auth_page .auth_box a {
   text-decoration: none;
 }
 
 .auth_page .auth_box a:hover {
   text-decoration: underline;
-}
+} */
