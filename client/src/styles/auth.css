@@ -118,6 +118,15 @@
   margin: 0.5rem 0;
 }
 
+.auth_forgot span {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.auth_forgot span:last-child {
+  text-align: right;
+}
+
 /* .auth_page .auth_box a {
   text-decoration: none;
 }
