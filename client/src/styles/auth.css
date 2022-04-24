@@ -80,7 +80,7 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: var(--lightdark-color);
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -88,10 +88,10 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  background-color: transparent;
+  background: var(--darklight-color);
   border: 1px solid transparent;
-  border-radius: 0.25rem;
-  padding: 0.375rem 0.75rem;
+  border-radius: var(--border-radius);
+  padding: 0.35rem 0.75rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
   -webkit-appearance: button;
