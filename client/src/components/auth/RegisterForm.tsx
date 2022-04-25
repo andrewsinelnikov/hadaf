@@ -25,9 +25,6 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='form-group'>
-        {/* <label htmlFor='name' className='form-label'>
-          Name
-        </label> */}
         <input
           type='text'
           className='form-control'
@@ -35,14 +32,11 @@ const RegisterForm = () => {
           id='name'
           value={name}
           onChange={handleChangeInput}
-          placeholder='Name (up to 20 characters)'
+          placeholder='Fuul Name (up to 20 characters)'
         />
       </div>
 
       <div className='form-group'>
-        {/* <label htmlFor='account' className='form-label'>
-          Email / Phone number
-        </label> */}
         <input
           type='text'
           className='form-control'
@@ -50,15 +44,11 @@ const RegisterForm = () => {
           id='account'
           value={account}
           onChange={handleChangeInput}
-          // placeholder='example@mail.com / +380441111111'
           placeholder='Email or Mobile number'
         />
       </div>
 
       <div className='form-group'>
-        {/* <label htmlFor='password' className='form-label'>
-          Password
-        </label> */}
         <div className='pass'>
           <input
             type={typePass ? "text" : "password"}
@@ -81,9 +71,6 @@ const RegisterForm = () => {
       </div>
 
       <div className='form-group'>
-        {/* <label htmlFor='cf_password' className='form-label'>
-          Confirm password
-        </label> */}
         <div className='pass'>
           <input
             type={typePass ? "text" : "password"}
@@ -92,10 +79,9 @@ const RegisterForm = () => {
             id='cf_password'
             value={cf_password}
             onChange={handleChangeInput}
-            placeholder='Confirm password'
+            placeholder='Confirm Password'
           />
           <small onClick={(e) => setTypeCfPass(!typeCfPass)}>
-            {/* {typeCfPass ? "Hide" : "Show"} */}
             {typePass ? (
               <i className='fa-solid fa-eye-slash' />
             ) : (

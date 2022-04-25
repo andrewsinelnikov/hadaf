@@ -24,9 +24,6 @@ const LoginPass = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='form-group'>
-        {/* <label htmlFor='account' className='form-label'>
-          Email / Phone number
-        </label> */}
         <input
           type='text'
           className='form-control'

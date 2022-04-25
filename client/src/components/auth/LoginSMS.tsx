@@ -22,7 +22,7 @@ const LoginSMS = () => {
 
       <button
         type='submit'
-        className='btn btn-dark w-100 mt-1'
+        className='btn'
         disabled={phone ? false : true}>
         Login
       </button>
