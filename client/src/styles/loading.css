@@ -9,7 +9,7 @@
   height: 100%;
   text-align: center;
   background: rgba(15, 31, 47, 0.5);
-  color: var(--lightdark-color);
+  color: var(--lightmiddle-color);
   top: 0;
   left: 0;
   z-index: 99;
@@ -35,11 +35,11 @@
 .loader-line {
   fill: none;
   stroke-width: 4px;
-  stroke: #4d6565;
+  stroke: var(--lightmiddle-color);
 }
 
 .loader-center {
-  fill: #4d6565;
+  fill: var(--lightmiddle-color);
 }
 
 .loader-pointer {
