@@ -3,7 +3,8 @@ import React from "react";
 const Loading = () => {
   return (
     <div className='loading'>
-      <svg height='240' width='240' viewBox='0 0 40 50'>
+      <svg height='240' width='240'>
+        <line x1='0' y1='0' x2='200' y2='200' />
         <line className='loader-pointer' x1='120' y1='120' x2='120' y2='97' />
         <line className='loader-line' x1='120' y1='120' x2='135' y2='120' />
         <circle className='loader-circle' cx='120' cy='120' r='30' />

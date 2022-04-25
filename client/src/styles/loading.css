@@ -20,15 +20,15 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  animation: text 1s ease-in-out infinite;
-  /* animation: upDown 1s ease-in-out infinite; */
+  /* animation: text 1s ease-in-out infinite; */
+  animation: upDown 1s ease-in-out infinite;
 }
 
-@keyframes text {
+/* @keyframes text {
   50% {
     opacity: 0.1;
   }
-}
+} */
 
 .loader-circle,
 .loader-pointer,
@@ -41,7 +41,7 @@
 .loader-center {
   fill: #4d6565;
 }
-/* 
+
 .loader-pointer {
   -webkit-transform-origin: bottom center;
   -moz-transform-origin: bottom center;
@@ -91,7 +91,7 @@
     transform: rotate(360deg);
     transform-origin: 50% 50%;
   }
-} */
+}
 
 /* .loading svg i {
   color: var(--lightdark-color);
