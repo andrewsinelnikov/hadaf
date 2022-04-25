@@ -24,12 +24,6 @@
   animation: upDown 1s ease-in-out infinite;
 }
 
-/* @keyframes text {
-  50% {
-    opacity: 0.1;
-  }
-} */
-
 .loader-circle,
 .loader-pointer,
 .loader-line {
@@ -40,6 +34,21 @@
 
 .loader-center {
   fill: var(--lightmiddle-color);
+}
+
+.loader-logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  fill: var(--lightmiddle-color);
+  animation: text 2s ease-in-out infinite;
+}
+
+@keyframes text {
+  50% {
+    opacity: 0.1;
+  }
 }
 
 .loader-pointer {
