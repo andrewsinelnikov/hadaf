@@ -9,8 +9,7 @@ export const Alert = () => {
 
   return (
     <>
-      {/* {alert.loading && <Loading />} */}
-      <Loading />
+      {alert.loading && <Loading />}
       {alert.errors && (
         <Toast title='Errors' body={alert.errors} bgColor='#dc3545' />
       )}

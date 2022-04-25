@@ -16,7 +16,7 @@ const NotFound = () => {
           removed, had its name changed or is temporarily unavailable.
         </div>
         <div className='msg'>
-          <Link to='/Home'>Home</Link>
+          <Link to='/'>Home</Link>
           <Link to='/help'>Help</Link>
         </div>
       </div>
