@@ -16,14 +16,11 @@ const LoginSMS = () => {
           id='phone'
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          placeholder='Mobile number (+012345678912)'
+          placeholder='Mobile Number (+012345678912)'
         />
       </div>
 
-      <button
-        type='submit'
-        className='btn'
-        disabled={phone ? false : true}>
+      <button type='submit' className='btn' disabled={phone ? false : true}>
         Login
       </button>
     </form>

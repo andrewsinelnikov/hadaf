@@ -91,7 +91,10 @@ const RegisterForm = () => {
         </div>
       </div>
 
-      <button type='submit' className='btn'>
+      <button
+        type='submit'
+        disabled={name && account && password && cf_password ? false : true}
+        className='btn'>
         Register
       </button>
     </form>

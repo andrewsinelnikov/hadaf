@@ -31,7 +31,7 @@ const LoginPass = () => {
           id='account'
           value={account}
           onChange={handleChangeInput}
-          placeholder='Email / Phone number'
+          placeholder='Email or phone number'
         />
       </div>
 
