@@ -16,7 +16,7 @@
 }
 
 .loading svg {
-  font-size: 5px;
+  /* font-size: 5px; */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -34,7 +34,7 @@
 .loader-pointer,
 .loader-line {
   fill: none;
-  stroke-width: 5px;
+  stroke-width: 4px;
   stroke: #4d6565;
 }
 
