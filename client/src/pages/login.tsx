@@ -25,7 +25,7 @@ const Login = () => {
 
           {sms ? <LoginSMS /> : <LoginPass />}
 
-          <small className='auth_forgot'>
+          <small className='auth_forgot' style={{ cursor: "pointer" }}>
             <span>
               <Link to='/forgot_password'>Forgot password</Link>
             </span>

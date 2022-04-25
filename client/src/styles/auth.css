@@ -116,6 +116,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0.5rem 0;
+  color: var(--primary-color);
 }
 
 .auth_forgot span {
