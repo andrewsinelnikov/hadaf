@@ -95,7 +95,7 @@ const RegisterForm = () => {
         type='submit'
         disabled={name && account && password && cf_password ? false : true}
         className='btn'>
-        Register
+        Join
       </button>
     </form>
   );

@@ -21,7 +21,7 @@ const LoginSMS = () => {
       </div>
 
       <button type='submit' className='btn' disabled={phone ? false : true}>
-        Login
+        Sign in
       </button>
     </form>
   );
