@@ -215,7 +215,7 @@
     flex-wrap: wrap;
   }
   .navbar-brand {
-    order: 1;
+    /* order: 1; */
     padding-left: 1rem;
   }
   .navbar-nav {
