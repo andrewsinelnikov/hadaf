@@ -29,6 +29,10 @@
   border-top-right-radius: calc(0.25rem - 1px);
 }
 
+.toast-header strong {
+  margin-right: auto;
+}
+
 .errMsg {
   background: rgb(214, 10, 10);
   color: #fff9;
