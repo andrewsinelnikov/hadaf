@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RootStore } from "../utils/TypeScript";
 
 import AuthPageLayout from "../components/layouts/AuthPageLayout";
+import Brand from "../components/global/Navbar/Brand";
 import LoginPass from "../components/auth/LoginPass";
 import LoginSMS from "../components/auth/LoginSMS";
 
@@ -20,6 +21,7 @@ const Login = () => {
   return (
     <AuthPageLayout>
       <div className='auth_page'>
+        <Brand />
         <div className='auth_box'>
           <h3 className='auth_title'>Login</h3>
 

@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 
 import AuthPageLayout from "../components/layouts/AuthPageLayout";
+import Brand from "../components/global/Navbar/Brand";
 import RegisterForm from "../components/auth/RegisterForm";
 
 const Register = () => {
@@ -9,6 +10,7 @@ const Register = () => {
   return (
     <AuthPageLayout>
       <div className='auth_page'>
+        <Brand />
         <div className='auth_box'>
           <h3 className='auth_title'>Register</h3>
           <RegisterForm />

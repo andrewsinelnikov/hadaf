@@ -1,9 +1,11 @@
 .auth_page {
   width: 100%;
-  padding: 2.5rem 0;
+  padding: 2rem 0;
   background: var(--light-color);
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .auth_page .auth_box {
@@ -12,6 +14,7 @@
   width: 100%;
   border-radius: var(--border-radius);
   box-shadow: 0 2px 15px var(--primary-color);
+  margin-top: 2rem;
   padding: 2.7rem 1.7rem;
 }
 
