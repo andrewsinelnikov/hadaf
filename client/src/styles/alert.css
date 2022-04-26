@@ -60,6 +60,11 @@
   -webkit-appearance: button;
 }
 
+.toast-body {
+  padding: 0.75rem;
+  word-wrap: break-word;
+}
+
 .errMsg {
   background: rgb(214, 10, 10);
   color: #fff9;
