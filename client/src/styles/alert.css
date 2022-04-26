@@ -34,6 +34,11 @@
   font-weight: bolder;
 }
 
+.toast-header [type="button"]:not(:disabled),
+.toast-header button:not(:disabled) {
+  cursor: pointer;
+}
+
 .btn-close {
   box-sizing: content-box;
   width: 1em;
