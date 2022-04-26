@@ -1,3 +1,21 @@
+.toast {
+  width: 350px;
+  max-width: 100%;
+  font-size: 0.875rem;
+  pointer-events: auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+  border-radius: 0.25rem;
+  color: rgb(248, 249, 250);
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  z-index: 50;
+  min-width: 200px;
+}
+
 .errMsg {
   background: rgb(214, 10, 10);
   color: #fff9;
