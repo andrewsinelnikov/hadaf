@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootStore } from "../utils/TypeScript";
 
-import NormalPageLayout from "../components/layouts/NormalPageLayout";
+import AuthPageLayout from "../components/layouts/AuthPageLayout";
 import LoginPass from "../components/auth/LoginPass";
 import LoginSMS from "../components/auth/LoginSMS";
 
@@ -18,7 +18,7 @@ const Login = () => {
   }, [auth.access_token, navigate]);
 
   return (
-    <NormalPageLayout>
+    <AuthPageLayout>
       <div className='auth_page'>
         <div className='auth_box'>
           <h3 className='auth_title'>Login</h3>
@@ -45,7 +45,7 @@ const Login = () => {
           </p>
         </div>
       </div>
-    </NormalPageLayout>
+    </AuthPageLayout>
   );
 };
 
