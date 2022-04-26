@@ -32,7 +32,7 @@ const RegisterForm = () => {
           id='name'
           value={name}
           onChange={handleChangeInput}
-          placeholder='Fuul Name (up to 20 characters)'
+          placeholder='Full Name (up to 20 characters)'
         />
       </div>
 
