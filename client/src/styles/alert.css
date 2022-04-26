@@ -55,6 +55,11 @@
   opacity: 0.5;
 }
 
+.toast-header [type="button"],
+.toast-header button {
+  -webkit-appearance: button;
+}
+
 .errMsg {
   background: rgb(214, 10, 10);
   color: #fff9;
