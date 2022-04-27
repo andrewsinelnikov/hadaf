@@ -9,14 +9,14 @@ export const Alert = () => {
 
   return (
     <>
-      {/* {alert.loading && <Loading />} */}
-      <Loading />
+      {alert.loading && <Loading />}
       {alert.errors && (
         <Toast title='Errors' body={alert.errors} bgColor='#dc3545' />
       )}
       {alert.success && (
         <Toast title='Success' body={alert.success} bgColor='#198754' />
       )}
+      <Toast title='Success' body='ok' bgColor='#198754' />
     </>
   );
 };
