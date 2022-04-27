@@ -9,7 +9,7 @@
   height: 100%;
   text-align: center;
   background: rgba(15, 31, 47, 0.5);
-  color: var(--lightmiddle-color);
+  color: var(--lightdark-color);
   top: 0;
   left: 0;
   z-index: 99;
@@ -24,11 +24,15 @@
 .loader-line {
   fill: none;
   stroke-width: 4px;
-  stroke: var(--lightmiddle-color);
+  stroke: var(--lightdark-color);
+}
+
+.loader-circle {
+  stroke: var(--success-color);
 }
 
 .loader-center {
-  fill: var(--lightmiddle-color);
+  fill: var(--lightdark-color);
 }
 
 .loader-logo {
@@ -36,15 +40,16 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  fill: var(--lightmiddle-color);
-  animation: text 2s ease-in-out infinite;
-  -moz-animation: text 2s linear infinite;
-  -webkit-animation: text 2s linear infinite;
+  fill: var(--lightdark-color);
+  animation: text 8s ease-in infinite;
+  -moz-animation: text 8s ease-in infinite;
+  -webkit-animation: text 8s ease-in infinite;
 }
 
 @keyframes text {
   50% {
-    opacity: 0.1;
+    /* opacity: 0.1; */
+    fill: var(--success-color);
   }
 }
 

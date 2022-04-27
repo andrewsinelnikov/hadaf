@@ -8,7 +8,7 @@ const Loading = () => {
         <line className='loader-line' x1='125' y1='125' x2='143' y2='125' />
         <circle className='loader-circle' cx='125' cy='125' r='35' />
         <circle className='loader-center' cx='125' cy='125' r='5' />
-        <text className='loader-logo' x='95' y='190'>
+        <text className='loader-logo' x='93' y='190'>
           Hadaf
         </text>
       </svg>
