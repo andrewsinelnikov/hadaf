@@ -17,7 +17,8 @@ const Toast = ({ title, body, bgColor }: IProps) => {
   return (
     <div className='toast'>
       <div className={`toast-box show`}>
-        <div className='toast-header' style={{ background: `${bgColor}` }}>
+        {/* <div className='toast-header' style={{ background: `${bgColor}` }}> */}
+        <div className='toast-header' style={{ color: `${bgColor}` }}>
           <strong>{title}</strong>
           <button
             type='button'
