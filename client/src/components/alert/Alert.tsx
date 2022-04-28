@@ -13,19 +13,14 @@ export const Alert = () => {
       {alert.errors && (
         <Toast
           title='Errors'
-          body='oh'
+          body={alert.errors}
           bgColor='linear-gradient(90deg, rgba(47, 15, 15, 0.9) 0%, rgba(15, 31, 47, 0.9) 100%)'
         />
       )}
-      {/* <Toast
-        title='Errors'
-        body='oh'
-        bgColor='linear-gradient(90deg, rgba(47, 15, 15, 0.9) 0%, rgba(10, 39, 73, 0.9) 45%, rgba(15, 31, 47, 0.9) 100%)'
-      /> */}
       {alert.success && (
         <Toast
           title='Success'
-          body='ok'
+          body={alert.success}
           bgColor='linear-gradient(90deg, rgba(24, 47, 15, 0.9) 0%, rgba(15, 31, 47, 0.9) 100%)'
         />
       )}
