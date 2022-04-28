@@ -16,7 +16,7 @@ const Toast = ({ title, body, bgColor }: IProps) => {
   };
 
   useEffect(() => {
-    setTimeout(() => dispatch({ type: ALERT, payload: {} }), 5000);
+    setTimeout(() => dispatch({ type: ALERT, payload: {} }), 7000);
   }, [dispatch]);
 
   return (
