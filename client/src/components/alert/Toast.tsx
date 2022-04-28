@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ALERT } from "../../redux/types/alertType";
 
@@ -13,6 +14,10 @@ const Toast = ({ title, body, bgColor }: IProps) => {
   const handleClose = () => {
     dispatch({ type: ALERT, payload: {} });
   };
+
+  useEffect(() => {
+    setTimeout(() => dispatch({ type: ALERT, payload: {} }), 5000);
+  }, [dispatch]);
 
   return (
     <div className='toast'>
