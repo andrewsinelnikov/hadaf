@@ -30,6 +30,13 @@ const Toast = ({ title, body, bgColor }: IProps) => {
           </button>
         </div>
         <div className='toast-body'>
+          <div>
+            {title === "Success" ? (
+              <i className='fa-solid fa-circle-check' />
+            ) : (
+              <i className='fa-solid fa-circle-exclamation' />
+            )}
+          </div>
           {typeof body === "string" ? (
             body
           ) : (
