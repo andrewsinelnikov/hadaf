@@ -48,6 +48,13 @@
   min-width: 200px;
 } */
 
+.toast-box.toast-box-hide {
+  opacity: 0;
+}
+.toast-box:last-child {
+  margin: 0;
+}
+
 .toast-header {
   display: flex;
   align-items: center;
