@@ -25,8 +25,9 @@ const Toast = ({ title, body, bgColor }: IProps) => {
             className='btn-close'
             data-bs-dismiss='toast'
             aria-label='Close'
-            onClick={handleClose}
-          />
+            onClick={handleClose}>
+            <i className='fa-solid fa-xmark fa-lg' />
+          </button>
         </div>
         <div className='toast-body'>
           {typeof body === "string" ? (
