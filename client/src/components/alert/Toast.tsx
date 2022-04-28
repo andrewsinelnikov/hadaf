@@ -30,22 +30,30 @@ const Toast = ({ title, body, bgColor }: IProps) => {
           </button>
         </div>
         <div className='toast-body'>
-          <div>
+          <div
+            className='toast-body-sign'
+            style={{
+              color: `${
+                title === "Success" ? "rgb(48, 206, 17)" : "rgb(210, 17, 17)"
+              }`,
+            }}>
             {title === "Success" ? (
-              <i className='fa-solid fa-circle-check' />
+              <i className='fa-solid fa-circle-check fa-2x' />
             ) : (
-              <i className='fa-solid fa-circle-exclamation' />
+              <i className='fa-solid fa-circle-exclamation fa-2x' />
             )}
           </div>
-          {typeof body === "string" ? (
-            body
-          ) : (
-            <ul>
-              {body.map((text, index) => (
-                <li key={index}>{text}</li>
-              ))}
-            </ul>
-          )}
+          <div className='toast-body-msg'>
+            {typeof body === "string" ? (
+              body
+            ) : (
+              <ul>
+                {body.map((text, index) => (
+                  <li key={index}>{text}</li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </div>
