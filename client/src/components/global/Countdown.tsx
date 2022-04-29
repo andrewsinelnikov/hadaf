@@ -15,6 +15,10 @@ const Countdown = () => {
   // date.setHours(0, 0, 0);
   // const countDate = new Date(date).getTime();
 
+  useEffect(() => {
+    setInterval(() => leftTime(), 1000);
+  }, []);
+
   const leftTime = () => {
     if (countdownDate) {
       const currentTime = new Date().getTime();
@@ -39,12 +43,15 @@ const Countdown = () => {
       } else if (numbersToAddZeroTo.includes(seconds)) {
         seconds = `0${seconds}`;
       }
+
+      setLeft({ days, hours, minutes, seconds });
     }
   };
 
   return (
     <div>
-      <h1>Countdown</h1>
+      {left.days}:{left.hours || "00"}:{left.minutes || "00"}:
+      {left.seconds || "00"}
     </div>
   );
 };
