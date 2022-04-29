@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 
 const Countdown = () => {
+  const [countdownDate, setCountdownDate] = useState(
+    new Date("4/30/2022").getTime()
+  );
   const [left, setLeft] = useState({
     days: 0,
     hours: 0,
