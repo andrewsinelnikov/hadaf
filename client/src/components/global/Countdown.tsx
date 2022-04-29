@@ -15,6 +15,8 @@ const Countdown = () => {
   // date.setHours(0, 0, 0);
   // const countDate = new Date(date).getTime();
 
+  const leftTime = () => {};
+
   return (
     <div>
       <h1>Countdown</h1>
