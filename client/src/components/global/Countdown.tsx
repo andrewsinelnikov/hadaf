@@ -19,6 +19,8 @@ const Countdown = () => {
     if (countdownDate) {
       const currentTime = new Date().getTime();
       const gap = countdownDate - currentTime;
+
+      let days = Math.floor(gap / (1000 * 60 * 60 * 24));
     }
   };
 
