@@ -29,6 +29,8 @@ const Countdown = () => {
       let hours = Math.floor((gap % day) / hour);
       let minutes = Math.floor((gap % hour) / minute);
       let seconds = Math.floor((gap % minute) / second);
+
+      const numbersToAddZeroTo = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     }
   };
 
