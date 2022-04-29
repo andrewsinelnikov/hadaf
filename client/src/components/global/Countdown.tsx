@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const Countdown = () => {
   const [countdownDate, setCountdownDate] = useState(
-    new Date("4/30/2022").getTime()
+    new Date("5/1/2022").getTime()
   );
   const [left, setLeft] = useState({
     days: "",
@@ -50,8 +50,8 @@ const Countdown = () => {
 
   return (
     <div>
-      {left.days}:{left.hours || "00"}:{left.minutes || "00"}:
-      {left.seconds || "00"}
+      {left.days ? `${left.days}:` : ""}
+      {left.hours || "00"}:{left.minutes || "00"}:{left.seconds || "00"}
     </div>
   );
 };
