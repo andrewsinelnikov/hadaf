@@ -27,13 +27,15 @@ const Countdown = () => {
 
       let days = Math.floor(gap / day).toString();
       let hours = Math.floor((gap % day) / hour).toString();
-      let minutes = Math.floor((gap % hour) / minute);
+      let minutes = Math.floor((gap % hour) / minute).toString();
       let seconds = Math.floor((gap % minute) / second);
 
       const numbersToAddZeroTo = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
       days = `${days === "0" ? "" : days}`;
       if (numbersToAddZeroTo.includes(hours)) {
         hours = `0${hours}`;
+      } else if (numbersToAddZeroTo.includes(minutes)) {
+        minutes = `0${minutes}`;
       }
     }
   };
