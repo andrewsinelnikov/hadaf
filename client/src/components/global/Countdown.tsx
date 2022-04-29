@@ -15,7 +15,12 @@ const Countdown = () => {
   // date.setHours(0, 0, 0);
   // const countDate = new Date(date).getTime();
 
-  const leftTime = () => {};
+  const leftTime = () => {
+    if (countdownDate) {
+      const currentTime = new Date().getTime();
+      const gap = countdownDate - currentTime;
+    }
+  };
 
   return (
     <div>
