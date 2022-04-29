@@ -5,10 +5,10 @@ const Countdown = () => {
     new Date("4/30/2022").getTime()
   );
   const [left, setLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    days: "",
+    hours: "",
+    minutes: "",
+    seconds: "",
   });
   // const date = new Date();
   // date.setDate(date.getDate() + 1);
@@ -25,12 +25,16 @@ const Countdown = () => {
       let hour = minute * 60;
       let day = hour * 24;
 
-      let days = Math.floor(gap / day);
-      let hours = Math.floor((gap % day) / hour);
+      let days = Math.floor(gap / day).toString();
+      let hours = Math.floor((gap % day) / hour).toString();
       let minutes = Math.floor((gap % hour) / minute);
       let seconds = Math.floor((gap % minute) / second);
 
-      const numbersToAddZeroTo = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const numbersToAddZeroTo = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+      days = `${days === "0" ? "" : days}`;
+      if (numbersToAddZeroTo.includes(hours)) {
+        hours = `0${hours}`;
+      }
     }
   };
 
