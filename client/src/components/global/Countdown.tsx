@@ -56,7 +56,8 @@ const Countdown = () => {
       {left.days ? (left.days > 9 ? `${left.days}:` : `0${left.days}:`) : ""}
       {/* {left.hours || "00"}:{left.minutes || "00"}:{left.seconds || "00"} */}
       {(left.hours > 9 ? left.hours : `0${left.hours}`) || "00"}:
-      {left.minutes || "00"}:{left.seconds || "00"}
+      {(left.minutes > 9 ? left.minutes : `0${left.minutes}`) || "00"}:
+      {left.seconds || "00"}
     </div>
   );
 };
