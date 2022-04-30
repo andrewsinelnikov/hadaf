@@ -18,7 +18,7 @@ const Countdown = () => {
   useEffect(() => {
     let timerID = setInterval(() => leftTime(), 1000);
 
-    return () => clearInterval(timerID);
+    return () => clearTimeout(timerID);
   }, []);
 
   const leftTime = () => {
@@ -40,13 +40,11 @@ const Countdown = () => {
       days = `${days === "0" ? "" : days}`;
       if (numbersToAddZeroTo.includes(hours)) {
         hours = `0${hours}`;
-      }
-      if (numbersToAddZeroTo.includes(minutes)) {
+      } else if (numbersToAddZeroTo.includes(minutes)) {
         minutes = `0${minutes}`;
+      } else if (numbersToAddZeroTo.includes(seconds)) {
+        seconds = `0${seconds}`;
       }
-      // if (numbersToAddZeroTo.includes(seconds)) {
-      //   seconds = `0${seconds}`;
-      // }
 
       setLeft({ days, hours, minutes, seconds });
     }
