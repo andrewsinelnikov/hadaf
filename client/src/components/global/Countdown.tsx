@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 
-const Countdown = () => {
-  const [countdownDate, setCountdownDate] = useState(
-    new Date("5/2/2022").getTime()
-  );
+interface IProps {
+  date: Date;
+}
+
+const Countdown = ({ date }: IProps) => {
+  const [countdownDate, setCountdownDate] = useState(date.getTime());
   const [left, setLeft] = useState({
     days: 0,
     hours: 0,
@@ -52,9 +54,7 @@ const Countdown = () => {
 
   return (
     <div>
-      {/* {left.days ? `${left.days}:` : ""} */}
       {left.days ? (left.days > 9 ? `${left.days}:` : `0${left.days}:`) : ""}
-      {/* {left.hours || "00"}:{left.minutes || "00"}:{left.seconds || "00"} */}
       {(left.hours > 9 ? left.hours : `0${left.hours}`) || "00"}:
       {(left.minutes > 9 ? left.minutes : `0${left.minutes}`) || "00"}:
       {(left.seconds > 9 ? left.seconds : `0${left.seconds}`) || "00"}

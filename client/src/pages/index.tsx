@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <ExceptionalPageLayout>
       <h2>Home page</h2>
-      <Countdown />
+      <Countdown date={new Date()} />
     </ExceptionalPageLayout>
   );
 };
