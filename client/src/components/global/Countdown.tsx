@@ -16,7 +16,9 @@ const Countdown = () => {
   // const countDate = new Date(date).getTime();
 
   useEffect(() => {
-    setInterval(() => leftTime(), 1000);
+    let timerID = setInterval(() => leftTime(), 1000);
+
+    return () => clearInterval(timerID);
   }, []);
 
   const leftTime = () => {
