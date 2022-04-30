@@ -40,11 +40,13 @@ const Countdown = () => {
       days = `${days === "0" ? "" : days}`;
       if (numbersToAddZeroTo.includes(hours)) {
         hours = `0${hours}`;
-      } else if (numbersToAddZeroTo.includes(minutes)) {
-        minutes = `0${minutes}`;
-      } else if (numbersToAddZeroTo.includes(seconds)) {
-        seconds = `0${seconds}`;
       }
+      if (numbersToAddZeroTo.includes(minutes)) {
+        minutes = `0${minutes}`;
+      }
+      // if (numbersToAddZeroTo.includes(seconds)) {
+      //   seconds = `0${seconds}`;
+      // }
 
       setLeft({ days, hours, minutes, seconds });
     }
