@@ -3,6 +3,10 @@ import Countdown from "../components/global/Countdown";
 import ExceptionalPageLayout from "../components/layouts/ExceptionalPageLayout";
 
 const Home = () => {
+  const endOfWeek = (date: Date) => {
+    let dayWeek = date.getDate() - (date.getDay() - 1) + 6;
+    return new Date(date.setDate(dayWeek));
+  };
   return (
     <ExceptionalPageLayout>
       <h2>Home page</h2>
