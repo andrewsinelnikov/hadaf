@@ -11,18 +11,13 @@ const Home = () => {
   };
 
   const endOfWeek = () => {
-    // let lastday = date.getDate() - (date.getDay() - 1) + 6;
-    // return new Date(date.setDate(lastday));
-
-    let curr = new Date(); // get current date
+    let current = new Date(); // get current date
     let lastday;
     // if (curr.getDay() === 0) return (lastday = endOfDay());
-    let first = curr.getDate() - curr.getDay() + 1; // First day is the day of the month - the day of the week
-    let last = first + 6; // last day is the first day + 6
-
-    let firstday = new Date(curr.setDate(first));
-    curr.setDate(last + 1);
-    lastday = new Date(curr.setHours(0, 0, 0));
+    let first = current.getDate() - current.getDay() + 1;
+    let last = first + 6;
+    current.setDate(last + 1);
+    lastday = new Date(current.setHours(0, 0, 0));
     return lastday;
   };
 
