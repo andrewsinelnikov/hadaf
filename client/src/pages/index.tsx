@@ -16,12 +16,13 @@ const Home = () => {
 
     let curr = new Date(); // get current date
     let lastday;
-    if (curr.getDay() === 0) return (lastday = endOfDay());
-    let first = curr.getDate() - curr.getDay() - 1; // First day is the day of the month - the day of the week
+    // if (curr.getDay() === 0) return (lastday = endOfDay());
+    let first = curr.getDate() - curr.getDay() + 1; // First day is the day of the month - the day of the week
     let last = first + 6; // last day is the first day + 6
 
     let firstday = new Date(curr.setDate(first));
-    lastday = new Date(curr.setDate(last));
+    curr.setDate(last + 1);
+    lastday = new Date(curr.setHours(0, 0, 0));
     return lastday;
   };
 
