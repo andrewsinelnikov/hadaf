@@ -104,3 +104,5 @@ a:hover {
 @import url("./loading.css");
 /* -------- Alert --------- */
 @import url("./alert.css");
+/* -------- Home --------- */
+@import url("./home.css");
