@@ -13,7 +13,7 @@ const Home = () => {
   const endOfWeek = () => {
     let current = new Date(); // get current date
     let lastday;
-    // if (curr.getDay() === 0) return (lastday = endOfDay());
+    if (current.getDay() === 0) return (lastday = endOfDay());
     let first = current.getDate() - current.getDay() + 1;
     let last = first + 6;
     current.setDate(last + 1);
