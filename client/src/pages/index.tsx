@@ -15,11 +15,13 @@ const Home = () => {
     // return new Date(date.setDate(lastday));
 
     let curr = new Date(); // get current date
-    let first = curr.getDate() - curr.getDay() + 1; // First day is the day of the month - the day of the week
+    let lastday;
+    if (curr.getDay() === 0) return (lastday = endOfDay());
+    let first = curr.getDate() - curr.getDay() - 1; // First day is the day of the month - the day of the week
     let last = first + 6; // last day is the first day + 6
 
-    let firstday = new Date(curr.setDate(first)).toUTCString();
-    let lastday = new Date(curr.setDate(last)).toUTCString();
+    let firstday = new Date(curr.setDate(first));
+    lastday = new Date(curr.setDate(last));
     return lastday;
   };
 
