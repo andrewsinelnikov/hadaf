@@ -11,17 +11,17 @@ const Home = () => {
   };
 
   const endOfWeek = () => {
-    let current = new Date(); // get current date
+    let currentDate = new Date();
     let lastday;
-    if (current.getDay() === 0) return (lastday = endOfDay());
-    let first = current.getDate() - current.getDay() + 1;
+    if (currentDate.getDay() === 0) return (lastday = endOfDay());
+    let first = currentDate.getDate() - currentDate.getDay() + 1;
     let last = first + 6;
-    current.setDate(last + 1);
-    lastday = new Date(current.setHours(0, 0, 0));
+    currentDate.setDate(last + 1);
+    lastday = new Date(currentDate.setHours(0, 0, 0));
     return lastday;
   };
 
-  console.log(endOfWeek());
+  // console.log(endOfWeek());
   return (
     <ExceptionalPageLayout>
       <h2>Home page</h2>
