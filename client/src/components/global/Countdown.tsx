@@ -5,7 +5,7 @@ interface IProps {
 }
 
 const Countdown = ({ date }: IProps) => {
-  const [countdownDate, setCountdownDate] = useState(date.getTime());
+  const countdownTime = date.getTime();
   const [left, setLeft] = useState({
     days: 0,
     hours: 0,
@@ -24,9 +24,9 @@ const Countdown = ({ date }: IProps) => {
   }, []);
 
   const leftTime = () => {
-    if (countdownDate) {
+    if (countdownTime) {
       const currentTime = new Date().getTime();
-      const gap = countdownDate - currentTime;
+      const gap = countdownTime - currentTime;
 
       let second = 1000;
       let minute = second * 60;
