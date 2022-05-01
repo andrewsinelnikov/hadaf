@@ -30,7 +30,7 @@ const Home = () => {
     <ExceptionalPageLayout>
       <h2>Home page</h2>
       <Countdown date={endOfDay()} />
-      {/* <Countdown date={endOfWeek(new Date())} /> */}
+      <Countdown date={endOfWeek()} />
     </ExceptionalPageLayout>
   );
 };
