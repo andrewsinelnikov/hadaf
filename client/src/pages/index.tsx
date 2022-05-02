@@ -21,6 +21,7 @@ const Home = () => {
 
   const endOfSeason = () => {
     let date = new Date();
+    if (date.getDay() === 0) return endOfDay();
     switch (date.getMonth()) {
       case 0:
       case 1:
