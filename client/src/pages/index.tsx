@@ -28,36 +28,37 @@ const Home = () => {
       case 1:
       case 12:
         date.setDate(1);
-        date.setMonth(3);
+        date.setMonth(2);
         date.setHours(0, 0, 0);
         break;
+      case 2:
       case 3:
       case 4:
-      case 5:
         date.setDate(1);
-        date.setMonth(6);
+        date.setMonth(5);
         date.setHours(0, 0, 0);
         break;
+      case 5:
       case 6:
       case 7:
-      case 8:
         date.setDate(1);
-        date.setMonth(9);
+        date.setMonth(8);
         date.setHours(0, 0, 0);
         break;
+      case 8:
       case 9:
       case 10:
-      case 11:
         date.setDate(1);
-        date.setMonth(12);
+        date.setMonth(11);
         date.setHours(0, 0, 0);
         break;
     }
 
-    // return lastday;
+    return new Date(date);
   };
 
   // console.log(endOfWeek());
+  console.log(endOfSeason());
   return (
     <ExceptionalPageLayout>
       <h2>Home page</h2>
