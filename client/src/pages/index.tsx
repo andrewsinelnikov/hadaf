@@ -25,10 +25,7 @@ const Home = () => {
     let currentDate = new Date();
     let lastday;
     if (currentDate.getDay() === 0) return (lastday = endOfDay());
-    let first = currentDate.getDate() - currentDate.getDay() + 1;
-    let last = first + 6;
-    currentDate.setDate(last + 1);
-    lastday = new Date(currentDate.setHours(0, 0, 0));
+
     return lastday;
   };
 
