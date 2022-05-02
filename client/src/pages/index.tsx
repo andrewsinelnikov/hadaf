@@ -22,11 +22,18 @@ const Home = () => {
   };
 
   const endOfSeason = () => {
-    let currentDate = new Date();
-    let lastday;
-    if (currentDate.getDay() === 0) return (lastday = endOfDay());
+    let date = new Date();
+    switch (date.getMonth()) {
+      case 0:
+      case 1:
+      case 12:
+        date.setDate(1);
+        date.setMonth(3);
+        date.setHours(0, 0, 0);
+        break;
+    }
 
-    return lastday;
+    // return lastday;
   };
 
   // console.log(endOfWeek());
