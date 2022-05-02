@@ -45,6 +45,13 @@ const Home = () => {
         date.setMonth(9);
         date.setHours(0, 0, 0);
         break;
+      case 9:
+      case 10:
+      case 11:
+        date.setDate(1);
+        date.setMonth(12);
+        date.setHours(0, 0, 0);
+        break;
     }
 
     // return lastday;
