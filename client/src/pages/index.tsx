@@ -11,14 +11,12 @@ const Home = () => {
   };
 
   const endOfWeek = () => {
-    let currentDate = new Date();
-    let lastday;
-    if (currentDate.getDay() === 0) return (lastday = endOfDay());
-    let first = currentDate.getDate() - currentDate.getDay() + 1;
+    let date = new Date();
+    if (date.getDay() === 0) return endOfDay();
+    let first = date.getDate() - date.getDay() + 1;
     let last = first + 6;
-    currentDate.setDate(last + 1);
-    lastday = new Date(currentDate.setHours(0, 0, 0));
-    return lastday;
+    date.setDate(last + 1);
+    return new Date(date.setHours(0, 0, 0));
   };
 
   const endOfSeason = () => {
