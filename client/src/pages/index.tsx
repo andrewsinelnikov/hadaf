@@ -58,13 +58,13 @@ const Home = () => {
   };
 
   // console.log(endOfWeek());
-  console.log(endOfSeason());
+  // console.log(endOfSeason());
   return (
     <ExceptionalPageLayout>
       <h2>Home page</h2>
-      <Countdown date={endOfDay()} />
-      <Countdown date={endOfWeek()} />
-      <Countdown date={endOfSeason()} />
+      Today <Countdown date={endOfDay()} />
+      Week <Countdown date={endOfWeek()} />
+      Season <Countdown date={endOfSeason()} />
     </ExceptionalPageLayout>
   );
 };
