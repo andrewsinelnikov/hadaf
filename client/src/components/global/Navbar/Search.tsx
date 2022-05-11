@@ -21,6 +21,7 @@ const Search = ({ open }: IProps) => {
         maxLength={240}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        ref={inputElement}
       />
       <button type='button' className='search-button'>
         Go
