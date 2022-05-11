@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface IProps {
   open: boolean;
 }
 const Search = ({ open }: IProps) => {
   const [search, setSearch] = useState("");
+  const inputElement = useRef<HTMLInputElement>(null);
 
   return (
     <div className='navbar-search' style={{ display: open ? "block" : "" }}>
