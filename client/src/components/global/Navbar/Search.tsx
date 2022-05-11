@@ -7,6 +7,10 @@ const Search = ({ open }: IProps) => {
   const [search, setSearch] = useState("");
   const inputElement = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    open && inputElement.current && inputElement.current.focus();
+  }, [open, inputElement]);
+
   return (
     <div className='navbar-search' style={{ display: open ? "block" : "" }}>
       <input
