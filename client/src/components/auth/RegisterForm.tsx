@@ -73,7 +73,7 @@ const RegisterForm = () => {
       <div className='form-group'>
         <div className='pass'>
           <input
-            type={typePass ? "text" : "password"}
+            type={typeCfPass ? "text" : "password"}
             className='form-control'
             name='cf_password'
             id='cf_password'
@@ -82,7 +82,7 @@ const RegisterForm = () => {
             placeholder='Confirm Password'
           />
           <small onClick={(e) => setTypeCfPass(!typeCfPass)}>
-            {typePass ? (
+            {typeCfPass ? (
               <i className='fa-solid fa-eye-slash' />
             ) : (
               <i className='fa-solid fa-eye' />
