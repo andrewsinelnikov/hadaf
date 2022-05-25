@@ -5,10 +5,12 @@ import { endOfDay, endOfWeek, endOfSeason } from "../utils/FindEnd";
 const Home = () => {
   return (
     <ExceptionalPageLayout>
-      <h2>Home page</h2>
-      Today <Countdown date={endOfDay()} />
-      Week <Countdown date={endOfWeek()} />
-      Season <Countdown date={endOfSeason()} />
+      <div className='home-wrapper'>
+        <h2>Home page</h2>
+        Today <Countdown date={endOfDay()} />
+        Week <Countdown date={endOfWeek()} />
+        Season <Countdown date={endOfSeason()} />
+      </div>
     </ExceptionalPageLayout>
   );
 };
