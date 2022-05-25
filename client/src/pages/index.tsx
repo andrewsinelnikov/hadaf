@@ -1,18 +1,9 @@
 import React from "react";
 import Countdown from "../components/global/Countdown";
 import ExceptionalPageLayout from "../components/layouts/ExceptionalPageLayout";
-import { endOfDay } from "../utils/FindEnd";
+import { endOfDay, endOfWeek } from "../utils/FindEnd";
 
 const Home = () => {
-  const endOfWeek = () => {
-    let date = new Date();
-    if (date.getDay() === 0) return endOfDay();
-    let first = date.getDate() - date.getDay() + 1;
-    let last = first + 6;
-    date.setDate(last + 1);
-    return new Date(date.setHours(0, 0, 0));
-  };
-
   const endOfSeason = () => {
     let date = new Date();
     if (date.getDay() === 0) return endOfDay();
