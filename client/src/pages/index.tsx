@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import HomePageLayout from "../components/layouts/HomePageLayout";
 import Countdown from "../components/global/Countdown";
-import { endOfDay, endOfWeek, endOfSeason } from "../utils/FindEnd";
+import { endOfDay } from "../utils/FindEnd";
 
 const Home = () => {
   return (

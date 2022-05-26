@@ -53,10 +53,3 @@
 .home-right p {
   margin-bottom: 1rem;
 }
-
-.timer {
-  font-size: 7rem;
-  font-weight: 550;
-  padding: 2.5rem 0;
-  color: var(--primary-color);
-}
