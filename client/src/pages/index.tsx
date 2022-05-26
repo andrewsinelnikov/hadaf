@@ -11,7 +11,9 @@ const Home = () => {
       <div className='home-right'>
         <p>The day end in</p>
         <Countdown date={endOfDay()} />
-        <p>What are you waiting for?</p>
+        <p>
+          What are you <br /> waiting for?
+        </p>
       </div>
       {/* Today <Countdown date={endOfDay()} />
       Week <Countdown date={endOfWeek()} />
