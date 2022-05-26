@@ -10,7 +10,12 @@
   display: flex;
   align-items: flex-end;
   padding-left: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.home-left h1 {
+  font-size: 170px;
+  line-height: 1;
 }
 
 .timer {
