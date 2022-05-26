@@ -29,6 +29,16 @@
   }
 }
 
+.home-right {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: var(--color-white);
+}
+
 .timer {
   font-size: 7rem;
   font-weight: 550;
