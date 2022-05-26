@@ -8,7 +8,11 @@ const Home = () => {
       <div className='home-left'>
         <h1>life is going</h1>
       </div>
-      <div className='home-right'></div>
+      <div className='home-right'>
+        <p>The day end in</p>
+        <Countdown date={endOfDay()} />
+        <p>What are you waiting for?</p>
+      </div>
       {/* Today <Countdown date={endOfDay()} />
       Week <Countdown date={endOfWeek()} />
       Season <Countdown date={endOfSeason()} /> */}
