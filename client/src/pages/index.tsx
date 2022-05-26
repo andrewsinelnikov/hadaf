@@ -24,7 +24,7 @@ const Home = () => {
             className='btn btn-md btn-dark'>
             I'm lazy
           </a>
-          <Link to='/register' className='btn btn-md'>
+          <Link to='/register' className='btn btn-md btn-success'>
             Start now
           </Link>
         </p>

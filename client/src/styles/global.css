@@ -56,3 +56,13 @@
   background: var(--darklight-color);
   color: var(--lightdark-color);
 }
+
+.btn-success {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+}
+
+.btn-success:hover {
+  background: var(--primary-color);
+  color: var(--dark-color);
+}
