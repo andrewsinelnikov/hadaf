@@ -50,8 +50,7 @@
   text-align: center;
 }
 
-.home-right p:first-child,
-.home-right p:nth-child(2) {
+.home-right p {
   margin-bottom: 1rem;
 }
 

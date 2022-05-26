@@ -9,7 +9,7 @@ const Home = () => {
         <h1>life is going</h1>
       </div>
       <div className='home-right'>
-        <p>The day end in</p>
+        <p>The day ends in</p>
         <Countdown date={endOfDay()} />
         <p>
           What are you <br /> waiting for?
