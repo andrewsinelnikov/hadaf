@@ -16,6 +16,9 @@
 .home-left h1 {
   font-size: 170px;
   line-height: 1;
+  color: var(--dark-color);
+  text-shadow: -1px -1px 0 var(--primary-color), 1px -1px 0 var(--primary-color),
+    -1px 1px 0 var(--primary-color), 1px 1px 0 var(--primary-color);
 }
 
 .timer {
