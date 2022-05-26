@@ -5,7 +5,7 @@ const HomePageLayout: React.FC<{}> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <div className='container'>{children}</div>
+      <div className='home'>{children}</div>
     </>
   );
 };
