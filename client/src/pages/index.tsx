@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import HomePageLayout from "../components/layouts/HomePageLayout";
 import Countdown from "../components/global/Countdown";
 import { endOfDay, endOfWeek, endOfSeason } from "../utils/FindEnd";
@@ -13,6 +15,18 @@ const Home = () => {
         <Countdown date={endOfDay()} />
         <p>
           What are you <br /> waiting for?
+        </p>
+        <p>
+          <a
+            href='https://www.facebook.com/'
+            target='_blank'
+            rel='noreferrer'
+            className='btn btn-md btn-dark'>
+            I'm lazy
+          </a>
+          <Link to='/register' className='btn btn-md'>
+            Start now
+          </Link>
         </p>
       </div>
       {/* Today <Countdown date={endOfDay()} />

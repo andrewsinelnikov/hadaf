@@ -41,3 +41,18 @@
   pointer-events: none;
   opacity: 0.65;
 }
+
+.btn-md {
+  width: 25%;
+  margin-right: 2rem;
+}
+
+.btn-dark {
+  background: transparent;
+  border: 2px solid var(--darklight-color);
+}
+
+.btn-dark:hover {
+  background: var(--darklight-color);
+  color: var(--lightdark-color);
+}
