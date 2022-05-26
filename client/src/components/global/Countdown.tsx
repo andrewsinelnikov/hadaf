@@ -12,10 +12,6 @@ const Countdown = ({ date }: IProps) => {
     minutes: 0,
     seconds: 0,
   });
-  // const date = new Date();
-  // date.setDate(date.getDate() + 1);
-  // date.setHours(0, 0, 0);
-  // const countDate = new Date(date).getTime();
 
   useEffect(() => {
     let timerID = setInterval(() => leftTime(), 1000);
@@ -37,16 +33,6 @@ const Countdown = ({ date }: IProps) => {
       let hours = Math.floor((gap % day) / hour);
       let minutes = Math.floor((gap % hour) / minute);
       let seconds = Math.floor((gap % minute) / second);
-
-      // const numbersToAddZeroTo = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-      // days = `${days === "0" ? "" : days}`;
-      // if (numbersToAddZeroTo.includes(hours)) {
-      //   hours = `0${hours}`;
-      // } else if (numbersToAddZeroTo.includes(minutes)) {
-      //   minutes = `0${minutes}`;
-      // } else if (numbersToAddZeroTo.includes(seconds)) {
-      //   seconds = `0${seconds}`;
-      // }
 
       setLeft({ days, hours, minutes, seconds });
     }
