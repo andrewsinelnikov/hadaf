@@ -1,9 +1,17 @@
 .home {
   display: flex;
   background: var(--dark-color);
-  height: 100vh;
   overflow: hidden;
+  height: calc(100vh - var(--nav-size));
 }
+/* 
+.home-left {
+  flex-basis: 40%;
+  display: flex;
+  align-items: flex-end;
+  background-color: aqua;
+  color: aliceblue;
+} */
 .timer {
   font-size: 7rem;
   font-weight: 550;
