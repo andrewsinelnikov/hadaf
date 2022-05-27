@@ -109,4 +109,20 @@
     padding: 0;
     margin: 0;
   }
+  .home-right p:last-child {
+    margin-top: 1.5rem;
+  }
+}
+
+@media all and (max-width: 576px) {
+  .home-left h1,
+  .home-right p:nth-child(2) {
+    font-size: 60px;
+  }
+  .home-left {
+    margin-top: 4rem;
+  }
+  .home-right {
+    font-size: 32px;
+  }
 }
