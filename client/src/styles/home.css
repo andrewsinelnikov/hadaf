@@ -53,3 +53,14 @@
 .home-right p {
   margin-bottom: 1rem;
 }
+
+@media all and (max-width: 1024px) {
+  .home-left h1 {
+    font-size: 140px;
+  }
+  .home-right p:nth-child(2) {
+    font-size: 107px;
+    color: var(--primary-color);
+    text-align: center;
+  }
+}
