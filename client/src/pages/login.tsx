@@ -7,6 +7,8 @@ import AuthPageLayout from "../components/layouts/AuthPageLayout";
 import Brand from "../components/global/Navbar/Brand";
 import LoginPass from "../components/auth/LoginPass";
 import LoginSMS from "../components/auth/LoginSMS";
+import Countdown from "../components/global/Countdown";
+import { endOfSeason } from "../utils/FindEnd";
 
 const Login = () => {
   const [sms, setSms] = useState(false);
@@ -23,7 +25,9 @@ const Login = () => {
       <div className='auth_page'>
         <Brand />
         <div className='auth_box'>
-          <h3 className='auth_title'>Login</h3>
+          <h3 className='auth_title'>
+            Login <Countdown date={endOfSeason()} />
+          </h3>
 
           {sms ? <LoginSMS /> : <LoginPass />}
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import HomePageLayout from "../components/layouts/HomePageLayout";
 import Countdown from "../components/global/Countdown";
-import { endOfDay } from "../utils/FindEnd";
+import { endOfDay, endOfSeason, endOfWeek } from "../utils/FindEnd";
 import { wasters } from "../data";
 import { randomNum } from "../utils/randomNum";
 
@@ -31,9 +31,9 @@ const Home = () => {
           </Link>
         </p>
       </div>
-      {/* Today <Countdown date={endOfDay()} />
+      Today <Countdown date={endOfDay()} />
       Week <Countdown date={endOfWeek()} />
-      Season <Countdown date={endOfSeason()} /> */}
+      Season <Countdown date={endOfSeason()} />
     </HomePageLayout>
   );
 };
