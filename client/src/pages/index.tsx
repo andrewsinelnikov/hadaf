@@ -31,9 +31,9 @@ const Home = () => {
           </Link>
         </p>
       </div>
-      Today <Countdown date={endOfDay()} />
+      {/* Today <Countdown date={endOfDay()} />
       Week <Countdown date={endOfWeek()} />
-      Season <Countdown date={endOfSeason()} />
+      Season <Countdown date={endOfSeason()} /> */}
     </HomePageLayout>
   );
 };
