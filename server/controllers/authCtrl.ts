@@ -10,7 +10,14 @@ import {
 import sendEmail from "../config/sendMail";
 import { validateEmail, validatePhone } from "../middleware/valid";
 import { sendSMS } from "../config/sendSMS";
-import { IDecodedToken, IUser, IReqAuth } from "../config/interface";
+import {
+  IDecodedToken,
+  IUser,
+  IGgPayload,
+  IUserParams,
+  IFbData,
+  IReqAuth,
+} from "../config/interface";
 
 import { OAuth2Client } from "google-auth-library";
 import fetch from "cross-fetch";

@@ -25,6 +25,27 @@ export interface IDecodedToken {
   exp: number;
 }
 
+export interface IGgPayload {
+  email: string;
+  email_verified: boolean;
+  name: string;
+  picture: string;
+}
+
+export interface IUserParams {
+  name: string;
+  account: string;
+  password: string;
+  avatar?: string;
+  type: string;
+}
+
+export interface IFbData {
+  email: string;
+  name: string;
+  picture: { data: { url: string } };
+}
+
 export interface IReqAuth extends Request {
   user?: IUser;
 }
