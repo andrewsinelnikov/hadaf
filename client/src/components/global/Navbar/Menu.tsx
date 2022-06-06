@@ -60,43 +60,48 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
         </button>
       </li>
 
-      <li className='nav-item mobile'>
-        <Link className='nav-link' to='/login'>
-          <i className='fa-solid fa-arrow-right-to-bracket fa-lg'></i>
-        </Link>
-      </li>
+      {(auth.user && (
+        <li
+          className='nav-item dropdown'
+          ref={node}
+          onClick={() => setOpen(!open)}>
+          <span
+            className='dropdown-toggle'
+            id='navbarDropdown'
+            role='button'
+            data-bs-toggle='dropdown'
+            aria-expanded='false'>
+            <img src={auth.user.avatar} alt='user' className='nav-user' />
+            <i className='fa fa-caret-down' />
+          </span>
 
-      <li
-        className='nav-item dropdown large'
-        ref={node}
-        onClick={() => setOpen(!open)}>
-        <span
-          className='nav-link dropdown-toggle'
-          id='navbarDropdown'
-          role='button'
-          data-bs-toggle='dropdown'
-          aria-expanded='false'>
-          UserName <i className='fa fa-caret-down fa-xs' />
-        </span>
-
-        {open && (
-          <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
-            <li>
-              <Link className='dropdown-item' to='/profile'>
-                Profile
-              </Link>
-            </li>
-            <li>
-              <hr className='dropdown-divider' />
-            </li>
-            <li>
-              <Link className='dropdown-item' to='/'>
-                Sign out
-              </Link>
-            </li>
-          </ul>
-        )}
-      </li>
+          {open && (
+            <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
+              <li>
+                <Link
+                  className='dropdown-item'
+                  to={`/profile/${auth.user._id}`}>
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <hr className='dropdown-divider' />
+              </li>
+              <li>
+                <Link className='dropdown-item' to='/'>
+                  Sign out
+                </Link>
+              </li>
+            </ul>
+          )}
+        </li>
+      )) || (
+        <li className='nav-item mobile'>
+          <Link className='mobile-link' to='/login'>
+            <i className='fa-solid fa-circle-user fa-lg'></i>
+          </Link>
+        </li>
+      )}
     </ul>
   );
 };
