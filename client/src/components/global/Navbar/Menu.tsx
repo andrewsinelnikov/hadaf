@@ -28,13 +28,15 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
     // { label: "CreateBlog", path: "/create_blog" },
   ];
 
+  const navLinks = auth.access_token ? afLoginLinks : bfLoginLinks;
+
   const isActive = (pn: string) => {
     if (pn === pathname) return "nav-active";
   };
 
   return (
     <ul className='navbar-nav'>
-      {bfLoginLinks.map((link, index) => (
+      {navLinks.map((link, index) => (
         <li key={index} className={`nav-item large ${isActive(link.path)}`}>
           <Link className='nav-link' to={link.path}>
             {link.label}
