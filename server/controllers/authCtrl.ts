@@ -157,7 +157,7 @@ const authCtrl = {
           avatar: picture,
           type: "google",
         };
-        register(user, res);
+        registerUser(user, res);
       }
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
