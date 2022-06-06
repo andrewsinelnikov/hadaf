@@ -7,6 +7,7 @@ import AuthPageLayout from "../components/layouts/AuthPageLayout";
 import Brand from "../components/global/Navbar/Brand";
 import LoginPass from "../components/auth/LoginPass";
 import LoginSMS from "../components/auth/LoginSMS";
+import LoginSocial from "../components/auth/LoginSocial";
 
 const Login = () => {
   const [sms, setSms] = useState(false);
@@ -36,6 +37,11 @@ const Login = () => {
               {sms ? "Sign in with password" : "Sign in with SMS"}
             </span>
           </small>
+
+          <div className='auth_divider'>
+            <span>or</span>
+          </div>
+          <LoginSocial />
 
           <p style={{ marginTop: "1.5rem", textAlign: "center" }}>
             {`Don't have an account? `}
