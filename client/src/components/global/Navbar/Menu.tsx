@@ -7,6 +7,8 @@ interface IProps {
   setOpenSearch: (search: boolean) => void;
 }
 const Menu = ({ openSearch, setOpenSearch }: IProps) => {
+  const { pathname } = useLocation();
+
   const [open, setOpen] = useState(false);
   const node = useRef(null);
   useOnClickOutside(node, () => setOpen(false));
@@ -15,6 +17,10 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
     { label: "Join now", path: "/register" },
     { label: "Sign in", path: "/login" },
   ];
+
+  const isActive = (pn: string) => {
+    if (pn === pathname) return "active";
+  };
 
   return (
     <ul className='navbar-nav'>
