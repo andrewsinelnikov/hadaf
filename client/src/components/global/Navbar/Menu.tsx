@@ -98,7 +98,7 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
       )) || (
         <li className='nav-item mobile'>
           <Link className='mobile-link' to='/login'>
-            <i className='fa-solid fa-circle-user fa-lg'></i>
+            <i className='fa-regular fa-circle-user fa-lg'></i>
           </Link>
         </li>
       )}

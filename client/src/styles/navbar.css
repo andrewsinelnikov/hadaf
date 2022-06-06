@@ -187,6 +187,10 @@
   transition: color 0.15s ease-in-out;
 }
 
+.dropdown-toggle:hover {
+  color: var(--primary-color);
+}
+
 .dropdown {
   position: relative;
 }
@@ -194,8 +198,8 @@
 .dropdown-menu {
   position: absolute;
   top: 45px;
-  width: 250px;
-  transform: translateX(-55%);
+  width: 230px;
+  transform: translateX(-70%);
   background: var(--dark-color);
   /* border: var(--border); */
   border-radius: var(--border-radius);
@@ -276,7 +280,13 @@
   .mobile {
     display: block;
   }
-  .mobile:nth-last-child(2) {
+
+  .mobile-link {
     margin-right: 1rem;
+  }
+
+  .dropdown-toggle i {
+    transform: translateY(-5px);
+    margin-right: 1.5rem;
   }
 }
