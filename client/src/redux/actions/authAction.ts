@@ -57,3 +57,17 @@ export const refreshToken =
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
   };
+
+export const logout =
+  (token: string) => async (dispatch: Dispatch<IAuthType | IAlertType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+
+    try {
+      localStorage.removeItem("logged");
+      dispatch({ type: AUTH, payload: {} });
+      await getAPI("logout", access_token);
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
