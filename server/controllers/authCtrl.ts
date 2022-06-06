@@ -12,6 +12,11 @@ import { validateEmail, validatePhone } from "../middleware/valid";
 import { sendSMS } from "../config/sendSMS";
 import { IDecodedToken, IUser, IReqAuth } from "../config/interface";
 
+import { OAuth2Client } from "google-auth-library";
+import fetch from "cross-fetch";
+
+const client = new OAuth2Client(`${process.env.MAIL_CLIENT_ID}`);
+
 const CLIENT_URL = `${process.env.BASE_URL}`;
 
 const authCtrl = {
@@ -190,6 +195,22 @@ const loginUser = async (user: IUser, password: string, res: Response) => {
     msg: "Login Success",
     access_token,
     user: { ...user._doc, password: "" },
+  });
+};
+
+const registerUser = async (user: IUserParams, res: Response) => {
+  const newUser = new Users(user);
+
+  const access_token = generateAccessToken({ id: newUser._id });
+  const refresh_token = generateRefreshToken({ id: newUser._id }, res);
+
+  newUser.rf_token = refresh_token;
+  await newUser.save();
+
+  res.json({
+    msg: "Login Success",
+    access_token,
+    user: { ...newUser._doc, password: "" },
   });
 };
 
