@@ -160,6 +160,14 @@
     border-color 0.15s ease-in-out;
 }
 
+.dropdown-toggle {
+  padding-right: 0;
+}
+
+.dropdown-toggle i {
+  transform: translateY(-5px);
+}
+
 .nav-link:hover,
 .navbar-toggler:hover {
   color: var(--primary-color) !important;
