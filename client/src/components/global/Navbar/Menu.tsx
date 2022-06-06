@@ -19,15 +19,13 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
   ];
 
   const isActive = (pn: string) => {
-    if (pn === pathname) return "active";
+    if (pn === pathname) return "nav-active";
   };
 
   return (
     <ul className='navbar-nav'>
       {bfLoginLinks.map((link, index) => (
-        <li
-          key={index}
-          className={`nav-item large nav-active ${isActive(link.path)}`}>
+        <li key={index} className={`nav-item large ${isActive(link.path)}`}>
           <Link className='nav-link' to={link.path}>
             {link.label}
           </Link>
