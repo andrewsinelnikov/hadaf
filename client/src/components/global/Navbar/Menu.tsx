@@ -1,5 +1,8 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { RootStore } from "../../../utils/TypeScript";
 import { useOnClickOutside } from "./hooks";
 
 interface IProps {
@@ -7,6 +10,8 @@ interface IProps {
   setOpenSearch: (search: boolean) => void;
 }
 const Menu = ({ openSearch, setOpenSearch }: IProps) => {
+  const { auth } = useSelector((state: RootStore) => state);
+  const dispatch = useDispatch();
   const { pathname } = useLocation();
 
   const [open, setOpen] = useState(false);
@@ -16,6 +21,11 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
   const bfLoginLinks = [
     { label: "Join now", path: "/register" },
     { label: "Sign in", path: "/login" },
+  ];
+
+  const afLoginLinks = [
+    { label: "Home", path: "/" },
+    // { label: "CreateBlog", path: "/create_blog" },
   ];
 
   const isActive = (pn: string) => {
