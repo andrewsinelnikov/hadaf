@@ -5,14 +5,14 @@ import {
   FacebookLoginAuthResponse,
 } from "react-facebook-login-lite";
 
-// import { googleLogin } from "../../redux/actions/authAction";
+import { googleLogin } from "../../redux/actions/authAction";
 
 const LoginSocial = () => {
   const dispatch = useDispatch();
 
   const onSuccess = (googleUser: GoogleLoginResponse) => {
     const id_token = googleUser.getAuthResponse().id_token;
-    // dispatch(googleLogin(id_token));
+    dispatch(googleLogin(id_token));
   };
 
   return (
