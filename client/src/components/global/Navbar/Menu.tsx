@@ -25,7 +25,9 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
   return (
     <ul className='navbar-nav'>
       {bfLoginLinks.map((link, index) => (
-        <li key={index} className='nav-item large'>
+        <li
+          key={index}
+          className={`nav-item large nav-active ${isActive(link.path)}`}>
           <Link className='nav-link' to={link.path}>
             {link.label}
           </Link>
