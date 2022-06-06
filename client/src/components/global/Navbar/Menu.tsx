@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { RootStore } from "../../../utils/TypeScript";
 import { useOnClickOutside } from "./hooks";
+import { logout } from "../../../redux/actions/authAction";
 
 interface IProps {
   openSearch: boolean;
@@ -32,6 +33,12 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
 
   const isActive = (pn: string) => {
     if (pn === pathname) return "nav-active";
+  };
+
+  const handleLogout = () => {
+    if (!auth.access_token) return;
+
+    dispatch(logout(auth.access_token));
   };
 
   return (
@@ -88,7 +95,7 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
                 <hr className='dropdown-divider' />
               </li>
               <li>
-                <Link className='dropdown-item' to='/'>
+                <Link className='dropdown-item' to='/' onClick={handleLogout}>
                   Sign out
                 </Link>
               </li>

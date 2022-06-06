@@ -5,6 +5,7 @@ import { ALERT, IAlertType } from "./../types/alertType";
 import { IUserLogin, IUserRegister } from "../../utils/TypeScript";
 import { postAPI, getAPI } from "../../utils/FetchData";
 import { validateRegister, validatePhone } from "../../utils/Validate";
+import { checkTokenExp } from "../../utils/checkTokenExp";
 
 export const login =
   (userLogin: IUserLogin) =>
