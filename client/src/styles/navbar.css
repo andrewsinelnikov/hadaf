@@ -136,11 +136,21 @@
   text-align: -webkit-match-parent;
 }
 
+.nav-user {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  transform: translateY(3px) translateX(-3px);
+  border-radius: 50%;
+}
+
 .nav-active {
   font-weight: bold;
 }
 
-.nav-link {
+.nav-link,
+.dropdown-toggle,
+.mobile-link {
   display: block;
   padding: 0 1rem;
   text-decoration: none;
