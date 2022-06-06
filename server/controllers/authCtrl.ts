@@ -125,6 +125,44 @@ const authCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  googleLogin: async (req: Request, res: Response) => {
+    try {
+      const { id_token } = req.body;
+
+      const verify = await client.verifyIdToken({
+        idToken: id_token,
+        audience: `${process.env.MAIL_CLIENT_ID}`,
+      });
+
+      const { email, email_verified, name, picture } = <IGgPayload>(
+        verify.getPayload()
+      );
+
+      if (!email_verified)
+        return res.status(500).json({ msg: "Email verification failed" });
+
+      const password = email + "your google secret password";
+
+      const passwordHash = await bcrypt.hash(password, 12);
+
+      const user = await Users.findOne({ account: email });
+
+      if (user) {
+        loginUser(user, password, res);
+      } else {
+        const user = {
+          name,
+          account: email,
+          password: passwordHash,
+          avatar: picture,
+          type: "google",
+        };
+        register(user, res);
+      }
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
 };
 
 const loginUser = async (user: IUser, password: string, res: Response) => {
