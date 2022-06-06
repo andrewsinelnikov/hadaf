@@ -16,7 +16,7 @@ export const login =
       dispatch({ type: AUTH, payload: res.data });
 
       dispatch({ type: ALERT, payload: { success: res.data.msg } });
-      localStorage.setItem("logged", "true");
+      localStorage.setItem("logged", "hadaf");
     } catch (err: any) {
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
@@ -43,7 +43,7 @@ export const register =
 export const refreshToken =
   () => async (dispatch: Dispatch<IAuthType | IAlertType>) => {
     const logged = localStorage.getItem("logged");
-    if (logged !== "true") return;
+    if (logged !== "hadaf") return;
 
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
@@ -52,7 +52,7 @@ export const refreshToken =
 
       dispatch({ type: AUTH, payload: res.data });
 
-      dispatch({ type: ALERT, payload: { success: res.data.msg } });
+      dispatch({ type: ALERT, payload: {} });
     } catch (err: any) {
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
