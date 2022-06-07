@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
 import NormalPageLayout from "../components/layouts/NormalPageLayout";
-import Brand from "../components/global/Navbar/Brand";
 import RegisterForm from "../components/auth/RegisterForm";
 
 const Register = () => {

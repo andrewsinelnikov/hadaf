@@ -15,7 +15,7 @@
   border-radius: var(--border-radius);
   box-shadow: 0 2px 15px var(--primary-color);
   margin-top: 1rem;
-  padding: 2.7rem 1.7rem;
+  padding: 1.7rem 1.7rem;
 }
 
 .auth_page .auth_box .auth_title {
