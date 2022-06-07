@@ -103,3 +103,23 @@ export const facebookLogin =
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
   };
+
+export const loginSMS =
+  (phone: string) => async (dispatch: Dispatch<IAuthType | IAlertType>) => {
+    const check = validatePhone(phone);
+    if (!check)
+      return dispatch({
+        type: ALERT,
+        payload: { errors: "Phone number is incorrect" },
+      });
+
+    try {
+      dispatch({ type: ALERT, payload: { loading: true } });
+
+      const res = await postAPI("login_sms", { phone });
+
+      if (!res.data.valid) verifySMS(phone, dispatch);
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { FormSubmit } from "../../utils/TypeScript";
-// import { loginSMS } from "../../redux/actions/authAction";
+import { loginSMS } from "../../redux/actions/authAction";
 
 const LoginSMS = () => {
   const [phone, setPhone] = useState("");
@@ -10,7 +10,7 @@ const LoginSMS = () => {
 
   const handleSubmit = (e: FormSubmit) => {
     e.preventDefault();
-    // dispatch(loginSMS(phone));
+    dispatch(loginSMS(phone));
   };
 
   return (
