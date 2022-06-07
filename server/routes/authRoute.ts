@@ -39,4 +39,14 @@ router.post("/google_login", authCtrl.googleLogin);
 // @access Public
 router.post("/facebook_login", authCtrl.facebookLogin);
 
+// @route  POST api/login_sms
+// @desc   Login SMS
+// @access Public
+router.post("/login_sms", authCtrl.loginSMS);
+
+// @route  POST api/sms_verify
+// @desc   SMS Verify
+// @access Public
+router.post("/sms_verify", authCtrl.smsVerify);
+
 export default router;
