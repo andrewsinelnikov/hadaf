@@ -94,11 +94,11 @@ const authCtrl = {
     }
   },
   logout: async (req: IReqAuth, res: Response) => {
-    if (!req.user)
-      return res.status(400).json({ msg: "Invalid Authentication" });
+    // if (!req.user)
+    //   return res.status(400).json({ msg: "Invalid Authentication" });
     try {
       res.clearCookie("refreshtoken", { path: `/api/refresh_token` });
-      await Users.findOneAndUpdate({ _id: req.user._id }, { rf_token: "" });
+      // await Users.findOneAndUpdate({ _id: req.user._id }, { rf_token: "" });
 
       return res.json({ msg: "Logged out" });
     } catch (err: any) {
@@ -115,9 +115,9 @@ const authCtrl = {
       );
       if (!decoded.id) return res.status(400).json({ msg: "Please, log in" });
 
-      const user = await Users.findById(decoded.id).select(
-        "-password +rf_token"
-      );
+      const user = await Users.findById(decoded.id).select("-password");
+      //   "-password +rf_token"
+      // );
       if (!user)
         return res.status(400).json({ msg: "The account does not exist" });
 
@@ -125,12 +125,12 @@ const authCtrl = {
         return res.status(400).json({ msg: "Please, log in" });
 
       const access_token = generateAccessToken({ id: user._id });
-      const refresh_token = generateRefreshToken({ id: user._id }, res);
+      // const refresh_token = generateRefreshToken({ id: user._id }, res);
 
-      await Users.findOneAndUpdate(
-        { _id: user._id },
-        { rf_token: refresh_token }
-      );
+      // await Users.findOneAndUpdate(
+      //   { _id: user._id },
+      //   { rf_token: refresh_token }
+      // );
 
       return res.json({ access_token, user });
     } catch (err: any) {
