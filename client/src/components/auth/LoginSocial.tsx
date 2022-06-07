@@ -15,6 +15,11 @@ const LoginSocial = () => {
     dispatch(googleLogin(id_token));
   };
 
+  const onFbSuccess = (response: FacebookLoginAuthResponse) => {
+    const { accessToken, userID } = response.authResponse;
+    // dispatch(facebookLogin(accessToken, userID));
+  };
+
   return (
     <>
       <div className='auth_social'>
@@ -24,6 +29,9 @@ const LoginSocial = () => {
           onSuccess={onSuccess}
           theme='light'
         />
+      </div>
+      <div className='auth_social'>
+        <FacebookLogin appId='1494596027623765' onSuccess={onFbSuccess} />
       </div>
     </>
   );
