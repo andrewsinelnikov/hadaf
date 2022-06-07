@@ -34,4 +34,9 @@ router.get("/refresh_token", authCtrl.refreshToken);
 // @access Public
 router.post("/google_login", authCtrl.googleLogin);
 
+// @route  POST api/facebook_login
+// @desc   Facebook Login
+// @access Public
+router.post("/facebook_login", authCtrl.facebookLogin);
+
 export default router;
