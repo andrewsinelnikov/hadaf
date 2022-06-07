@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 interface IProps {
   open: boolean;
 }
 const Search = ({ open }: IProps) => {
+  const { pathname } = useLocation();
   const [search, setSearch] = useState("");
   const inputElement = useRef<HTMLInputElement>(null);
 
@@ -11,8 +13,15 @@ const Search = ({ open }: IProps) => {
     open && inputElement.current && inputElement.current.focus();
   }, [open, inputElement]);
 
+  const isAuth = () => {
+    if (pathname === "/login" || pathname === "/register") return "navbar-auth";
+    return "";
+  };
+
   return (
-    <div className='navbar-search' style={{ display: open ? "block" : "" }}>
+    <div
+      className={`navbar-search ${isAuth()}`}
+      style={{ display: open ? "block" : "" }}>
       <input
         className='search-form'
         type='text'

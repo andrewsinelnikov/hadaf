@@ -116,6 +116,10 @@
   display: block;
 }
 
+.navbar-auth {
+  display: none !important;
+}
+
 .navbar-nav {
   /* min-width: 40%; */
   height: 100%;

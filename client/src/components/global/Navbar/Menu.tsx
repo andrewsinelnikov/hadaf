@@ -37,6 +37,7 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
 
   const isAuth = () => {
     if (pathname === "/login" || pathname === "/register") return "navbar-auth";
+    return "";
   };
 
   const handleLogout = () => {

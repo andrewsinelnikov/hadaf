@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
-import AuthPageLayout from "../components/layouts/AuthPageLayout";
+import NormalPageLayout from "../components/layouts/NormalPageLayout";
 import Brand from "../components/global/Navbar/Brand";
 import RegisterForm from "../components/auth/RegisterForm";
 
@@ -8,7 +8,7 @@ const Register = () => {
   const location = useLocation();
 
   return (
-    <AuthPageLayout>
+    <NormalPageLayout>
       <div className='auth_page'>
         <Brand />
         <div className='auth_box'>
@@ -26,7 +26,7 @@ const Register = () => {
           </p>
         </div>
       </div>
-    </AuthPageLayout>
+    </NormalPageLayout>
   );
 };
 
