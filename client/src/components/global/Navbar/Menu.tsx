@@ -35,6 +35,10 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
     if (pn === pathname) return "nav-active";
   };
 
+  const isAuth = () => {
+    if (pathname === "/login" || pathname === "/register") return "navbar-auth";
+  };
+
   const handleLogout = () => {
     if (!auth.access_token) return;
 
@@ -42,7 +46,7 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
   };
 
   return (
-    <ul className='navbar-nav'>
+    <ul className={`navbar-nav ${isAuth()}`}>
       {navLinks.map((link, index) => (
         <li key={index} className={`nav-item large ${isActive(link.path)}`}>
           <Link className='nav-link' to={link.path}>
