@@ -123,3 +123,28 @@ export const loginSMS =
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
   };
+
+export const verifySMS = async (
+  phone: string,
+  dispatch: Dispatch<IAuthType | IAlertType>
+) => {
+  const code = prompt("Enter your code");
+
+  if (!code) return;
+
+  try {
+    dispatch({ type: ALERT, payload: { loading: true } });
+
+    const res = await postAPI("sms_verify", { phone, code });
+
+    dispatch({ type: AUTH, payload: res.data });
+
+    dispatch({ type: ALERT, payload: { success: res.data.msg } });
+    localStorage.setItem("logged", "hadaf");
+  } catch (err: any) {
+    dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    setTimeout(() => {
+      verifySMS(phone, dispatch);
+    }, 100);
+  }
+};
