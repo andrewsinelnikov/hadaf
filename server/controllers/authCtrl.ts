@@ -9,7 +9,7 @@ import {
 } from "../config/generateToken";
 import sendEmail from "../config/sendMail";
 import { validateEmail, validatePhone } from "../middleware/valid";
-import { sendSMS } from "../config/sendSMS";
+import { sendSMS, smsOTP, smsVerify } from "../config/sendSMS";
 import {
   IDecodedToken,
   IUser,
@@ -209,6 +209,17 @@ const authCtrl = {
         };
         registerUser(user, res);
       }
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  loginSMS: async (req: Request, res: Response) => {
+    try {
+      const { phone } = req.body;
+
+      const data = await smsOTP(phone, "sms");
+
+      res.json(data);
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }
