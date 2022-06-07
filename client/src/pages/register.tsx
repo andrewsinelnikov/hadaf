@@ -10,7 +10,6 @@ const Register = () => {
   return (
     <NormalPageLayout>
       <div className='auth_page'>
-        <Brand />
         <div className='auth_box'>
           <h3 className='auth_title'>Register</h3>
           <RegisterForm />
