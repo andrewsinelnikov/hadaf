@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { RootStore, InputChange, IUserProfile } from "../../utils/TypeScript";
+import {
+  RootStore,
+  InputChange,
+  IUserProfile,
+  FormSubmit,
+} from "../../utils/TypeScript";
+import { updateUser } from "../../redux/actions/profileAction";
 import NotFound from "../global/NotFound";
 
 const UserInfo = () => {
@@ -36,10 +42,15 @@ const UserInfo = () => {
     }
   };
 
+  const handleSubmit = (e: FormSubmit) => {
+    e.preventDefault();
+    if (avatar || name) dispatch(updateUser(avatar as Blob, name, auth));
+  };
+
   if (!auth.user) return <NotFound />;
 
   return (
-    <form className='profile__info'>
+    <form className='profile__info' onSubmit={handleSubmit}>
       <div className='info_avatar'>
         <img
           src={avatar ? URL.createObjectURL(avatar as Blob) : auth.user.avatar}
