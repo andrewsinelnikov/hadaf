@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { IParams, RootStore } from "../../utils/TypeScript";
 import UserInfo from "../../components/profile/UserInfo.tsx";
 import OtherInfo from "../../components/profile/OtherInfo";
-import UserPosts from "../../components/profile/UserPosts.tsx";
+import UserPosts from "../../components/profile/UserPosts";
 
 const Profile = () => {
   const { slug }: IParams = useParams<keyof IParams>() as IParams;
