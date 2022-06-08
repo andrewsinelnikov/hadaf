@@ -34,6 +34,10 @@ export interface IUser extends IUserLogin {
   _id: string;
 }
 
+export interface IUserProfile extends IUserRegister {
+  avatar: string | Blob;
+}
+
 export interface IAlert {
   loading?: boolean;
   success?: string | string[];
