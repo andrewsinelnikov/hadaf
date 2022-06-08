@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { IParams, RootStore } from "../../utils/TypeScript";
-import UserInfo from "../../components/profile/UserInfo.tsx";
+import UserInfo from "../../components/profile/UserInfo";
 import OtherInfo from "../../components/profile/OtherInfo";
 import UserPosts from "../../components/profile/UserPosts";
 
