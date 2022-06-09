@@ -1,7 +1,9 @@
 import { Dispatch } from "redux";
 import { AUTH, IAuth, IAuthType } from "../types/authType";
 import { ALERT, IAlertType } from "../types/alertType";
+import { checkTokenExp } from "../../utils/checkTokenExp";
 import { checkImage, imageUpload } from "../../utils/ImageUpload";
+import { patchAPI } from "../../utils/FetchData";
 
 export const updateUser =
   (avatar: Blob, name: string, auth: IAuth) =>
@@ -9,8 +11,8 @@ export const updateUser =
     if (!auth.access_token || !auth.user) return;
     let url = "";
 
-    // const result = await checkTokenExp(auth.access_token, dispatch);
-    // const access_token = result ? result : auth.access_token;
+    const result = await checkTokenExp(auth.access_token, dispatch);
+    const access_token = result ? result : auth.access_token;
 
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
@@ -23,26 +25,26 @@ export const updateUser =
         url = photo.url;
       }
 
-      //   dispatch({
-      //     type: AUTH,
-      //     payload: {
-      //       access_token: auth.access_token,
-      //       user: {
-      //         ...auth.user,
-      //         avatar: url ? url : auth.user.avatar,
-      //         name: name ? name : auth.user.name,
-      //       },
-      //     },
-      //   });
+      dispatch({
+        type: AUTH,
+        payload: {
+          access_token: auth.access_token,
+          user: {
+            ...auth.user,
+            avatar: url ? url : auth.user.avatar,
+            name: name ? name : auth.user.name,
+          },
+        },
+      });
 
-      //   const res = await patchAPI(
-      //     "user",
-      //     {
-      //       avatar: url ? url : auth.user.avatar,
-      //       name: name ? name : auth.user.name,
-      //     },
-      //     access_token
-      //   );
+      const res = await patchAPI(
+        "user",
+        {
+          avatar: url ? url : auth.user.avatar,
+          name: name ? name : auth.user.name,
+        },
+        access_token
+      );
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
