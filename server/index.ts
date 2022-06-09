@@ -17,6 +17,7 @@ app.use(cookieParser());
 // Define Routes
 // app.get("/", (req, res) => res.json({ msg: "API Running" }));
 app.use("/api", routes.authRoute);
+app.use("/api", routes.userRoute);
 
 // Connect Database
 import "./config/database";
