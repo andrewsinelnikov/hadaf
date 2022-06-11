@@ -51,3 +51,7 @@ export const updateUser =
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
   };
+
+export const resetPassword =
+  (password: string, cf_password: string, token: string) =>
+  async (dispatch: Dispatch<IAlertType | IAuthType>) => {};
