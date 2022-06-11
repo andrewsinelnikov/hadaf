@@ -18,6 +18,7 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  resetPassword: async (req: IReqAuth, res: Response) => {},
 };
 
 export default userCtrl;
