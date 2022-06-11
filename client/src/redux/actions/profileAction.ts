@@ -54,4 +54,19 @@ export const updateUser =
 
 export const resetPassword =
   (password: string, cf_password: string, token: string) =>
-  async (dispatch: Dispatch<IAlertType | IAuthType>) => {};
+  async (dispatch: Dispatch<IAlertType | IAuthType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    const msg = checkPassword(password, cf_password);
+    if (msg) return dispatch({ type: ALERT, payload: { errors: msg } });
+
+    try {
+      dispatch({ type: ALERT, payload: { loading: true } });
+
+      const res = await patchAPI("reset_password", { password }, access_token);
+
+      dispatch({ type: ALERT, payload: { success: res.data.msg } });
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
