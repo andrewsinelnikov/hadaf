@@ -7,7 +7,7 @@ import {
   IUserProfile,
   FormSubmit,
 } from "../../utils/TypeScript";
-import { updateUser } from "../../redux/actions/profileAction";
+import { updateUser, resetPassword } from "../../redux/actions/profileAction";
 import NotFound from "../global/NotFound";
 
 const UserInfo = () => {
@@ -45,6 +45,9 @@ const UserInfo = () => {
   const handleSubmit = (e: FormSubmit) => {
     e.preventDefault();
     if (avatar || name) dispatch(updateUser(avatar as Blob, name, auth));
+
+    if (password && auth.access_token)
+      dispatch(resetPassword(password, cf_password, auth.access_token));
   };
 
   if (!auth.user) return <NotFound />;
