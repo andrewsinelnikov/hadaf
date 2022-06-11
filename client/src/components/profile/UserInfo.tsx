@@ -95,10 +95,8 @@ const UserInfo = () => {
         />
       </div>
 
-      {auth.user.type !== "register" && (
-        <small className='text-danger'>
-          Quick login account with {auth.user.type} can't use this function
-        </small>
+      {auth.user.type === "register" && (
+        
       )}
 
       <div className='form-group my-3'>
