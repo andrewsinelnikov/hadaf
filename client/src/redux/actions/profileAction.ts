@@ -4,6 +4,7 @@ import { ALERT, IAlertType } from "../types/alertType";
 import { checkTokenExp } from "../../utils/checkTokenExp";
 import { checkImage, imageUpload } from "../../utils/ImageUpload";
 import { patchAPI } from "../../utils/FetchData";
+import { checkPassword } from "../../utils/Validate";
 
 export const updateUser =
   (avatar: Blob, name: string, auth: IAuth) =>
