@@ -96,42 +96,42 @@ const UserInfo = () => {
       </div>
 
       {auth.user.type === "register" && (
-        
+        <>
+          <div className='form-group my-3'>
+            <label htmlFor='password'>Password</label>
+            <div className='pass'>
+              <input
+                type={typePass ? "text" : "password"}
+                id='password'
+                name='password'
+                value={password}
+                onChange={handleChangeInput}
+                disabled={auth.user.type !== "register"}
+              />
+              <small onClick={() => setTypePass(!typePass)}>
+                {typePass ? "Hide" : "Show"}
+              </small>
+            </div>
+          </div>
+
+          <div className='form-group my-3'>
+            <label htmlFor='cf_password'>Confirm Password</label>
+            <div className='pass'>
+              <input
+                type={typeCfPass ? "text" : "password"}
+                id='cf_password'
+                name='cf_password'
+                value={cf_password}
+                onChange={handleChangeInput}
+                disabled={auth.user.type !== "register"}
+              />
+              <small onClick={() => setTypeCfPass(!typeCfPass)}>
+                {typeCfPass ? "Hide" : "Show"}
+              </small>
+            </div>
+          </div>
+        </>
       )}
-
-      <div className='form-group my-3'>
-        <label htmlFor='password'>Password</label>
-        <div className='pass'>
-          <input
-            type={typePass ? "text" : "password"}
-            id='password'
-            name='password'
-            value={password}
-            onChange={handleChangeInput}
-            disabled={auth.user.type !== "register"}
-          />
-          <small onClick={() => setTypePass(!typePass)}>
-            {typePass ? "Hide" : "Show"}
-          </small>
-        </div>
-      </div>
-
-      <div className='form-group my-3'>
-        <label htmlFor='cf_password'>Confirm Password</label>
-        <div className='pass'>
-          <input
-            type={typeCfPass ? "text" : "password"}
-            id='cf_password'
-            name='cf_password'
-            value={cf_password}
-            onChange={handleChangeInput}
-            disabled={auth.user.type !== "register"}
-          />
-          <small onClick={() => setTypeCfPass(!typeCfPass)}>
-            {typeCfPass ? "Hide" : "Show"}
-          </small>
-        </div>
-      </div>
 
       <button type='submit' className='btn btn-info w-100'>
         Update
