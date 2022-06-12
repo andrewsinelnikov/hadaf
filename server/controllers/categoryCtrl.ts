@@ -29,3 +29,5 @@ const categoryCtrl = {
     }
   },
 };
+
+export default categoryCtrl;
