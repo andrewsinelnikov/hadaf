@@ -12,4 +12,9 @@ router
   .get(categoryCtrl.getCategory)
   .post(auth, categoryCtrl.createCategory);
 
+// @route  PATCH, DELETE api/category/:id
+// @desc   Update, Delete category
+// @access Private
+router.route("/category/:id").patch(auth, categoryCtrl.updateCategory);
+
 export default router;
