@@ -8,3 +8,5 @@ const router = express.Router();
 // @desc   Create category
 // @access Private
 router.route("/category").post(auth, categoryCtrl.createCategory);
+
+export default router;
