@@ -44,3 +44,17 @@ export const getCategories =
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
   };
+
+export const updateCategory =
+  (data: ICategory, token: string) =>
+  async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: UPDATE_CATEGORY, payload: data });
+
+      await patchAPI(`category/${data._id}`, { name: data.name }, access_token);
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
