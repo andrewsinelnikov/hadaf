@@ -58,3 +58,17 @@ export const updateCategory =
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
   };
+
+export const deleteCategory =
+  (id: string, token: string) =>
+  async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: DELETE_CATEGORY, payload: id });
+
+      await deleteAPI(`category/${id}`, access_token);
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
