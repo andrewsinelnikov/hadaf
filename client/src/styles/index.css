@@ -54,6 +54,8 @@
 @import url("./alert.css");
 /* -------- Home --------- */
 @import url("./home.css");
+/* -------- Profile --------- */
+@import url("./profile.css");
 /* -------- Footer --------- */
 @import url("./footer.css");
 /* -------- Not Found --------- */
