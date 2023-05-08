@@ -54,11 +54,15 @@ const UserInfo = () => {
 
   return (
     <form className='profile__info' onSubmit={handleSubmit}>
-      <div className='info_avatar'>
+      <div className='info-card'>
         <img
           src={avatar ? URL.createObjectURL(avatar as Blob) : auth.user.avatar}
           alt='user'
         />
+        <div className="card-desc">
+          <h3>Name</h3>
+          <h4>Position</h4>
+        </div>
         <span>
           <i className='fas fa-camera' />
           <p>Change</p>
