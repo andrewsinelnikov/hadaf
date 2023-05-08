@@ -98,6 +98,8 @@ a:hover {
 
 /* -------- Global --------- */
 @import url("./global.css");
+/* -------- Navbar --------- */
+@import url("./navbar.css");
 /* -------- Auth --------- */
 @import url("./auth.css");
 /* -------- Loading --------- */
@@ -106,3 +108,7 @@ a:hover {
 @import url("./alert.css");
 /* -------- Home --------- */
 @import url("./home.css");
+/* -------- Footer --------- */
+@import url("./footer.css");
+/* -------- Not Found --------- */
+@import url("./notFound.css");

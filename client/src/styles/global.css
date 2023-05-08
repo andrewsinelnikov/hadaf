@@ -1,10 +1,3 @@
-/* -------- Navbar --------- */
-@import url("./navbar.css");
-/* -------- Footer --------- */
-@import url("./footer.css");
-/* -------- Not Found --------- */
-@import url("./notFound.css");
-
 .btn {
   width: 100%;
   display: inline-block;
