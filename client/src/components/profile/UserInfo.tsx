@@ -61,7 +61,7 @@ const UserInfo = () => {
         />
         <div className="card-desc">
           <h3>Name</h3>
-          <h4>Position</h4>
+          <p>Position</p>
         </div>
         <span>
           <i className='fas fa-camera' />
