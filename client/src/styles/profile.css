@@ -1,6 +1,14 @@
 .info-card {
-  max-width: 300px;
+  max-width: 370px;
   margin: auto;
   text-align: center;
+}
+
+.info-card img {
+  /* width: 370px;
+  height: 303px; */
+  width: 100%;
+  overflow: hidden;
   position: relative;
+  border-radius: 10px;
 }
