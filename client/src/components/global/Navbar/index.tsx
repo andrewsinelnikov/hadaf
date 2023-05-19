@@ -7,16 +7,17 @@ import Menu from "./Menu";
 
 const Navbar = () => {
   const [openSearch, setOpenSearch] = useState(false);
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
 
   return (
     <nav
       className='navbar'
-      style={
-        pathname === "/login" || pathname === "/register"
-          ? { backgroundColor: "var(--light-color)" }
-          : {}
-      }>
+      // style={
+      //   pathname === "/login" || pathname === "/register"
+      //     ? { backgroundColor: "var(--light-color)" }
+      //     : {}
+      // }
+    >
       <div className='navbar-wrapper'>
         <Brand />
         <Search open={openSearch} />
