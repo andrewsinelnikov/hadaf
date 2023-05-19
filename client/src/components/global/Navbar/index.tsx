@@ -5,7 +5,11 @@ import Brand from "./Brand";
 import Search from "./Search";
 import Menu from "./Menu";
 
-const Navbar = () => {
+interface IProps {
+  navbarType?: number;
+}
+
+const Navbar: React.FC<IProps> = ({ navbarType }: IProps) => {
   const [openSearch, setOpenSearch] = useState(false);
   // const { pathname } = useLocation();
 
@@ -20,7 +24,7 @@ const Navbar = () => {
     >
       <div className='navbar-wrapper'>
         <Brand />
-        <Search open={openSearch} />
+        {navbarType === 1 && <Search open={openSearch} />}
         <Menu openSearch={openSearch} setOpenSearch={setOpenSearch} />
       </div>
     </nav>
