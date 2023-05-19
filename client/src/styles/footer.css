@@ -1,8 +1,10 @@
 .footer {
-  margin-top: 30px;
   border-top: 1px solid var(--success-color);
-  background-color: var(--light-color);
+  /* background-color: var(--light-color);
+  color: var(--lightdark-color); */
+  background: var(--dark-color);
   color: var(--lightdark-color);
+  flex: 0 0 auto;
 }
 
 .footer-wrapper {
@@ -19,7 +21,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   list-style: none;
-  color: var(--darklight-color);
+  color: var(--light-color);
   margin-top: 1rem;
 }
 
@@ -55,6 +57,7 @@
   width: 100%;
   font-size: 12px;
   padding: 0 3.2rem 0 0.8rem;
+  background: var(--dark-color);
   color: var(--darkmiddle-color);
   border: var(--border);
   border-radius: 0.2rem;
