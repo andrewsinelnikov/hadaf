@@ -152,6 +152,10 @@
   font-weight: bold;
 }
 
+.nav-hidden {
+  display: none;
+}
+
 .nav-link,
 .dropdown-toggle,
 .mobile-link {
