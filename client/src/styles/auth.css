@@ -1,7 +1,7 @@
 .auth_page {
   width: 100%;
   padding-bottom: 1rem;
-  background: var(--light-color);
+  /* background: var(--light-color); */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,9 +9,10 @@
 }
 
 .auth_page .auth_box {
-  background: var(--light-color);
   max-width: 400px;
   width: 100%;
+  background: var(--light-color);
+  color: var(--fontdark-color);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 15px var(--primary-color);
   margin-top: 1rem;
