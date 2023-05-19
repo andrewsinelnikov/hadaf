@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+.content {
+  flex: 1 0 auto;
+}
+
 .container {
   width: 100%;
   padding-right: 0.75rem;
