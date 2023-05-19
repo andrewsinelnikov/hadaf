@@ -40,6 +40,10 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
   //   return "";
   // };
 
+  const isHidden = (pn: string) => {
+    if (pn === pathname) return "nav-hidden";
+  };
+
   const handleLogout = () => {
     if (!auth.access_token) return;
 
@@ -50,7 +54,8 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
     <ul className='navbar-nav'>
       {/* <ul className={`navbar-nav ${isAuth()}`}> */}
       {navLinks.map((link, index) => (
-        <li key={index} className={`nav-item large ${isActive(link.path)}`}>
+        <li key={index} className={`nav-item large ${isHidden(link.path)}`}>
+          {/* <li key={index} className={`nav-item large ${isActive(link.path)}`}> */}
           <Link className='nav-link' to={link.path}>
             {link.label}
           </Link>
