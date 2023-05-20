@@ -18,9 +18,8 @@
 }
 
 .info-card {
-  max-width: 370px;
-  margin: auto;
-  text-align: center;
+  flex: 1;
+  position: relative;
 }
 
 .info-card img {
