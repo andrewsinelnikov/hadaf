@@ -10,10 +10,11 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  width: 360px;
-  overflow-x: hidden;
+  width: 320px;
+  overflow: hidden;
   color: var(--lightdark-color);
-  background-color: var(--dark-color);
+  background-color: transparent;
+  margin-bottom: 16px;
 }
 
 .info-card {
