@@ -53,8 +53,9 @@ const UserInfo = () => {
   if (!auth.user) return <NotFound />;
 
   return (
-    <form className='profile__info' onSubmit={handleSubmit}>
-      <div className='info-card'>
+    <>
+      {/* <form className='profile__info' onSubmit={handleSubmit}> */}
+      <div className='info-img'>
         <div></div>
         <div></div>
         <img
@@ -73,8 +74,7 @@ const UserInfo = () => {
           />
         </span> */}
       </div>
-
-      <div className='form-group my-3'>
+      {/* <div className='form-group my-3'>
         <label htmlFor='name'>Name</label>
         <input
           type='text'
@@ -95,9 +95,8 @@ const UserInfo = () => {
           onChange={handleChangeInput}
           disabled={true}
         />
-      </div>
-
-      {auth.user.type === "register" && (
+      </div> */}
+      {/* {auth.user.type === "register" && (
         <>
           <div className='form-group my-3'>
             <label htmlFor='password'>Password</label>
@@ -133,12 +132,12 @@ const UserInfo = () => {
             </div>
           </div>
         </>
-      )}
-
+      )} */}
+      //{" "}
       <button type='submit' className='btn btn-info w-100'>
-        Update
+        // Update //{" "}
       </button>
-    </form>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@
   width: 100%;
   padding-top: 16px;
   display: flex;
-  position: relative;
+  /* position: relative; */
 }
 
 .profile-info {
@@ -17,25 +17,32 @@
   margin-bottom: 16px;
 }
 
-.info-card {
+.profile-content {
+  width: 100%;
+  margin-left: 330px;
+  background: var(--light-color);
+  color: var(--fontdark-color);
+}
+
+.info-img {
   /* flex: 1; */
   position: relative;
   margin: 16px;
 }
 
-.info-card > img {
+.info-img > img {
   width: 169px;
   height: 200px;
   /* width: 272px;
   height: 320px; */
   object-fit: cover;
-  position: absolute;
+  /* position: absolute; */
   /* right: 8rem;
   top: 2rem; */
 }
 
-.info-card > :nth-child(1),
-.info-card > :nth-child(2) {
+.info-img > :nth-child(1),
+.info-img > :nth-child(2) {
   position: absolute;
   width: 169px;
   height: 200px;
@@ -45,7 +52,7 @@
   left: -16px;
 }
 
-.info-card > :nth-child(2) {
+.info-img > :nth-child(2) {
   top: 16px;
   left: 16px;
   background-color: var(--primary-color);

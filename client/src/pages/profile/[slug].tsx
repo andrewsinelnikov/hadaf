@@ -17,7 +17,7 @@ const Profile = () => {
         <div className='profile-info'>
           {auth.user?._id === slug ? <UserInfo /> : <OtherInfo />}
         </div>
-        <div>
+        <div className='profile-content'>
           <UserPosts />
         </div>
       </div>
