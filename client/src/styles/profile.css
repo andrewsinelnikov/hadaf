@@ -20,7 +20,7 @@
 .info-card {
   /* flex: 1; */
   position: relative;
-  margin: 32px;
+  margin: 16px;
 }
 
 .info-card > img {
@@ -29,15 +29,24 @@
   /* width: 272px;
   height: 320px; */
   object-fit: cover;
+  position: absolute;
   /* right: 8rem;
   top: 2rem; */
 }
 
-.info-card > :nth-child(1) {
+.info-card > :nth-child(1),
+.info-card > :nth-child(2) {
   position: absolute;
   width: 169px;
   height: 200px;
   border: var(--border);
+  border-color: var(--primary-color);
   top: -16px;
   left: -16px;
+}
+
+.info-card > :nth-child(2) {
+  top: 16px;
+  left: 16px;
+  background-color: var(--primary-color);
 }
