@@ -53,7 +53,7 @@ const UserInfo = () => {
   if (!auth.user) return <NotFound />;
 
   return (
-    <>
+    <div className='profile-info'>
       {/* <form className='profile__info' onSubmit={handleSubmit}> */}
       <div className='info-img'>
         <div></div>
@@ -133,11 +133,10 @@ const UserInfo = () => {
           </div>
         </>
       )} */}
-      //{" "}
       <button type='submit' className='btn btn-info w-100'>
-        // Update //{" "}
+        Update
       </button>
-    </>
+    </div>
   );
 };
 
