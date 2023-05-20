@@ -55,15 +55,13 @@ const UserInfo = () => {
   return (
     <form className='profile__info' onSubmit={handleSubmit}>
       <div className='info-card'>
+        <div></div>
+        <div></div>
         <img
           src={avatar ? URL.createObjectURL(avatar as Blob) : auth.user.avatar}
           alt='user'
         />
-        <div className="card-desc">
-          <h3>Name</h3>
-          <p>Position</p>
-        </div>
-        <span>
+        {/* <span>
           <i className='fas fa-camera' />
           <p>Change</p>
           <input
@@ -73,7 +71,7 @@ const UserInfo = () => {
             id='file_up'
             onChange={handleChangeFile}
           />
-        </span>
+        </span> */}
       </div>
 
       <div className='form-group my-3'>

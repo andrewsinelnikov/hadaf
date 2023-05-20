@@ -20,10 +20,10 @@
 .info-card {
   /* flex: 1; */
   position: relative;
+  margin: 32px;
 }
 
 .info-card > img {
-  /* position: absolute; */
   width: 169px;
   height: 200px;
   /* width: 272px;
@@ -31,4 +31,13 @@
   object-fit: cover;
   /* right: 8rem;
   top: 2rem; */
+}
+
+.info-card > :nth-child(1) {
+  position: absolute;
+  width: 169px;
+  height: 200px;
+  border: var(--border);
+  top: -16px;
+  left: -16px;
 }
