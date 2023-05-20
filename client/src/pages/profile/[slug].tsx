@@ -13,9 +13,11 @@ const Profile = () => {
 
   return (
     <Layout navbarType={0}>
-      <div>{auth.user?._id === slug ? <UserInfo /> : <OtherInfo />}</div>
-      <div>
-        <UserPosts />
+      <div className='profile'>
+        <div>{auth.user?._id === slug ? <UserInfo /> : <OtherInfo />}</div>
+        <div>
+          <UserPosts />
+        </div>
       </div>
     </Layout>
   );
