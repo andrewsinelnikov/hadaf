@@ -4,6 +4,11 @@
   display: flex;
 }
 
+.profile-info {
+  height: calc(100vh - var(--nav-size) - 16px);
+  background: grey;
+}
+
 .info-card {
   max-width: 370px;
   margin: auto;

@@ -12,9 +12,11 @@ const Profile = () => {
   const { auth } = useSelector((state: RootStore) => state);
 
   return (
-    <Layout navbarType={0}>
+    <Layout navbarType={1}>
       <div className='profile'>
-        <div>{auth.user?._id === slug ? <UserInfo /> : <OtherInfo />}</div>
+        <div className='profile-info'>
+          {auth.user?._id === slug ? <UserInfo /> : <OtherInfo />}
+        </div>
         <div>
           <UserPosts />
         </div>
