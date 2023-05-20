@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { IParams, RootStore } from "../../utils/TypeScript";
-import Layout from "../../components/layouts/Layout";
+import UserLayout from "../../components/layouts/UserLayout";
 import UserInfo from "../../components/profile/UserInfo";
 import OtherInfo from "../../components/profile/OtherInfo";
 import UserPosts from "../../components/profile/UserPosts";
@@ -12,7 +12,7 @@ const Profile = () => {
   const { auth } = useSelector((state: RootStore) => state);
 
   return (
-    <Layout navbarType={1}>
+    <UserLayout navbarType={1}>
       <div className='profile'>
         <div className='profile-info'>
           {auth.user?._id === slug ? <UserInfo /> : <OtherInfo />}
@@ -21,7 +21,7 @@ const Profile = () => {
           <UserPosts />
         </div>
       </div>
-    </Layout>
+    </UserLayout>
   );
 };
 

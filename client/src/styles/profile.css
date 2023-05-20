@@ -2,10 +2,12 @@
   width: 100%;
   padding-top: 16px;
   display: flex;
+  position: relative;
 }
 
 .profile-info {
   height: calc(100vh - var(--nav-size) - 16px);
+  position: fixed;
   background: grey;
 }
 
