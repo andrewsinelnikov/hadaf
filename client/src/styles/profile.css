@@ -18,15 +18,17 @@
 }
 
 .info-card {
-  flex: 1;
+  /* flex: 1; */
   position: relative;
 }
 
-.info-card img {
-  /* width: 370px;
-  height: 303px; */
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  border-radius: 10px;
+.info-card > img {
+  /* position: absolute; */
+  width: 169px;
+  height: 200px;
+  /* width: 272px;
+  height: 320px; */
+  object-fit: cover;
+  /* right: 8rem;
+  top: 2rem; */
 }
