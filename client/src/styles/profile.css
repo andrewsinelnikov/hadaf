@@ -28,6 +28,12 @@
   color: var(--fontdark-color);
 }
 
+.profile-content .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .info-img {
   /* flex: 1; */
   position: relative;
