@@ -1,7 +1,5 @@
 .footer {
   border-top: 1px solid var(--success-color);
-  /* background-color: var(--light-color);
-  color: var(--lightdark-color); */
   background: var(--dark-color);
   color: var(--lightdark-color);
   flex: 0 0 auto;
@@ -74,6 +72,18 @@
   min-height: 1.2em;
   padding: 0px 2px 1px;
   background: transparent;
+}
+
+.profile-content .footer {
+  background-color: var(--light-color);
+  color: var(--lightdark-color);
+  border-radius: var(--border-radius);
+}
+
+.profile-content .footer-rights,
+.profile-content .footer-language select {
+  background-color: var(--light-color);
+  color: var(--fontdark-color);
 }
 
 @media (min-width: 1012px) {
