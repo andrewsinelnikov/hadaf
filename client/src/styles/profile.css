@@ -35,7 +35,7 @@
 }
 
 .info-img {
-  flex: 1;
+  flex: 40%;
   position: relative;
   margin: 10px;
 }
@@ -70,5 +70,5 @@
   background-color: var(--primary-color);
 }
 .actions {
-  flex: 2;
+  flex: 60%;
 }
