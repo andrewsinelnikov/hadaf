@@ -133,9 +133,12 @@ const UserInfo = () => {
           </div>
         </>
       )} */}
+      <div className='actions'>
+
       <button type='submit' className='btn btn-info w-100'>
         Update
       </button>
+      </div>
     </div>
   );
 };
