@@ -209,7 +209,6 @@
   width: 230px;
   transform: translateX(-70%);
   background: var(--darklight-color);
-  /* border: var(--border); */
   border-radius: var(--border-radius);
   padding: 4px 0;
   overflow: hidden;
