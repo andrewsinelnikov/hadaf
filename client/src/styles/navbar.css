@@ -208,10 +208,10 @@
   top: 45px;
   width: 230px;
   transform: translateX(-70%);
-  background: var(--dark-color);
+  background: var(--darklight-color);
   /* border: var(--border); */
   border-radius: var(--border-radius);
-  padding: 0.25rem 0;
+  padding: 4px 0;
   overflow: hidden;
   z-index: 1000;
   text-align: left;
@@ -235,8 +235,7 @@
 }
 
 .dropdown-item:hover {
-  color: var(--lightdark-color);
-  background-color: var(--darklight-color);
+  color: var(--primary-color);
 }
 
 .dropdown-divider {
