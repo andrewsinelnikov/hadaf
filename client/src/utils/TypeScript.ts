@@ -28,6 +28,8 @@ export interface IUser extends IUserLogin {
   image: string;
   createdAt: string;
   name: string;
+  usta: string;
+  bbook: string;
   role: string;
   type: string;
   updatedAt: string;
@@ -36,6 +38,8 @@ export interface IUser extends IUserLogin {
 
 export interface IUserProfile extends IUserRegister {
   image: string | Blob;
+  usta?: string;
+  bbook?: string;
 }
 
 export interface IAlert {

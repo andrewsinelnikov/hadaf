@@ -71,20 +71,20 @@ const UserInfo = () => {
           Edit profile
         </Link>
         <p className='info-name'>{auth.user.name}</p>
-        {/* {auth.user.position ? (
-          <p className='info-position'>{auth.user.position}</p>
+        {auth.user.usta ? (
+          <p className='info-position'>{auth.user.usta}</p>
         ) : (
           <Link to={`/profile/${auth.user._id}/edit`} className='info-add'>
-            Your Position
+            Your Usta account
           </Link>
         )}
-        {auth.user.location ? (
-          <p className='info-location'>{auth.user.location}</p>
+        {auth.user.bbook ? (
+          <p className='info-location'>{auth.user.bbook}</p>
         ) : (
           <Link to={`/profile/${auth.user._id}/edit`} className='info-add'>
             Add Location
           </Link>
-        )} */}
+        )}
       </div>
       {/* <div className='form-group my-3'>
         <label htmlFor='name'>Name</label>
