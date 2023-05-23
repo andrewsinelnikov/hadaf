@@ -143,6 +143,7 @@ const UserInfo = () => {
         </>
       )} */}
       <div className='info-actions'>
+        <div></div>
         <Link
           to={`/profile/${auth.user._id}/goals`}
           className='btn btn-success'>
