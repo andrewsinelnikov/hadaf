@@ -76,7 +76,8 @@ const UserInfo = () => {
         <div className='data-links'>
           <a href={auth.user.usta} target='_blank' rel='noreferrer'>
             Usta
-          </a>{" "}|{" "}
+          </a>
+          <span></span>
           <a href={auth.user.bbook} target='_blank' rel='noreferrer'>
             BBook
           </a>

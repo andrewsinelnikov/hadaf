@@ -66,9 +66,10 @@
   left: 98px;
   background-color: var(--primary-color);
 }
+
 .info-data {
   flex: 10%;
-  margin-top: 40px;
+  margin-top: 35px;
 }
 
 .data-name {
@@ -86,10 +87,17 @@
   line-height: 1;
 }
 
-.data-links {
-  color: var(--primary-color);
+.data-links a {
   line-height: 1.5;
-  padding: 0.35rem 0;
+  padding: 0.35rem 0.75rem;
+}
+
+.data-links span {
+  height: 8px;
+  width: 8px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .info-actions {
