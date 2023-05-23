@@ -67,8 +67,14 @@
   background-color: var(--primary-color);
 }
 .info-data {
-  flex: 10%;
+  flex: 20%;
 }
+
+.data-name {
+  display: flex;
+  justify-content: space-between;
+}
+
 .info-actions {
   flex: 50%;
 }

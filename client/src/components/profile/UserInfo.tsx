@@ -65,12 +65,14 @@ const UserInfo = () => {
         />
       </div>
       <div className='info-data'>
-        <Link
-          to={`/profile/${auth.user._id}/edit`}
-          className='btn profile-edit'>
-          Edit profile
-        </Link>
-        <p className='info-name'>{auth.user.name}</p>
+        <div className='data-name'>
+          <p>{auth.user.name}</p>
+          <Link
+            to={`/profile/${auth.user._id}/edit`}
+            className='btn profile-edit'>
+            Edit
+          </Link>
+        </div>
         {auth.user.usta ? (
           <p className='info-position'>{auth.user.usta}</p>
         ) : (
