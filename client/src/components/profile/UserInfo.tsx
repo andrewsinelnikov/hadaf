@@ -69,24 +69,18 @@ const UserInfo = () => {
           <p>{auth.user.name}</p>
           <Link
             to={`/profile/${auth.user._id}/edit`}
-            className='btn profile-edit'>
+            className='btn btn-md btn-dark'>
             Edit
           </Link>
         </div>
-        {auth.user.usta ? (
-          <p className='info-position'>{auth.user.usta}</p>
-        ) : (
-          <Link to={`/profile/${auth.user._id}/edit`} className='info-add'>
-            Your Usta account
-          </Link>
-        )}
-        {auth.user.bbook ? (
-          <p className='info-location'>{auth.user.bbook}</p>
-        ) : (
-          <Link to={`/profile/${auth.user._id}/edit`} className='info-add'>
-            Add Location
-          </Link>
-        )}
+        <div className='data-links'>
+          <a href={auth.user.usta} target='_blank' rel='noreferrer'>
+            Usta
+          </a>{" "}|{" "}
+          <a href={auth.user.bbook} target='_blank' rel='noreferrer'>
+            BBook
+          </a>
+        </div>
       </div>
       {/* <div className='form-group my-3'>
         <label htmlFor='name'>Name</label>
