@@ -23,7 +23,8 @@ const userSchema = new mongoose.Schema(
     image: {
       type: String,
       default:
-        "https://res.cloudinary.com/dige7jdhc/image/upload/v1648315275/hadaf/user_w98gce.png",
+        "https://res.cloudinary.com/dige7jdhc/image/upload/v1684831419/hadaf/lnlwfqzgt8nkwhgpn09c.png",
+        // "https://res.cloudinary.com/dige7jdhc/image/upload/v1648315275/hadaf/user_w98gce.png",
     },
     usta: {
       type: String,
