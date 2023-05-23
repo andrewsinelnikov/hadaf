@@ -104,21 +104,32 @@
   flex: 50%;
 }
 
-.info-actions div {
+.info-actions .step {
   display: flex;
   flex-direction: row;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
 }
 
-.info-actions div:before {
-  font-size: 3.75rem;
+.info-actions .step:before {
+  font-size: 3rem;
   color: var(--primary-color);
   display: block;
-  font-size: 700;
+  font-weight: 700;
   margin: auto 0;
   min-width: 80px;
   text-align: center;
 }
 
-.info-actions div:nth-child(1)::before {
+.info-actions .step:nth-child(1)::before {
   content: "1";
+}
+
+.info-actions .step .title {
+  align-self: center;
+  padding: 16px 0;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
 }
