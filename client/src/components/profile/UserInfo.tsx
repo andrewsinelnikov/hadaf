@@ -143,9 +143,21 @@ const UserInfo = () => {
         </>
       )} */}
       <div className='info-actions'>
-        <button type='submit' className='btn btn-info w-100'>
-          Update
-        </button>
+        <Link
+          to={`/profile/${auth.user._id}/goals`}
+          className='btn btn-success'>
+          1 Set goals
+        </Link>
+        <Link
+          to={`/profile/${auth.user._id}/plans`}
+          className='btn btn-success'>
+          2 Make plans
+        </Link>
+        <Link
+          to={`/profile/${auth.user._id}/actions`}
+          className='btn btn-success'>
+          3 Take actions
+        </Link>
       </div>
     </div>
   );
