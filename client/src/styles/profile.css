@@ -104,6 +104,17 @@
   flex: 50%;
 }
 
+.info-actions a:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+}
+.info-actions a:hover .step {
+  background-color: var(--primary-color);
+}
+.info-actions a:hover .step:before {
+  color: var(--dark-color);
+}
+
 .info-actions .step {
   display: flex;
   flex-direction: row;
