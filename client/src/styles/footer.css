@@ -75,16 +75,20 @@
 }
 
 .profile-content .footer {
-  background-color: var(--light-color);
-  color: var(--lightdark-color);
+  color: var(--light-color);
+  background-color: var(--fontdark-color);
+  /* background-color: var(--light-color);
+  color: var(--lightdark-color); */
   border-bottom-right-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
 }
 
 .profile-content .footer-rights,
 .profile-content .footer-language select {
-  background-color: var(--light-color);
-  color: var(--fontdark-color);
+  color: var(--light-color);
+  background-color: var(--fontdark-color);
+  /* background-color: var(--light-color);
+  color: var(--fontdark-color); */
 }
 
 @media (min-width: 1012px) {
