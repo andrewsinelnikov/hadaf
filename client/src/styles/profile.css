@@ -120,6 +120,7 @@
   flex-direction: row;
   border: 1px solid var(--primary-color);
   border-radius: var(--border-radius);
+  margin: 4px 0;
 }
 
 .info-actions .step:before {
@@ -132,8 +133,14 @@
   text-align: center;
 }
 
-.info-actions .step:nth-child(1)::before {
+.info-actions a:nth-child(1) .step::before {
   content: "1";
+}
+.info-actions a:nth-child(2) .step::before {
+  content: "2";
+}
+.info-actions a:nth-child(3) .step::before {
+  content: "3";
 }
 
 .info-actions .step .title {
