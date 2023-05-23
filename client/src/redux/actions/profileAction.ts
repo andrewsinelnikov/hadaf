@@ -7,7 +7,7 @@ import { patchAPI } from "../../utils/FetchData";
 import { checkPassword } from "../../utils/Validate";
 
 export const updateUser =
-  (avatar: Blob, name: string, auth: IAuth) =>
+  (image: Blob, name: string, auth: IAuth) =>
   async (dispatch: Dispatch<IAlertType | IAuthType>) => {
     if (!auth.access_token || !auth.user) return;
     let url = "";
@@ -18,11 +18,11 @@ export const updateUser =
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      if (avatar) {
-        const check = checkImage(avatar);
+      if (image) {
+        const check = checkImage(image);
         if (check) return dispatch({ type: ALERT, payload: { errors: check } });
 
-        const photo = await imageUpload(avatar);
+        const photo = await imageUpload(image);
         url = photo.url;
       }
 
@@ -32,7 +32,7 @@ export const updateUser =
           access_token: auth.access_token,
           user: {
             ...auth.user,
-            avatar: url ? url : auth.user.avatar,
+            image: url ? url : auth.user.image,
             name: name ? name : auth.user.name,
           },
         },
@@ -41,7 +41,7 @@ export const updateUser =
       const res = await patchAPI(
         "user",
         {
-          avatar: url ? url : auth.user.avatar,
+          image: url ? url : auth.user.image,
           name: name ? name : auth.user.name,
         },
         access_token

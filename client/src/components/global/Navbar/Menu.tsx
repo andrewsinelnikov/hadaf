@@ -89,7 +89,7 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
             role='button'
             data-bs-toggle='dropdown'
             aria-expanded='false'>
-            <img src={auth.user.avatar} alt='user' className='nav-user' />
+            <img src={auth.user.image} alt='user' className='nav-user' />
             <i className='fa fa-caret-down' />
           </span>
 

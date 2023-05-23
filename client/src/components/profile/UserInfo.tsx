@@ -18,7 +18,7 @@ const UserInfo = () => {
   const initState = {
     name: "",
     account: "",
-    avatar: "",
+    image: "",
     password: "",
     cf_password: "",
   };
@@ -26,7 +26,7 @@ const UserInfo = () => {
   const [user, setUser] = useState<IUserProfile>(initState);
   const [typePass, setTypePass] = useState(false);
   const [typeCfPass, setTypeCfPass] = useState(false);
-  const { name, avatar, password, cf_password } = user;
+  const { name, image, password, cf_password } = user;
 
   const handleChangeInput = (e: InputChange) => {
     const { name, value } = e.target;
@@ -39,13 +39,13 @@ const UserInfo = () => {
 
     if (files) {
       const file = files[0];
-      setUser({ ...user, avatar: file });
+      setUser({ ...user, image: file });
     }
   };
 
   const handleSubmit = (e: FormSubmit) => {
     e.preventDefault();
-    if (avatar || name) dispatch(updateUser(avatar as Blob, name, auth));
+    if (image || name) dispatch(updateUser(image as Blob, name, auth));
 
     if (password && auth.access_token)
       dispatch(resetPassword(password, cf_password, auth.access_token));
@@ -60,7 +60,7 @@ const UserInfo = () => {
         <div></div>
         <div></div>
         <img
-          src={avatar ? URL.createObjectURL(avatar as Blob) : auth.user.avatar}
+          src={image ? URL.createObjectURL(image as Blob) : auth.user.image}
           alt='user'
         />
       </div>
@@ -146,10 +146,9 @@ const UserInfo = () => {
         </>
       )} */}
       <div className='actions'>
-
-      <button type='submit' className='btn btn-info w-100'>
-        Update
-      </button>
+        <button type='submit' className='btn btn-info w-100'>
+          Update
+        </button>
       </div>
     </div>
   );

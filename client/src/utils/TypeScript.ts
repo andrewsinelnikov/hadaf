@@ -25,7 +25,7 @@ export interface IUserRegister extends IUserLogin {
 }
 
 export interface IUser extends IUserLogin {
-  avatar: string;
+  image: string;
   createdAt: string;
   name: string;
   role: string;
@@ -35,7 +35,7 @@ export interface IUser extends IUserLogin {
 }
 
 export interface IUserProfile extends IUserRegister {
-  avatar: string | Blob;
+  image: string | Blob;
 }
 
 export interface IAlert {
