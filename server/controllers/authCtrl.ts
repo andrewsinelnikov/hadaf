@@ -166,7 +166,7 @@ const authCtrl = {
           name,
           account: email,
           password: passwordHash,
-          avatar: picture,
+          image: picture,
           type: "google",
         };
         registerUser(user, res);
@@ -204,7 +204,7 @@ const authCtrl = {
           name,
           account: email,
           password: passwordHash,
-          avatar: picture.data.url,
+          image: picture.data.url,
           type: "facebook",
         };
         registerUser(user, res);

@@ -9,9 +9,9 @@ const userCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const { avatar, name } = req.body;
+      const { image, name } = req.body;
 
-      await User.findOneAndUpdate({ _id: req.user._id }, { avatar, name });
+      await User.findOneAndUpdate({ _id: req.user._id }, { image, name });
 
       res.json({ msg: "Update Success" });
     } catch (err: any) {

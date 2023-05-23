@@ -20,10 +20,18 @@ const userSchema = new mongoose.Schema(
       required: [true, "Please add a password"],
       minLength: [8, "Password must be at least 8 chars long"],
     },
-    avatar: {
+    image: {
       type: String,
       default:
         "https://res.cloudinary.com/dige7jdhc/image/upload/v1648315275/hadaf/user_w98gce.png",
+    },
+    usta: {
+      type: String,
+      default: "https://www.usta.com/",
+    },
+    bbook: {
+      type: String,
+      default: "https://www.bbook.com/",
     },
     role: {
       type: String,

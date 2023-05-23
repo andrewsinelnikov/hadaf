@@ -5,7 +5,9 @@ export interface IUser extends Document {
   name: string;
   account: string;
   password: string;
-  avatar: string;
+  image: string;
+  usta: string;
+  bbook: string;
   role: string;
   type: string;
   rf_token?: string;

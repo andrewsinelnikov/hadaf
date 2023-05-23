@@ -9,6 +9,7 @@ import {
 } from "../../utils/TypeScript";
 import { updateUser, resetPassword } from "../../redux/actions/profileAction";
 import NotFound from "../global/NotFound";
+import { Link } from "react-router-dom";
 
 const UserInfo = () => {
   const { auth } = useSelector((state: RootStore) => state);
@@ -62,17 +63,28 @@ const UserInfo = () => {
           src={avatar ? URL.createObjectURL(avatar as Blob) : auth.user.avatar}
           alt='user'
         />
-        {/* <span>
-          <i className='fas fa-camera' />
-          <p>Change</p>
-          <input
-            type='file'
-            accept='image/*'
-            name='file'
-            id='file_up'
-            onChange={handleChangeFile}
-          />
-        </span> */}
+      </div>
+      <div className='profile-info'>
+        <Link
+          to={`/profile/${auth.user._id}/edit`}
+          className='btn profile-edit'>
+          Edit profile
+        </Link>
+        <p className='info-name'>{auth.user.name}</p>
+        {/* {auth.user.position ? (
+          <p className='info-position'>{auth.user.position}</p>
+        ) : (
+          <Link to={`/profile/${auth.user._id}/edit`} className='info-add'>
+            Your Position
+          </Link>
+        )}
+        {auth.user.location ? (
+          <p className='info-location'>{auth.user.location}</p>
+        ) : (
+          <Link to={`/profile/${auth.user._id}/edit`} className='info-add'>
+            Add Location
+          </Link>
+        )} */}
       </div>
       {/* <div className='form-group my-3'>
         <label htmlFor='name'>Name</label>
