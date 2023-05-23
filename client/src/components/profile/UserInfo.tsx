@@ -64,7 +64,7 @@ const UserInfo = () => {
           alt='user'
         />
       </div>
-      <div className='profile-info'>
+      <div className='info-data'>
         <Link
           to={`/profile/${auth.user._id}/edit`}
           className='btn profile-edit'>
@@ -145,7 +145,7 @@ const UserInfo = () => {
           </div>
         </>
       )} */}
-      <div className='actions'>
+      <div className='info-actions'>
         <button type='submit' className='btn btn-info w-100'>
           Update
         </button>

@@ -66,6 +66,9 @@
   left: 98px;
   background-color: var(--primary-color);
 }
-.actions {
-  flex: 60%;
+.info-data {
+  flex: 10%;
+}
+.info-actions {
+  flex: 50%;
 }
