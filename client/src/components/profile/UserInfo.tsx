@@ -142,7 +142,6 @@ const UserInfo = () => {
           </div>
         </>
       )} */}
-      <div className='info-tools'>tools</div>
       <div className='info-actions'>
         <Link to={`/profile/${auth.user._id}/goals`}>
           <div className='step'>
@@ -159,6 +158,11 @@ const UserInfo = () => {
             <p className='title'>Take actions</p>
           </div>
         </Link>
+      </div>
+      <div className='info-tools'>
+        <>
+        <i className='fa-solid fa-users' />
+        </>
       </div>
     </div>
   );
