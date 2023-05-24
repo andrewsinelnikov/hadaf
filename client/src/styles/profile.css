@@ -100,6 +100,10 @@
   display: inline-block;
 }
 
+.info-tools {
+  flex: 10%;
+}
+
 .info-actions {
   flex: 50%;
 }
