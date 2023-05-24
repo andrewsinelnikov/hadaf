@@ -143,17 +143,20 @@ const UserInfo = () => {
         </>
       )} */}
       <div className='info-actions'>
-        <Link to={`/profile/${auth.user._id}/goals`}>
+        <Link to='/goals'>
+          {/* <Link to={`/profile/${auth.user._id}/goals`}> */}
           <div className='step'>
             <p className='title'>Set goals</p>
           </div>
         </Link>
-        <Link to={`/profile/${auth.user._id}/plans`}>
+        <Link to='/plans'>
+          {/* <Link to={`/profile/${auth.user._id}/plans`}> */}
           <div className='step'>
             <p className='title'>Make plans</p>
           </div>
         </Link>
-        <Link to={`/profile/${auth.user._id}/actions`}>
+        <Link to='/actions'>
+          {/* <Link to={`/profile/${auth.user._id}/actions`}> */}
           <div className='step'>
             <p className='title'>Take actions</p>
           </div>
