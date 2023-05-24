@@ -166,6 +166,9 @@ const UserInfo = () => {
         <>
           <i className='fa-solid fa-users' />
         </>
+        <>
+          <i className='fa-solid fa-book' />
+        </>
       </div>
     </div>
   );
