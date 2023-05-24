@@ -10,7 +10,7 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  width: 320px;
+  width: 300px;
   overflow: hidden;
   color: var(--lightdark-color);
   background-color: transparent;
