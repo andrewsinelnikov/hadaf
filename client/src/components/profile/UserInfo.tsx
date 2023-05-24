@@ -161,7 +161,10 @@ const UserInfo = () => {
       </div>
       <div className='info-tools'>
         <>
-        <i className='fa-solid fa-users' />
+          <i className='fa-solid fa-file-pen' />
+        </>
+        <>
+          <i className='fa-solid fa-users' />
         </>
       </div>
     </div>
