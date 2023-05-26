@@ -129,7 +129,7 @@
 
 .info-actions .step:before {
   font-size: 3rem;
-  color: var(--primary-color);
+  color: var(--lightdark-color);
   display: block;
   font-weight: 700;
   margin: auto 0;
