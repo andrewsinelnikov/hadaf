@@ -163,18 +163,18 @@ const UserInfo = () => {
         </Link>
       </div>
       <div className='info-tools'>
-        <div>
+        <Link to='/actions'>
           {/* <i className='fa-solid fa-file-pen fa-xl' /> */}
           Journal
-        </div>
-        <div>
+        </Link>
+        <Link to='/actions'>
           {/* <i className='fa-solid fa-users fa-xl' /> */}
           Friends
-        </div>
-        <div>
+        </Link>
+        <Link to='/actions'>
           {/* <i className='fa-solid fa-book fa-xl' /> */}
           History
-        </div>
+        </Link>
       </div>
     </div>
   );
