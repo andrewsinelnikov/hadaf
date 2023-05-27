@@ -228,7 +228,8 @@
   display: flex;
   align-items: center;
   transition: background var(--speed);
-  padding: 0.75rem 1rem;
+  padding: 0.35rem 0.75rem;
+  /* padding: 0.75rem 1rem; */
   color: var(--lightdark-color);
   font-weight: 400;
   text-decoration: none;
