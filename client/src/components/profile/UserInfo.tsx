@@ -65,7 +65,24 @@ const UserInfo = () => {
         />
       </div>
       <div className='info-data'>
-        <div className='data-name'>
+        <div>
+          <p>{auth.user.name}</p>
+          <p className='data-links'>
+            <a href={auth.user.usta} target='_blank' rel='noreferrer'>
+              Usta
+            </a>
+            <span></span>
+            <a href={auth.user.bbook} target='_blank' rel='noreferrer'>
+              BBook
+            </a>
+          </p>
+        </div>
+        <Link
+          to={`/profile/${auth.user._id}/edit`}
+          className='btn btn-md btn-dark'>
+          Edit
+        </Link>
+        {/* <div className='data-name'>
           <p>{auth.user.name}</p>
           <Link
             to={`/profile/${auth.user._id}/edit`}
@@ -81,7 +98,7 @@ const UserInfo = () => {
           <a href={auth.user.bbook} target='_blank' rel='noreferrer'>
             BBook
           </a>
-        </div>
+        </div> */}
       </div>
       {/* <div className='form-group my-3'>
         <label htmlFor='name'>Name</label>
