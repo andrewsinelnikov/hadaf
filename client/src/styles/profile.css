@@ -78,7 +78,8 @@
 }
 
 .data-name p {
-  font-size: 18px;
+  font-size: 20px;
+  color: var(--light-color);
   font-weight: 500;
 }
 
@@ -168,4 +169,12 @@
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
+}
+
+.info-tools a:hover {
+  color: var(--primary-color);
+}
+
+.info-tools a:active {
+  color: var(--primary-color);
 }
