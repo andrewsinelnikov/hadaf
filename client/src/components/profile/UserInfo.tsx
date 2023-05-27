@@ -169,7 +169,7 @@ const UserInfo = () => {
           {/* <i className='fa-solid fa-file-pen fa-xl' /> */}
           Journal
         </Link>
-        <Link to='/actions'>
+        <Link to='/friends'>
           {/* <i className='fa-solid fa-users fa-xl' /> */}
           Friends
         </Link>
