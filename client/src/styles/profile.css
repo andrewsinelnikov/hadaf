@@ -70,7 +70,8 @@
 .info-data {
   /* flex: 10%;
   margin-top: 35px; */
-  margin-top: 190px;
+  margin-top: 194px;
+  margin-bottom: 8px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -81,6 +82,7 @@
   font-size: 20px;
   color: var(--light-color);
   font-weight: 500;
+  line-height: 1;
 }
 
 .data-edit a {
@@ -90,7 +92,6 @@
 }
 
 .data-links a {
-  line-height: 1.5;
   padding: 0.35rem 0.75rem;
 }
 
