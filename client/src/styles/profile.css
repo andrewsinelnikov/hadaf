@@ -29,7 +29,7 @@
 }
 
 .info-img {
-  flex: 30%;
+  /* flex: 30%; */
   position: relative;
   padding-left: 88px;
   margin-top: 10px;
@@ -68,8 +68,9 @@
 }
 
 .info-data {
-  flex: 10%;
-  margin-top: 35px;
+  /* flex: 10%;
+  margin-top: 35px; */
+  margin-top: 190px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -101,13 +102,13 @@
   display: inline-block;
 }
 
-.info-tools {
+/* .info-tools {
   flex: 10%;
 }
 
 .info-actions {
   flex: 50%;
-}
+} */
 
 .info-actions a:hover {
   background-color: var(--primary-color);
@@ -160,6 +161,7 @@
 .info-tools {
   display: flex;
   flex-direction: row;
+  margin-top: 4px;
 }
 
 .info-tools a {

@@ -84,23 +84,6 @@ const UserInfo = () => {
             Edit
           </Link>
         </div>
-        {/* <div className='data-name'>
-          <p>{auth.user.name}</p>
-          <Link
-            to={`/profile/${auth.user._id}/edit`}
-            className='btn btn-md btn-dark'>
-            Edit
-          </Link>
-        </div>
-        <div className='data-links'>
-          <a href={auth.user.usta} target='_blank' rel='noreferrer'>
-            Usta
-          </a>
-          <span></span>
-          <a href={auth.user.bbook} target='_blank' rel='noreferrer'>
-            BBook
-          </a>
-        </div> */}
       </div>
       {/* <div className='form-group my-3'>
         <label htmlFor='name'>Name</label>
