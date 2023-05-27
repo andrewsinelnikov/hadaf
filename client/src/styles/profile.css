@@ -92,13 +92,13 @@
 }
 
 .data-links a {
-  padding: 0.35rem 0.75rem;
+  padding: 0 12px;
 }
 
 .data-links span {
   height: 8px;
   width: 8px;
-  background-color: var(--primary-color);
+  background-color: var(--success-color);
   border-radius: 50%;
   display: inline-block;
 }
