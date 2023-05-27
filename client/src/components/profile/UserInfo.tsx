@@ -165,7 +165,7 @@ const UserInfo = () => {
         </Link>
       </div>
       <div className='info-tools'>
-        <Link to='/actions'>
+        <Link to='/journal'>
           {/* <i className='fa-solid fa-file-pen fa-xl' /> */}
           Journal
         </Link>
