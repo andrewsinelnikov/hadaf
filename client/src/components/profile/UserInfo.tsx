@@ -173,7 +173,7 @@ const UserInfo = () => {
           {/* <i className='fa-solid fa-users fa-xl' /> */}
           Friends
         </Link>
-        <Link to='/actions'>
+        <Link to='/history'>
           {/* <i className='fa-solid fa-book fa-xl' /> */}
           History
         </Link>
