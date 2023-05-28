@@ -181,3 +181,12 @@
 .info-tools a:active {
   color: var(--primary-color);
 }
+
+.profile-edit {
+  width: 100%;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -16,7 +16,9 @@ const Profile = () => {
   if (auth.user?._id === slug && action === "edit")
     return (
       <Layout navbarType={1}>
-        <UserEdit />
+        <div className='profile-edit'>
+          <UserEdit />
+        </div>
       </Layout>
     );
 
