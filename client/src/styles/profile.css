@@ -206,3 +206,9 @@
   text-align: center;
   margin-bottom: 24px;
 }
+
+.edit-info {
+  width: 100%;
+  padding: 0;
+  display: flex;
+}
