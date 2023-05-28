@@ -23,6 +23,7 @@ const App = () => {
           <Route path='/' element={<PageRender />} />
           <Route path=':page' element={<PageRender />} />
           <Route path=':page/:slug' element={<PageRender />} />
+          <Route path=':page/:slug/:action' element={<PageRender />} />
         </Routes>
       </Router>
     </>
