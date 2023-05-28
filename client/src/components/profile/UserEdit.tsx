@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { RootState } from "../../redux/store";
+import { useAppSelector, useAppDispatch } from "../../utils/hooks";
 import { FormSubmit, IUserProfile, InputChange } from "../../utils/TypeScript";
 
 const UserEdit = () => {
+  const { auth } = useAppSelector((state: RootState) => state);
+  const dispatch = useAppDispatch();
   let navigate = useNavigate();
 
   const initState = {
@@ -12,12 +16,14 @@ const UserEdit = () => {
     image: "",
     password: "",
     cf_password: "",
+    usta: "",
+    bbook: "",
   };
 
   const [user, setUser] = useState<IUserProfile>(initState);
   const [typePass, setTypePass] = useState(false);
   const [typeCfPass, setTypeCfPass] = useState(false);
-  const { name, image, password, cf_password } = user;
+  const { name, image, password, cf_password, usta, bbook } = user;
 
   const handleChangeInput = (e: InputChange) => {
     const { name, value } = e.target;
