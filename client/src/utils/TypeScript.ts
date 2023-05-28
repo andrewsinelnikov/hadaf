@@ -12,6 +12,7 @@ export type RootStore = ReturnType<typeof rootReducer>;
 export interface IParams {
   page: string;
   slug: string;
+  action?: string;
 }
 
 export interface IUserLogin {
