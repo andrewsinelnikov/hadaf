@@ -3,7 +3,7 @@ import React from "react";
 const UserEdit = () => {
   return (
     <div className='edit-box'>
-      <h2>UserEdit</h2>
+      <h3 className='edit-title'>Edit profile</h3>
     </div>
   );
 };
