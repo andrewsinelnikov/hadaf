@@ -256,3 +256,7 @@
   opacity: 0;
   z-index: -1;
 }
+
+.edit-data {
+  margin-left: 37px;
+}

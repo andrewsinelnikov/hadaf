@@ -74,6 +74,19 @@ const UserEdit = () => {
             />
           </div>
         </div>
+        <div className='edit-data'>
+          <div className='form-group'>
+            <input
+              type='text'
+              className='form-control'
+              name='name'
+              id='name'
+              defaultValue={auth.user.name}
+              onChange={handleChangeInput}
+              placeholder='Full Name (up to 20 characters)'
+            />
+          </div>
+        </div>
       </form>
     </div>
   );
