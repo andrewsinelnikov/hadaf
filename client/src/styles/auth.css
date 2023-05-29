@@ -75,6 +75,7 @@
 .auth_page .auth_box .pass small,
 .edit-data small {
   position: absolute;
+  color: var(--fontdark-color);
   top: 50%;
   right: 5px;
   transform: translateY(-50%);
