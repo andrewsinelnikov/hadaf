@@ -230,3 +230,17 @@
 .edit-img .info-img > :nth-child(2) {
   left: 10px;
 }
+
+.edit-img .img-change {
+  margin-top: 196px;
+  align-self: center;
+}
+
+.img-change label {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  line-height: 1;
+  font-weight: 400;
+  cursor: pointer;
+}

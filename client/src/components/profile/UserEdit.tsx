@@ -61,6 +61,18 @@ const UserEdit = () => {
               alt='user'
             />
           </div>
+          <div className='img-change'>
+            <label className='btn btn-md btn-dark' htmlFor='file_up'>
+              Change photo
+            </label>
+            <input
+              type='file'
+              accept='image/*'
+              name='file'
+              id='file_up'
+              onChange={handleChangeFile}
+            />
+          </div>
         </div>
       </form>
     </div>
