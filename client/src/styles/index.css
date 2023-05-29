@@ -9,6 +9,9 @@
   --darklight-color: #1e3957;
   --darkmiddle-color: #0a2749;
   --dark-color: #0f1f2f;
+
+  --error-color: rgb(214, 10, 10);
+  --done-color: rgb(9, 158, 54);
   --max-width: 1140px;
 
   --nav-size: 60px;

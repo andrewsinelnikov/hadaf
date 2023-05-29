@@ -74,6 +74,7 @@ const UserEdit = () => {
             />
           </div>
         </div>
+
         <div className='edit-data'>
           <div className='form-group'>
             <input
@@ -85,7 +86,17 @@ const UserEdit = () => {
               onChange={handleChangeInput}
               placeholder='Full Name'
             />
+            <small>
+              <span
+                style={{
+                  color: `${name.length > 25 ? "var(--error-color)" : ""}`,
+                }}>
+                {name.length}
+              </span>{" "}
+              / 25
+            </small>
           </div>
+
           <div className='form-group'>
             <input
               type='text'
@@ -98,6 +109,7 @@ const UserEdit = () => {
               placeholder='Email or Mobile number'
             />
           </div>
+
           {auth.user.type === "register" && (
             <>
               <div className='form-group'>

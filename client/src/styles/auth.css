@@ -68,11 +68,13 @@
 }
 
 .auth_page .auth_box .pass,
-.edit-data .pass {
+.edit-data .pass,
+.edit-data .form-group {
   position: relative;
 }
 
 .auth_page .auth_box .pass small,
+.form-control small,
 .edit-data small {
   position: absolute;
   color: var(--fontdark-color);

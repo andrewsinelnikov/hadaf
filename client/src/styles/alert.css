@@ -102,6 +102,7 @@
 
 .toast-header [type="button"],
 .toast-header button {
+  appearance: button;
   -webkit-appearance: button;
 }
 
@@ -122,7 +123,7 @@
 }
 
 .errMsg {
-  background: rgb(214, 10, 10);
+  background: var(--error-color);
   color: #fff9;
   text-align: center;
   padding: 10px 0;
@@ -130,7 +131,7 @@
 }
 
 .successMsg {
-  background: rgb(9, 158, 54);
+  background: var(--done-color);
   color: #fff9;
   text-align: center;
   padding: 10px 0;
