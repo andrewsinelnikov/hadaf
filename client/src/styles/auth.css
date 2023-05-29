@@ -67,11 +67,13 @@
   outline-width: 2px;
 }
 
-.auth_page .auth_box .pass {
+.auth_page .auth_box .pass,
+.edit-data .pass {
   position: relative;
 }
 
-.auth_page .auth_box .pass small {
+.auth_page .auth_box .pass small,
+.edit-data small {
   position: absolute;
   top: 50%;
   right: 5px;
@@ -80,7 +82,8 @@
   opacity: 0.5;
 }
 
-.auth_page .auth_box input::placeholder {
+.auth_page .auth_box input::placeholder,
+.edit-data input::placeholder {
   opacity: 0.9;
   /* font-size: 80%; */
 }
