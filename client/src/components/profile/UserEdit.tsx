@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { useAppSelector, useAppDispatch } from "../../utils/hooks";
 import { FormSubmit, IUserProfile, InputChange } from "../../utils/TypeScript";
+import NotFound from "../global/NotFound";
 
 const UserEdit = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -45,10 +46,23 @@ const UserEdit = () => {
     navigate(-1);
   };
 
+  if (!auth.user) return <NotFound />;
+
   return (
     <div className='edit-box'>
       <h3 className='edit-title'>Edit profile</h3>
-      <form className='edit-info' onSubmit={handleSubmit}></form>
+      <form className='edit-info' onSubmit={handleSubmit}>
+        <div className='edit-img'>
+          <div className='info-img'>
+            <div></div>
+            <div></div>
+            <img
+              src={image ? URL.createObjectURL(image as Blob) : auth.user.image}
+              alt='user'
+            />
+          </div>
+        </div>
+      </form>
     </div>
   );
 };
