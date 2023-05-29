@@ -212,3 +212,21 @@
   padding: 0;
   display: flex;
 }
+
+.edit-img {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-img .info-img,
+.edit-img .info-img > :nth-child(1),
+.edit-img .info-img > :nth-child(2) {
+  padding: 0;
+  margin: 0;
+}
+.edit-img .info-img > :nth-child(1) {
+  left: -10px;
+}
+.edit-img .info-img > :nth-child(2) {
+  left: 10px;
+}
