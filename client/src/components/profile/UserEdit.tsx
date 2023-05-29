@@ -98,51 +98,75 @@ const UserEdit = () => {
               placeholder='Email or Mobile number'
             />
           </div>
-          {/* {auth.user.type === "register" && (
-            <> */}
+          {auth.user.type === "register" && (
+            <>
+              <div className='form-group'>
+                <div className='pass'>
+                  <input
+                    type={typePass ? "text" : "password"}
+                    className='form-control'
+                    name='password'
+                    id='password'
+                    value={auth.user.password}
+                    onChange={handleChangeInput}
+                    placeholder='Password (8 or more characters)'
+                  />
+                  <small onClick={(e) => setTypePass(!typePass)}>
+                    {typePass ? (
+                      <i className='fa-solid fa-eye-slash' />
+                    ) : (
+                      <i className='fa-solid fa-eye' />
+                    )}
+                  </small>
+                </div>
+              </div>
+
+              <div className='form-group'>
+                <div className='pass'>
+                  <input
+                    type={typeCfPass ? "text" : "password"}
+                    className='form-control'
+                    name='cf_password'
+                    id='cf_password'
+                    value={cf_password}
+                    onChange={handleChangeInput}
+                    placeholder='Confirm Password'
+                  />
+                  <small onClick={(e) => setTypeCfPass(!typeCfPass)}>
+                    {typeCfPass ? (
+                      <i className='fa-solid fa-eye-slash' />
+                    ) : (
+                      <i className='fa-solid fa-eye' />
+                    )}
+                  </small>
+                </div>
+              </div>
+            </>
+          )}
+
           <div className='form-group'>
-            <div className='pass'>
-              <input
-                type={typePass ? "text" : "password"}
-                className='form-control'
-                name='password'
-                id='password'
-                value={auth.user.password}
-                onChange={handleChangeInput}
-                placeholder='Password (8 or more characters)'
-              />
-              <small onClick={(e) => setTypePass(!typePass)}>
-                {typePass ? (
-                  <i className='fa-solid fa-eye-slash' />
-                ) : (
-                  <i className='fa-solid fa-eye' />
-                )}
-              </small>
-            </div>
+            <input
+              type='text'
+              className='form-control'
+              name='usta'
+              id='usta'
+              value={auth.user.usta}
+              onChange={handleChangeInput}
+              placeholder='Usta account'
+            />
           </div>
 
           <div className='form-group'>
-            <div className='pass'>
-              <input
-                type={typeCfPass ? "text" : "password"}
-                className='form-control'
-                name='cf_password'
-                id='cf_password'
-                value={cf_password}
-                onChange={handleChangeInput}
-                placeholder='Confirm Password'
-              />
-              <small onClick={(e) => setTypeCfPass(!typeCfPass)}>
-                {typeCfPass ? (
-                  <i className='fa-solid fa-eye-slash' />
-                ) : (
-                  <i className='fa-solid fa-eye' />
-                )}
-              </small>
-            </div>
+            <input
+              type='text'
+              className='form-control'
+              name='bbook'
+              id='bbook'
+              value={auth.user.bbook}
+              onChange={handleChangeInput}
+              placeholder='Bbook account'
+            />
           </div>
-          {/* </>
-          )} */}
         </div>
       </form>
     </div>
