@@ -81,9 +81,9 @@ const UserEdit = () => {
               className='form-control'
               name='name'
               id='name'
-              defaultValue={auth.user.name}
+              value={auth.user.name}
               onChange={handleChangeInput}
-              placeholder='Full Name (up to 20 characters)'
+              placeholder='Full Name'
             />
           </div>
         </div>

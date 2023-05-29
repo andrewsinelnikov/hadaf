@@ -27,9 +27,10 @@
   margin-bottom: 24px;
 }
 
-.auth_page .auth_box .form-group {
+.auth_page .auth_box .form-group,
+.edit-data .form-group {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .auth_page .auth_box .form-label {
@@ -37,7 +38,8 @@
   margin-bottom: 0.5rem;
 }
 
-.auth_page .auth_box .form-control {
+.auth_page .auth_box .form-control,
+.edit-data .form-control {
   display: block;
   width: 100%;
   padding: 0.35rem 0.75rem;
@@ -54,11 +56,13 @@
   transition: border-color 0.15s ease-in-out;
 }
 
-.auth_page .auth_box .form-control:hover {
+.auth_page .auth_box .form-control:hover,
+.edit-data .form-control:hover {
   border-color: var(--primary-color);
 }
 
-.auth_page .auth_box .form-control:focus {
+.auth_page .auth_box .form-control:focus,
+.edit-data .form-control:focus {
   outline-color: var(--primary-color);
   outline-width: 2px;
 }
