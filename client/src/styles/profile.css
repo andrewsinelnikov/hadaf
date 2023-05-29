@@ -199,6 +199,7 @@
   border-radius: var(--border-radius);
   margin-top: 16px;
   padding: 27px;
+  padding-left: 37px;
 }
 
 .edit-title {
@@ -233,7 +234,6 @@
 
 .edit-img .img-change {
   margin-top: 196px;
-  /* align-self: center; */
   position: relative;
 }
 
@@ -259,9 +259,10 @@
 
 .edit-data {
   margin-left: 37px;
-  flex: 40px;
+  flex: 346px;
 }
 
 .edit-data button {
   width: auto;
+  margin-top: 34px;
 }
