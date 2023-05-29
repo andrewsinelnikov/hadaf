@@ -25,6 +25,16 @@ const UserEdit = () => {
   const [typeCfPass, setTypeCfPass] = useState(false);
   const { name, image, password, cf_password, usta, bbook } = user;
 
+  const handleChangeFile = (e: InputChange) => {
+    const target = e.target as HTMLInputElement;
+    const files = target.files;
+
+    if (files) {
+      const file = files[0];
+      setUser({ ...user, image: file });
+    }
+  };
+
   const handleChangeInput = (e: InputChange) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
