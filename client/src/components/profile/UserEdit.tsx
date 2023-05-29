@@ -167,6 +167,10 @@ const UserEdit = () => {
               placeholder='Bbook account'
             />
           </div>
+
+          <button type='submit' className='btn btn-success'>
+            Update profile
+          </button>
         </div>
       </form>
     </div>
