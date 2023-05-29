@@ -26,6 +26,18 @@ const UserEdit = () => {
   const [typeCfPass, setTypeCfPass] = useState(false);
   const { name, image, password, cf_password, usta, bbook } = user;
 
+  useEffect(() => {
+    if (auth.user) {
+      setUser({
+        ...user,
+        name: auth.user.name,
+        password: auth.user.password,
+        usta: auth.user.usta,
+        bbook: auth.user.bbook,
+      });
+    }
+  }, [auth.user]);
+
   const handleChangeFile = (e: InputChange) => {
     const target = e.target as HTMLInputElement;
     const files = target.files;
@@ -82,7 +94,7 @@ const UserEdit = () => {
               className='form-control'
               name='name'
               id='name'
-              value={auth.user.name}
+              value={name}
               onChange={handleChangeInput}
               placeholder='Full Name'
             />
@@ -119,7 +131,7 @@ const UserEdit = () => {
                     className='form-control'
                     name='password'
                     id='password'
-                    value={auth.user.password}
+                    value={password}
                     onChange={handleChangeInput}
                     placeholder='Password (8 or more characters)'
                   />
@@ -162,7 +174,7 @@ const UserEdit = () => {
               className='form-control'
               name='usta'
               id='usta'
-              value={auth.user.usta}
+              value={usta}
               onChange={handleChangeInput}
               placeholder='Usta account'
             />
@@ -174,7 +186,7 @@ const UserEdit = () => {
               className='form-control'
               name='bbook'
               id='bbook'
-              value={auth.user.bbook}
+              value={bbook}
               onChange={handleChangeInput}
               placeholder='Bbook account'
             />
