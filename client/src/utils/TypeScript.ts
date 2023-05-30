@@ -29,8 +29,8 @@ export interface IUser extends IUserLogin {
   image: string;
   createdAt: string;
   name: string;
-  usta: string;
-  bbook: string;
+  usta?: string;
+  bbook?: string;
   role: string;
   type: string;
   updatedAt: string;
