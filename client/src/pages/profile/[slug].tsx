@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
 
-import { IParams, RootStore } from "../../utils/TypeScript";
+import { RootState } from "../../redux/store";
+import { useAppSelector } from "../../utils/hooks";
+import { IParams } from "../../utils/TypeScript";
 import UserLayout from "../../components/layouts/UserLayout";
 import Layout from "../../components/layouts/Layout";
 import UserInfo from "../../components/profile/UserInfo";
@@ -11,7 +12,7 @@ import UserPosts from "../../components/profile/UserPosts";
 
 const Profile = () => {
   const { slug, action }: IParams = useParams<keyof IParams>() as IParams;
-  const { auth } = useSelector((state: RootStore) => state);
+  const { auth } = useAppSelector((state: RootState) => state);
 
   if (auth.user?._id === slug && action === "edit")
     return (

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootStore } from "../utils/TypeScript";
 
+import { RootState } from "../redux/store";
+import { useAppSelector } from "../utils/hooks";
 import Layout from "../components/layouts/Layout";
 import LoginPass from "../components/auth/LoginPass";
 import LoginSMS from "../components/auth/LoginSMS";
@@ -12,7 +12,7 @@ const Login = () => {
   const [sms, setSms] = useState(false);
   const navigate = useNavigate();
 
-  const { auth } = useSelector((state: RootStore) => state);
+  const { auth } = useAppSelector((state: RootState) => state);
 
   useEffect(() => {
     if (auth.access_token) navigate("/");
