@@ -1,6 +1,8 @@
 import { Dispatch } from "redux";
+
 import { AUTH, IAuth, IAuthType } from "../types/authType";
 import { ALERT, IAlertType } from "../types/alertType";
+
 import { checkTokenExp } from "../../utils/checkTokenExp";
 import { checkImage, imageUpload } from "../../utils/ImageUpload";
 import { patchAPI } from "../../utils/FetchData";

@@ -1,19 +1,15 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 
-import {
-  RootStore,
-  InputChange,
-  IUserProfile,
-  FormSubmit,
-} from "../../utils/TypeScript";
+import { RootState } from "../../redux/store";
+import { useAppSelector, useAppDispatch } from "../../utils/hooks";
+import { InputChange, IUserProfile, FormSubmit } from "../../utils/TypeScript";
 import { updateUser, resetPassword } from "../../redux/actions/profileAction";
 import NotFound from "../global/NotFound";
 import { Link } from "react-router-dom";
 
 const UserInfo = () => {
-  const { auth } = useSelector((state: RootStore) => state);
-  const dispatch = useDispatch();
+  const { auth } = useAppSelector((state: RootState) => state);
+  const dispatch = useAppDispatch();
 
   const initState = {
     name: "",
