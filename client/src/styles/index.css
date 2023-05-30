@@ -10,7 +10,9 @@
   --darkmiddle-color: #0a2749;
   --dark-color: #0f1f2f;
 
+  /* --error-color: rgba(47, 15, 15, 0.9); */
   --error-color: rgb(214, 10, 10);
+  /* --done-color: rgba(24, 47, 15, 0.9); */
   --done-color: rgb(9, 158, 54);
   --max-width: 1140px;
 

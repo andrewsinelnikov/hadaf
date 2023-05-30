@@ -98,10 +98,14 @@ const UserEdit = () => {
               onChange={handleChangeInput}
               placeholder='Full Name'
             />
-            <small>
+            <small style={{ fontWeight: "bold" }}>
               <span
                 style={{
-                  color: `${name.length > 25 ? "var(--error-color)" : ""}`,
+                  color: `${
+                    name.length > 25
+                      ? "var(--error-color)"
+                      : "var(--done-color)"
+                  }`,
                 }}>
                 {name.length}
               </span>{" "}
