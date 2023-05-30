@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
-import { RootStore } from "../../../utils/TypeScript";
+import { RootState } from "../../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { useOnClickOutside } from "./hooks";
 import { logout } from "../../../redux/actions/authAction";
 
@@ -11,8 +11,8 @@ interface IProps {
   setOpenSearch: (search: boolean) => void;
 }
 const Menu = ({ openSearch, setOpenSearch }: IProps) => {
-  const { auth } = useSelector((state: RootStore) => state);
-  const dispatch = useDispatch();
+  const { auth } = useAppSelector((state: RootState) => state);
+  const dispatch = useAppDispatch();
   const { pathname } = useLocation();
 
   const [open, setOpen] = useState(false);
