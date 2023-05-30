@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { FormSubmit, RootStore, ICategory } from "../utils/TypeScript";
+
+import { RootState } from "../redux/store";
+import { useAppDispatch, useAppSelector } from "../utils/hooks";
+import { FormSubmit, ICategory } from "../utils/TypeScript";
 import {
   createCategory,
   updateCategory,
@@ -13,8 +15,8 @@ const Category = () => {
   const [name, setName] = useState("");
   const [edit, setEdit] = useState<ICategory | null>(null);
 
-  const { auth, categories } = useSelector((state: RootStore) => state);
-  const dispatch = useDispatch();
+  const { auth, categories } = useAppSelector((state: RootState) => state);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (edit) setName(edit.name);
