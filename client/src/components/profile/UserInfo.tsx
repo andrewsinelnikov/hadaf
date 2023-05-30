@@ -43,13 +43,13 @@ const UserInfo = () => {
     }
   };
 
-  const handleSubmit = (e: FormSubmit) => {
-    e.preventDefault();
-    if (image || name) dispatch(updateUser(image as Blob, name, auth));
+  // const handleSubmit = (e: FormSubmit) => {
+  //   e.preventDefault();
+  //   if (image || name) dispatch(updateUser(image as Blob, name, auth));
 
-    if (password && auth.access_token)
-      dispatch(resetPassword(password, cf_password, auth.access_token));
-  };
+  //   if (password && auth.access_token)
+  //     dispatch(resetPassword(password, cf_password, auth.access_token));
+  // };
 
   if (!auth.user) return <NotFound />;
 

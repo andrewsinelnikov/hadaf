@@ -7,7 +7,13 @@ import { patchAPI } from "../../utils/FetchData";
 import { checkPassword } from "../../utils/Validate";
 
 export const updateUser =
-  (image: Blob, name: string, usta: string, bbook: string, auth: IAuth) =>
+  (
+    image: Blob,
+    name: string,
+    usta: string | undefined,
+    bbook: string | undefined,
+    auth: IAuth
+  ) =>
   async (dispatch: Dispatch<IAlertType | IAuthType>) => {
     if (!auth.access_token || !auth.user) return;
     let url = "";

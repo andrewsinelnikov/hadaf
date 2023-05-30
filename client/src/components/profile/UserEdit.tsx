@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { useAppSelector, useAppDispatch } from "../../utils/hooks";
 import { FormSubmit, IUserProfile, InputChange } from "../../utils/TypeScript";
+import { updateUser } from "../../redux/actions/profileAction";
 import NotFound from "../global/NotFound";
 
 const UserEdit = () => {
@@ -55,6 +56,9 @@ const UserEdit = () => {
 
   const handleSubmit = (e: FormSubmit) => {
     e.preventDefault();
+    if (image || name || usta || bbook)
+      dispatch(updateUser(image as Blob, name, usta, bbook, auth));
+
     navigate(-1);
   };
 
