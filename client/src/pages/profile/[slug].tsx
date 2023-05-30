@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { RootState } from "../../redux/store";
 import { useAppSelector } from "../../utils/hooks";

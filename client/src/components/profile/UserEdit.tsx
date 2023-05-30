@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { RootState } from "../../redux/store";
 import { useAppSelector, useAppDispatch } from "../../utils/hooks";
@@ -66,6 +66,7 @@ const UserEdit = () => {
 
   return (
     <div className='edit-box'>
+      <Link to={`/profile/${auth.user._id}`}>Back to your profile</Link>
       <h3 className='edit-title'>Edit profile</h3>
       <form className='edit-info' onSubmit={handleSubmit}>
         <div className='edit-img'>
