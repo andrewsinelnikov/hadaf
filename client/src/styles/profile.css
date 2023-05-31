@@ -111,10 +111,10 @@
   flex: 50%;
 } */
 
-.action-active {
-  pointer-events: none;
-}
-.info-actions a:disabled {
+.action-active,
+.info-actions a:disabled,
+.tool-active,
+.info-tools a:disabled {
   pointer-events: none;
 }
 
@@ -188,7 +188,8 @@
 }
 
 .info-tools a:hover,
-.info-tools a:active {
+.info-tools a:active,
+.tool-active {
   color: var(--primary-color);
 }
 

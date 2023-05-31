@@ -39,6 +39,10 @@ const UserInfo = () => {
     if (pn === pathname) return "action-active";
   };
 
+  const isActiveTool = (pn: string) => {
+    if (pn === pathname) return "tool-active";
+  };
+
   // const initState = {
   //   name: "",
   //   account: "",
