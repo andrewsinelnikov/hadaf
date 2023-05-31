@@ -8,16 +8,34 @@ import { updateUser, resetPassword } from "../../redux/actions/profileAction";
 import NotFound from "../global/NotFound";
 
 const UserInfo = () => {
+  const { auth } = useAppSelector((state: RootState) => state);
+  const { pathname } = useLocation();
+
   const actions = [
     { label: "Set goals", path: "/goals" },
     { label: "Make plans", path: "/plans" },
     { label: "Take actions", path: "/actions" },
   ];
 
-  const { auth } = useAppSelector((state: RootState) => state);
-  const { pathname } = useLocation();
+  const tools = [
+    {
+      label: "Journal",
+      path: "/journal",
+      image: "<i className='fa-solid fa-file-pen fa-xl' />",
+    },
+    {
+      label: "Friends",
+      path: "/friends",
+      image: "<i className='fa-solid fa-users fa-xl' />",
+    },
+    {
+      label: "History",
+      path: "/history",
+      image: "<i className='fa-solid fa-book fa-xl' />",
+    },
+  ];
 
-  const isActive = (pn: string) => {
+  const isActiveAction = (pn: string) => {
     if (pn === pathname) return "action-active";
   };
 
@@ -74,41 +92,22 @@ const UserInfo = () => {
           <Link
             to={action.path}
             key={index}
-            className={`${isActive(action.path)}`}>
+            className={`${isActiveAction(action.path)}`}>
             <div className='step'>
               <p className='title'>{action.label}</p>
             </div>
           </Link>
         ))}
-        {/* <Link to={`/profile/${auth.user._id}/goals`}>
-          <div className='step'>
-            <p className='title'>Set goals</p>
-          </div>
-        </Link>
-        <Link to={`/profile/${auth.user._id}/plans`}>
-          <div className='step'>
-            <p className='title'>Make plans</p>
-          </div>
-        </Link>
-        <Link to={`/profile/${auth.user._id}/actions`}>
-          <div className='step'>
-            <p className='title'>Take actions</p>
-          </div>
-        </Link> */}
       </div>
       <div className='info-tools'>
-        <Link to='/journal'>
-          {/* <i className='fa-solid fa-file-pen fa-xl' /> */}
-          Journal
-        </Link>
-        <Link to='/friends'>
-          {/* <i className='fa-solid fa-users fa-xl' /> */}
-          Friends
-        </Link>
-        <Link to='/history'>
-          {/* <i className='fa-solid fa-book fa-xl' /> */}
-          History
-        </Link>
+        {tools.map((tool, index) => (
+          <Link
+            to={tool.path}
+            key={index}
+            className={`${isActiveTool(tool.path)}`}>
+            {tool.label}
+          </Link>
+        ))}
       </div>
     </div>
   );

@@ -187,10 +187,7 @@
   text-align: center;
 }
 
-.info-tools a:hover {
-  color: var(--primary-color);
-}
-
+.info-tools a:hover,
 .info-tools a:active {
   color: var(--primary-color);
 }
