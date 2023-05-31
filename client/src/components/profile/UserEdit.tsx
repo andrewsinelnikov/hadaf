@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { useAppSelector, useAppDispatch } from "../../utils/hooks";
 import { FormSubmit, IUserProfile, InputChange } from "../../utils/TypeScript";
-import { updateUser } from "../../redux/actions/profileAction";
+import { updateUser, resetPassword } from "../../redux/actions/profileAction";
 import NotFound from "../global/NotFound";
 
 const UserEdit = () => {
@@ -59,6 +59,8 @@ const UserEdit = () => {
     if (image || name || usta || bbook)
       dispatch(updateUser(image as Blob, name, usta, bbook, auth));
 
+      if (password && auth.access_token)
+      dispatch(resetPassword(password, cf_password, auth.access_token));  
     navigate(-1);
   };
 
