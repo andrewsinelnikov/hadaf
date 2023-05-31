@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { RootState } from "../redux/store";
 import { useAppSelector } from "../utils/hooks";
@@ -15,7 +15,7 @@ const Login = () => {
   const { auth } = useAppSelector((state: RootState) => state);
 
   useEffect(() => {
-    if (auth.access_token) navigate("/actions");
+    if (auth.access_token) navigate("/");
   }, [auth.access_token, navigate]);
 
   return (

@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
+import { RootState } from "../redux/store";
+import { useAppSelector } from "../utils/hooks";
 import HomePageLayout from "../components/layouts/HomePageLayout";
 import Countdown from "../components/global/Countdown";
 import { endOfDay } from "../utils/FindEnd";
@@ -7,6 +10,14 @@ import { wasters } from "../data";
 import { randomNum } from "../utils/randomNum";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const { auth } = useAppSelector((state: RootState) => state);
+
+  useEffect(() => {
+    if (auth.access_token) navigate("/actions");
+  }, [auth.access_token, navigate]);
+
   return (
     <HomePageLayout>
       <div className='home-left'>

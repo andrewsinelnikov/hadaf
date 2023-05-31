@@ -13,6 +13,7 @@ const RegisterForm = () => {
   const [typeCfPass, setTypeCfPass] = useState(false);
 
   const dispatch = useAppDispatch();
+  let navigate = useNavigate();
 
   const handleChangeInput = (e: InputChange) => {
     const { value, name } = e.target;
@@ -22,6 +23,8 @@ const RegisterForm = () => {
   const handleSubmit = (e: FormSubmit) => {
     e.preventDefault();
     dispatch(register(userRegister));
+
+    navigate("/login");
   };
 
   return (
