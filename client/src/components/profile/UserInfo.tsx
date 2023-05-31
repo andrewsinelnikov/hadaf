@@ -1,14 +1,19 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import { RootState } from "../../redux/store";
 import { useAppSelector, useAppDispatch } from "../../utils/hooks";
 import { InputChange, IUserProfile, FormSubmit } from "../../utils/TypeScript";
 import { updateUser, resetPassword } from "../../redux/actions/profileAction";
 import NotFound from "../global/NotFound";
-import { Link } from "react-router-dom";
 
 const UserInfo = () => {
   const { auth } = useAppSelector((state: RootState) => state);
+  const { pathname } = useLocation();
+
+  const isActive = (pn: string) => {
+    if (pn === pathname) return true;
+  };
 
   // const initState = {
   //   name: "",

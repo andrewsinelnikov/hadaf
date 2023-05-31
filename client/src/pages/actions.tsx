@@ -12,7 +12,7 @@ const Actions = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (auth.access_token) navigate("/login");
+    if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
 
   return (
