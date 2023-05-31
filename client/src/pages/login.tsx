@@ -15,7 +15,7 @@ const Login = () => {
   const { auth } = useAppSelector((state: RootState) => state);
 
   useEffect(() => {
-    if (auth.access_token) navigate("/");
+    if (auth.access_token) navigate("/actions");
   }, [auth.access_token, navigate]);
 
   return (
