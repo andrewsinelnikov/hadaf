@@ -8,6 +8,12 @@ import { updateUser, resetPassword } from "../../redux/actions/profileAction";
 import NotFound from "../global/NotFound";
 
 const UserInfo = () => {
+  const actions = [
+    { label: "Set goals", path: "/goals" },
+    { label: "Make plans", path: "/plans" },
+    { label: "Take actions", path: "/actions" },
+  ];
+
   const { auth } = useAppSelector((state: RootState) => state);
   const { pathname } = useLocation();
 
@@ -64,24 +70,28 @@ const UserInfo = () => {
         </div>
       </div>
       <div className='info-actions'>
-        <Link to='/goals'>
-          {/* <Link to={`/profile/${auth.user._id}/goals`}> */}
+        {actions.map((action, index) => (
+          <Link to={action.path} key={index}>
+            <div className='step'>
+              <p className='title'>{action.label}</p>
+            </div>
+          </Link>
+        ))}
+        {/* <Link to={`/profile/${auth.user._id}/goals`}>
           <div className='step'>
             <p className='title'>Set goals</p>
           </div>
         </Link>
-        <Link to='/plans'>
-          {/* <Link to={`/profile/${auth.user._id}/plans`}> */}
+        <Link to={`/profile/${auth.user._id}/plans`}>
           <div className='step'>
             <p className='title'>Make plans</p>
           </div>
         </Link>
-        <Link to='/actions'>
-          {/* <Link to={`/profile/${auth.user._id}/actions`}> */}
+        <Link to={`/profile/${auth.user._id}/actions`}>
           <div className='step'>
             <p className='title'>Take actions</p>
           </div>
-        </Link>
+        </Link> */}
       </div>
       <div className='info-tools'>
         <Link to='/journal'>
