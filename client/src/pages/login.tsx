@@ -10,9 +10,9 @@ import LoginSocial from "../components/auth/LoginSocial";
 
 const Login = () => {
   const [sms, setSms] = useState(false);
-  const navigate = useNavigate();
 
   const { auth } = useAppSelector((state: RootState) => state);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (auth.access_token) navigate("/");
