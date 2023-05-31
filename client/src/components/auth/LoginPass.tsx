@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+
+import { useAppDispatch } from "../../utils/hooks";
 import { login } from "../../redux/actions/authAction";
 import { InputChange, FormSubmit } from "../../utils/TypeScript";
 
@@ -9,7 +10,7 @@ const LoginPass = () => {
   const { account, password } = userLogin;
   const [typePass, setTypePass] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleChangeInput = (e: InputChange) => {
     const { value, name } = e.target;

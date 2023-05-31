@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import { useAppDispatch } from "../../utils/hooks";
 import { register } from "../../redux/actions/authAction";
 import { InputChange, FormSubmit } from "../../utils/TypeScript";
 
@@ -10,7 +12,7 @@ const RegisterForm = () => {
   const [typePass, setTypePass] = useState(false);
   const [typeCfPass, setTypeCfPass] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleChangeInput = (e: InputChange) => {
     const { value, name } = e.target;

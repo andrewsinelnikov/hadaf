@@ -1,10 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 
 import Layout from "../components/layouts/Layout";
 import RegisterForm from "../components/auth/RegisterForm";
 
 const Register = () => {
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <Layout navbarType={0}>
