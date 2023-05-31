@@ -111,6 +111,13 @@
   flex: 50%;
 } */
 
+.action-active {
+  pointer-events: none;
+}
+.info-actions a:disabled {
+  pointer-events: none;
+}
+
 .info-actions a:hover,
 .action-active {
   background-color: var(--primary-color);
@@ -120,8 +127,7 @@
 .action-active .step {
   background-color: var(--primary-color);
 }
-.info-actions a:hover .step:before,
-.action-active .step:before {
+.info-actions a:hover .step:before {
   color: var(--dark-color);
 }
 
@@ -141,6 +147,10 @@
   margin: auto 0;
   min-width: 80px;
   text-align: center;
+}
+
+.action-active .step:before {
+  color: var(--dark-color);
 }
 
 .info-actions a:nth-child(1) .step::before {
