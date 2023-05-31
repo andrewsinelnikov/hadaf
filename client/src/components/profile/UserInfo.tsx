@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { RootState } from "../../redux/store";
-import { useAppSelector, useAppDispatch } from "../../utils/hooks";
-import { InputChange, IUserProfile, FormSubmit } from "../../utils/TypeScript";
-import { updateUser, resetPassword } from "../../redux/actions/profileAction";
+import { useAppSelector } from "../../utils/hooks";
 import NotFound from "../global/NotFound";
 
 const UserInfo = () => {
@@ -43,24 +40,10 @@ const UserInfo = () => {
     if (pn === pathname) return "tool-active";
   };
 
-  // const initState = {
-  //   name: "",
-  //   account: "",
-  //   image: "",
-  //   password: "",
-  //   cf_password: "",
-  // };
-
-  // const [user, setUser] = useState<IUserProfile>(initState);
-  // const [typePass, setTypePass] = useState(false);
-  // const [typeCfPass, setTypeCfPass] = useState(false);
-  // const { name, image, password, cf_password } = user;
-
   if (!auth.user) return <NotFound />;
 
   return (
     <div className='profile-info'>
-      {/* <form className='profile__info' onSubmit={handleSubmit}> */}
       <div className='info-img'>
         <div></div>
         <div></div>
