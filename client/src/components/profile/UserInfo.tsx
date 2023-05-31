@@ -18,7 +18,7 @@ const UserInfo = () => {
   const { pathname } = useLocation();
 
   const isActive = (pn: string) => {
-    if (pn === pathname) return true;
+    if (pn === pathname) return "action-active";
   };
 
   // const initState = {
@@ -71,7 +71,10 @@ const UserInfo = () => {
       </div>
       <div className='info-actions'>
         {actions.map((action, index) => (
-          <Link to={action.path} key={index}>
+          <Link
+            to={action.path}
+            key={index}
+            className={`${isActive(action.path)}`}>
             <div className='step'>
               <p className='title'>{action.label}</p>
             </div>

@@ -111,14 +111,17 @@
   flex: 50%;
 } */
 
-.info-actions a:hover {
+.info-actions a:hover,
+.action-active {
   background-color: var(--primary-color);
   color: var(--dark-color);
 }
-.info-actions a:hover .step {
+.info-actions a:hover .step,
+.action-active .step {
   background-color: var(--primary-color);
 }
-.info-actions a:hover .step:before {
+.info-actions a:hover .step:before,
+.action-active .step:before {
   color: var(--dark-color);
 }
 
