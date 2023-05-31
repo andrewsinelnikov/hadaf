@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import { RootState } from "../redux/store";
 import { useAppSelector } from "../utils/hooks";
+import UserLayout from "../components/layouts/UserLayout";
+import UserInfo from "../components/profile/UserInfo";
+import UserPosts from "../components/profile/UserPosts";
 
 const Actions = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -13,9 +16,15 @@ const Actions = () => {
   }, [auth.access_token, navigate]);
 
   return (
-    <div>
-      <h2>Actions</h2>
-    </div>
+    <UserLayout navbarType={1}>
+      <div className='profile'>
+        <UserInfo />
+        <div className='profile-content'>
+          {/* <UserPosts /> */}
+          Actions
+        </div>
+      </div>
+    </UserLayout>
   );
 };
 
