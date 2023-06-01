@@ -112,7 +112,15 @@ a:hover {
   width: auto;
   background: transparent;
   border: none;
+  border-radius: 0;
+  padding: 0;
   color: var(--lightdark-color);
+}
+
+.time-active {
+  color: var(--primary-color);
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 @media (min-width: 576px) {

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ButtonClick } from "../../utils/TypeScript";
 
 const TimeReminder = () => {
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState("day");
 
   const handleClick = (e: ButtonClick) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ const TimeReminder = () => {
   return (
     <div>
       <button
-        className={`btn btn-time ${isActive("")}`}
+        className={`btn btn-time ${isActive("day")}`}
         // className={active === "day" ? "time-active" : undefined}
         id={"day"}
         onClick={handleClick}>
