@@ -112,11 +112,13 @@ a:hover {
   width: auto;
   font-weight: bold;
   text-transform: capitalize;
+  color: var(--lightdark-color);
   background: transparent;
   border: none;
   border-radius: 0;
   padding: 0;
-  color: var(--lightdark-color);
+  padding-bottom: 2px;
+  margin-left: 20px;
 }
 
 .btn-time:hover {
@@ -127,6 +129,7 @@ a:hover {
 .time-active {
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0;
 }
 
 @media (min-width: 576px) {
