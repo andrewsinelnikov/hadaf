@@ -3,6 +3,12 @@ import { useState } from "react";
 import { ButtonClick } from "../../utils/TypeScript";
 
 const TimeReminder = () => {
+  const timeBtns = [
+    { key: 1, label: "day" },
+    { key: 2, label: "week" },
+    { key: 3, label: "season" },
+  ];
+
   const [active, setActive] = useState("day");
 
   const handleClick = (e: ButtonClick) => {
