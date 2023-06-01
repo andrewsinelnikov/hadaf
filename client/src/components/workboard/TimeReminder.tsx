@@ -22,25 +22,15 @@ const TimeReminder = () => {
 
   return (
     <div>
-      <button
-        className={`btn btn-time ${isActive("day")}`}
-        // className={active === "day" ? "time-active" : undefined}
-        id={"day"}
-        onClick={handleClick}>
-        Day
-      </button>
-      <button
-        className={active === "week" ? "time-active" : undefined}
-        id={"week"}
-        onClick={handleClick}>
-        Week
-      </button>
-      <button
-        className={active === "season" ? "time-active" : undefined}
-        id={"season"}
-        onClick={handleClick}>
-        Season
-      </button>
+      {timeBtns.map((btn) => (
+        <button
+          key={btn.key}
+          className={`btn btn-time ${isActive(btn.label)}`}
+          id={btn.label}
+          onClick={handleClick}>
+          {btn.label}
+        </button>
+      ))}
     </div>
   );
 };
