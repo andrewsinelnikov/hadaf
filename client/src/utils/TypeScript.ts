@@ -6,6 +6,7 @@ export type InputChange = ChangeEvent<
 >;
 
 export type FormSubmit = FormEvent<HTMLFormElement>;
+
 export type ButtonClick = MouseEvent<HTMLButtonElement>;
 
 // export type RootStore = ReturnType<typeof rootReducer>;
