@@ -10,10 +10,15 @@ const TimeReminder = () => {
     setActive(e.currentTarget.id);
   };
 
+  const isActive = (time: string) => {
+    if (active === time) return "time-active";
+  };
+
   return (
     <div>
       <button
-        className={active === "day" ? "time-active" : undefined}
+        className={`btn btn-time ${isActive("")}`}
+        // className={active === "day" ? "time-active" : undefined}
         id={"day"}
         onClick={handleClick}>
         Day
