@@ -110,6 +110,8 @@ a:hover {
 
 .btn-time {
   width: auto;
+  font-weight: bold;
+  text-transform: capitalize;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -117,9 +119,13 @@ a:hover {
   color: var(--lightdark-color);
 }
 
+.btn-time:hover {
+  color: var(--primary-color);
+  background: transparent;
+}
+
 .time-active {
   color: var(--primary-color);
-  font-weight: bold;
   border-bottom: 2px solid var(--primary-color);
 }
 
