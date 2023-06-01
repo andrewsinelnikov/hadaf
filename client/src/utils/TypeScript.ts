@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent } from "react";
+import { ChangeEvent, FormEvent, MouseEvent } from "react";
 // import rootReducer from "../redux/reducers/index";
 
 export type InputChange = ChangeEvent<
@@ -6,6 +6,7 @@ export type InputChange = ChangeEvent<
 >;
 
 export type FormSubmit = FormEvent<HTMLFormElement>;
+export type ButtonClick = MouseEvent<HTMLButtonElement>;
 
 // export type RootStore = ReturnType<typeof rootReducer>;
 
