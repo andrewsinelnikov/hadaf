@@ -5,6 +5,7 @@ import { RootState } from "../redux/store";
 import { useAppSelector } from "../utils/hooks";
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
+import TimeReminder from "../components/workboard/TimeReminder";
 import UserPosts from "../components/profile/UserPosts";
 
 const Actions = () => {
@@ -21,7 +22,7 @@ const Actions = () => {
         <UserInfo />
         <div className='profile-content'>
           {/* <UserPosts /> */}
-          Actions
+          <TimeReminder />
         </div>
       </div>
     </UserLayout>

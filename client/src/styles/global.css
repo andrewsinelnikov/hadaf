@@ -108,6 +108,13 @@ a:hover {
   color: var(--dark-color);
 }
 
+.btn-time {
+  width: auto;
+  background: transparent;
+  border: none;
+  color: var(--lightdark-color);
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
