@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import { ButtonClick } from "../../utils/TypeScript";
+import Countdown from "../global/Countdown";
+import { endOfDay } from "../../utils/FindEnd";
 
 const TimeReminder = () => {
   const timeBtns = [
@@ -28,6 +30,7 @@ const TimeReminder = () => {
             return (
               <>
                 <p>The day ends in</p>
+                <Countdown date={endOfDay()} />
               </>
             );
           default:
