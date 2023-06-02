@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { ButtonClick } from "../../utils/TypeScript";
 import Countdown from "../global/Countdown";
-import { endOfDay } from "../../utils/FindEnd";
+import { endOfDay, endOfSeason, endOfWeek } from "../../utils/FindEnd";
 
 const TimeReminder = () => {
   const timeBtns = [
@@ -31,6 +31,20 @@ const TimeReminder = () => {
               <>
                 <p>The day ends in</p>
                 <Countdown date={endOfDay()} />
+              </>
+            );
+          case "week":
+            return (
+              <>
+                <p>The week ends in</p>
+                <Countdown date={endOfWeek()} />
+              </>
+            );
+          case "season":
+            return (
+              <>
+                <p>The season ends in</p>
+                <Countdown date={endOfSeason()} />
               </>
             );
           default:
