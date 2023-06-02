@@ -40,7 +40,14 @@ const Countdown = ({ date }: IProps) => {
 
   return (
     <p>
-      {left.days ? (left.days > 9 ? `${left.days}:` : `0${left.days}:`) : ""}
+      {left.days
+        ? left.days > 9
+          ? `${left.days} days `
+          : left.days === 1
+          ? "1 day "
+          : `0${left.days}days `
+        : ""}
+      {/* {left.days ? (left.days > 9 ? `${left.days} days ` : `0${left.days}:`) : ""} */}
       {(left.hours > 9 ? left.hours : `0${left.hours}`) || "00"}:
       {(left.minutes > 9 ? left.minutes : `0${left.minutes}`) || "00"}:
       {(left.seconds > 9 ? left.seconds : `0${left.seconds}`) || "00"}
