@@ -24,8 +24,8 @@
   flex-direction: column;
   margin-left: 330px;
   border-radius: var(--border-radius);
-  background: var(--light-color);
-  color: var(--fontdark-color);
+  /* background: var(--light-color);
+  color: var(--fontdark-color); */
 }
 
 .info-img {
