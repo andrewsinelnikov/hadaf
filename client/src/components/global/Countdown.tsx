@@ -17,7 +17,7 @@ const Countdown = ({ date }: IProps) => {
     let timerID = setInterval(() => leftTime(), 1000);
 
     return () => clearTimeout(timerID);
-  }, []);
+  }, [date]);
 
   const leftTime = () => {
     if (countdownTime) {
