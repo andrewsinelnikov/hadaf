@@ -4,7 +4,11 @@ import { ButtonClick } from "../../utils/TypeScript";
 import Countdown from "../global/Countdown";
 import { endOfDay, endOfSeason, endOfWeek } from "../../utils/FindEnd";
 
-const TimeReminder = () => {
+interface IProps {
+  message?: string;
+}
+
+const TimeReminder = ({ message }: IProps) => {
   const timeBtns = [
     { key: 1, label: "day" },
     { key: 2, label: "week" },
