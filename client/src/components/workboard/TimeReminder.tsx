@@ -22,6 +22,18 @@ const TimeReminder = () => {
 
   return (
     <div>
+      {(() => {
+        switch (active) {
+          case "day":
+            return (
+              <>
+                <p>The day ends in</p>
+              </>
+            );
+          default:
+            return null;
+        }
+      })()}
       {timeBtns.map((btn) => (
         <button
           key={btn.key}
