@@ -8,7 +8,7 @@ interface IProps {
 const AddItem: React.FC<IProps> = ({ item, setItem }) => {
   return (
     <div>
-      <div className=''>
+      <div className='add-item'>
         <input
           className='item-input'
           type='text'
@@ -19,19 +19,17 @@ const AddItem: React.FC<IProps> = ({ item, setItem }) => {
           maxLength={200}
           placeholder='Type a Task...'
         />
-        {/* <small style={{ fontWeight: "bold" }}>
-              <span
-                style={{
-                  color: `${
-                    name.length > 25
-                      ? "var(--error-color)"
-                      : "var(--done-color)"
-                  }`,
-                }}>
-                {name.length}
-              </span>{" "}
-              / 25
-            </small> */}
+        <small style={{ fontWeight: "bold" }}>
+          <span
+            style={{
+              color: `${
+                item.length > 200 ? "var(--error-color)" : "var(--done-color)"
+              }`,
+            }}>
+            {item.length}
+          </span>{" "}
+          / 200
+        </small>
       </div>
     </div>
   );
