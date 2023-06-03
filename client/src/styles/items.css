@@ -2,7 +2,9 @@
   position: fixed;
   height: 80px;
   bottom: 10px;
-  /* left: 330px; */
+  max-width: 810px;
+  width: 100%;
+  margin-left: 330px;
 }
 
 .add-item {
