@@ -12,6 +12,8 @@ const AddItem: React.FC<IProps> = ({ item, setItem }) => {
         <input
           className='item-input'
           type='text'
+          value={item}
+          onChange={(e) => setItem(e.target.value)}
           autoComplete='off'
           autoFocus
           maxLength={200}
