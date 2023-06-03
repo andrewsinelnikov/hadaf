@@ -63,6 +63,8 @@
 @import url("./profile.css");
 /* -------- Reminder --------- */
 @import url("./reminder.css");
+/* -------- Items --------- */
+@import url("./items.css");
 /* -------- Footer --------- */
 @import url("./footer.css");
 /* -------- Not Found --------- */
