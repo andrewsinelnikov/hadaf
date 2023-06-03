@@ -29,17 +29,19 @@ const AddItem: React.FC<IProps> = ({ item, setItem }) => {
             }`,
           }}
         />
-        <small style={{ fontWeight: "bold" }}>
-          <span
-            style={{
-              color: `${
-                item.length > 200 ? "var(--error-color)" : "var(--done-color)"
-              }`,
-            }}>
-            {item.length}
-          </span>{" "}
-          / 200
-        </small>
+        {isFocused && (
+          <small style={{ fontWeight: "bold" }}>
+            <span
+              style={{
+                color: `${
+                  item.length > 200 ? "var(--error-color)" : "var(--done-color)"
+                }`,
+              }}>
+              {item.length}
+            </span>{" "}
+            / 200
+          </small>
+        )}
       </div>
       {isFocused && <div className='item-options'>add</div>}
     </div>
