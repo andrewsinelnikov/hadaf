@@ -16,6 +16,8 @@ const AddItem: React.FC<IProps> = ({ item, setItem }) => {
           type='text'
           value={item}
           onChange={(e) => setItem(e.target.value)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           autoComplete='off'
           autoFocus
           maxLength={200}
