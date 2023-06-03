@@ -19,8 +19,8 @@
 .add-item small {
   position: absolute;
   color: var(--lightdark-color);
-  top: 50%;
-  right: 5px;
-  transform: translateY(-50%);
+  top: 60%;
+  right: 0;
+  transform: translateY(-60%);
   opacity: 0.5;
 }
