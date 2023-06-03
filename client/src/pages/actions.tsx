@@ -7,7 +7,7 @@ import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
 import UserPosts from "../components/profile/UserPosts";
-import AddField from "../components/workboard/AddField";
+import AddInput from "../components/workboard/AddInput";
 
 const Actions = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -24,7 +24,7 @@ const Actions = () => {
         <div className='profile-content'>
           {/* <UserPosts /> */}
           <TimeReminder />
-          <AddField />
+          <AddInput />
         </div>
       </div>
     </UserLayout>
