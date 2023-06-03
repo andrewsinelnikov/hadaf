@@ -19,10 +19,15 @@ const AddItem: React.FC<IProps> = ({ item, setItem }) => {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           autoComplete='off'
-          autoFocus
           maxLength={200}
           placeholder='Type a Task...'
-          style={{borderBottom: `${isFocused ? "none" : "1px solid var(--lightdark-color)"}`}}
+          style={{
+            borderBottom: `${
+              isFocused
+                ? "1px solid var(--lightdark-color)"
+                : "1px solid rgba(231, 224, 185, 0.5)"
+            }`,
+          }}
         />
         <small style={{ fontWeight: "bold" }}>
           <span
