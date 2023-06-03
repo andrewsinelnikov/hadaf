@@ -3,9 +3,10 @@ import React, { useState } from "react";
 interface IProps {
   item: string;
   setItem: React.Dispatch<React.SetStateAction<string>>;
+  itemType: string;
 }
 
-const AddItem: React.FC<IProps> = ({ item, setItem }) => {
+const AddItem: React.FC<IProps> = ({ item, setItem, itemType }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -20,7 +21,7 @@ const AddItem: React.FC<IProps> = ({ item, setItem }) => {
           onBlur={() => setIsFocused(false)}
           autoComplete='off'
           maxLength={200}
-          placeholder='Type a Task...'
+          placeholder={`Type a ${itemType}...`}
           style={{
             borderBottom: `${
               isFocused
