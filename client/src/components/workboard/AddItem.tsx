@@ -22,6 +22,7 @@ const AddItem: React.FC<IProps> = ({ item, setItem }) => {
           autoFocus
           maxLength={200}
           placeholder='Type a Task...'
+          style={{borderBottom: `${isFocused ? "none" : "1px solid var(--lightdark-color)"}`}}
         />
         <small style={{ fontWeight: "bold" }}>
           <span
