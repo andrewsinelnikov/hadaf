@@ -9,7 +9,7 @@ const AddItem: React.FC<IProps> = ({ item, setItem }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <div>
+    <div className='add'>
       <div className='add-item'>
         <input
           className='item-input'

@@ -26,8 +26,8 @@ const Actions = () => {
         <div className='profile-content'>
           {/* <UserPosts /> */}
           <TimeReminder />
-          <AddItem item={item} setItem={setItem} />
         </div>
+        <AddItem item={item} setItem={setItem} />
       </div>
     </UserLayout>
   );

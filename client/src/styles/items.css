@@ -1,3 +1,10 @@
+.add {
+  position: fixed;
+  height: 80px;
+  bottom: 10px;
+  /* left: 330px; */
+}
+
 .add-item {
   position: relative;
 }
