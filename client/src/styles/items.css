@@ -8,4 +8,5 @@
   padding: 16px 14px;
   border: none;
   outline: none;
+  user-select: text;
 }
