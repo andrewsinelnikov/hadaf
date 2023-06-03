@@ -6,6 +6,8 @@ const AddItem = () => {
       <input
         className='item-input'
         type='text'
+        autoComplete='off'
+        autoFocus
         maxLength={200}
         placeholder='Type a Task...'
       />
