@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface IProps {
   item: string;
@@ -6,6 +6,8 @@ interface IProps {
 }
 
 const AddItem: React.FC<IProps> = ({ item, setItem }) => {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <div>
       <div className='add-item'>
@@ -31,6 +33,7 @@ const AddItem: React.FC<IProps> = ({ item, setItem }) => {
           / 200
         </small>
       </div>
+      {isFocused && <div className='item-options'>add</div>}
     </div>
   );
 };
