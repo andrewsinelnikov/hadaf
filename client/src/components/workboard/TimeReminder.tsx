@@ -6,9 +6,10 @@ import { endOfDay, endOfSeason, endOfWeek } from "../../utils/FindEnd";
 
 interface IProps {
   message?: string;
+  action?: string;
 }
 
-const TimeReminder = ({ message = "What are waiting for?" }: IProps) => {
+const TimeReminder = ({ message = "What are waiting for?", action }: IProps) => {
   const timeBtns = [
     { key: 1, label: "day" },
     { key: 2, label: "week" },
@@ -56,7 +57,7 @@ const TimeReminder = ({ message = "What are waiting for?" }: IProps) => {
               return null;
           }
         })()}
-        {timeBtns.map((btn) => (
+        {action === 'plans' && timeBtns.map((btn) => (
           <button
             key={btn.key}
             className={`btn btn-time ${isActive(btn.label)}`}
