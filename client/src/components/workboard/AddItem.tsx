@@ -30,7 +30,7 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType }) => {
             }`,
           }}
         />
-        {isFocused && (
+        {isFocused && item.length > 0 && (
           <small style={{ fontWeight: "bold" }}>
             <span
               style={{
