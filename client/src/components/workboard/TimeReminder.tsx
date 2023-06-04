@@ -19,7 +19,13 @@ const TimeReminder = ({
     { key: 3, label: "season" },
   ];
 
-  const [active, setActive] = useState("day");
+  const [active, setActive] = useState("");
+
+  action === "actions"
+    ? setActive("day")
+    : action === "plans"
+    ? setActive("week")
+    : setActive("season");
 
   const handleClick = (e: ButtonClick) => {
     e.preventDefault();
