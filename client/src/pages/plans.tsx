@@ -17,10 +17,18 @@ const Plans = () => {
   }, [auth.access_token, navigate]);
 
   const [item, setItem] = useState<string>("");
+
   return (
-    <div>
-      <h2>Plans</h2>
-    </div>
+    <UserLayout navbarType={1}>
+      <div className='profile'>
+        <UserInfo />
+        <div className='profile-content'>
+          {/* <UserPosts /> */}
+          <TimeReminder action='plans' />
+        </div>
+        <AddItem item={item} setItem={setItem} itemType='Plan Item' />
+      </div>
+    </UserLayout>
   );
 };
 
