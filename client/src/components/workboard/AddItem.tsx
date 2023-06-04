@@ -26,7 +26,7 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType }) => {
             borderBottom: `${
               isFocused
                 ? "1px solid var(--lightdark-color)"
-                : "1px solid rgba(231, 224, 185, 0.5)"
+                : "1px solid var(--lightdark-50-color)"
             }`,
           }}
         />
