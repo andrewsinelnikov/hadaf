@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { ButtonClick } from "../../utils/TypeScript";
 import Countdown from "../global/Countdown";
@@ -21,11 +21,13 @@ const TimeReminder = ({
 
   const [active, setActive] = useState("");
 
-  action === "actions"
-    ? setActive("day")
-    : action === "plans"
-    ? setActive("week")
-    : setActive("season");
+  useEffect(() => {
+    action === "actions"
+      ? setActive("day")
+      : action === "plans"
+      ? setActive("week")
+      : setActive("season");
+  }, [action, setActive]);
 
   const handleClick = (e: ButtonClick) => {
     e.preventDefault();

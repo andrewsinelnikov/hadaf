@@ -25,7 +25,7 @@ const Actions = () => {
         <UserInfo />
         <div className='profile-content'>
           {/* <UserPosts /> */}
-          <TimeReminder action='actions' />
+          <TimeReminder action='plans' />
         </div>
         <AddItem item={item} setItem={setItem} itemType='Task' />
       </div>
