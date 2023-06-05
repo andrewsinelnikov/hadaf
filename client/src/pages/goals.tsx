@@ -13,12 +13,12 @@ const Goals = () => {
   const { auth } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
 
+  const [goal, setGoal] = useState<string>("");
+  const [goals, setGoals] = useState<Array<IItem>>([]);
+
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
-
-  const [goal, setGoal] = useState<string>("");
-  const [goals, setGoals] = useState<Array<IItem>>([]);
 
   const addGoal = (e: React.FormEvent) => {
     e.preventDefault();
