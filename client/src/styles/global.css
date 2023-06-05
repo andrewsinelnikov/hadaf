@@ -88,6 +88,10 @@ a:hover {
   margin-right: 2rem;
 }
 
+.btt-auto {
+  width: auto;
+}
+
 .btn-dark {
   background: transparent;
   border: 2px solid var(--darklight-color);
