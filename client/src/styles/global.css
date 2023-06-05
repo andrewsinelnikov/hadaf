@@ -88,8 +88,13 @@ a:hover {
   margin-right: 2rem;
 }
 
-.btt-auto {
+.btn-auto {
   width: auto;
+  display: inline-block;
+  margin-top: 8px;
+  padding: 0 0.75rem;
+  font-weight: 500;
+  color: var(--primary-color);
 }
 
 .btn-dark {
