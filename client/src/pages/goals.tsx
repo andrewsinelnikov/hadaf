@@ -7,6 +7,7 @@ import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
 import AddItem from "../components/workboard/AddItem";
+import { IItem } from "../utils/TypeScript";
 
 const Goals = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -16,7 +17,8 @@ const Goals = () => {
     if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
 
-  const [item, setItem] = useState<string>("");
+  const [goal, setGoal] = useState<string>("");
+  const [goals, setGoals] = useState<Array<IItem>>([]);
 
   return (
     <UserLayout navbarType={1}>
@@ -25,7 +27,7 @@ const Goals = () => {
         <div className='profile-content'>
           <TimeReminder action='goals' />
         </div>
-        <AddItem item={item} setItem={setItem} itemType='Goal' />
+        <AddItem item={goal} setItem={setGoal} itemType='Goal' />
       </div>
     </UserLayout>
   );
