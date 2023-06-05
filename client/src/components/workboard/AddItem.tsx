@@ -4,9 +4,10 @@ interface IProps {
   item: string;
   setItem: React.Dispatch<React.SetStateAction<string>>;
   itemType: string;
+  handleAdd: (e: React.FormEvent) => void;
 }
 
-const AddItem: React.FC<IProps> = ({ item, setItem, itemType }) => {
+const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -47,7 +48,9 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType }) => {
       {isFocused && (
         <div className='item-options'>
           {item.length > 0 && (
-            <button className='btn btn-auto btn-success'>Add</button>
+            <button className='btn btn-auto btn-success' onClick={handleAdd}>
+              Add
+            </button>
           )}
         </div>
       )}

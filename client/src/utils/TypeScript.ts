@@ -59,7 +59,7 @@ export interface ICategory {
 }
 
 export interface IItem {
-  _id: string;
+  _id: number;
   item: string;
   isDone: boolean;
 }

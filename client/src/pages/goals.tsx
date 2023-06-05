@@ -20,6 +20,15 @@ const Goals = () => {
   const [goal, setGoal] = useState<string>("");
   const [goals, setGoals] = useState<Array<IItem>>([]);
 
+  const addGoal = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (goal) {
+      setGoals([...goals, { _id: Date.now(), item: goal, isDone: false }]);
+      setGoal("");
+    }
+  };
+
   return (
     <UserLayout navbarType={1}>
       <div className='profile'>
@@ -27,7 +36,12 @@ const Goals = () => {
         <div className='profile-content'>
           <TimeReminder action='goals' />
         </div>
-        <AddItem item={goal} setItem={setGoal} itemType='Goal' />
+        <AddItem
+          item={goal}
+          setItem={setGoal}
+          itemType='Goal'
+          handleAdd={addGoal}
+        />
       </div>
     </UserLayout>
   );
