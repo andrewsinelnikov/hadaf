@@ -25,7 +25,6 @@ const Goals = () => {
 
     if (goal) {
       setGoals([...goals, { _id: Date.now(), item: goal, isDone: false }]);
-      setGoal("");
     }
   };
 

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 interface IProps {
   item: string;
@@ -9,11 +9,10 @@ interface IProps {
 
 const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
   const [isFocused, setIsFocused] = useState(false);
-  // const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!item) setItem("");
-  }, [item, setItem]);
+    if (item) setIsFocused(true);
+  }, [item, setIsFocused]);
 
   return (
     <div className='add'>
@@ -22,7 +21,6 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
           className='item-input'
           type='text'
           value={item}
-          // ref={inputRef}
           onChange={(e) => setItem(e.target.value)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
@@ -58,7 +56,7 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
               className='btn btn-auto btn-success'
               onClick={(e) => {
                 handleAdd(e);
-                // inputRef.current?.blur();
+                setItem("");
               }}>
               Add
             </button>
