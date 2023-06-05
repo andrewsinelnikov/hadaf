@@ -57,3 +57,9 @@ export interface ICategory {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface IItem {
+  _id: string;
+  item: string;
+  isDone: boolean;
+}
