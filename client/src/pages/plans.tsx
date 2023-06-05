@@ -26,7 +26,7 @@ const Plans = () => {
           {/* <UserPosts /> */}
           <TimeReminder action='plans' />
         </div>
-        <AddItem item={item} setItem={setItem} itemType='Plan Item' />
+        {/* <AddItem item={item} setItem={setItem} itemType='Plan Item' /> */}
       </div>
     </UserLayout>
   );
