@@ -19,9 +19,15 @@ const Goals = () => {
   const [item, setItem] = useState<string>("");
 
   return (
-    <div>
-      <h2>Goals</h2>
-    </div>
+    <UserLayout navbarType={1}>
+      <div className='profile'>
+        <UserInfo />
+        <div className='profile-content'>
+          <TimeReminder action='goals' />
+        </div>
+        <AddItem item={item} setItem={setItem} itemType='Goal' />
+      </div>
+    </UserLayout>
   );
 };
 
