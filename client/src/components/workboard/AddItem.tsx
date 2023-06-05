@@ -44,7 +44,13 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType }) => {
           </small>
         )}
       </div>
-      {isFocused && <div className='item-options'>add</div>}
+      {isFocused && (
+        <div className='item-options'>
+          {item.length > 0 && (
+            <button className='btn btn-auto btn-success'>Add</button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
