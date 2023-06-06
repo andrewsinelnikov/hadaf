@@ -41,7 +41,12 @@ const Actions = () => {
           {/* <UserPosts /> */}
           <TimeReminder action='actions' />
         </div>
-        {/* <AddItem item={item} setItem={setItem} itemType='Task' /> */}
+        <AddItem
+          item={action}
+          setItem={setAction}
+          itemType='Task'
+          handleAdd={addAction}
+        />
       </div>
     </UserLayout>
   );
