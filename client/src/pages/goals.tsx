@@ -36,7 +36,12 @@ const Goals = () => {
         <UserInfo />
         <div className='profile-content'>
           <TimeReminder action='goals' />
-          <ItemList items={goals} setItems={setGoals} />
+          {/* <ItemList items={goals} setItems={setGoals} /> */}
+          <ul style={{ color: "white" }}>
+            {goals.map((item) => {
+              <li>{item.item}</li>;
+            })}
+          </ul>
         </div>
         <AddItem
           item={goal}
