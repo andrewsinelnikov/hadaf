@@ -5,9 +5,10 @@ import { RootState } from "../redux/store";
 import { useAppSelector } from "../utils/hooks";
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
-import TimeReminder from "../components/workboard/TimeReminder";
-import AddItem from "../components/workboard/AddItem";
 import { IItem } from "../utils/TypeScript";
+import TimeReminder from "../components/workboard/TimeReminder";
+import ItemList from "../components/workboard/ItemList";
+import AddItem from "../components/workboard/AddItem";
 
 const Goals = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -35,6 +36,7 @@ const Goals = () => {
         <UserInfo />
         <div className='profile-content'>
           <TimeReminder action='goals' />
+          <ItemList items={goals} setItems={setGoals} />
         </div>
         <AddItem
           item={goal}
