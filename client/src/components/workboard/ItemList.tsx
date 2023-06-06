@@ -9,7 +9,10 @@ interface IProps {
 const ItemList: React.FC<IProps> = ({ items, setItems }) => {
   return (
     <div>
-      <h2>ItemList</h2>
+      <span>Today</span>
+      {items.map((item) => {
+        <div key={item._id}>{item.item}</div>;
+      })}
     </div>
   );
 };
