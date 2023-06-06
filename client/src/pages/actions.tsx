@@ -8,6 +8,7 @@ import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
 // import UserPosts from "../components/profile/UserPosts";
 import AddItem from "../components/workboard/AddItem";
+import { IItem } from "../utils/TypeScript";
 
 const Actions = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -17,7 +18,20 @@ const Actions = () => {
     if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
 
-  const [item, setItem] = useState<string>("");
+  const [action, setAction] = useState<string>("");
+  const [actions, setActions] = useState<Array<IItem>>([]);
+
+  const addAction = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (action) {
+      setActions([
+        ...actions,
+        { _id: Date.now(), item: action, isDone: false },
+      ]);
+      setAction("");
+    }
+  };
 
   return (
     <UserLayout navbarType={1}>
