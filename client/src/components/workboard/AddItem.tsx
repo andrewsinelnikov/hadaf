@@ -15,7 +15,11 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
   // }, [item, setItem, setIsFocused]);
 
   return (
-    <form className='add' onSubmit={(e) => handleAdd(e)}>
+    <form
+      className='add'
+      onSubmit={(e) => {
+        handleAdd(e);
+      }}>
       <div className='add-item'>
         <input
           className='item-input'
@@ -49,15 +53,15 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
           </small>
         )}
       </div>
-      {isFocused && (
-        <div className='item-options'>
+      {/* {isFocused && (
+        <div className='item-options'> */}
           {item.length > 0 && (
             <button type='submit' className='btn btn-auto btn-success'>
               Add
             </button>
           )}
-        </div>
-      )}
+        {/* </div>
+      )} */}
     </form>
   );
 };
