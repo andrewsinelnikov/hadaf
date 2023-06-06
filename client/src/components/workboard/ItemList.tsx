@@ -1,6 +1,12 @@
 import React from "react";
+import { IItem } from "../../utils/TypeScript";
 
-const ItemList = () => {
+interface IProps {
+  items: IItem[];
+  setItems: React.Dispatch<React.SetStateAction<IItem[]>>;
+}
+
+const ItemList: React.FC<IProps> = ({ items, setItems }) => {
   return (
     <div>
       <h2>ItemList</h2>
