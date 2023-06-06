@@ -10,7 +10,7 @@ interface IProps {
 const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  const formRef = useRef<HTMLFormElement>(null);
+  // const formRef = useRef<HTMLFormElement>(null);
 
   // useEffect(() => {
   //   if (item) setIsFocused(true);
@@ -19,7 +19,7 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
   return (
     <form
       className='add'
-      ref={formRef}
+      // ref={formRef}
       onSubmit={(e) => {
         handleAdd(e);
       }}>
@@ -56,15 +56,21 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
           </small>
         )}
       </div>
-      {isFocused && (
-        <div className='item-options'>
-          {item.length > 0 && (
-            <button type='submit' className='btn btn-auto btn-success'>
-              Add
-            </button>
-          )}
-        </div>
-      )}
+      {/* {isFocused && ( */}
+      <div className='item-options'>
+        {item.length > 0 && (
+          <button
+            type='submit'
+            className='btn btn-auto btn-success'
+            // onClick={() => {
+            //   formRef.current?.submit();
+            // }}
+          >
+            Add
+          </button>
+        )}
+      </div>
+      {/* )} */}
     </form>
   );
 };
