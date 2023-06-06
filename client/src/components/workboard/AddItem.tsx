@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 
 interface IProps {
   item: string;
@@ -10,16 +10,9 @@ interface IProps {
 const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  // const formRef = useRef<HTMLFormElement>(null);
-
-  // useEffect(() => {
-  //   if (item) setIsFocused(true);
-  // }, [item, setItem, setIsFocused]);
-
   return (
     <form
       className='add'
-      // ref={formRef}
       onSubmit={(e) => {
         handleAdd(e);
       }}>
@@ -56,21 +49,13 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
           </small>
         )}
       </div>
-      {/* {isFocused && ( */}
       <div className='item-options'>
         {item.length > 0 && (
-          <button
-            type='submit'
-            className='btn btn-auto btn-success'
-            // onClick={() => {
-            //   formRef.current?.submit();
-            // }}
-          >
+          <button type='submit' className='btn btn-auto btn-success'>
             Add
           </button>
         )}
       </div>
-      {/* )} */}
     </form>
   );
 };
