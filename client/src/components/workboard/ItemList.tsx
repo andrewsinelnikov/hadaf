@@ -10,9 +10,9 @@ const ItemList: React.FC<IProps> = ({ items, setItems }) => {
   return (
     <div>
       <span>Today</span>
-      {items.map((item) => {
-        <div key={item._id}>{item.item}</div>;
-      })}
+      {items.map((item) => (
+        <div key={item._id}>{item.item}</div>
+      ))}
     </div>
   );
 };

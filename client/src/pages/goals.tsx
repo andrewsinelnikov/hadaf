@@ -30,18 +30,15 @@ const Goals = () => {
     }
   };
 
+  console.log(goals);
+
   return (
     <UserLayout navbarType={1}>
       <div className='profile'>
         <UserInfo />
         <div className='profile-content'>
           <TimeReminder action='goals' />
-          {/* <ItemList items={goals} setItems={setGoals} /> */}
-          <ul style={{ color: "white" }}>
-            {goals.map((item) => {
-              <li>{item.item}</li>;
-            })}
-          </ul>
+          <ItemList items={goals} setItems={setGoals} />
         </div>
         <AddItem
           item={goal}
