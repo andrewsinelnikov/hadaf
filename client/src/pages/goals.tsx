@@ -25,10 +25,8 @@ const Goals = () => {
 
     if (goal) {
       setGoals([...goals, { _id: Date.now(), item: goal, isDone: false }]);
-      console.log(goal);
       setGoal("");
     }
-    console.log("2: ", goal);
   };
 
   return (
