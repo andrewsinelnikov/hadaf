@@ -5,6 +5,14 @@
   height: calc(100vh - 60px - 112px - 80px);
 }
 
+.items-message {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  padding-top: 80px;
+}
+
 .items-number {
   align-self: flex-end;
   font-size: 24px;

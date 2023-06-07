@@ -11,9 +11,9 @@ const ItemList: React.FC<IProps> = ({ items, setItems }) => {
     <>
       {items.length === 0 ? (
         <div className='items-zero'>
-          <div>
-            <p>Start the adventure</p>
-            <p>Write down the most important goals to accomplish this season</p>
+          <div className='items-message'>
+            {/* <p>Start the adventure</p> */}
+            Write down the most important goals to accomplish this season
           </div>
           <div className='items-number'>max number - 3</div>
         </div>
