@@ -31,3 +31,11 @@
   text-shadow: -1px -1px 0 var(--primary-color), 1px -1px 0 var(--primary-color),
     -1px 1px 0 var(--primary-color), 1px 1px 0 var(--primary-color);
 }
+
+/* @supports (-webkit-text-stroke: 1px var(--primary-color)) {
+  .reminder-message {
+    -webkit-text-stroke: 1px var(--primary-color);
+    -webkit-text-fill-color: var(--dark-color);
+    text-shadow: none;
+  }
+} */
