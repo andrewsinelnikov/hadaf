@@ -1,3 +1,10 @@
+.items-zero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 60px - 112px - 80px);
+}
+
 .add {
   position: fixed;
   height: 80px;

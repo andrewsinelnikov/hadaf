@@ -10,7 +10,7 @@ const ItemList: React.FC<IProps> = ({ items, setItems }) => {
   return (
     <>
       {items.length === 0 ? (
-        <div>
+        <div className='items-zero'>
           <div>
             <p>Start the adventure</p>
             <p>Write down the most important goals to accomplish this season</p>
