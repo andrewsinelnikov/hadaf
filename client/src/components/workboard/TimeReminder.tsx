@@ -11,7 +11,7 @@ interface IProps {
 
 const TimeReminder = ({
   action,
-  message = "What are waiting for? Meet the challenge",
+  message = "What are you waiting for? Meet the challenge",
 }: IProps) => {
   const timeBtns = [
     { key: 1, label: "day" },

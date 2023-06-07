@@ -40,13 +40,15 @@ const Goals = () => {
           <TimeReminder action='goals' />
           <ItemList items={goals} setItems={setGoals} />
         </div>
-        <AddItem
-          item={goal}
-          setItem={setGoal}
-          itemType='Goal'
-          items={goals}
-          handleAdd={addGoal}
-        />
+        {goals.length < 3 && (
+          <AddItem
+            item={goal}
+            setItem={setGoal}
+            itemType='Goal'
+            items={goals}
+            handleAdd={addGoal}
+          />
+        )}
       </div>
     </UserLayout>
   );
