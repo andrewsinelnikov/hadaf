@@ -16,6 +16,7 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
       onSubmit={(e) => {
         handleAdd(e);
       }}>
+      <div className='items-number'>max number - 3</div>
       <div className='add-item'>
         <input
           className='item-input'

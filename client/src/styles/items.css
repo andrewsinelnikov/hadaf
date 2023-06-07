@@ -14,15 +14,16 @@
 }
 
 .items-number {
-  align-self: flex-end;
   font-size: 24px;
+  text-align: right;
   font-weight: 500;
   text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .add {
   position: fixed;
-  height: 80px;
+  height: 112px;
   bottom: 10px;
   max-width: 810px;
   width: 100%;
