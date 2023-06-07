@@ -10,10 +10,13 @@ const ItemList: React.FC<IProps> = ({ items, setItems }) => {
   return (
     <>
       {items.length === 0 ? (
-        <>
-          Start the adventure write down the most important goals to accomplish
-          this season.
-        </>
+        <div>
+          <div>
+            <p>Start the adventure</p>
+            <p>Write down the most important goals to accomplish this season</p>
+          </div>
+          <div>max number - 3</div>
+        </div>
       ) : (
         <div>
           <span>Today</span>
