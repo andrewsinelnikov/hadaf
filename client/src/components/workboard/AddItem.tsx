@@ -1,13 +1,21 @@
 import React, { useState } from "react";
+import { IItem } from "../../utils/TypeScript";
 
 interface IProps {
   item: string;
   setItem: React.Dispatch<React.SetStateAction<string>>;
   itemType: string;
+  items: IItem[];
   handleAdd: (e: React.FormEvent) => void;
 }
 
-const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
+const AddItem: React.FC<IProps> = ({
+  item,
+  setItem,
+  itemType,
+  items,
+  handleAdd,
+}) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -16,7 +24,13 @@ const AddItem: React.FC<IProps> = ({ item, setItem, itemType, handleAdd }) => {
       onSubmit={(e) => {
         handleAdd(e);
       }}>
-      <div className='items-number'>max number - 3</div>
+      {itemType === "Goal" && items.length === 0 ? (
+        <div className='items-number'>max number - 3</div>
+      ) : 3 - items.length > 0 ? (
+        <div className='items-number'>possible to add - {3 - items.length}</div>
+      ) : (
+        ""
+      )}
       <div className='add-item'>
         <input
           className='item-input'

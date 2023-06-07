@@ -1,8 +1,8 @@
 .items-zero {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: calc(100vh - 60px - 112px - 80px);
+  justify-content: center;
+  height: calc(100vh - 60px - 112px - 112px);
 }
 
 .items-message {
@@ -10,7 +10,6 @@
   font-weight: bold;
   line-height: 1.2;
   text-align: center;
-  padding-top: 80px;
 }
 
 .items-number {

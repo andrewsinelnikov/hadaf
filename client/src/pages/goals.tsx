@@ -44,6 +44,7 @@ const Goals = () => {
           item={goal}
           setItem={setGoal}
           itemType='Goal'
+          items={goals}
           handleAdd={addGoal}
         />
       </div>
