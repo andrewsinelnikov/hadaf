@@ -45,6 +45,7 @@ const Actions = () => {
           item={action}
           setItem={setAction}
           itemType='Task'
+          items={actions}
           handleAdd={addAction}
         />
       </div>

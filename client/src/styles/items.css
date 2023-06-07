@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: calc(100vh - 60px - 112px - 112px);
+  height: calc(100vh - 60px - 112px - 124px);
 }
 
 .items-message {
@@ -22,7 +22,7 @@
 
 .add {
   position: fixed;
-  height: 112px;
+  height: 124px;
   bottom: 10px;
   max-width: 810px;
   width: 100%;

@@ -41,6 +41,7 @@ const Plans = () => {
           item={planItem}
           setItem={setPlanItem}
           itemType='Plan Item'
+          items={plan}
           handleAdd={addPlanItem}
         />
       </div>
