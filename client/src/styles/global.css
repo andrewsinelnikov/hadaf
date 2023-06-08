@@ -97,6 +97,11 @@ a:hover {
   color: var(--primary-color);
 }
 
+.btn-action {
+  color: var(--darklight-color);
+  margin-right: 8px;
+}
+
 .btn-dark {
   background: transparent;
   border: 2px solid var(--darklight-color);

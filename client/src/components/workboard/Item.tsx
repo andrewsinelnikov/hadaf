@@ -13,9 +13,15 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
     <form>
       <span>{item.item}</span>
       <div className='item-options'>
-        <span className='btn btn-auto btn-dark'>Edit</span>
-        <span className='btn btn-auto btn-dark'>Delete</span>
-        <Link to='/goals' className='btn btn-auto btn-success'></Link>
+        <button type='button' className='btn btn-auto btn-action btn-dark'>
+          Edit
+        </button>
+        <button type='button' className='btn btn-auto btn-action btn-dark'>
+          Delete
+        </button>
+        <Link to='/goals' className='btn btn-auto btn-success'>
+          Map out
+        </Link>
       </div>
     </form>
   );
