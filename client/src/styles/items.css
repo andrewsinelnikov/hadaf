@@ -24,7 +24,8 @@
   position: fixed;
   height: 124px;
   bottom: 10px;
-  max-width: 786px;
+  max-width: 810px;
+  /* max-width: 786px; */
   width: 100%;
   margin-left: 330px;
 }
@@ -72,4 +73,12 @@
   max-width: 810px;
   width: 100%;
   margin-bottom: 8px;
+}
+
+.item-goal .item-options {
+  visibility: hidden;
+}
+
+.item-goal:hover .item-options {
+  visibility: visible;
 }
