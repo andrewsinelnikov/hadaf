@@ -9,9 +9,9 @@ interface IProps {
 
 const Item: React.FC<IProps> = ({ item, items, setItems }) => {
   return (
-    <div>
-      <h2>Item</h2>
-    </div>
+    <form>
+      <span>{item.item}</span>
+    </form>
   );
 };
 
