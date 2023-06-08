@@ -1,6 +1,8 @@
 import React from "react";
 
-const Item = () => {
+
+
+const Item = ({ item, items, setItems }) => {
   return (
     <div>
       <h2>Item</h2>

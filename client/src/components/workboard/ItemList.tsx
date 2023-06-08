@@ -1,5 +1,6 @@
 import React from "react";
 import { IItem } from "../../utils/TypeScript";
+import Item from "./Item";
 
 interface IProps {
   items: IItem[];
@@ -21,7 +22,12 @@ const ItemList: React.FC<IProps> = ({ items, setItems }) => {
         <div>
           <span>Today</span>
           {items.map((item) => (
-            <div key={item._id}>{item.item}</div>
+            <Item
+              item={item}
+              key={item._id}
+              items={items}
+              setItems={setItems}
+            />
           ))}
         </div>
       )}
