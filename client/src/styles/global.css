@@ -99,6 +99,7 @@ a:hover {
 
 .btn-action {
   color: var(--darklight-color);
+  margin-top: 4px;
   margin-right: 8px;
 }
 

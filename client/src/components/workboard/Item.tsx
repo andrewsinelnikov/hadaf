@@ -10,7 +10,7 @@ interface IProps {
 
 const Item: React.FC<IProps> = ({ item, items, setItems }) => {
   return (
-    <form>
+    <form className='item-goal'>
       <span>{item.item}</span>
       <div className='item-options'>
         <button type='button' className='btn btn-auto btn-action btn-dark'>

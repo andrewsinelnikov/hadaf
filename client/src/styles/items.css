@@ -67,3 +67,9 @@
   display: flex;
   justify-content: end;
 }
+
+.item-goal {
+  max-width: 810px;
+  width: 100%;
+  margin-bottom: 8px;
+}
