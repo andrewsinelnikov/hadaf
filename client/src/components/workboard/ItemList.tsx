@@ -20,7 +20,7 @@ const ItemList: React.FC<IProps> = ({ items, setItems }) => {
         </div>
       ) : (
         <div className='items'>
-          <span>Today</span>
+          <p>Goals for the </p>
           {items.map((item) => (
             <Item
               item={item}

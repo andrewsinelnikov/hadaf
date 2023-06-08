@@ -14,6 +14,31 @@ const Goals = () => {
   const { auth } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
 
+  let date = new Date();
+  let season;
+  switch (date.getMonth()) {
+    case 0:
+    case 1:
+    case 12:
+      season = "winter";
+      break;
+    case 2:
+    case 3:
+    case 4:
+      season = "spring";
+      break;
+    case 5:
+    case 6:
+    case 7:
+      season = "summer";
+      break;
+    case 8:
+    case 9:
+    case 10:
+      season = "autumn";
+      break;
+  }
+
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
@@ -38,7 +63,7 @@ const Goals = () => {
         <UserInfo />
         <div className='profile-content'>
           <TimeReminder action='goals' />
-          <ItemList items={goals} setItems={setGoals} />
+          <ItemList items={goals} setItems={setGoals} season={season}/>
         </div>
         {goals.length < 3 && (
           <AddItem
