@@ -11,7 +11,7 @@ const ItemList: React.FC<IProps> = ({ items, setItems }) => {
   return (
     <>
       {items.length === 0 ? (
-        <div className='items'>
+        <div className='items-zero'>
           <div className='items-message'>
             {/* <p>Start the adventure</p> */}
             Write down the most important goals to accomplish this season

@@ -1,6 +1,11 @@
 .items {
   display: flex;
   flex-direction: column;
+}
+
+.items-zero {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   height: calc(100vh - 60px - 112px - 124px);
 }
