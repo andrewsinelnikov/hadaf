@@ -15,7 +15,7 @@ const Goals = () => {
   const navigate = useNavigate();
 
   let date = new Date();
-  let season;
+  let season = "";
   switch (date.getMonth()) {
     case 0:
     case 1:
@@ -63,7 +63,7 @@ const Goals = () => {
         <UserInfo />
         <div className='profile-content'>
           <TimeReminder action='goals' />
-          <ItemList items={goals} setItems={setGoals} season={season}/>
+          <ItemList items={goals} setItems={setGoals} season={season} />
         </div>
         {goals.length < 3 && (
           <AddItem

@@ -5,9 +5,10 @@ import Item from "./Item";
 interface IProps {
   items: IItem[];
   setItems: React.Dispatch<React.SetStateAction<IItem[]>>;
+  season: string;
 }
 
-const ItemList: React.FC<IProps> = ({ items, setItems }) => {
+const ItemList: React.FC<IProps> = ({ items, setItems, season }) => {
   return (
     <>
       {items.length === 0 ? (
@@ -20,7 +21,7 @@ const ItemList: React.FC<IProps> = ({ items, setItems }) => {
         </div>
       ) : (
         <div className='items'>
-          <p>Goals for the </p>
+          <p>Goals for the {season}</p>
           {items.map((item) => (
             <Item
               item={item}
