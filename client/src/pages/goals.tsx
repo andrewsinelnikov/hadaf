@@ -61,9 +61,11 @@ const Goals = () => {
       <div className='profile'>
         <UserInfo />
         <div className='profile-content'>
-          <TimeReminder action='goals' />
-          <ItemList items={goals} setItems={setGoals} season={season} />
-          {goals.length > 3 && <Footer />}
+          <div className='content'>
+            <TimeReminder action='goals' />
+            <ItemList items={goals} setItems={setGoals} season={season} />
+          </div>
+          {goals.length >= 3 && <Footer />}
         </div>
         {goals.length < 3 && (
           <AddItem
