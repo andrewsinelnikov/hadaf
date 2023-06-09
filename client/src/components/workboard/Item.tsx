@@ -20,7 +20,7 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
           Delete
         </button>
         <Link to='/goals' className='btn btn-auto btn-success'>
-          Map out
+          Reach it
         </Link>
       </div>
     </form>
