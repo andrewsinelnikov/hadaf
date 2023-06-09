@@ -26,6 +26,8 @@
 }
 
 .items p {
+  font-size: 40px;
+  line-height: 1;
   margin-bottom: 16px;
 }
 
@@ -101,10 +103,10 @@
   font-weight: 500;
 }
 
-.item-goal .item-options {
+.item-goal .item-options .btn {
   opacity: 0.7;
 }
 
-.item-goal:hover .item-options {
+.item-goal .item-options .btn:hover {
   opacity: 1;
 }
