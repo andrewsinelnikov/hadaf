@@ -9,6 +9,7 @@ import { IItem } from "../utils/TypeScript";
 import TimeReminder from "../components/workboard/TimeReminder";
 import ItemList from "../components/workboard/ItemList";
 import AddItem from "../components/workboard/AddItem";
+import Footer from "../components/global/Footer";
 
 const Goals = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -55,8 +56,6 @@ const Goals = () => {
     }
   };
 
-  console.log(goals);
-
   return (
     <UserLayout navbarType={1}>
       <div className='profile'>
@@ -64,6 +63,7 @@ const Goals = () => {
         <div className='profile-content'>
           <TimeReminder action='goals' />
           <ItemList items={goals} setItems={setGoals} season={season} />
+          {goals.length > 3 && <Footer />}
         </div>
         {goals.length < 3 && (
           <AddItem
