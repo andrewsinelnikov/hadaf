@@ -62,10 +62,10 @@
   color: var(--lightdark-color);
   padding: 16px 14px;
   padding-right: 64px;
+  margin-bottom: 4px;
   border: none;
   outline: none;
   user-select: text;
-  /* border-bottom: 1px solid var(--lightdark-color); */
   transition: border 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
 }
 
