@@ -28,7 +28,7 @@
 .items p {
   font-size: 40px;
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .items-number {
@@ -91,7 +91,7 @@
 .item-goal {
   max-width: 810px;
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .item-goal .item-options {
