@@ -65,7 +65,7 @@ const Goals = () => {
             <TimeReminder action='goals' />
             <ItemList items={goals} setItems={setGoals} season={season} />
           </div>
-          {goals.length >= 3 && <Footer />}
+          <Footer />
         </div>
         {goals.length < 3 && (
           <AddItem
