@@ -6,10 +6,8 @@ interface IProps {
 
 const Progress: React.FC<IProps> = ({ completed }) => {
   return (
-    <div>
-      <div>
-        <span>completed</span>
-      </div>
+    <div className='progress'>
+      <div></div>
     </div>
   );
 };

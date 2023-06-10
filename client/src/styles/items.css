@@ -117,3 +117,12 @@
 .item-goal .item-options .btn:hover {
   opacity: 1;
 }
+
+.progress {
+  height: 8px;
+  width: 100%;
+  background-color: var(--lightdark-30-color);
+  border-radius: 50px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
