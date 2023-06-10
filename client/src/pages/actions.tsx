@@ -9,6 +9,7 @@ import TimeReminder from "../components/workboard/TimeReminder";
 // import UserPosts from "../components/profile/UserPosts";
 import AddItem from "../components/workboard/AddItem";
 import { IItem } from "../utils/TypeScript";
+import Footer from "../components/global/Footer";
 
 const Actions = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -38,8 +39,10 @@ const Actions = () => {
       <div className='profile'>
         <UserInfo />
         <div className='profile-content'>
-          {/* <UserPosts /> */}
-          <TimeReminder action='actions' />
+          <div className='content'>
+            <TimeReminder action='actions' />
+          </div>
+          <Footer />
         </div>
         <AddItem
           item={action}
