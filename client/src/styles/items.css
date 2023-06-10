@@ -104,7 +104,7 @@
 }
 
 .item {
-  position: inherit;
+  position: relative;
 }
 
 .item-value {
@@ -112,6 +112,16 @@
   font-weight: 500;
   /* list-style-type: circle; */
   padding-right: 64px;
+}
+
+.item-completeness {
+  position: absolute;
+  color: var(--primary-color);
+  right: 16px;
+  top: 50%;
+  transform: translateY(-60%);
+  /* opacity: 0.5; */
+  transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
 }
 
 .item-goal .item-options .btn {
