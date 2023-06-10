@@ -95,8 +95,7 @@
   /* background-color: var(--darkmiddle-color); */
   border-radius: var(--border-radius);
   border: 1px solid var(--lightdark-30-color);
-  padding: 8px 0;
-  padding-left: 16px;
+  padding: 8px 16px;
   margin-bottom: 16px;
 }
 
@@ -125,4 +124,10 @@
   border-radius: 50px;
   margin-top: 4px;
   margin-bottom: 4px;
+}
+
+.progress-filler {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: inherit;
 }

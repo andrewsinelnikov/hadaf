@@ -7,7 +7,7 @@ interface IProps {
 const Progress: React.FC<IProps> = ({ completed }) => {
   return (
     <div className='progress'>
-      <div></div>
+      <div className='progress-filler' style={{ width: `${completed}%` }} />
     </div>
   );
 };
