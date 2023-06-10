@@ -110,6 +110,7 @@
 .item-value {
   font-size: 24px;
   font-weight: 500;
+  overflow-wrap: break-word;
   /* list-style-type: circle; */
   padding-right: 64px;
 }
