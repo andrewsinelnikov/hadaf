@@ -28,6 +28,7 @@ const ItemList: React.FC<IProps> = ({ items, setItems, season }) => {
               key={item._id}
               items={items}
               setItems={setItems}
+              completed={10}
             />
           ))}
         </div>
