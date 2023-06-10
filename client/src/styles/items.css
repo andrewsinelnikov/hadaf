@@ -103,26 +103,12 @@
   height: auto;
 }
 
-.item {
-  position: relative;
-}
-
 .item-value {
   font-size: 24px;
   font-weight: 500;
   overflow-wrap: break-word;
   /* list-style-type: circle; */
   /* padding-right: 64px; */
-}
-
-.item-completeness {
-  position: absolute;
-  color: var(--primary-color);
-  font-weight: bold;
-  right: 8px;
-  top: 70%;
-  transform: translateY(-60%);
-  transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
 }
 
 .item-goal .item-options .btn {
@@ -140,16 +126,25 @@
 
 .progress-bar {
   height: 8px;
-  width: calc(100% - 64px);
+  width: calc(100% - 54px);
   background-color: var(--lightdark-30-color);
   border-radius: 50px;
   margin-top: 4px;
   margin-bottom: 4px;
-  /* margin-right: 64px; */
 }
 
 .progress-filler {
   height: 100%;
   background-color: var(--primary-color);
   border-radius: inherit;
+}
+
+.item-completeness {
+  position: absolute;
+  color: var(--primary-color);
+  font-weight: bold;
+  right: 8px;
+  top: 70%;
+  transform: translateY(-60%);
+  transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
 }
