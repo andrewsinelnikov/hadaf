@@ -61,5 +61,6 @@ export interface ICategory {
 export interface IItem {
   _id: number;
   item: string;
+  completeness?: number;
   isDone: boolean;
 }

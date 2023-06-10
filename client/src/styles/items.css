@@ -117,10 +117,10 @@
 .item-completeness {
   position: absolute;
   color: var(--primary-color);
-  right: 16px;
-  top: 50%;
+  font-weight: bold;
+  right: 8px;
+  top: 70%;
   transform: translateY(-60%);
-  /* opacity: 0.5; */
   transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
 }
 

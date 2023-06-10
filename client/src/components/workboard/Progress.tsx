@@ -1,7 +1,7 @@
 import React from "react";
 
 interface IProps {
-  completed: number;
+  completed?: number;
 }
 
 const Progress: React.FC<IProps> = ({ completed }) => {

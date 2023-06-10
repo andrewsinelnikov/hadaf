@@ -51,7 +51,10 @@ const Goals = () => {
     e.preventDefault();
 
     if (goal) {
-      setGoals([...goals, { _id: Date.now(), item: goal, isDone: false }]);
+      setGoals([
+        ...goals,
+        { _id: Date.now(), item: goal, completeness: 5, isDone: false },
+      ]);
       setGoal("");
     }
   };

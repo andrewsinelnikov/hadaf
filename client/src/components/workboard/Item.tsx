@@ -7,17 +7,16 @@ interface IProps {
   item: IItem;
   items: IItem[];
   setItems: React.Dispatch<React.SetStateAction<IItem[]>>;
-  completed: number;
 }
 
-const Item: React.FC<IProps> = ({ item, items, setItems, completed }) => {
+const Item: React.FC<IProps> = ({ item, items, setItems }) => {
   return (
     <form className='item-goal'>
       <div className='item'>
         <div className='item-value'>{item.item}</div>
-        <small className='item-completeness'>{completed} %</small>
+        <span className='item-completeness'>{item.completeness} %</span>
       </div>
-      <Progress completed={10} />
+      <Progress completed={item.completeness} />
       <div className='item-options'>
         <button type='button' className='btn btn-auto btn-action btn-dark'>
           Edit
