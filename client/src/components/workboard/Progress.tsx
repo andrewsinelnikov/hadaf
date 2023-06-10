@@ -1,6 +1,10 @@
 import React from "react";
 
-const Progress = () => {
+interface IProps {
+  completed: number;
+}
+
+const Progress: React.FC<IProps> = ({ completed }) => {
   return (
     <div>
       <div>

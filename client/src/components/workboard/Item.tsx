@@ -13,7 +13,7 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
   return (
     <form className='item-goal'>
       <span className='item'>{item.item}</span>
-      <Progress />
+      <Progress completed={10} />
       <div className='item-options'>
         <button type='button' className='btn btn-auto btn-action btn-dark'>
           Edit
