@@ -191,7 +191,7 @@
 .info-tools a:hover,
 .info-tools a:active,
 .tool-active {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 
 .profile-edit {
