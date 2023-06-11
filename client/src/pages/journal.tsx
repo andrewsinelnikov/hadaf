@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { RootState } from "../redux/store";
 import { useAppSelector } from "../utils/hooks";
 import UserLayout from "../components/layouts/UserLayout";
+import UserInfo from "../components/profile/UserInfo";
+import TimeReminder from "../components/workboard/TimeReminder";
+import Footer from "../components/global/Footer";
 
 const Journal = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -14,9 +17,17 @@ const Journal = () => {
   }, [auth.access_token, navigate]);
 
   return (
-    <div>
-      <h2>Journal</h2>
-    </div>
+    <UserLayout navbarType={1}>
+      <div className='profile'>
+        <UserInfo />
+        <div className='profile-content'>
+          <div className='content'>
+            <TimeReminder action='actions' />
+          </div>
+          <Footer />
+        </div>
+      </div>
+    </UserLayout>
   );
 };
 
