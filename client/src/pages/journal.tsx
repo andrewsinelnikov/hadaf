@@ -22,7 +22,10 @@ const Journal = () => {
         <UserInfo />
         <div className='profile-content'>
           <div className='content'>
-            <TimeReminder action='actions' />
+            <TimeReminder
+              action='actions'
+              message='Keep your memories of the day'
+            />
           </div>
           <Footer />
         </div>
