@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 interface IProps {
   note: string;
@@ -7,17 +7,19 @@ interface IProps {
 
 const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
   const [isFocused, setIsFocused] = useState(false);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
   return (
     <form className='add-area'>
       <div className='add-item'>
         <textarea
           className='area-input'
-          value={note}
           onChange={(e) => setNote(e.target.value)}
           rows={1}
           autoComplete='off'
           maxLength={2000}
           placeholder='Type a Note...'
+          ref={textAreaRef}
+          value={note}
           style={{
             borderBottom: `${
               isFocused
