@@ -7,6 +7,7 @@ import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
 import Footer from "../components/global/Footer";
+import AreaInput from "../components/workboard/AreaInput";
 
 const Journal = () => {
   const { auth } = useAppSelector((state: RootState) => state);
