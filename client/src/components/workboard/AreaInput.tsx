@@ -12,6 +12,8 @@ const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
       <div className='add-item'>
         <textarea
           className='area-input'
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
           rows={1}
           autoComplete='off'
           maxLength={2000}
@@ -26,11 +28,11 @@ const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
         />
       </div>
       <div className='item-options'>
-        {/* {item.length > 0 && ( */}
-        <button type='submit' className='btn btn-auto btn-success'>
-          Add
-        </button>
-        {/* )} */}
+        {note.length > 0 && (
+          <button type='submit' className='btn btn-auto btn-success'>
+            Add
+          </button>
+        )}
       </div>
     </form>
   );
