@@ -25,7 +25,7 @@ const Journal = () => {
           <div className='content'>
             <TimeReminder
               action='actions'
-              message='Keep your memories of the day'
+              message='Keep the memories of the day in your own book'
             />
           </div>
           <Footer />
