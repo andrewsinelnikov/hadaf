@@ -15,11 +15,5 @@ export const useAutosizeTextarea = (
       const scrollHeight = textAreaRef.scrollHeight;
       textAreaRef.style.height = scrollHeight + "px";
     }
-    if (textAreaRef && textAreaRef.clientHeight > window.innerHeight * 0.5) {
-      textAreaRef.style.overflow = "hidden auto";
-    }
-    // if (textAreaRef!.clientHeight > window.innerHeight * 0.5) {
-    //   textAreaRef!.style.overflow = "hidden auto";
-    // }
   }, [textAreaRef, value]);
 };
