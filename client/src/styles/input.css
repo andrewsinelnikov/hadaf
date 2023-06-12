@@ -1,4 +1,5 @@
-.add {
+.add,
+.add-area {
   position: fixed;
   height: 124px;
   bottom: 10px;
@@ -7,6 +8,12 @@
   width: 100%;
   margin-left: 330px;
   background-color: var(--dark-color);
+}
+
+.add-area {
+  height: auto;
+  min-height: 40px;
+  max-height: 50vh;
 }
 
 .add-item {
@@ -32,8 +39,8 @@
 
 .area-input {
   height: auto;
-  min-height: 40px;
-  max-height: 50vh;
+  /* min-height: 40px;
+  max-height: 50vh; */
   overflow: hidden auto;
 }
 
