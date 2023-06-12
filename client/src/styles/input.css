@@ -14,7 +14,6 @@
   height: auto;
   min-height: 84px;
   max-height: 50vh;
-  resize: none;
 }
 
 .add-item {
@@ -38,8 +37,7 @@
   transition: border 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
 }
 
-.item-input,
-.area-input {
+.item-input {
   height: 40px;
 }
 
@@ -48,6 +46,7 @@
   min-height: 40px; */
   max-height: 50vh;
   overflow: hidden;
+  resize: none;
 }
 
 .add-item small {

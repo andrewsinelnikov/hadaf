@@ -17,6 +17,8 @@ const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
         <textarea
           className='area-input'
           onChange={(e) => setNote(e.target.value)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           rows={1}
           autoComplete='off'
           maxLength={2000}
