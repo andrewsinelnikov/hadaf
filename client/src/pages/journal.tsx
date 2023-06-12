@@ -29,6 +29,7 @@ const Journal = () => {
           </div>
           <Footer />
         </div>
+        <AreaInput />
       </div>
     </UserLayout>
   );
