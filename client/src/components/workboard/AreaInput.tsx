@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AreaInput = () => {
+  const [isFocused, setIsFocused] = useState(false);
   return (
-    <div>
-      <h2>AreaInput</h2>
-    </div>
+    <form className='add'>
+      <div className='add-item'>
+        <textarea className='item-input' placeholder='What' rows={1} />
+      </div>
+    </form>
   );
 };
 
