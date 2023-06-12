@@ -17,6 +17,8 @@ const Journal = () => {
     if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
 
+  const [note, setNote] = useState<string>("");
+
   return (
     <UserLayout navbarType={1}>
       <div className='profile'>
@@ -30,7 +32,7 @@ const Journal = () => {
           </div>
           <Footer />
         </div>
-        <AreaInput />
+        <AreaInput note={note} setNote={setNote} />
       </div>
     </UserLayout>
   );

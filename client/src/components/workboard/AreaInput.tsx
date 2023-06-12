@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-const AreaInput = () => {
+interface IProps {
+  note: string;
+  setNote: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
     <form className='add-area'>
