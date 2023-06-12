@@ -11,6 +11,13 @@ const AreaInput = () => {
           autoComplete='off'
           maxLength={2000}
           placeholder='Type a Note...'
+          style={{
+            borderBottom: `${
+              isFocused
+                ? "1px solid var(--lightdark-color)"
+                : "1px solid var(--lightdark-50-color)"
+            }`,
+          }}
         />
       </div>
     </form>
