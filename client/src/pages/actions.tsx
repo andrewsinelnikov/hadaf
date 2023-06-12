@@ -7,7 +7,7 @@ import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
 // import UserPosts from "../components/profile/UserPosts";
-import AddItem from "../components/workboard/AddItem";
+import ItemInput from "../components/workboard/ItemInput";
 import { IItem } from "../utils/TypeScript";
 import Footer from "../components/global/Footer";
 
@@ -44,7 +44,7 @@ const Actions = () => {
           </div>
           <Footer />
         </div>
-        <AddItem
+        <ItemInput
           item={action}
           setItem={setAction}
           itemType='Task'

@@ -9,7 +9,7 @@ interface IProps {
   handleAdd: (e: React.FormEvent) => void;
 }
 
-const AddItem: React.FC<IProps> = ({
+const ItemInput: React.FC<IProps> = ({
   item,
   setItem,
   itemType,
@@ -75,4 +75,4 @@ const AddItem: React.FC<IProps> = ({
   );
 };
 
-export default AddItem;
+export default ItemInput;

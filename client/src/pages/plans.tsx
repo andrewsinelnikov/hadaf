@@ -6,7 +6,7 @@ import { useAppSelector } from "../utils/hooks";
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
-import AddItem from "../components/workboard/AddItem";
+import ItemInput from "../components/workboard/ItemInput";
 import { IItem } from "../utils/TypeScript";
 import Footer from "../components/global/Footer";
 
@@ -40,7 +40,7 @@ const Plans = () => {
           </div>
           <Footer />
         </div>
-        <AddItem
+        <ItemInput
           item={planItem}
           setItem={setPlanItem}
           itemType='Plan Item'

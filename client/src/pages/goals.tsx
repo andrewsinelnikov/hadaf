@@ -8,7 +8,7 @@ import UserInfo from "../components/profile/UserInfo";
 import { IItem } from "../utils/TypeScript";
 import TimeReminder from "../components/workboard/TimeReminder";
 import ItemList from "../components/workboard/ItemList";
-import AddItem from "../components/workboard/AddItem";
+import ItemInput from "../components/workboard/ItemInput";
 import Footer from "../components/global/Footer";
 
 const Goals = () => {
@@ -71,7 +71,7 @@ const Goals = () => {
           <Footer />
         </div>
         {goals.length < 3 && (
-          <AddItem
+          <ItemInput
             item={goal}
             setItem={setGoal}
             itemType='Goal'
