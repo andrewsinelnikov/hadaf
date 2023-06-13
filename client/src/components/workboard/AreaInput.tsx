@@ -51,7 +51,7 @@ const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
             }`,
           }}
         />
-        {isFocused && note.length > 0 && (
+        {/* {isFocused && note.length > 0 && (
           <small style={{ fontWeight: "bold" }}>
             <span
               style={{
@@ -65,13 +65,28 @@ const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
             </span>{" "}
             / 2000
           </small>
-        )}
+        )} */}
       </div>
       <div className='item-options'>
         {note.length > 0 && (
-          <button type='submit' className='btn btn-auto btn-success'>
-            Add
-          </button>
+          <>
+            <button type='submit' className='btn btn-auto btn-success'>
+              Add
+            </button>
+            <small style={{ fontWeight: "bold" }}>
+              <span
+                style={{
+                  color: `${
+                    note.length > 2000
+                      ? "var(--error-color)"
+                      : "var(--done-color)"
+                  }`,
+                }}>
+                {note.length}
+              </span>{" "}
+              / 2000
+            </small>
+          </>
         )}
       </div>
     </form>
