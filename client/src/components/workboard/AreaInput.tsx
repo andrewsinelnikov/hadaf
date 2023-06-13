@@ -13,60 +13,43 @@ const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
   useAutosizeTextarea(textAreaRef.current, note);
   return (
     <form className='add-area'>
-      <div className='add-item'>
-        <textarea
-          className='area-input'
-          onChange={(e) => setNote(e.target.value)}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          rows={1}
-          autoComplete='off'
-          maxLength={2000}
-          placeholder='Type a Note...'
-          ref={textAreaRef}
-          value={note}
-          style={{
-            borderBottom: `${
-              isFocused
-                ? "1px solid var(--lightdark-color)"
-                : "1px solid var(--lightdark-50-color)"
-            }`,
-            borderTop: `${
-              textAreaRef.current &&
-              textAreaRef.current.clientHeight > window.innerHeight * 0.49
-                ? "1px solid var(--lightdark-10-color)"
-                : "none"
-            }`,
-            borderLeft: `${
-              textAreaRef.current &&
-              textAreaRef.current.clientHeight > window.innerHeight * 0.49
-                ? "1px solid var(--lightdark-10-color)"
-                : "none"
-            }`,
-            overflowY: `${
-              textAreaRef.current &&
-              textAreaRef.current.clientHeight > window.innerHeight * 0.49
-                ? "scroll"
-                : "hidden"
-            }`,
-          }}
-        />
-        {/* {isFocused && note.length > 0 && (
-          <small style={{ fontWeight: "bold" }}>
-            <span
-              style={{
-                color: `${
-                  note.length > 2000
-                    ? "var(--error-color)"
-                    : "var(--done-color)"
-                }`,
-              }}>
-              {note.length}
-            </span>{" "}
-            / 2000
-          </small>
-        )} */}
-      </div>
+      <textarea
+        className='area-input'
+        onChange={(e) => setNote(e.target.value)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        rows={1}
+        autoComplete='off'
+        maxLength={2000}
+        placeholder='Type a Note...'
+        ref={textAreaRef}
+        value={note}
+        style={{
+          borderBottom: `${
+            isFocused
+              ? "1px solid var(--lightdark-color)"
+              : "1px solid var(--lightdark-50-color)"
+          }`,
+          borderTop: `${
+            textAreaRef.current &&
+            textAreaRef.current.clientHeight > window.innerHeight * 0.49
+              ? "1px solid var(--lightdark-10-color)"
+              : "none"
+          }`,
+          borderLeft: `${
+            textAreaRef.current &&
+            textAreaRef.current.clientHeight > window.innerHeight * 0.49
+              ? "1px solid var(--lightdark-10-color)"
+              : "none"
+          }`,
+          overflowY: `${
+            textAreaRef.current &&
+            textAreaRef.current.clientHeight > window.innerHeight * 0.49
+              ? "scroll"
+              : "hidden"
+          }`,
+        }}
+      />
       <div className='item-options'>
         {note.length > 0 && (
           <>
