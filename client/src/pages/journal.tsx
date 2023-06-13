@@ -32,7 +32,7 @@ const Journal = () => {
               action='actions'
               message='Keep the memories in your own book and move on'
             />
-            <JournalList />
+            <JournalList notes={notes} setNotes={setNotes} />
           </div>
           <Footer />
         </div>

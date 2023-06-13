@@ -1,6 +1,12 @@
 import React from "react";
+import { IJournalNote } from "../../utils/TypeScript";
 
-const JournalList = () => {
+interface IProps {
+  notes: IJournalNote[];
+  setNotes: React.Dispatch<React.SetStateAction<IJournalNote[]>>;
+}
+
+const JournalList: React.FC<IProps> = ({ notes, setNotes }) => {
   return (
     <div>
       <h2>JournalList</h2>
