@@ -31,6 +31,12 @@ const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
                 ? "1px solid var(--lightdark-color)"
                 : "1px solid var(--lightdark-50-color)"
             }`,
+            overflowY: `${
+              textAreaRef.current &&
+              textAreaRef.current.clientHeight > window.innerHeight * 0.5
+                ? "scroll"
+                : "hidden"
+            }`,
           }}
         />
         {isFocused && note.length > 0 && (
