@@ -6,6 +6,7 @@ import { useAppSelector } from "../utils/hooks";
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
+import JournalList from "../components/workboard/JournalList";
 import Footer from "../components/global/Footer";
 import AreaInput from "../components/workboard/AreaInput";
 
@@ -29,6 +30,7 @@ const Journal = () => {
               action='actions'
               message='Keep the memories in your own book and move on'
             />
+            <JournalList />
           </div>
           <Footer />
         </div>
