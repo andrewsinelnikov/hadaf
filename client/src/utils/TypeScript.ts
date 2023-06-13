@@ -64,3 +64,8 @@ export interface IItem {
   completeness?: number;
   isDone: boolean;
 }
+
+export interface IJournalNote {
+  title?: string;
+  note: string;
+}

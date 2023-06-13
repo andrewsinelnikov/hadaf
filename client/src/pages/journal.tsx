@@ -9,6 +9,7 @@ import TimeReminder from "../components/workboard/TimeReminder";
 import JournalList from "../components/workboard/JournalList";
 import Footer from "../components/global/Footer";
 import AreaInput from "../components/workboard/AreaInput";
+import { IJournalNote } from "../utils/TypeScript";
 
 const Journal = () => {
   const { auth } = useAppSelector((state: RootState) => state);
@@ -19,6 +20,7 @@ const Journal = () => {
   }, [auth.access_token, navigate]);
 
   const [note, setNote] = useState<string>("");
+  const [notes, setNotes] = useState<Array<IJournalNote>>([]);
 
   return (
     <UserLayout navbarType={1}>
