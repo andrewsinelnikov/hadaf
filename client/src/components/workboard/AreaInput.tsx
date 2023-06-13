@@ -33,7 +33,7 @@ const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
             }`,
             overflowY: `${
               textAreaRef.current &&
-              textAreaRef.current.clientHeight > window.innerHeight * 0.5
+              textAreaRef.current.clientHeight > window.innerHeight * 0.49
                 ? "scroll"
                 : "hidden"
             }`,
