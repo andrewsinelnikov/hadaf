@@ -13,7 +13,7 @@
 .add-area {
   height: auto;
   min-height: 84px;
-  max-height: 50vh;
+  /* max-height: 50vh; */
 }
 
 .add-item {
@@ -42,12 +42,21 @@
 }
 
 .area-input {
-  /* height: auto;
-  min-height: 40px; */
+  height: auto;
+  /* min-height: 40px; */
   max-height: 50vh;
-  overflow: hidden;
+  overflow: hidden auto;
   resize: none;
 }
+
+/* .area-input:focus {
+  height: auto;
+  overflow-y: auto;
+}
+
+.area-input:not(:focus) {
+  overflow-y: auto;
+} */
 
 .add-item small {
   position: absolute;
