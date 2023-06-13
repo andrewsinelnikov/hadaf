@@ -34,7 +34,13 @@ const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
             borderTop: `${
               textAreaRef.current &&
               textAreaRef.current.clientHeight > window.innerHeight * 0.49
-                ? "1px solid var(--lightdark-30-color)"
+                ? "1px solid var(--lightdark-10-color)"
+                : "none"
+            }`,
+            borderLeft: `${
+              textAreaRef.current &&
+              textAreaRef.current.clientHeight > window.innerHeight * 0.49
+                ? "1px solid var(--lightdark-10-color)"
                 : "none"
             }`,
             overflowY: `${
