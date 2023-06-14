@@ -107,3 +107,9 @@
   overflow-wrap: break-word;
   margin-bottom: 24px;
 }
+
+.note-title {
+  font-weight: 500;
+  line-height: 1.1;
+  padding-left: 16px;
+}
