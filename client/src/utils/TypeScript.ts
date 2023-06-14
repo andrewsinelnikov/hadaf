@@ -67,5 +67,5 @@ export interface IItem {
 
 export interface IJournalNote {
   title?: string;
-  note: string;
+  text: string;
 }
