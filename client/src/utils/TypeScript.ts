@@ -66,6 +66,7 @@ export interface IItem {
 }
 
 export interface IJournalNote {
+  _id: number;
   title?: string;
   text: string;
 }

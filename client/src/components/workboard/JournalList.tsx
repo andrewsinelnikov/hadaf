@@ -1,5 +1,6 @@
 import React from "react";
 import { IJournalNote } from "../../utils/TypeScript";
+import Note from "./Note";
 
 interface IProps {
   notes: IJournalNote[];
@@ -17,15 +18,15 @@ const JournalList: React.FC<IProps> = ({ notes, setNotes }) => {
         </div>
       ) : (
         <div className='items'>
-          {/* <p>Goals for the {season}</p>
-          {items.map((item) => (
-            <Item
-              item={item}
-              key={item._id}
-              items={items}
-              setItems={setItems}
+          <p>Today</p>
+          {notes.map((note) => (
+            <Note
+              note={note}
+              key={note._id}
+              notes={notes}
+              setNotes={setNotes}
             />
-          ))} */}
+          ))}
         </div>
       )}
     </>
