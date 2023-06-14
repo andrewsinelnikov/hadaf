@@ -18,7 +18,13 @@ const JournalList: React.FC<IProps> = ({ notes, setNotes }) => {
         </div>
       ) : (
         <div className='items'>
-          <p>Today {new Date().toDateString()}</p>
+          <p>
+            {new Date().toLocaleDateString("en-US", {
+              weekday: "long",
+              day: "numeric",
+              month: "short",
+            })}
+          </p>
           {notes.map((note) => (
             <Note
               note={note}

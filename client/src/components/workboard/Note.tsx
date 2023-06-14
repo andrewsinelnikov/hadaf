@@ -9,7 +9,7 @@ interface IProps {
 
 const Note: React.FC<IProps> = ({ note, notes, setNotes }) => {
   return (
-    <div>
+    <div className='note'>
       {note.title && <div>{note.title}</div>}
       <div>{note.text}</div>
     </div>
