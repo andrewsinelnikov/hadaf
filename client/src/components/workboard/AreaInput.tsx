@@ -4,15 +4,20 @@ import { useAutosizeTextarea } from "../../utils/hooks";
 interface IProps {
   note: string;
   setNote: React.Dispatch<React.SetStateAction<string>>;
+  handleAdd: (e: React.FormEvent) => void;
 }
 
-const AreaInput: React.FC<IProps> = ({ note, setNote }) => {
+const AreaInput: React.FC<IProps> = ({ note, setNote, handleAdd }) => {
   const [isFocused, setIsFocused] = useState(false);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   useAutosizeTextarea(textAreaRef.current, note);
   return (
-    <form className='add-area'>
+    <form
+      className='add-area'
+      onSubmit={(e) => {
+        handleAdd(e);
+      }}>
       <textarea
         className='area-input'
         onChange={(e) => setNote(e.target.value)}

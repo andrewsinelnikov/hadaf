@@ -22,6 +22,15 @@ const Journal = () => {
   const [note, setNote] = useState<string>("");
   const [notes, setNotes] = useState<Array<IJournalNote>>([]);
 
+  const addNote = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (note) {
+      setNotes([...notes, { _id: Date.now(), title: "", text: note }]);
+      setNote("");
+    }
+  };
+
   return (
     <UserLayout navbarType={1}>
       <div className='profile'>
@@ -36,7 +45,7 @@ const Journal = () => {
           </div>
           <Footer />
         </div>
-        <AreaInput note={note} setNote={setNote} />
+        <AreaInput note={note} setNote={setNote} handleAdd={addNote} />
       </div>
     </UserLayout>
   );
