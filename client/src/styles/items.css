@@ -2,6 +2,7 @@
 .notes {
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
 }
 
 /* .items p {
@@ -115,10 +116,10 @@
   font-size: 16px;
   line-height: 1;
   overflow-wrap: break-word;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .note-title {
   font-weight: bold;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
 }
