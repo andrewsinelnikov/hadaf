@@ -18,7 +18,7 @@ const JournalList: React.FC<IProps> = ({ notes, setNotes }) => {
         </div>
       ) : (
         <div className='items'>
-          <p>Today</p>
+          <p>Today {new Date().toDateString()}</p>
           {notes.map((note) => (
             <Note
               note={note}
