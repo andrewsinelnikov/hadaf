@@ -17,8 +17,8 @@ const JournalList: React.FC<IProps> = ({ notes, setNotes }) => {
           </div>
         </div>
       ) : (
-        <div className='items'>
-          <p>
+        <div className='notes'>
+          <p className='notes-caption'>
             {new Date().toLocaleDateString("en-US", {
               weekday: "long",
               day: "numeric",

@@ -26,7 +26,7 @@ const Journal = () => {
     e.preventDefault();
 
     if (note) {
-      setNotes([...notes, { _id: Date.now(), title: "", text: note }]);
+      setNotes([...notes, { _id: Date.now(), title: "Day", text: note }]);
       setNote("");
     }
   };
