@@ -25,4 +25,4 @@ const goalSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model<IGoal>("Goal", goalSchema);
+export default mongoose.model<IGoal>("goal", goalSchema);
