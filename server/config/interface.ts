@@ -55,7 +55,7 @@ export interface IReqAuth extends Request {
 export interface IGoal extends Document {
   user: string;
   text: string;
-  completeness?: number;
+  completeness: number;
   isDone: boolean;
   _doc: object;
 }
