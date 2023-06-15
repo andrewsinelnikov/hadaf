@@ -3,7 +3,32 @@ import User from "../models/userModel";
 import { IReqAuth } from "../config/interface";
 import bcrypt from "bcrypt";
 
-const userCtrl = {
+const goalCtrl = {
+  createGoal: async (req: IReqAuth, res: Response) => {
+    if (!req.user)
+      return res.status(400).json({ msg: "Invalid Authentication" });
+
+    try {
+      const { title, author, source } = req.body;
+
+      // const newPublication = new Publication({
+      //   user: req.user._id,
+      //   type: "book",
+      //   title,
+      //   title: title.toLowerCase(),
+      //   author,
+      //   source,
+      // });
+      // await newPublication.save();
+
+      // res.json({
+      //   ...newPublication._doc,
+      //   user: req.user,
+      // });
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   updateUser: async (req: IReqAuth, res: Response) => {
     if (!req.user)
       return res.status(400).json({ msg: "Invalid Authentication" });
@@ -46,4 +71,4 @@ const userCtrl = {
   },
 };
 
-export default userCtrl;
+export default goalCtrl;
