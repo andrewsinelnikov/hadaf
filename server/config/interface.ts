@@ -51,3 +51,11 @@ export interface IFbData {
 export interface IReqAuth extends Request {
   user?: IUser;
 }
+
+export interface IGoal extends Document {
+  user: string;
+  title: string;
+  completeness?: number;
+  isDone: boolean;
+  _doc: object;
+}

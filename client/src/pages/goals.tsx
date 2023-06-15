@@ -53,7 +53,7 @@ const Goals = () => {
     if (goal) {
       setGoals([
         ...goals,
-        { _id: Date.now(), item: goal, completeness: 5, isDone: false },
+        { _id: Date.now(), text: goal, completeness: 5, isDone: false },
       ]);
       setGoal("");
     }

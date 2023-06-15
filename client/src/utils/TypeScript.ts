@@ -60,7 +60,7 @@ export interface ICategory {
 
 export interface IItem {
   _id: number;
-  item: string;
+  text: string;
   completeness?: number;
   isDone: boolean;
 }

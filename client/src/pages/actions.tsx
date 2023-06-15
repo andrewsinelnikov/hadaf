@@ -28,7 +28,7 @@ const Actions = () => {
     if (action) {
       setActions([
         ...actions,
-        { _id: Date.now(), item: action, isDone: false },
+        { _id: Date.now(), text: action, isDone: false },
       ]);
       setAction("");
     }

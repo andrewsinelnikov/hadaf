@@ -25,7 +25,7 @@ const Plans = () => {
     e.preventDefault();
 
     if (planItem) {
-      setPlan([...plan, { _id: Date.now(), item: planItem, isDone: false }]);
+      setPlan([...plan, { _id: Date.now(), text: planItem, isDone: false }]);
       setPlanItem("");
     }
   };
