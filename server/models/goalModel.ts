@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { IUser } from "../config/interface";
+import { IGoal } from "../config/interface";
 
-const userSchema = new mongoose.Schema(
+const goalSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -48,4 +48,4 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model<IUser>("User", userSchema);
+export default mongoose.model<IGoal>("Goal", goalSchema);
