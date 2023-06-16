@@ -9,21 +9,20 @@ import {
   UPDATE_CATEGORY,
 } from "../types/categoryType";
 import { postAPI, getAPI, patchAPI, deleteAPI } from "../../utils/FetchData";
-import { ICategory } from "../../utils/TypeScript";
+import { ICategory, IItem } from "../../utils/TypeScript";
 
 import { checkTokenExp } from "../../utils/checkTokenExp";
 
 export const createGoal =
-  (text: string, token: string) =>
-  async (dispatch: Dispatch<IAlertType | IGoalType>) => {
+  (goal: IItem, token: string) => async (dispatch: Dispatch<IAlertType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await postAPI("goal", { text }, access_token);
+      const res = await postAPI("goal", goal, access_token);
 
-      dispatch({ type: CREATE_GOAL, payload: res.data.newGoal });
+      // dispatch({ type: CREATE_GOAL, payload: res.data.newGoal });
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {

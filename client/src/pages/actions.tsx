@@ -25,13 +25,13 @@ const Actions = () => {
   const addAction = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (action) {
-      setActions([
-        ...actions,
-        { _id: Date.now(), text: action, isDone: false },
-      ]);
-      setAction("");
-    }
+    // if (action) {
+    //   setActions([
+    //     ...actions,
+    //     { _id: Date.now(), text: action, isDone: false },
+    //   ]);
+    //   setAction("");
+    // }
   };
 
   return (

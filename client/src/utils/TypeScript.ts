@@ -60,9 +60,11 @@ export interface ICategory {
 
 export interface IItem {
   _id?: number;
+  user: string | IUser;
   text: string;
-  completeness?: number;
-  isDone?: boolean;
+  completeness: number;
+  isDone: boolean;
+  createdAt: string;
 }
 
 export interface IJournalNote {

@@ -16,10 +16,18 @@ import { validateGoal } from "../utils/Validate";
 import { ALERT } from "../redux/types/alertType";
 
 const Goals = () => {
+  const inialState = {
+    user: "",
+    text: "",
+    completeness: 1,
+    isDone: false,
+    createdAt: new Date().toISOString(),
+  };
+
   const { auth, goals } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
   // const [text, setText] = useState<string>("");
-  const [goal, setGoal] = useState<IItem>({ text: "" });
+  const [goal, setGoal] = useState<IItem>(inialState);
   const [myGoals, setMyGoals] = useState<Array<IItem>>([]);
 
   const navigate = useNavigate();
@@ -64,11 +72,8 @@ const Goals = () => {
 
     // let newData = { ...goal, text: text };
 
-    // dispatch(createGoal(goal, auth.access_token));
-    setMyGoals([
-      ...myGoals,
-      { _id: Date.now(), text: goal.text, completeness: 5, isDone: false },
-    ]);
+    dispatch(createGoal(goal, auth.access_token));
+    setMyGoals([...myGoals, goal]);
     // setText("");
   };
 

@@ -14,10 +14,7 @@ const goalCtrl = {
       const newGoal = new Goal({ user: req.user._id, text });
       await newGoal.save();
 
-      res.json({
-        ...newGoal._doc,
-        user: req.user,
-      });
+      res.json({ newGoal });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }
