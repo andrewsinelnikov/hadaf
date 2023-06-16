@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { IItem } from "../../utils/TypeScript";
 
 interface IProps {
-  item: string;
-  setItem: React.Dispatch<React.SetStateAction<string>>;
+  item: IItem;
+  setItem: React.Dispatch<React.SetStateAction<IItem>>;
   itemType: string;
   items: IItem[];
   handleAdd: (e: React.FormEvent) => void;
@@ -35,8 +35,8 @@ const ItemInput: React.FC<IProps> = ({
         <input
           className='item-input'
           type='text'
-          value={item}
-          onChange={(e) => setItem(e.target.value)}
+          value={item.text}
+          onChange={(e) => setItem({ ...item, text: e.target.value })}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           autoComplete='off'
@@ -50,22 +50,24 @@ const ItemInput: React.FC<IProps> = ({
             }`,
           }}
         />
-        {isFocused && item.length > 0 && (
+        {isFocused && item.text.length > 0 && (
           <small style={{ fontWeight: "bold" }}>
             <span
               style={{
                 color: `${
-                  item.length > 200 ? "var(--error-color)" : "var(--done-color)"
+                  item.text.length > 200
+                    ? "var(--error-color)"
+                    : "var(--done-color)"
                 }`,
               }}>
-              {item.length}
+              {item.text.length}
             </span>{" "}
             / 200
           </small>
         )}
       </div>
       <div className='item-options'>
-        {item.length > 0 && (
+        {item.text.length > 0 && (
           <button type='submit' className='btn btn-auto btn-success'>
             Add
           </button>
