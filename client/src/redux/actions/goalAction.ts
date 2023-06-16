@@ -13,17 +13,17 @@ import { ICategory } from "../../utils/TypeScript";
 
 import { checkTokenExp } from "../../utils/checkTokenExp";
 
-export const createCategory =
-  (name: string, token: string) =>
-  async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
+export const createGoal =
+  (text: string, token: string) =>
+  async (dispatch: Dispatch<IAlertType | IGoalType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await postAPI("category", { name }, access_token);
+      const res = await postAPI("goal", { text }, access_token);
 
-      dispatch({ type: CREATE_CATEGORY, payload: res.data.newCategory });
+      dispatch({ type: CREATE_GOAL, payload: res.data.newGoal });
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
