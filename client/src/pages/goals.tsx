@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { RootState } from "../redux/store";
 import { useAppDispatch, useAppSelector } from "../utils/hooks";
+import { createGoal } from "../redux/actions/goalAction";
+
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import { IItem } from "../utils/TypeScript";
@@ -10,7 +12,6 @@ import TimeReminder from "../components/workboard/TimeReminder";
 import ItemList from "../components/workboard/ItemList";
 import ItemInput from "../components/workboard/ItemInput";
 import Footer from "../components/global/Footer";
-import { createGoal } from "../redux/actions/goalAction";
 
 const Goals = () => {
   const { auth, goals } = useAppSelector((state: RootState) => state);
@@ -56,7 +57,7 @@ const Goals = () => {
     dispatch(createGoal(text, auth.access_token));
     setMyGoals([
       ...myGoals,
-      { _id: Date.now(), text, completeness: 5, isDone: false },
+      { _id: Date.now(), text: text, completeness: 5, isDone: false },
     ]);
     setText("");
   };
@@ -68,7 +69,7 @@ const Goals = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='goals' />
-            {/* <ItemList items={goals} setItems={setGoals} season={season} /> */}
+            <ItemList items={myGoals} setItems={setMyGoals} season={season} />
           </div>
           <Footer />
         </div>
@@ -77,7 +78,7 @@ const Goals = () => {
             item={text}
             setItem={setText}
             itemType='Goal'
-            items={goals}
+            items={myGoals}
             handleAdd={addGoal}
           />
         )}

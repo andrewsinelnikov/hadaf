@@ -43,3 +43,18 @@ export const validatePhone = (phone: string) => {
   const re = /^[+]/g;
   return re.test(phone);
 };
+
+export const validateGoal = (text: string) => {
+  const errors: string[] = [];
+
+  if (!text) {
+    errors.push("Please type your goal");
+  } else if (text.length > 200) {
+    errors.push("Your goal is up to 200 chars long");
+  }
+
+  return {
+    errMsg: errors,
+    errLength: errors.length,
+  };
+};
