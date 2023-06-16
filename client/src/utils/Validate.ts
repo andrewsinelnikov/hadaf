@@ -1,4 +1,4 @@
-import { IUserRegister } from "./TypeScript";
+import { IItem, IUserRegister } from "./TypeScript";
 
 export const validateRegister = (userRegister: IUserRegister) => {
   const { name, account, password, cf_password } = userRegister;
@@ -44,7 +44,8 @@ export const validatePhone = (phone: string) => {
   return re.test(phone);
 };
 
-export const validateGoal = (text: string) => {
+export const validateGoal = (goal: IItem) => {
+  const { text } = goal;
   const errors: string[] = [];
 
   if (!text) {

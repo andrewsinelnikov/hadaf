@@ -57,11 +57,13 @@ const Goals = () => {
     e.preventDefault();
     if (!auth.access_token) return;
 
-    const check = validateGoal(text);
+    const check = validateGoal({ ...goal, text: text });
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
-    dispatch(createGoal(text, auth.access_token));
+    let newData = { ...goal, text: text };
+
+    dispatch(createGoal(newData, auth.access_token));
     setMyGoals([
       ...myGoals,
       { _id: Date.now(), text: text, completeness: 5, isDone: false },
