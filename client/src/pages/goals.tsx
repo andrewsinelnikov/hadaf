@@ -16,7 +16,7 @@ const Goals = () => {
   const { auth, goals } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
   const [text, setText] = useState<string>("");
-  // const [goals, setGoals] = useState<Array<IItem>>([]);
+  const [myGoals, setMyGoals] = useState<Array<IItem>>([]);
 
   const navigate = useNavigate();
 
@@ -53,11 +53,11 @@ const Goals = () => {
     e.preventDefault();
     if (!auth.access_token || !text) return;
 
-    // setGoals([
-    //   ...goals,
-    //   { _id: Date.now(), text: goal, completeness: 5, isDone: false },
-    // ]);
     dispatch(createGoal(text, auth.access_token));
+    setMyGoals([
+      ...myGoals,
+      { _id: Date.now(), text, completeness: 5, isDone: false },
+    ]);
     setText("");
   };
 
