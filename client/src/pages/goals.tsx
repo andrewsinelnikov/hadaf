@@ -12,11 +12,14 @@ import TimeReminder from "../components/workboard/TimeReminder";
 import ItemList from "../components/workboard/ItemList";
 import ItemInput from "../components/workboard/ItemInput";
 import Footer from "../components/global/Footer";
+import { validateGoal } from "../utils/Validate";
+import { ALERT } from "../redux/types/alertType";
 
 const Goals = () => {
   const { auth, goals } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
   const [text, setText] = useState<string>("");
+  const [goal, setGoal] = useState<IItem>({ text: "" });
   const [myGoals, setMyGoals] = useState<Array<IItem>>([]);
 
   const navigate = useNavigate();
@@ -52,7 +55,11 @@ const Goals = () => {
 
   const addGoal = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!auth.access_token || !text) return;
+    if (!auth.access_token) return;
+
+    const check = validateGoal(text);
+    if (check.errLength !== 0)
+      return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
     dispatch(createGoal(text, auth.access_token));
     setMyGoals([

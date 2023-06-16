@@ -59,10 +59,10 @@ export interface ICategory {
 }
 
 export interface IItem {
-  _id: number;
+  _id?: number;
   text: string;
   completeness?: number;
-  isDone: boolean;
+  isDone?: boolean;
 }
 
 export interface IJournalNote {
