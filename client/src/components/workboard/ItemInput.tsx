@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IItem } from "../../utils/TypeScript";
 
 interface IProps {
@@ -18,6 +18,10 @@ const ItemInput: React.FC<IProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState<string>(item.text);
+
+  useEffect(() => {
+    setItem({ ...item, text: text });
+  }, [text]);
 
   return (
     <form
@@ -41,7 +45,7 @@ const ItemInput: React.FC<IProps> = ({
           value={text}
           onChange={(e) => {
             setText(e.target.value);
-            setItem({ ...item, text: text });
+            // setItem({ ...item, text: text });
             // setItem({ ...item, text: e.target.value });
           }}
           onFocus={() => setIsFocused(true)}
@@ -57,24 +61,22 @@ const ItemInput: React.FC<IProps> = ({
             }`,
           }}
         />
-        {isFocused && item.text.length > 0 && (
+        {isFocused && text.length > 0 && (
           <small style={{ fontWeight: "bold" }}>
             <span
               style={{
                 color: `${
-                  item.text.length > 200
-                    ? "var(--error-color)"
-                    : "var(--done-color)"
+                  text.length > 200 ? "var(--error-color)" : "var(--done-color)"
                 }`,
               }}>
-              {item.text.length}
+              {text.length}
             </span>{" "}
             / 200
           </small>
         )}
       </div>
       <div className='item-options'>
-        {item.text.length > 0 && (
+        {text.length > 0 && (
           <button type='submit' className='btn btn-auto btn-success'>
             Add
           </button>

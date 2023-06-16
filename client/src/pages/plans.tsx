@@ -40,13 +40,13 @@ const Plans = () => {
           </div>
           <Footer />
         </div>
-        <ItemInput
+        {/* <ItemInput
           item={planItem}
           setItem={setPlanItem}
           itemType='Plan Item'
           items={plan}
           handleAdd={addPlanItem}
-        />
+        /> */}
       </div>
     </UserLayout>
   );

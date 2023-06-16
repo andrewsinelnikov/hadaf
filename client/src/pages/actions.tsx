@@ -44,13 +44,13 @@ const Actions = () => {
           </div>
           <Footer />
         </div>
-        <ItemInput
+        {/* <ItemInput
           item={action}
           setItem={setAction}
           itemType='Task'
           items={actions}
           handleAdd={addAction}
-        />
+        /> */}
       </div>
     </UserLayout>
   );
