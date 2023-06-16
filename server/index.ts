@@ -19,6 +19,7 @@ app.use(cookieParser());
 app.use("/api", routes.authRoute);
 app.use("/api", routes.userRoute);
 app.use("/api", routes.categoryRoute);
+app.use("/api", routes.goalRoute);
 
 // Connect Database
 import "./config/database";
