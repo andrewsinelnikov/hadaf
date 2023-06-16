@@ -18,7 +18,7 @@ import { ALERT } from "../redux/types/alertType";
 const Goals = () => {
   const { auth, goals } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
-  const [text, setText] = useState<string>("");
+  // const [text, setText] = useState<string>("");
   const [goal, setGoal] = useState<IItem>({ text: "" });
   const [myGoals, setMyGoals] = useState<Array<IItem>>([]);
 
@@ -57,18 +57,19 @@ const Goals = () => {
     e.preventDefault();
     if (!auth.access_token) return;
 
-    const check = validateGoal({ ...goal, text: text });
+    const check = validateGoal(goal);
+    // const check = validateGoal({ ...goal, text: text });
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
-    let newData = { ...goal, text: text };
+    // let newData = { ...goal, text: text };
 
-    dispatch(createGoal(newData, auth.access_token));
+    // dispatch(createGoal(goal, auth.access_token));
     setMyGoals([
       ...myGoals,
-      { _id: Date.now(), text: text, completeness: 5, isDone: false },
+      { _id: Date.now(), text: goal.text, completeness: 5, isDone: false },
     ]);
-    setText("");
+    // setText("");
   };
 
   return (

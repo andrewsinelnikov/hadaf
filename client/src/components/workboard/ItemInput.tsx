@@ -17,12 +17,14 @@ const ItemInput: React.FC<IProps> = ({
   handleAdd,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
+  const [text, setText] = useState<string>(item.text);
 
   return (
     <form
       className='add'
       onSubmit={(e) => {
         handleAdd(e);
+        setText("");
       }}>
       {itemType === "Goal" && items.length === 0 ? (
         <div className='items-number'>max number - 3</div>
@@ -35,8 +37,13 @@ const ItemInput: React.FC<IProps> = ({
         <input
           className='item-input'
           type='text'
-          value={item.text}
-          onChange={(e) => setItem({ ...item, text: e.target.value })}
+          name='text'
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value);
+            setItem({ ...item, text: text });
+            // setItem({ ...item, text: e.target.value });
+          }}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           autoComplete='off'
