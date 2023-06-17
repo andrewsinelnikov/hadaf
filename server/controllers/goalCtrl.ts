@@ -20,11 +20,11 @@ const goalCtrl = {
     }
   },
   getGoals: async (req: IReqAuth, res: Response) => {
-    if (!req.user)
-      return res.status(400).json({ msg: "Invalid Authentication" });
+    // if (!req.user)
+    //   return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const goals = await Goal.find();
+      const goals = await Goal.find().sort("-createdAt");
       res.json(goals);
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });

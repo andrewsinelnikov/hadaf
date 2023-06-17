@@ -12,7 +12,8 @@ router.route("/goal").post(auth, goalCtrl.createGoal);
 // @route  GET api/goal
 // @desc   Get goals
 // @access Private
-router.route("/goals").get(auth, goalCtrl.getGoals);
+router.route("/goals").get(goalCtrl.getGoals);
+// router.route("/goals").get(auth, goalCtrl.getGoals);
 
 // @route  PATCH, DELETE api/category/:id
 // @desc   Update, Delete category
