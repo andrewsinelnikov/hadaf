@@ -15,13 +15,12 @@ import { checkTokenExp } from "../../utils/checkTokenExp";
 
 export const createGoal =
   (goal: IItem, token: string) => async (dispatch: Dispatch<IAlertType>) => {
-    // const result = await checkTokenExp(token, dispatch);
-    // const access_token = result ? result : token;
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await postAPI("goal", goal, token);
-      // const res = await postAPI("goal", goal, access_token);
+      const res = await postAPI("goal", goal, access_token);
 
       // dispatch({ type: CREATE_GOAL, payload: res.data.newGoal });
 
@@ -40,6 +39,7 @@ export const getGoals =
 
       const res = await getAPI("goals");
       dispatch({ type: GET_GOALS, payload: res.data });
+      console.log(res);
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
