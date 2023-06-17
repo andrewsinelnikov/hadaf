@@ -24,12 +24,8 @@ const goalCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const { text } = req.body;
-
-      const newGoal = new Goal({ user: req.user._id, text });
-      await newGoal.save();
-
-      res.json({ newGoal });
+      const goals = await Goal.find();
+      res.json(goals);
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }
