@@ -31,15 +31,14 @@ export const createGoal =
   };
 
 export const getGoals =
-  () => async (dispatch: Dispatch<IAlertType | IGetGoals>) => {
-    // const result = await checkTokenExp(token, dispatch);
-    // const access_token = result ? result : token;
+  (token: string) => async (dispatch: Dispatch<IAlertType | IGetGoals>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await getAPI("goals");
+      const res = await getAPI("goals", access_token);
       dispatch({ type: GET_GOALS, payload: res.data });
-      console.log(res);
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
