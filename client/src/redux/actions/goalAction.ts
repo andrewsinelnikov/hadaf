@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import { ALERT, IAlertType } from "../types/alertType";
-import { CREATE_GOAL, IGoalType } from "../types/goalType";
+import { GET_GOALS, IGetGoals } from "../types/goalType";
 import {
   CREATE_CATEGORY,
   DELETE_CATEGORY,
@@ -31,17 +31,21 @@ export const createGoal =
     }
   };
 
-export const getGoals = () => async (dispatch: Dispatch<IAlertType>) => {
-  // const result = await checkTokenExp(token, dispatch);
-  // const access_token = result ? result : token;
-  try {
-    dispatch({ type: ALERT, payload: { loading: true } });
+export const getGoals =
+  () => async (dispatch: Dispatch<IAlertType | IGetGoals>) => {
+    // const result = await checkTokenExp(token, dispatch);
+    // const access_token = result ? result : token;
+    try {
+      dispatch({ type: ALERT, payload: { loading: true } });
 
-    dispatch({ type: ALERT, payload: { loading: false } });
-  } catch (err: any) {
-    dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-  }
-};
+      const res = await getAPI("goals");
+      dispatch({ type: GET_GOALS, payload: res.data });
+
+      dispatch({ type: ALERT, payload: { loading: false } });
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
 
 // export const getCategories =
 //   () => async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
