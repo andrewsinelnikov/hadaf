@@ -11,6 +11,11 @@ export interface ICreateGoal {
   payload: IItem;
 }
 
+export interface IGetGoals {
+  type: typeof GET_GOALS;
+  payload: IItem[];
+}
+
 // export interface IGetCategories {
 //   type: typeof GET_CATEGORIES;
 //   payload: ICategory[];
