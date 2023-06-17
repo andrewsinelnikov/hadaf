@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
 import { refreshToken } from "./redux/actions/authAction";
+import { getGoals } from "./redux/actions/goalAction";
 
 import PageRender from "./PageRender";
 import ScrollToTop from "./components/global/ScrollToTop";
@@ -12,6 +14,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(refreshToken());
+    dispatch(getGoals());
   }, [dispatch]);
 
   return (
