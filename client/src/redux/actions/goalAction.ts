@@ -31,6 +31,24 @@ export const createGoal =
     }
   };
 
+export const getGoals =
+  (goal: IItem, token: string) => async (dispatch: Dispatch<IAlertType>) => {
+    // const result = await checkTokenExp(token, dispatch);
+    // const access_token = result ? result : token;
+    try {
+      dispatch({ type: ALERT, payload: { loading: true } });
+
+      const res = await postAPI("goal", goal, token);
+      // const res = await postAPI("goal", goal, access_token);
+
+      // dispatch({ type: CREATE_GOAL, payload: res.data.newGoal });
+
+      dispatch({ type: ALERT, payload: { loading: false } });
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
+
 // export const getCategories =
 //   () => async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
 //     try {
