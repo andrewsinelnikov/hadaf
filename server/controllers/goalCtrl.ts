@@ -19,6 +19,21 @@ const goalCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  getGoals: async (req: IReqAuth, res: Response) => {
+    if (!req.user)
+      return res.status(400).json({ msg: "Invalid Authentication" });
+
+    try {
+      const { text } = req.body;
+
+      const newGoal = new Goal({ user: req.user._id, text });
+      await newGoal.save();
+
+      res.json({ newGoal });
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
 };
 
 export default goalCtrl;
