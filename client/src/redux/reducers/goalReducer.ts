@@ -1,4 +1,10 @@
-import { CREATE_GOAL, ICreateGoal, IGoalType } from "../types/goalType";
+import {
+  CREATE_GOAL,
+  GET_GOALS,
+  ICreateGoal,
+  IGetGoals,
+  IGoalType,
+} from "../types/goalType";
 import {
   CREATE_CATEGORY,
   DELETE_CATEGORY,
@@ -10,13 +16,13 @@ import { ICategory, IItem } from "../../utils/TypeScript";
 
 const goalReducer = (
   state: IItem[] = [],
-  action: IGoalType
+  action: IGetGoals
   // state: ICategory[] = [],
   // action: ICategoryType
 ): IItem[] => {
   switch (action.type) {
-    case CREATE_GOAL:
-      return [action.payload, ...state];
+    case GET_GOALS:
+      return action.payload;
     // case GET_CATEGORIES:
     //   return action.payload;
     // case UPDATE_CATEGORY:
