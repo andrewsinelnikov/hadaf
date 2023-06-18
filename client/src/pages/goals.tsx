@@ -88,12 +88,12 @@ const Goals = () => {
           </div>
           <Footer />
         </div>
-        {myGoals.length < 3 && (
+        {goals.length < 3 && (
           <ItemInput
             item={goal}
             setItem={setGoal}
             itemType='Goal'
-            items={myGoals}
+            items={goals}
             handleAdd={addGoal}
           />
         )}
