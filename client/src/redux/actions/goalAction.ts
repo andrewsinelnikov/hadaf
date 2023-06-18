@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import { ALERT, IAlertType } from "../types/alertType";
-import { GET_GOALS, IGetGoals } from "../types/goalType";
+import { CREATE_GOAL, GET_GOALS, IGoalType } from "../types/goalType";
 import {
   CREATE_CATEGORY,
   DELETE_CATEGORY,
@@ -14,7 +14,8 @@ import { ICategory, IItem } from "../../utils/TypeScript";
 import { checkTokenExp } from "../../utils/checkTokenExp";
 
 export const createGoal =
-  (goal: IItem, token: string) => async (dispatch: Dispatch<IAlertType>) => {
+  (goal: IItem, token: string) =>
+  async (dispatch: Dispatch<IAlertType | IGoalType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
@@ -22,7 +23,7 @@ export const createGoal =
 
       const res = await postAPI("goal", goal, access_token);
 
-      // dispatch({ type: CREATE_GOAL, payload: res.data.newGoal });
+      dispatch({ type: CREATE_GOAL, payload: res.data.newGoal });
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
@@ -31,14 +32,14 @@ export const createGoal =
   };
 
 export const getGoals =
-  (token: string) => async (dispatch: Dispatch<IAlertType | IGetGoals>) => {
+  (token: string) => async (dispatch: Dispatch<IAlertType | IGoalType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
       const res = await getAPI("goals", access_token);
-      dispatch({ type: GET_GOALS, payload: res.data });
+      dispatch({ type: GET_GOALS, payload: res.data.goals });
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
