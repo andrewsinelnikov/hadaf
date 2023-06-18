@@ -31,7 +31,6 @@ export interface IGetGoals {
 //   payload: string;
 // }
 
-export type IGoalType = ICreateGoal;
-// | IGetCategories
+export type IGoalType = ICreateGoal| IGetGoals;
 // | IUpdateCategory
 // | IDeleteCategory;

@@ -18,7 +18,7 @@ const App = () => {
   useEffect(() => {
     dispatch(refreshToken());
     if (auth.access_token) dispatch(getGoals(auth.access_token));
-  }, [auth.access_token, getGoals, dispatch]);
+  }, [auth.access_token, dispatch]);
 
   return (
     <>
