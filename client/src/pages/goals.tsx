@@ -84,7 +84,7 @@ const Goals = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='goals' />
-            <ItemList items={myGoals} setItems={setMyGoals} season={season} />
+            <ItemList items={goals} setItems={setMyGoals} season={season} />
           </div>
           <Footer />
         </div>
