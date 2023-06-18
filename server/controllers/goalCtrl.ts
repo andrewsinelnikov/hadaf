@@ -25,7 +25,7 @@ const goalCtrl = {
 
     try {
       const goals = await Goal.find().sort("-createdAt");
-      res.json(goals);
+      res.json({ goals });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }
