@@ -1,15 +1,8 @@
 import { Dispatch } from "redux";
 import { ALERT, IAlertType } from "../types/alertType";
 import { CREATE_GOAL, GET_GOALS, IGoalType } from "../types/goalType";
-import {
-  CREATE_CATEGORY,
-  DELETE_CATEGORY,
-  GET_CATEGORIES,
-  ICategoryType,
-  UPDATE_CATEGORY,
-} from "../types/categoryType";
 import { postAPI, getAPI, patchAPI, deleteAPI } from "../../utils/FetchData";
-import { ICategory, IItem } from "../../utils/TypeScript";
+import { IItem } from "../../utils/TypeScript";
 
 import { checkTokenExp } from "../../utils/checkTokenExp";
 
