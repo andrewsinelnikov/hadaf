@@ -13,6 +13,8 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [editItem, setEditItem] = useState<string>(item.text);
 
+  const handleEdit = () => {};
+
   return (
     <form className='item-goal'>
       {edit ? (
@@ -52,7 +54,10 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
       )}
       <Progress completed={item.completeness} />
       <div className='item-options'>
-        <button type='button' className='btn btn-auto btn-action btn-dark'>
+        <button
+          type='button'
+          onClick={() => handleEdit()}
+          className='btn btn-auto btn-action btn-dark'>
           Edit
         </button>
         <button type='button' className='btn btn-auto btn-action btn-dark'>
