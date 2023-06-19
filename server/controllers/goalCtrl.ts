@@ -35,7 +35,7 @@ const goalCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const goal = await Goal.findOneAndUpdate(
+      await Goal.findOneAndUpdate(
         {
           _id: req.params.id,
         },
