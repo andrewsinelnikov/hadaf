@@ -55,10 +55,10 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
       <Progress completed={item.completeness} />
       <div className='item-options'>
         <button
-          type='button'
+          type={edit ? "submit" : "button"}
           onClick={() => handleEdit()}
           className='btn btn-auto btn-action btn-dark'>
-          Edit
+          {edit ? "Update" : "Edit"}
         </button>
         <button type='button' className='btn btn-auto btn-action btn-dark'>
           Delete
