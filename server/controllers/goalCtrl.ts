@@ -51,13 +51,9 @@ const goalCtrl = {
     if (!req.user)
       return res.status(400).json({ msg: "Invalid Authentication" });
 
-    if (req.user.role !== "admin")
-      return res.status(400).json({ msg: "Invalid Authentication" });
-
     try {
-      const category = await Category.findByIdAndDelete(req.params.id);
-      if (!category)
-        return res.status(400).json({ msg: "Category does not exist" });
+      const goal = await Goal.findByIdAndDelete(req.params.id);
+      if (!goal) return res.status(400).json({ msg: "Goal does not exist" });
 
       res.json({ msg: "Delete Success!" });
     } catch (err: any) {
