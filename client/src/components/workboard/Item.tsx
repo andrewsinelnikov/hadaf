@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IItem } from "../../utils/TypeScript";
 import { Link } from "react-router-dom";
 import Progress from "./Progress";
@@ -10,9 +10,46 @@ interface IProps {
 }
 
 const Item: React.FC<IProps> = ({ item, items, setItems }) => {
+  const [edit, setEdit] = useState<boolean>(false);
+  const [editItem, setEditItem] = useState<string>(item.text);
+
   return (
     <form className='item-goal'>
-      <div className='item-value'>{item.text}</div>
+      {edit ? (
+        <div className='add-item'>
+          <input
+            className='item-input'
+            type='text'
+            name='text'
+            value={editItem}
+            onChange={(e) => {
+              setEditItem(e.target.value);
+            }}
+            autoComplete='off'
+            maxLength={200}
+            style={{
+              borderBottom: "1px solid var(--lightdark-color)",
+            }}
+          />
+          {editItem.length > 0 && (
+            <small style={{ fontWeight: "bold" }}>
+              <span
+                style={{
+                  color: `${
+                    editItem.length > 200
+                      ? "var(--error-color)"
+                      : "var(--done-color)"
+                  }`,
+                }}>
+                {editItem.length}
+              </span>{" "}
+              / 200
+            </small>
+          )}
+        </div>
+      ) : (
+        <div className='item-value'>{item.text}</div>
+      )}
       <Progress completed={item.completeness} />
       <div className='item-options'>
         <button type='button' className='btn btn-auto btn-action btn-dark'>
