@@ -35,11 +35,11 @@ const goalCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const category = await Goal.findOneAndUpdate(
+      const goal = await Goal.findOneAndUpdate(
         {
           _id: req.params.id,
         },
-        { name: req.body.name.toLowerCase() }
+        { text: req.body.text }
       );
 
       res.json({ msg: "Update Success!" });
