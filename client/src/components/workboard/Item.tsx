@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IItem } from "../../utils/TypeScript";
 import { Link } from "react-router-dom";
 import Progress from "./Progress";
@@ -10,8 +10,13 @@ interface IProps {
 }
 
 const Item: React.FC<IProps> = ({ item, items, setItems }) => {
-  const [edit, setEdit] = useState<boolean>(false);
-  const [editItem, setEditItem] = useState<string>(item.text);
+  const [text, setText] = useState<string>("");
+  const [edit, setEdit] = useState<IItem | null>(null);
+  // const [editItem, setEditItem] = useState<string>(item.text);
+
+  useEffect(() => {
+    if (edit) setText(edit.text);
+  }, [edit]);
 
   const handleEdit = () => {};
 
