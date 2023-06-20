@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { RootState } from "../../redux/store";
+import { updateGoal } from "../../redux/actions/goalAction";
+
 import { IItem } from "../../utils/TypeScript";
 import { Link } from "react-router-dom";
 import Progress from "./Progress";
@@ -13,11 +18,25 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
   const [text, setText] = useState<string>("");
   const [edit, setEdit] = useState<IItem | null>(null);
 
+  const { auth, goals } = useAppSelector((state: RootState) => state);
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     if (edit) setText(edit.text);
   }, [edit]);
 
-  const handleEdit = () => {};
+  const handleEdit = () => {
+    if (!auth.access_token || !text) return;
+
+    if (edit) {
+      if (edit.text === text) return;
+      const data = { ...edit, text };
+      dispatch(updateGoal(data, auth.access_token));
+    }
+
+    setText("");
+    setEdit(null);
+  };
 
   return (
     <form className='item-goal'>
