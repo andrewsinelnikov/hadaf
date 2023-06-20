@@ -1,26 +1,13 @@
 import {
+  IGoalType,
   CREATE_GOAL,
   GET_GOALS,
-  ICreateGoal,
-  IGetGoals,
-  IGoalType,
   UPDATE_GOAL,
+  DELETE_GOAL,
 } from "../types/goalType";
-import {
-  CREATE_CATEGORY,
-  DELETE_CATEGORY,
-  GET_CATEGORIES,
-  ICategoryType,
-  UPDATE_CATEGORY,
-} from "../types/categoryType";
-import { ICategory, IItem } from "../../utils/TypeScript";
+import { IItem } from "../../utils/TypeScript";
 
-const goalReducer = (
-  state: IItem[] = [],
-  action: IGoalType
-  // state: ICategory[] = [],
-  // action: ICategoryType
-): IItem[] => {
+const goalReducer = (state: IItem[] = [], action: IGoalType): IItem[] => {
   switch (action.type) {
     case CREATE_GOAL:
       return [action.payload, ...state];
@@ -32,8 +19,8 @@ const goalReducer = (
           ? { ...item, text: action.payload.text }
           : item
       );
-    // case DELETE_CATEGORY:
-    //   return state.filter((item) => item._id !== action.payload);
+    case DELETE_GOAL:
+      return state.filter((item) => item._id !== action.payload);
     default:
       return state;
   }
