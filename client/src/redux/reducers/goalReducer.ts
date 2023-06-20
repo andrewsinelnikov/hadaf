@@ -4,6 +4,7 @@ import {
   ICreateGoal,
   IGetGoals,
   IGoalType,
+  UPDATE_GOAL,
 } from "../types/goalType";
 import {
   CREATE_CATEGORY,
@@ -25,14 +26,12 @@ const goalReducer = (
       return [action.payload, ...state];
     case GET_GOALS:
       return action.payload;
-    // case GET_CATEGORIES:
-    //   return action.payload;
-    // case UPDATE_CATEGORY:
-    //   return state.map((item) =>
-    //     item._id === action.payload._id
-    //       ? { ...item, name: action.payload.name }
-    //       : item
-    //   );
+    case UPDATE_GOAL:
+      return state.map((item) =>
+        item._id === action.payload._id
+          ? { ...item, text: action.payload.text }
+          : item
+      );
     // case DELETE_CATEGORY:
     //   return state.filter((item) => item._id !== action.payload);
     default:
