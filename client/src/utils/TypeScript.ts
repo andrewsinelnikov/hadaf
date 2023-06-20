@@ -59,7 +59,7 @@ export interface ICategory {
 }
 
 export interface IItem {
-  _id?: number;
+  _id?: string;
   user: string | IUser;
   text: string;
   completeness: number;
@@ -68,7 +68,7 @@ export interface IItem {
 }
 
 export interface IJournalNote {
-  _id: number;
+  _id: string;
   title?: string;
   text: string;
 }
