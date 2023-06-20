@@ -12,7 +12,6 @@ interface IProps {
 const Item: React.FC<IProps> = ({ item, items, setItems }) => {
   const [text, setText] = useState<string>("");
   const [edit, setEdit] = useState<IItem | null>(null);
-  // const [editItem, setEditItem] = useState<string>(item.text);
 
   useEffect(() => {
     if (edit) setText(edit.text);
@@ -28,9 +27,9 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
             className='item-input'
             type='text'
             name='text'
-            value={editItem}
+            value={text}
             onChange={(e) => {
-              setEditItem(e.target.value);
+              setText(e.target.value);
             }}
             autoComplete='off'
             maxLength={200}
@@ -38,17 +37,17 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
               borderBottom: "1px solid var(--lightdark-color)",
             }}
           />
-          {editItem.length > 0 && (
+          {text.length > 0 && (
             <small style={{ fontWeight: "bold" }}>
               <span
                 style={{
                   color: `${
-                    editItem.length > 200
+                    text.length > 200
                       ? "var(--error-color)"
                       : "var(--done-color)"
                   }`,
                 }}>
-                {editItem.length}
+                {text.length}
               </span>{" "}
               / 200
             </small>
