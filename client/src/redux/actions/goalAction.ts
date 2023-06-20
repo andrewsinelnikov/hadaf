@@ -2,6 +2,7 @@ import { Dispatch } from "redux";
 import { ALERT, IAlertType } from "../types/alertType";
 import {
   CREATE_GOAL,
+  DELETE_GOAL,
   GET_GOALS,
   IGoalType,
   UPDATE_GOAL,
@@ -61,13 +62,13 @@ export const updateGoal =
 
 export const deleteGoal =
   (id: string, token: string) =>
-  async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
+  async (dispatch: Dispatch<IAlertType | IGoalType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
-      dispatch({ type: DELETE_CATEGORY, payload: id });
+      dispatch({ type: DELETE_GOAL, payload: id });
 
-      await deleteAPI(`category/${id}`, access_token);
+      await deleteAPI(`goal/${id}`, access_token);
     } catch (err: any) {
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
