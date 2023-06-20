@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { RootState } from "../../redux/store";
-import { updateGoal } from "../../redux/actions/goalAction";
+import { deleteGoal, updateGoal } from "../../redux/actions/goalAction";
 
 import { IItem } from "../../utils/TypeScript";
 import { Link } from "react-router-dom";
@@ -38,17 +38,9 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
     setEdit(null);
   };
 
-  const handleDelete = () => {
+  const handleDelete = (id: string) => {
     if (!auth.access_token || !text) return;
-
-    if (edit) {
-      if (edit.text === text) return;
-      const data = { ...edit, text };
-      dispatch(updateGoal(data, auth.access_token));
-    }
-
-    setText("");
-    setEdit(null);
+    dispatch(deleteGoal(id, auth.access_token));
   };
 
   return (
@@ -98,7 +90,7 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
         </button>
         <button
           type='button'
-          onClick={() => handleDelete()}
+          onClick={() => handleDelete(item._id!)}
           className='btn btn-auto btn-action btn-dark'>
           Delete
         </button>
