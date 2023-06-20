@@ -53,22 +53,22 @@ export const updateGoal =
     try {
       dispatch({ type: UPDATE_GOAL, payload: data });
 
-      await patchAPI(`category/${data._id}`, { name: data.name }, access_token);
+      await patchAPI(`goal/${data._id}`, { text: data.text }, access_token);
     } catch (err: any) {
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
   };
 
-// export const deleteCategory =
-//   (id: string, token: string) =>
-//   async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
-//     const result = await checkTokenExp(token, dispatch);
-//     const access_token = result ? result : token;
-//     try {
-//       dispatch({ type: DELETE_CATEGORY, payload: id });
+export const deleteGoal =
+  (id: string, token: string) =>
+  async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: DELETE_CATEGORY, payload: id });
 
-//       await deleteAPI(`category/${id}`, access_token);
-//     } catch (err: any) {
-//       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-//     }
-//   };
+      await deleteAPI(`category/${id}`, access_token);
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
