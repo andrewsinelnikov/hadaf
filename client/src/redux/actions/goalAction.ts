@@ -1,6 +1,11 @@
 import { Dispatch } from "redux";
 import { ALERT, IAlertType } from "../types/alertType";
-import { CREATE_GOAL, GET_GOALS, IGoalType } from "../types/goalType";
+import {
+  CREATE_GOAL,
+  GET_GOALS,
+  IGoalType,
+  UPDATE_GOAL,
+} from "../types/goalType";
 import { postAPI, getAPI, patchAPI, deleteAPI } from "../../utils/FetchData";
 import { IItem } from "../../utils/TypeScript";
 
@@ -40,34 +45,19 @@ export const getGoals =
     }
   };
 
-// export const getCategories =
-//   () => async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
-//     try {
-//       dispatch({ type: ALERT, payload: { loading: true } });
+export const updateGoal =
+  (data: IItem, token: string) =>
+  async (dispatch: Dispatch<IAlertType | IGoalType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: UPDATE_GOAL, payload: data });
 
-//       const res = await getAPI("category");
-
-//       dispatch({ type: GET_CATEGORIES, payload: res.data.categories });
-
-//       dispatch({ type: ALERT, payload: { loading: false } });
-//     } catch (err: any) {
-//       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-//     }
-//   };
-
-// export const updateCategory =
-//   (data: ICategory, token: string) =>
-//   async (dispatch: Dispatch<IAlertType | ICategoryType>) => {
-//     const result = await checkTokenExp(token, dispatch);
-//     const access_token = result ? result : token;
-//     try {
-//       dispatch({ type: UPDATE_CATEGORY, payload: data });
-
-//       await patchAPI(`category/${data._id}`, { name: data.name }, access_token);
-//     } catch (err: any) {
-//       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-//     }
-//   };
+      await patchAPI(`category/${data._id}`, { name: data.name }, access_token);
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
 
 // export const deleteCategory =
 //   (id: string, token: string) =>
