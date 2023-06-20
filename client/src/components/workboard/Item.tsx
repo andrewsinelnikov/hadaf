@@ -39,7 +39,7 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
   };
 
   const handleDelete = (id: string) => {
-    if (!auth.access_token || !text) return;
+    if (!auth.access_token) return;
     dispatch(deleteGoal(id, auth.access_token));
   };
 
@@ -83,7 +83,7 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
       <Progress completed={item.completeness} />
       <div className='item-options'>
         <button
-          type={edit ? "submit" : "button"}
+          type='button'
           onClick={edit ? () => handleEdit() : () => setEdit(item)}
           className='btn btn-auto btn-action btn-dark'>
           {edit ? "Update" : "Edit"}
