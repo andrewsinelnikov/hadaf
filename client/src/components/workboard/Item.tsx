@@ -79,7 +79,7 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
       <div className='item-options'>
         <button
           type={edit ? "submit" : "button"}
-          onClick={() => handleEdit()}
+          onClick={edit ? () => handleEdit() : () => setEdit(item)}
           className='btn btn-auto btn-action btn-dark'>
           {edit ? "Update" : "Edit"}
         </button>
