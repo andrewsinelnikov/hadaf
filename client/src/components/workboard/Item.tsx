@@ -38,6 +38,19 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
     setEdit(null);
   };
 
+  const handleDelete = () => {
+    if (!auth.access_token || !text) return;
+
+    if (edit) {
+      if (edit.text === text) return;
+      const data = { ...edit, text };
+      dispatch(updateGoal(data, auth.access_token));
+    }
+
+    setText("");
+    setEdit(null);
+  };
+
   return (
     <form className='item-goal'>
       {edit ? (
@@ -83,7 +96,10 @@ const Item: React.FC<IProps> = ({ item, items, setItems }) => {
           className='btn btn-auto btn-action btn-dark'>
           {edit ? "Update" : "Edit"}
         </button>
-        <button type='button' className='btn btn-auto btn-action btn-dark'>
+        <button
+          type='button'
+          onClick={() => handleDelete()}
+          className='btn btn-auto btn-action btn-dark'>
           Delete
         </button>
         <Link to='/goals' className='btn btn-auto btn-success'>
