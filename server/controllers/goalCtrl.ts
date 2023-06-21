@@ -92,9 +92,20 @@ const goalCtrl = {
         case 5:
         case 6:
         case 7:
-          date.setDate(1);
-          date.setMonth(8);
-          date.setHours(0, 0, 0);
+          goals = await Goal.find({
+            $and: [
+              {
+                createdAt: {
+                  $gte: new Date(`${date.getFullYear()}-04-31`),
+                },
+              },
+              {
+                createdAt: {
+                  $lte: new Date(`${date.getFullYear()}-08-01`),
+                },
+              },
+            ],
+          });
           break;
         case 8:
         case 9:
