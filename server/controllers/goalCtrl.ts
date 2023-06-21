@@ -30,7 +30,7 @@ const goalCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  getSeasonGoals: async (req: IReqAuth, res: Response) => {
+  getCurrentGoals: async (req: IReqAuth, res: Response) => {
     if (!req.user)
       return res.status(400).json({ msg: "Invalid Authentication" });
 
