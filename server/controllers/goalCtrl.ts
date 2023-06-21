@@ -139,4 +139,6 @@ const goalCtrl = {
   },
 };
 
+const leapYear = (year: number) => {};
+
 export default goalCtrl;
