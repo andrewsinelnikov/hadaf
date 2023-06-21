@@ -110,13 +110,23 @@ const goalCtrl = {
         case 8:
         case 9:
         case 10:
-          date.setDate(1);
-          date.setMonth(11);
-          date.setHours(0, 0, 0);
+          goals = await Goal.find({
+            $and: [
+              {
+                createdAt: {
+                  $gte: new Date(`${date.getFullYear()}-07-31`),
+                },
+              },
+              {
+                createdAt: {
+                  $lte: new Date(`${date.getFullYear()}-11-01`),
+                },
+              },
+            ],
+          });
           break;
       }
 
-      // const goals = await Goal.find().sort("-createdAt");
       res.json({ goals });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
