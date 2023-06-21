@@ -47,7 +47,7 @@ const goalCtrl = {
                   $gte: new Date(`${date.getFullYear() - 1}-11-30`),
                 },
               },
-              { createdAt: { $lte: new Date(`${date.getFullYear()}-2-1`) } },
+              { createdAt: { $lte: new Date(`${date.getFullYear()}-02-01`) } },
             ],
           });
           break;
@@ -56,10 +56,14 @@ const goalCtrl = {
             $and: [
               {
                 createdAt: {
-                  $gte: new Date(`${date.getFullYear() - 1}-11-30`),
+                  $gte: new Date(`${date.getFullYear()}-11-30`),
                 },
               },
-              { createdAt: { $lte: new Date(`${date.getFullYear()}-11-30`) } },
+              {
+                createdAt: {
+                  $lte: new Date(`${date.getFullYear() + 1}-02-01`),
+                },
+              },
             ],
           });
           break;
