@@ -140,7 +140,7 @@ const goalCtrl = {
 };
 
 const leapYear = (year: number) => {
-  new Date(year, 1, 29).getDate() === 29 ? true : false;
+  return new Date(year, 1, 29).getDate() === 29;
 };
 
 export default goalCtrl;
