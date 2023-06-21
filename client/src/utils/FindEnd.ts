@@ -20,7 +20,7 @@ export const endOfSeason = () => {
   switch (date.getMonth()) {
     case 0:
     case 1:
-    case 12:
+    case 11:
       date.setDate(1);
       date.setMonth(2);
       date.setHours(0, 0, 0);
