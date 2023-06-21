@@ -35,7 +35,58 @@ const goalCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const goals = await Goal.find().sort("-createdAt");
+      let date = new Date();
+      let goals;
+      switch (date.getMonth()) {
+        case 0:
+        case 1:
+          goals = await Goal.find({
+            $and: [
+              {
+                createdAt: {
+                  $gte: new Date(`${date.getFullYear() - 1}-11-30`),
+                },
+              },
+              { createdAt: { $lte: new Date(`${date.getFullYear()}-2-1`) } },
+            ],
+          });
+          break;
+        case 11:
+          goals = await Goal.find({
+            $and: [
+              {
+                createdAt: {
+                  $gte: new Date(`${date.getFullYear() - 1}-11-30`),
+                },
+              },
+              { createdAt: { $lte: new Date(`${date.getFullYear()}-11-30`) } },
+            ],
+          });
+          break;
+        case 2:
+        case 3:
+        case 4:
+          date.setDate(1);
+          date.setMonth(5);
+          date.setHours(0, 0, 0);
+          break;
+        case 5:
+        case 6:
+        case 7:
+          date.setDate(1);
+          date.setMonth(8);
+          date.setHours(0, 0, 0);
+          break;
+        case 8:
+        case 9:
+        case 10:
+          date.setDate(1);
+          date.setMonth(11);
+          date.setHours(0, 0, 0);
+          break;
+      }
+
+      // const goals = await Goal.find().sort("-createdAt");
       res.json({ goals });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
