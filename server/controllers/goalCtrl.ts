@@ -74,7 +74,11 @@ const goalCtrl = {
             $and: [
               {
                 createdAt: {
-                  $gte: new Date(`${date.getFullYear()}-01-28`),
+                  $gte: new Date(
+                    `${date.getFullYear()}-01-${
+                      leapYear(date.getFullYear()) ? 29 : 28
+                    }`
+                  ),
                 },
               },
               {
