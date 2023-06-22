@@ -23,12 +23,7 @@ const ItemList: React.FC<IProps> = ({ items, setItems, season }) => {
         <div className='items'>
           <p>Goals for the {season}</p>
           {items.map((item) => (
-            <Item
-              item={item}
-              key={item._id}
-              items={items}
-              setItems={setItems}
-            />
+            <Item item={item} key={item._id} />
           ))}
         </div>
       )}

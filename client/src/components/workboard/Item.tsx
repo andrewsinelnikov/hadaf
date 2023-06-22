@@ -10,11 +10,9 @@ import Progress from "./Progress";
 
 interface IProps {
   item: IItem;
-  items: IItem[];
-  setItems: React.Dispatch<React.SetStateAction<IItem[]>>;
 }
 
-const Item: React.FC<IProps> = ({ item, items, setItems }) => {
+const Item: React.FC<IProps> = ({ item }) => {
   const [text, setText] = useState<string>("");
   const [edit, setEdit] = useState<IItem | null>(null);
 
