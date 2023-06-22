@@ -47,6 +47,15 @@ const goalCtrl = {
 
       const seasonStart = startDates[season];
 
+      let nextSeasonStart;
+      if (season === "winter") {
+        nextSeasonStart = new Date(`1 Mar ${date.getFullYear() + 1}`);
+      } else {
+        nextSeasonStart = Object.values(startDates).find(
+          (date) => date > seasonStart
+        );
+      }
+
       let goals;
       // let date = new Date();
       // let goals;
