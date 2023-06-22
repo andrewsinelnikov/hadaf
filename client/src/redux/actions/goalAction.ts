@@ -2,10 +2,11 @@ import { Dispatch } from "redux";
 import { ALERT, IAlertType } from "../types/alertType";
 import {
   CREATE_GOAL,
-  DELETE_GOAL,
+  GET_CURRENT_GOALS,
   GET_GOALS,
-  IGoalType,
   UPDATE_GOAL,
+  DELETE_GOAL,
+  IGoalType,
 } from "../types/goalType";
 import { postAPI, getAPI, patchAPI, deleteAPI } from "../../utils/FetchData";
 import { IItem } from "../../utils/TypeScript";
@@ -39,6 +40,22 @@ export const getGoals =
 
       const res = await getAPI("goals", access_token);
       dispatch({ type: GET_GOALS, payload: res.data.goals });
+
+      dispatch({ type: ALERT, payload: { loading: false } });
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
+
+export const getCurrentGoals =
+  (token: string) => async (dispatch: Dispatch<IAlertType | IGoalType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: ALERT, payload: { loading: true } });
+
+      const res = await getAPI("current", access_token);
+      dispatch({ type: GET_CURRENT_GOALS, payload: res.data.goals });
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
