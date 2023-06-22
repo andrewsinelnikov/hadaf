@@ -9,6 +9,11 @@ const router = express.Router();
 // @access Private
 router.route("/goal").post(auth, goalCtrl.createGoal);
 
+// @route  GET api/goals
+// @desc   Get all goals
+// @access Private
+router.route("/goals").get(auth, goalCtrl.getGoals);
+
 // @route  GET api/goal
 // @desc   Get goals
 // @access Private
