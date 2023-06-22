@@ -168,4 +168,17 @@ const leapYear = (year: number) => {
   return new Date(year, 1, 29).getDate() === 29;
 };
 
+const getSeason = (date) => {
+  const month = date.getMonth() + 1;
+  if (month >= 3 && month <= 5) {
+    return "spring";
+  } else if (month >= 6 && month <= 8) {
+    return "summer";
+  } else if (month >= 9 && month <= 11) {
+    return "fall";
+  } else {
+    return "winter";
+  }
+};
+
 export default goalCtrl;
