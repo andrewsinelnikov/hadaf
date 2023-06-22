@@ -192,10 +192,6 @@ const goalCtrl = {
   },
 };
 
-const leapYear = (year: number) => {
-  return new Date(year, 1, 29).getDate() === 29;
-};
-
 const getSeason = (date: Date) => {
   const month = date.getMonth() + 1;
   if (month >= 3 && month <= 5) {

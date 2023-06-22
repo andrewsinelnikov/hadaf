@@ -14,6 +14,7 @@ import ItemInput from "../components/workboard/ItemInput";
 import Footer from "../components/global/Footer";
 import { validateGoal } from "../utils/Validate";
 import { ALERT } from "../redux/types/alertType";
+import { getSeason } from "../utils/getSeason";
 
 const Goals = () => {
   const inialState = {
@@ -26,36 +27,14 @@ const Goals = () => {
 
   const { auth, goals } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
-  // const [text, setText] = useState<string>("");
+
   const [goal, setGoal] = useState<IItem>(inialState);
   const [myGoals, setMyGoals] = useState<Array<IItem>>([]);
 
   const navigate = useNavigate();
 
-  let date = new Date();
-  let season = "";
-  switch (date.getMonth()) {
-    case 0:
-    case 1:
-    case 12:
-      season = "Winter";
-      break;
-    case 2:
-    case 3:
-    case 4:
-      season = "Spring";
-      break;
-    case 5:
-    case 6:
-    case 7:
-      season = "Summer";
-      break;
-    case 8:
-    case 9:
-    case 10:
-      season = "Autumn";
-      break;
-  }
+  const date = new Date();
+  let season = getSeason(date);
 
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
@@ -66,15 +45,11 @@ const Goals = () => {
     if (!auth.access_token) return;
 
     const check = validateGoal(goal);
-    // const check = validateGoal({ ...goal, text: text });
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
-    // let newData = { ...goal, text: text };
-
     dispatch(createGoal(goal, auth.access_token));
     setMyGoals([...myGoals, goal]);
-    // setText("");
   };
 
   return (
