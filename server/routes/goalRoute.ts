@@ -14,10 +14,10 @@ router.route("/goal").post(auth, goalCtrl.createGoal);
 // @access Private
 router.route("/goals").get(auth, goalCtrl.getGoals);
 
-// @route  GET api/goal
-// @desc   Get goals
+// @route  GET api/current
+// @desc   Get current goals
 // @access Private
-router.route("/goals").get(auth, goalCtrl.getGoals);
+router.route("/current").get(auth, goalCtrl.getCurrentGoals);
 
 // @route  PATCH, DELETE api/goal/:id
 // @desc   Update, Delete goal
