@@ -16,7 +16,7 @@ const Item: React.FC<IProps> = ({ item }) => {
   const [text, setText] = useState<string>("");
   const [edit, setEdit] = useState<IItem | null>(null);
 
-  const { auth, goals } = useAppSelector((state: RootState) => state);
+  const { auth } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
