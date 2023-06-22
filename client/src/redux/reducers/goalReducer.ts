@@ -2,6 +2,7 @@ import {
   IGoalType,
   CREATE_GOAL,
   GET_GOALS,
+  GET_CURRENT_GOALS,
   UPDATE_GOAL,
   DELETE_GOAL,
 } from "../types/goalType";
@@ -12,6 +13,7 @@ const goalReducer = (state: IItem[] = [], action: IGoalType): IItem[] => {
     case CREATE_GOAL:
       return [action.payload, ...state];
     case GET_GOALS:
+    case GET_CURRENT_GOALS:
       return action.payload;
     case UPDATE_GOAL:
       return state.map((item) =>
