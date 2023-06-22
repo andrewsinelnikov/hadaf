@@ -56,7 +56,13 @@ const goalCtrl = {
         );
       }
 
-      let goals;
+      const goals = await Goal.find({
+        createdAt: {
+          $gte: seasonStart,
+          $lt: nextSeasonStart,
+        },
+      });
+      res.json({ goals });
       // let date = new Date();
       // let goals;
       // switch (date.getMonth()) {
