@@ -42,7 +42,7 @@ const PlanForGoal = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='plans' type='season' />
-            {goals.find((item) => item._id === slug)}
+            <>{activeGoal?.text}</>
           </div>
           <Footer />
         </div>
