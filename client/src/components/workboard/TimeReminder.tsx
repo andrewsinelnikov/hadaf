@@ -29,7 +29,7 @@ const TimeReminder = ({
       : setActive("season");
   }, [action, setActive]);
 
-  const handleClick = (e: ButtonClick) => {
+  const handleActive = (e: ButtonClick) => {
     e.preventDefault();
     setActive(e.currentTarget.id);
   };
@@ -74,7 +74,7 @@ const TimeReminder = ({
               key={btn.key}
               className={`btn btn-time ${isActive(btn.label)}`}
               id={btn.label}
-              onClick={handleClick}>
+              onClick={handleActive}>
               {btn.label}
             </button>
           ))}
