@@ -18,13 +18,13 @@ const PlanForGoal = () => {
 
   const [activeGoal, setActiveGoal] = useState<IItem>();
 
+  const [planItem, setPlanItem] = useState<string>("");
+  const [plan, setPlan] = useState<Array<IItem>>([]);
+
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
     setActiveGoal(goals.find((item) => item._id === slug));
   }, [auth.access_token, navigate]);
-
-  const [planItem, setPlanItem] = useState<string>("");
-  const [plan, setPlan] = useState<Array<IItem>>([]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();

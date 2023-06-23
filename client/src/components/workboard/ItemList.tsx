@@ -5,13 +5,14 @@ import Item from "./Item";
 interface IProps {
   items: IItem[];
   setItems: React.Dispatch<React.SetStateAction<IItem[]>>;
+  type: string;
   season: string;
 }
 
-const ItemList: React.FC<IProps> = ({ items, setItems, season }) => {
+const ItemList: React.FC<IProps> = ({ items, setItems, type, season }) => {
   return (
     <>
-      {items.length === 0 ? (
+      {type === "goals" && items.length === 0 ? (
         <div className='items-zero'>
           <div className='items-message'>
             {/* <p>Start the adventure</p> */}
