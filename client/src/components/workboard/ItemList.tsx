@@ -6,45 +6,54 @@ interface IProps {
   items: IItem[];
   setItems: React.Dispatch<React.SetStateAction<IItem[]>>;
   type: string;
-  season: string;
+  season?: string;
+  goal?: string;
 }
 
-const ItemList: React.FC<IProps> = ({ items, setItems, type, season }) => {
+const ItemList: React.FC<IProps> = ({
+  items,
+  setItems,
+  type,
+  season,
+  goal,
+}) => {
   return (
     <>
-      {type === "goals" && items.length === 0 ? (
-        <div className='items-zero'>
-          <div className='items-message'>
-            {/* <p>Start the adventure</p> */}
-            Write down the most important goals to accomplish this season
+      {type === "goals" &&
+        (items.length === 0 ? (
+          <div className='items-zero'>
+            <div className='items-message'>
+              {/* <p>Start the adventure</p> */}
+              Write down the most important goals to accomplish this season
+            </div>
+            {/* <div className='items-number'>max number - 3</div> */}
           </div>
-          {/* <div className='items-number'>max number - 3</div> */}
-        </div>
-      ) : (
-        <div className='items'>
-          <p>Goals for the {season}</p>
-          {items.map((item) => (
-            <Item item={item} key={item._id} />
-          ))}
-        </div>
-      )}
-      {type === "plans" && items.length === 0 ? (
-        <div className='items-zero'>
-          <div className='items-message'>
-            {/* <p>Start the adventure</p> */}
-            Write down the most important goals to accomplish this season
+        ) : (
+          <div className='items'>
+            <p>Goals for the {season}</p>
+            {items.map((item) => (
+              <Item item={item} key={item._id} />
+            ))}
           </div>
-          {/* <div className='items-number'>max number - 3</div> */}
-        </div>
-      ) : (
-        <div className='items'>
-          Your steps
-          {/* <p>Goals for the {season}</p>
+        ))}
+      {type === "plans" &&
+        (items.length === 0 ? (
+          <div className='items-zero'>
+            <div className='items-message'>
+              <span>{goal}</span>
+              Break down the goal into steps
+            </div>
+            {/* <div className='items-number'>max number - 3</div> */}
+          </div>
+        ) : (
+          <div className='items'>
+            Your steps
+            {/* <p>Goals for the {season}</p>
           {items.map((item) => (
             <Item item={item} key={item._id} />
           ))} */}
-        </div>
-      )}
+          </div>
+        ))}
     </>
   );
 };

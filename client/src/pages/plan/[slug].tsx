@@ -9,6 +9,7 @@ import UserLayout from "../../components/layouts/UserLayout";
 import UserInfo from "../../components/profile/UserInfo";
 import TimeReminder from "../../components/workboard/TimeReminder";
 import { IItem } from "../../utils/TypeScript";
+import ItemList from "../../components/workboard/ItemList";
 import Footer from "../../components/global/Footer";
 
 const PlanForGoal = () => {
@@ -42,9 +43,15 @@ const PlanForGoal = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='plans' type='season' />
-            <div className='item-goal'>
+            <ItemList
+              items={plan}
+              setItems={setPlan}
+              type='plans'
+              season={activeGoal?.text}
+            />
+            {/* <div className='item-goal'>
               <div className='item-value'>{activeGoal?.text}</div>
-            </div>
+            </div> */}
           </div>
           <Footer />
         </div>
