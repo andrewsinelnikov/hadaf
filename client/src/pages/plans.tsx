@@ -36,7 +36,7 @@ const Plans = () => {
         <UserInfo />
         <div className='profile-content'>
           <div className='content'>
-            <TimeReminder action='plans' type='season' />
+            <TimeReminder action='plans' />
           </div>
           <Footer />
         </div>
