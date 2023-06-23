@@ -6,11 +6,13 @@ import { endOfDay, endOfSeason, endOfWeek } from "../../utils/FindEnd";
 
 interface IProps {
   action: string;
+  type?: string;
   message?: string;
 }
 
 const TimeReminder = ({
   action,
+  type = "",
   message = "What are you waiting for? Meet the challenge",
 }: IProps) => {
   const timeBtns = [
@@ -22,11 +24,20 @@ const TimeReminder = ({
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    action === "actions"
-      ? setActive("day")
-      : action === "plans"
-      ? setActive("week")
-      : setActive("season");
+    if (action === "actions") setActive("day");
+    if (action === "plans") {
+      type === "day"
+        ? setActive("day")
+        : type === "season"
+        ? setActive("season")
+        : setActive("week");
+    }
+    if (action === "goals") setActive("season");
+    // action === "actions"
+    //   ? setActive("day")
+    //   : action === "plans"
+    //   ? setActive("week")
+    //   : setActive("season");
   }, [action, setActive]);
 
   const handleActive = (e: ButtonClick) => {
