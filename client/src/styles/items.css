@@ -27,6 +27,11 @@
   text-align: center;
 }
 
+.items-message span {
+  display: block;
+  color: var(--primary-color);
+}
+
 .items p {
   font-size: 40px;
   line-height: 1;

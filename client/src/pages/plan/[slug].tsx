@@ -47,7 +47,7 @@ const PlanForGoal = () => {
               items={plan}
               setItems={setPlan}
               type='plans'
-              season={activeGoal?.text}
+              goal={activeGoal?.text}
             />
             {/* <div className='item-goal'>
               <div className='item-value'>{activeGoal?.text}</div>
