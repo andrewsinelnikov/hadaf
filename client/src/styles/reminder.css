@@ -7,6 +7,7 @@
 
 .reminder-time {
   text-align: center;
+  min-width: 188px;
   margin-right: 32px;
 }
 
