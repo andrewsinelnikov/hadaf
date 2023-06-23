@@ -42,7 +42,9 @@ const PlanForGoal = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='plans' type='season' />
-            <>{activeGoal?.text}</>
+            <div className='item-goal'>
+              <div className='item-value'>{activeGoal?.text}</div>
+            </div>
           </div>
           <Footer />
         </div>
