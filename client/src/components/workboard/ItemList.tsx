@@ -28,6 +28,23 @@ const ItemList: React.FC<IProps> = ({ items, setItems, type, season }) => {
           ))}
         </div>
       )}
+      {type === "plans" && items.length === 0 ? (
+        <div className='items-zero'>
+          <div className='items-message'>
+            {/* <p>Start the adventure</p> */}
+            Write down the most important goals to accomplish this season
+          </div>
+          {/* <div className='items-number'>max number - 3</div> */}
+        </div>
+      ) : (
+        <div className='items'>
+          Your steps
+          {/* <p>Goals for the {season}</p>
+          {items.map((item) => (
+            <Item item={item} key={item._id} />
+          ))} */}
+        </div>
+      )}
     </>
   );
 };
