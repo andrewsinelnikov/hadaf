@@ -3,10 +3,20 @@
   margin-bottom: 16px;
 }
 
-.step {
+.timeline .step {
   position: relative;
   margin: 0;
   padding-bottom: 16px;
   padding-left: 16px;
   list-style-type: none;
+}
+
+.timeline .step:before {
+  background: var(--lightdark-30-color);
+  width: 1px;
+  content: "";
+  position: absolute;
+  top: 17px;
+  bottom: -4px;
+  left: 4px;
 }
