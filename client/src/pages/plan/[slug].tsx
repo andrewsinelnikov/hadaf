@@ -39,10 +39,9 @@ const PlanForGoal = () => {
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // if (planItem) {
-    //   setPlan([...plan, { _id: Date.now(), text: planItem, isDone: false }]);
-    //   setPlanItem("");
-    // }
+    if (planItem) {
+      setPlan([...plan, planItem]);
+    }
   };
 
   return (
