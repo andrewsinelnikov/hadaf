@@ -66,7 +66,7 @@ const PlanForGoal = () => {
         <ItemInput
           item={planItem}
           setItem={setPlanItem}
-          itemType='Plan Item'
+          itemType='Step'
           items={plan}
           handleAdd={addPlanItem}
         />

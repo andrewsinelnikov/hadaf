@@ -43,11 +43,12 @@ const ItemList: React.FC<IProps> = ({
               <span>{goal}</span>
               Break down the goal into steps
             </div>
-            {/* <div className='items-number'>max number - 3</div> */}
           </div>
         ) : (
           <div className='items'>
-            Your steps
+            <div className='item-goal'>
+              <div className='item-value'>{goal}</div>
+            </div>
             {/* <p>Goals for the {season}</p>
           {items.map((item) => (
             <Item item={item} key={item._id} />
