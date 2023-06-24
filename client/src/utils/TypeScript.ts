@@ -60,7 +60,7 @@ export interface ICategory {
 
 export interface IItem {
   _id?: string;
-  user: string | IUser;
+  user?: string | IUser;
   text: string;
   completeness: number;
   isDone: boolean;

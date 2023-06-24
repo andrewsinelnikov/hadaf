@@ -11,6 +11,7 @@ import TimeReminder from "../../components/workboard/TimeReminder";
 import { IItem } from "../../utils/TypeScript";
 import ItemList from "../../components/workboard/ItemList";
 import Footer from "../../components/global/Footer";
+import ItemInput from "../../components/workboard/ItemInput";
 
 const PlanForGoal = () => {
   const { slug }: IParams = useParams<keyof IParams>() as IParams;
@@ -19,7 +20,15 @@ const PlanForGoal = () => {
 
   const [activeGoal, setActiveGoal] = useState<IItem>();
 
-  const [planItem, setPlanItem] = useState<string>("");
+  const inialState = {
+    user: "",
+    text: "",
+    completeness: 1,
+    isDone: false,
+    createdAt: new Date().toISOString(),
+  };
+
+  const [planItem, setPlanItem] = useState<IItem>(inialState);
   const [plan, setPlan] = useState<Array<IItem>>([]);
 
   useEffect(() => {
@@ -55,13 +64,13 @@ const PlanForGoal = () => {
           </div>
           <Footer />
         </div>
-        {/* <ItemInput
+        <ItemInput
           item={planItem}
           setItem={setPlanItem}
           itemType='Plan Item'
           items={plan}
           handleAdd={addPlanItem}
-        /> */}
+        />
       </div>
     </UserLayout>
   );
