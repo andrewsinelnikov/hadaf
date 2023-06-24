@@ -57,9 +57,6 @@ const PlanForGoal = () => {
               type='plans'
               goal={activeGoal?.text}
             />
-            {/* <div className='item-goal'>
-              <div className='item-value'>{activeGoal?.text}</div>
-            </div> */}
           </div>
           <Footer />
         </div>

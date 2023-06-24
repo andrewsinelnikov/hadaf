@@ -49,10 +49,9 @@ const ItemList: React.FC<IProps> = ({
             <div className='item-goal'>
               <div className='item-value'>{goal}</div>
             </div>
-            {/* <p>Goals for the {season}</p>
-          {items.map((item) => (
-            <Item item={item} key={item._id} />
-          ))} */}
+            {items.map((item) => (
+              <div key={item._id}>{item.text}</div>
+            ))}
           </div>
         ))}
     </>
