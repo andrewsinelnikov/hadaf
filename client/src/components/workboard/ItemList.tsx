@@ -52,7 +52,8 @@ const ItemList: React.FC<IProps> = ({
             <ul className='timeline'>
               {items.map((item) => (
                 <li key={item._id} className='step'>
-                  {item.text}
+                  <div className='point'></div>
+                  <div>{item.text}</div>
                 </li>
               ))}
             </ul>

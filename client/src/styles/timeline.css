@@ -11,7 +11,7 @@
   list-style-type: none;
 }
 
-.timeline .step:before {
+.timeline .step:not(:last-child)::before {
   background: var(--lightdark-30-color);
   width: 1px;
   content: "";
@@ -19,4 +19,14 @@
   top: 17px;
   bottom: -4px;
   left: 4px;
+}
+
+.timeline .step .point {
+  margin-left: -22px;
+  float: left;
+  padding-right: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--lightdark-30-color);
 }
