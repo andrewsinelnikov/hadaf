@@ -6,8 +6,8 @@
 .timeline .step {
   position: relative;
   margin: 0;
-  padding-bottom: 16px;
-  padding-left: 16px;
+  padding-bottom: 15px;
+  padding-left: 20px;
   list-style-type: none;
 }
 
@@ -16,8 +16,8 @@
   width: 1px;
   content: "";
   position: absolute;
-  top: 17px;
-  bottom: -4px;
+  top: 13px;
+  bottom: 0;
   left: 4px;
 }
 
@@ -25,8 +25,8 @@
   margin-left: -22px;
   float: left;
   padding-right: 8px;
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   border: 1px solid var(--lightdark-30-color);
 }
