@@ -26,6 +26,9 @@ const ItemInput: React.FC<IProps> = ({
   return (
     <form
       className='add'
+      style={{
+        height: `${itemType === "Step" && "80px"}`,
+      }}
       onSubmit={(e) => {
         handleAdd(e);
         setText("");
@@ -33,7 +36,7 @@ const ItemInput: React.FC<IProps> = ({
       {itemType === "Goal" &&
         (items.length === 0 ? (
           <div className='items-number'>max number - 3</div>
-        ) : items.length < 4 ? (
+        ) : 3 - items.length > 0 ? (
           <div className='items-number'>
             possible to add - {3 - items.length}
           </div>
