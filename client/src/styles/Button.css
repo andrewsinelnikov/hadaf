@@ -79,7 +79,7 @@
   width: auto;
   /* font-weight: bold; */
   text-transform: capitalize;
-  color: var(--lightdark-color);
+  color: var(--light-color);
   background: transparent;
   border: none;
   border-radius: 0;
