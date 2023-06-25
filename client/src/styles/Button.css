@@ -90,14 +90,14 @@
 }
 
 .btn-time:hover {
-  color: var(--primary-color);
-  background: transparent;
+  color: var(--lightdark-color);
 }
 
 .time-active {
   color: var(--lightdark-color);
   border-bottom: 1px solid var(--lightdark-color);
   padding-bottom: 0;
+  pointer-events: none;
 }
 
 .time-active:hover {
