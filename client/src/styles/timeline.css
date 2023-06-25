@@ -17,8 +17,8 @@
   width: 1px;
   content: "";
   position: absolute;
-  top: 13px;
-  bottom: 0;
+  top: 20px;
+  bottom: -7px;
   left: 4px;
 }
 
@@ -30,6 +30,10 @@
   height: 13px;
   border-radius: 50%;
   border: 1px solid var(--lightdark-30-color);
+}
+
+.timeline .step .point:first-child {
+  margin-top: 7px;
 }
 
 .timeline .step .text {
