@@ -30,13 +30,16 @@ const ItemInput: React.FC<IProps> = ({
         handleAdd(e);
         setText("");
       }}>
-      {itemType === "Goal" && items.length === 0 ? (
-        <div className='items-number'>max number - 3</div>
-      ) : 3 - items.length > 0 ? (
-        <div className='items-number'>possible to add - {3 - items.length}</div>
-      ) : (
-        ""
-      )}
+      {itemType === "Goal" &&
+        (items.length === 0 ? (
+          <div className='items-number'>max number - 3</div>
+        ) : items.length < 4 ? (
+          <div className='items-number'>
+            possible to add - {3 - items.length}
+          </div>
+        ) : (
+          ""
+        ))}
       <div className='add-item'>
         <input
           className='item-input'
