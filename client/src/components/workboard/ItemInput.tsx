@@ -29,11 +29,14 @@ const ItemInput: React.FC<IProps> = ({
     setSelect(e.target.value);
   };
 
-  const timesSelect = (n: number) => (
-    <select onChange={selectChange}>
-      <option value='Daily'>Daily</option>
-    </select>
-  );
+  const timesSelect = (n: number) => {
+    const list = [];
+    for (let i = 1; i <= n; i++) {
+      list.push(<option value={i}>{i}</option>);
+    }
+
+    return <select onChange={selectChange}>{list}</select>;
+  };
 
   return (
     <form
