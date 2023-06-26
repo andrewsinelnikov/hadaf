@@ -19,7 +19,7 @@ const ItemInput: React.FC<IProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState<string>(item.text);
 
-  const [select, setSelect] = useState("Daily");
+  const [select, setSelect] = useState<String>();
 
   useEffect(() => {
     setItem({ ...item, text: text });
@@ -91,10 +91,14 @@ const ItemInput: React.FC<IProps> = ({
         {text.length > 0 && itemType === "Step" && (
           <>
             <div>
-              <select value={select} onChange={selectChange}>
+              <select onChange={selectChange}>
+                <option selected disabled>
+                  How often
+                </option>
                 <option value='Daily'>Daily</option>
-                <option value='option2'>Option 2</option>
-                <option value='option3'>Option 3</option>
+                <option value='Weekly'>Weekly</option>
+                <option value='Monthly'>Monthly</option>
+                <option value='Seasonly'>Seasonly</option>
               </select>
             </div>
             <button type='submit' className='btn btn-auto btn-success'>
