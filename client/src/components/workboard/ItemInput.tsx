@@ -25,7 +25,9 @@ const ItemInput: React.FC<IProps> = ({
     setItem({ ...item, text: text });
   }, [text]);
 
-  const  selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {}
+  const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelect(e.target.value);
+  };
 
   return (
     <form
