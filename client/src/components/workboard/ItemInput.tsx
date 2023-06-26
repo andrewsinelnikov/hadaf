@@ -29,6 +29,12 @@ const ItemInput: React.FC<IProps> = ({
     setSelect(e.target.value);
   };
 
+  const timesSelect = (n: number) => (
+    <select onChange={selectChange}>
+      <option value='Daily'>Daily</option>
+    </select>
+  );
+
   return (
     <form
       className='add'
@@ -100,6 +106,7 @@ const ItemInput: React.FC<IProps> = ({
                 <option value='Monthly'>Monthly</option>
                 <option value='Seasonly'>Seasonly</option>
               </select>
+              {select === "Weekly"}
             </div>
             <button type='submit' className='btn btn-auto btn-success'>
               Add
