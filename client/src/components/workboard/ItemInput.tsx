@@ -19,11 +19,13 @@ const ItemInput: React.FC<IProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState<string>(item.text);
 
-  const [select, setSelect] = useState("option1");
+  const [select, setSelect] = useState("Daily");
 
   useEffect(() => {
     setItem({ ...item, text: text });
   }, [text]);
+
+  const  selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {}
 
   return (
     <form
@@ -87,8 +89,8 @@ const ItemInput: React.FC<IProps> = ({
         {text.length > 0 && itemType === "Step" && (
           <>
             <div>
-              <select value={select} onChange={}>
-                <option value='option1'>Option 1</option>
+              <select value={select} onChange={selectChange}>
+                <option value='Daily'>Daily</option>
                 <option value='option2'>Option 2</option>
                 <option value='option3'>Option 3</option>
               </select>
