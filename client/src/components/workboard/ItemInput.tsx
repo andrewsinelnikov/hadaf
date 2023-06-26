@@ -31,7 +31,7 @@ const ItemInput: React.FC<IProps> = ({
   };
 
   const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelect(e.target.value);
+    setTimes(e.target.value as unknown as number);
   };
 
   const timesSelect = (n: number) => {
@@ -40,7 +40,7 @@ const ItemInput: React.FC<IProps> = ({
       list.push(<option value={i}>{i}</option>);
     }
 
-    return <select onChange={selectChange}>{list}</select>;
+    return <select onChange={timesChange}>{list}</select>;
   };
 
   return (
