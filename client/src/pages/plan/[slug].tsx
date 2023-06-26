@@ -31,6 +31,8 @@ const PlanForGoal = () => {
   const [planItem, setPlanItem] = useState<IItem>(inialState);
   const [plan, setPlan] = useState<Array<IItem>>([]);
 
+  const [days, setDays] = useState<number>(0);
+
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
     setActiveGoal(goals.find((item) => item._id === slug));
@@ -50,13 +52,14 @@ const PlanForGoal = () => {
         <UserInfo />
         <div className='profile-content'>
           <div className='content'>
-            <TimeReminder action='plans' type='season' />
+            <TimeReminder action='plans' type='season' setDays={setDays} />
             <ItemList
               items={plan}
               setItems={setPlan}
               type='plans'
               goal={activeGoal?.text}
             />
+            {days}
           </div>
           <Footer />
         </div>

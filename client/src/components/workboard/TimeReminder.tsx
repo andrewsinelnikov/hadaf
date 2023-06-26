@@ -8,12 +8,14 @@ interface IProps {
   action: string;
   type?: string;
   message?: string;
+  setDays?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const TimeReminder = ({
   action,
   type = "",
   message = "What are you waiting for? Meet the challenge",
+  setDays,
 }: IProps) => {
   const timeBtns = [
     { key: 1, label: "day" },
@@ -72,7 +74,7 @@ const TimeReminder = ({
               return (
                 <>
                   <p>The season ends in</p>
-                  <Countdown date={endOfSeason()} />
+                  <Countdown date={endOfSeason()} setDays={setDays} />
                 </>
               );
             default:

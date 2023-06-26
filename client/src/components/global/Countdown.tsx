@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 
 interface IProps {
   date: Date;
+  setDays?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Countdown = ({ date }: IProps) => {
+const Countdown = ({ date, setDays }: IProps) => {
   const countdownTime = date.getTime();
   const [left, setLeft] = useState({
     days: 0,
@@ -35,6 +36,7 @@ const Countdown = ({ date }: IProps) => {
       let seconds = Math.floor((gap % minute) / second);
 
       setLeft({ days, hours, minutes, seconds });
+      setDays && setDays(days);
     }
   };
 
