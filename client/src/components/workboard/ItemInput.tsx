@@ -82,6 +82,9 @@ const ItemInput: React.FC<IProps> = ({
         )}
       </div>
       <div className='item-options'>
+        {itemType==='Step' && (
+          <div>Once</div>
+        )}
         {text.length > 0 && (
           <button type='submit' className='btn btn-auto btn-success'>
             Add
