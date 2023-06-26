@@ -20,12 +20,17 @@ const ItemInput: React.FC<IProps> = ({
   const [text, setText] = useState<string>(item.text);
 
   const [select, setSelect] = useState<String>();
+  const [times, setTimes] = useState(1);
 
   useEffect(() => {
     setItem({ ...item, text: text });
   }, [text]);
 
   const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelect(e.target.value);
+  };
+
+  const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelect(e.target.value);
   };
 
