@@ -113,7 +113,9 @@ const ItemInput: React.FC<IProps> = ({
                 ? timesSelect(6)
                 : select === "Monthly"
                 ? timesSelect(4)
-                : timesSelect(5)}
+                : select === "Seasonly"
+                ? timesSelect(5)
+                : ""}
             </div>
             <button type='submit' className='btn btn-auto btn-success'>
               Add
