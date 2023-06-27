@@ -69,6 +69,7 @@ const PlanForGoal = () => {
           itemType='Step'
           items={plan}
           handleAdd={addPlanItem}
+          days={days}
         />
       </div>
     </UserLayout>

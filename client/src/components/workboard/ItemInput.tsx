@@ -16,6 +16,7 @@ const ItemInput: React.FC<IProps> = ({
   itemType,
   items,
   handleAdd,
+  days,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState<string>(item.text);
