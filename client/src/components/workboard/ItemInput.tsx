@@ -32,13 +32,13 @@ const ItemInput: React.FC<IProps> = ({
   const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectPeriod(e.target.value);
     if (selectPeriod === "Daily") {
-      count = quantity();
+      console.log(quantity());
     }
   };
 
   const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setTimes(e.target.value as unknown as number);
-    count = quantity();
+    console.log(quantity());
   };
 
   const timesOptions = (n: number) => {
@@ -53,7 +53,7 @@ const ItemInput: React.FC<IProps> = ({
   const quantity = () => {
     if (selectPeriod === "Daily") {
       if (days! > 0) {
-        return days;
+        return days!;
       } else return 1;
     }
     if (selectPeriod === "Weekly") {
@@ -148,7 +148,7 @@ const ItemInput: React.FC<IProps> = ({
                 ? timesOptions(5)
                 : ""}
             </div>
-            {count && <span>{count}</span>}
+            {count}
             <button type='submit' className='btn btn-auto btn-success'>
               Add
             </button>
