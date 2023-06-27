@@ -7,6 +7,7 @@ interface IProps {
   itemType: string;
   items: IItem[];
   handleAdd: (e: React.FormEvent) => void;
+  days?: number;
 }
 
 const ItemInput: React.FC<IProps> = ({
@@ -19,7 +20,7 @@ const ItemInput: React.FC<IProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState<string>(item.text);
 
-  const [select, setSelect] = useState<String>();
+  const [selectPeriod, setSelectPeriod] = useState<String>();
   const [times, setTimes] = useState(1);
 
   useEffect(() => {
@@ -27,14 +28,14 @@ const ItemInput: React.FC<IProps> = ({
   }, [text]);
 
   const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelect(e.target.value);
+    setSelectPeriod(e.target.value);
   };
 
   const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setTimes(e.target.value as unknown as number);
   };
 
-  const timesSelect = (n: number) => {
+  const timesOptions = (n: number) => {
     const list = [];
     for (let i = 1; i <= n; i++) {
       list.push(<option value={i}>{i}</option>);
@@ -42,6 +43,8 @@ const ItemInput: React.FC<IProps> = ({
 
     return <select onChange={timesChange}>{list}</select>;
   };
+
+  const quantity = () => {};
 
   return (
     <form
@@ -114,12 +117,12 @@ const ItemInput: React.FC<IProps> = ({
                 <option value='Monthly'>Monthly</option>
                 <option value='Seasonly'>Seasonly</option>
               </select>
-              {select === "Weekly"
-                ? timesSelect(6)
-                : select === "Monthly"
-                ? timesSelect(4)
-                : select === "Seasonly"
-                ? timesSelect(5)
+              {selectPeriod === "Weekly"
+                ? timesOptions(6)
+                : selectPeriod === "Monthly"
+                ? timesOptions(4)
+                : selectPeriod === "Seasonly"
+                ? timesOptions(5)
                 : ""}
             </div>
             <button type='submit' className='btn btn-auto btn-success'>
