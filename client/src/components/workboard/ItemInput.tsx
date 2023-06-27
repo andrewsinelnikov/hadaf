@@ -46,7 +46,7 @@ const ItemInput: React.FC<IProps> = ({
       } else setCount(times);
     }
     if (selectPeriod === "Seasonly") setCount(times);
-  }, [selectPeriod, times]);
+  }, [selectPeriod, times, setCount, setTimes, setSelectPeriod]);
 
   const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectPeriod(e.target.value);
@@ -54,10 +54,6 @@ const ItemInput: React.FC<IProps> = ({
 
   const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setTimes(e.target.value as unknown as number);
-    // setCount(quantity());
-    // if (days && days > 0) {
-    //   setCount(days);
-    // } else setCount(1);
   };
 
   const timesOptions = (n: number) => {
@@ -70,7 +66,11 @@ const ItemInput: React.FC<IProps> = ({
       );
     }
 
-    return <select onChange={timesChange}>{list}</select>;
+    return (
+      <select onChange={timesChange} defaultValue={times}>
+        {list}
+      </select>
+    );
   };
 
   // const quantity = (): number => {
