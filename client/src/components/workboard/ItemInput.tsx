@@ -18,12 +18,12 @@ const ItemInput: React.FC<IProps> = ({
   handleAdd,
   days,
 }) => {
-  let count;
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState<string>(item.text);
 
   const [selectPeriod, setSelectPeriod] = useState<String>();
   const [times, setTimes] = useState(1);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     setItem({ ...item, text: text });
@@ -32,41 +32,49 @@ const ItemInput: React.FC<IProps> = ({
   const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectPeriod(e.target.value);
     if (selectPeriod === "Daily") {
-      console.log(quantity());
+      setCount(quantity());
     }
   };
 
   const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setTimes(e.target.value as unknown as number);
-    console.log(quantity());
+    setCount(quantity());
   };
 
   const timesOptions = (n: number) => {
     const list = [];
     for (let i = 1; i <= n; i++) {
-      list.push(<option value={i}>{i}</option>);
+      list.push(
+        <option value={i} key={i}>
+          {i}
+        </option>
+      );
     }
 
     return <select onChange={timesChange}>{list}</select>;
   };
 
-  const quantity = () => {
-    if (selectPeriod === "Daily") {
-      if (days! > 0) {
-        return days!;
-      } else return 1;
+  const quantity = (): number => {
+    if (days) {
+      if (selectPeriod === "Daily") {
+        if (days > 0) {
+          return days;
+        } else return 1;
+      }
+      if (selectPeriod === "Weekly") {
+        if (days >= 7) {
+          return Math.trunc(days / 7) * times;
+        } else return times;
+      }
+      if (selectPeriod === "Monthly") {
+        if (days >= 30) {
+          return Math.trunc(days / 30) * times;
+        } else return times;
+      }
+      if (selectPeriod === "Seasonly") return times;
+    } else {
+      return 1;
     }
-    if (selectPeriod === "Weekly") {
-      if (days! >= 7) {
-        return Math.trunc(days! / 7) * times;
-      } else return times;
-    }
-    if (selectPeriod === "Monthly") {
-      if (days! >= 30) {
-        return Math.trunc(days! / 30) * times;
-      } else return times;
-    }
-    if (selectPeriod === "Seasonly") return times;
   };
 
   return (
@@ -132,7 +140,7 @@ const ItemInput: React.FC<IProps> = ({
           <>
             <div>
               <select onChange={selectChange}>
-                <option selected disabled>
+                <option disabled defaultValue='How often'>
                   How often
                 </option>
                 <option value='Daily'>Daily</option>
