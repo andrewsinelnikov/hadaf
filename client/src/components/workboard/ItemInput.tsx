@@ -18,6 +18,7 @@ const ItemInput: React.FC<IProps> = ({
   handleAdd,
   days,
 }) => {
+  let count;
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState<string>(item.text);
 
@@ -30,10 +31,14 @@ const ItemInput: React.FC<IProps> = ({
 
   const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectPeriod(e.target.value);
+    if (selectPeriod === "Daily") {
+      count = quantity();
+    }
   };
 
   const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setTimes(e.target.value as unknown as number);
+    count = quantity();
   };
 
   const timesOptions = (n: number) => {
@@ -143,6 +148,7 @@ const ItemInput: React.FC<IProps> = ({
                 ? timesOptions(5)
                 : ""}
             </div>
+            {count && <span>{count}</span>}
             <button type='submit' className='btn btn-auto btn-success'>
               Add
             </button>
