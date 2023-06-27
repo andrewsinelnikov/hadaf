@@ -151,8 +151,10 @@ const ItemInput: React.FC<IProps> = ({
                 ? timesOptions(5)
                 : ""}
             </div>
-            {count}
-            <button type='submit' className='btn btn-auto btn-success'>
+            <button
+              type='submit'
+              className='btn btn-auto btn-success'
+              disabled={selectPeriod ? false : true}>
               Add
             </button>
           </>
