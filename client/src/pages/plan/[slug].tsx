@@ -59,7 +59,6 @@ const PlanForGoal = () => {
               type='plans'
               goal={activeGoal?.text}
             />
-            {days}
           </div>
           <Footer />
         </div>

@@ -58,6 +58,7 @@ const ItemInput: React.FC<IProps> = ({
 
   const timesOptions = (n: number) => {
     const list = [];
+
     for (let i = 1; i <= n; i++) {
       list.push(
         <option value={i} key={i}>
@@ -72,29 +73,6 @@ const ItemInput: React.FC<IProps> = ({
       </select>
     );
   };
-
-  // const quantity = (): number => {
-  //   if (days) {
-  //     if (selectPeriod === "Daily") {
-  //       if (days > 0) {
-  //         return days;
-  //       } else return 1;
-  //     }
-  //     if (selectPeriod === "Weekly") {
-  //       if (days >= 7) {
-  //         return Math.trunc(days / 7) * times;
-  //       } else return times;
-  //     }
-  //     if (selectPeriod === "Monthly") {
-  //       if (days >= 30) {
-  //         return Math.trunc(days / 30) * times;
-  //       } else return times;
-  //     }
-  //     if (selectPeriod === "Seasonly") return times;
-  //   } else {
-  //     return 1;
-  //   }
-  // };
 
   return (
     <form
@@ -124,8 +102,6 @@ const ItemInput: React.FC<IProps> = ({
           value={text}
           onChange={(e) => {
             setText(e.target.value);
-            // setItem({ ...item, text: text });
-            // setItem({ ...item, text: e.target.value });
           }}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
