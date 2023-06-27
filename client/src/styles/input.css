@@ -123,10 +123,19 @@
   outline: none;
 }
 
+.quantity select:nth-child(1) {
+  width: 96px;
+}
+
 .quantity select:nth-child(2) {
   margin-left: 16px;
 }
 
 .quantity select option {
-  color: var(--dark-color);
+  color: var(--lightdark-color);
+  background: var(--dark-color);
+}
+
+.quantity select:hover {
+  background: var(--darklight-color);
 }
