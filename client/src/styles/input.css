@@ -96,3 +96,11 @@
   opacity: 0.5;
   transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
 }
+
+.quantity {
+  border: 2px solid var(--darklight-color);
+  border-radius: var(--border-radius);
+  padding: 0.35rem 0.75rem;
+  margin-top: 4px;
+  transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+}

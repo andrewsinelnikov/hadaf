@@ -133,7 +133,7 @@ const ItemInput: React.FC<IProps> = ({
       <div className='item-options'>
         {text.length > 0 && itemType === "Step" && (
           <>
-            <div>
+            <div className='quantity'>
               <select onChange={selectChange}>
                 <option selected disabled>
                   How often
