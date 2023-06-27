@@ -98,7 +98,7 @@
 }
 
 .quantity {
-  min-width: 146px;
+  min-width: 162px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -120,4 +120,13 @@
   border: none;
   font-size: 16px;
   font-weight: 400;
+  outline: none;
+}
+
+.quantity select:nth-child(2) {
+  margin-left: 16px;
+}
+
+.quantity select option {
+  color: var(--dark-color);
 }
