@@ -98,9 +98,15 @@
 }
 
 .quantity {
+  min-width: 146px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--lightdark-color);
   border: 2px solid var(--darklight-color);
   border-radius: var(--border-radius);
-  padding: 0.35rem 0.75rem;
+  padding: 0 12px;
   margin-top: 4px;
+  margin-right: 8px;
   transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
 }
