@@ -29,22 +29,31 @@ const ItemInput: React.FC<IProps> = ({
     setItem({ ...item, text: text });
   }, [text]);
 
-  const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectPeriod(e.target.value);
+  useEffect(() => {
     if (selectPeriod === "Daily") {
       if (days && days > 0) {
         setCount(days);
-      } else setCount(1);
+      }
     }
-  };
-
-  const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setTimes(e.target.value as unknown as number);
     if (selectPeriod === "Weekly") {
       if (days && days >= 7) {
         setCount(Math.trunc(days / 7) * times);
       } else setCount(times);
     }
+    if (selectPeriod === "Monthly") {
+      if (days && days >= 30) {
+        setCount(Math.trunc(days / 30) * times);
+      } else setCount(times);
+    }
+    if (selectPeriod === "Seasonly") setCount(times);
+  }, [selectPeriod, times]);
+
+  const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectPeriod(e.target.value);
+  };
+
+  const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setTimes(e.target.value as unknown as number);
     // setCount(quantity());
     // if (days && days > 0) {
     //   setCount(days);
@@ -150,7 +159,7 @@ const ItemInput: React.FC<IProps> = ({
           <>
             <div>
               <select onChange={selectChange}>
-                <option disabled defaultValue='How often'>
+                <option selected disabled>
                   How often
                 </option>
                 <option value='Daily'>Daily</option>
