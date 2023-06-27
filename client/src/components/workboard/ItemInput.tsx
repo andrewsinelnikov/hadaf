@@ -83,6 +83,7 @@ const ItemInput: React.FC<IProps> = ({
       onSubmit={(e) => {
         handleAdd(e);
         setText("");
+        setSelectPeriod("");
       }}>
       {itemType === "Goal" &&
         (items.length === 0 ? (
@@ -135,7 +136,7 @@ const ItemInput: React.FC<IProps> = ({
           <>
             <div className='quantity'>
               <select onChange={selectChange}>
-                <option selected disabled>
+                <option disabled selected>
                   How often
                 </option>
                 <option value='Daily'>Daily</option>
@@ -143,13 +144,14 @@ const ItemInput: React.FC<IProps> = ({
                 <option value='Monthly'>Monthly</option>
                 <option value='Seasonly'>Seasonly</option>
               </select>
-              {selectPeriod === "Weekly"
-                ? timesOptions(6)
-                : selectPeriod === "Monthly"
-                ? timesOptions(4)
-                : selectPeriod === "Seasonly"
-                ? timesOptions(5)
-                : ""}
+              {selectPeriod &&
+                (selectPeriod === "Weekly"
+                  ? timesOptions(6)
+                  : selectPeriod === "Monthly"
+                  ? timesOptions(4)
+                  : selectPeriod === "Seasonly"
+                  ? timesOptions(5)
+                  : "")}
             </div>
             <button
               type='submit'
