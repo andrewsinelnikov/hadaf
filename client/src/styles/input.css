@@ -123,6 +123,10 @@
   margin-bottom: 1px;
 }
 
+.quantity select:hover {
+  background: var(--darklight-color);
+}
+
 .quantity select:nth-child(1) {
   width: 96px;
 }
@@ -134,8 +138,4 @@
 .quantity select option {
   color: var(--lightdark-color);
   background: var(--dark-color);
-}
-
-.quantity select:hover {
-  background: var(--darklight-color);
 }
