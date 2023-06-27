@@ -99,10 +99,7 @@
 
 .quantity {
   min-width: 162px;
-  font-size: 16px;
-  font-weight: 400;
   line-height: 1.5;
-  color: var(--lightdark-color);
   border: 2px solid var(--darklight-color);
   border-radius: var(--border-radius);
   text-align: center;
@@ -112,6 +109,7 @@
   margin-top: 4px;
   margin-right: 8px;
   transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+  opacity: 0.7;
 }
 
 .quantity select {
@@ -121,6 +119,8 @@
   font-size: 16px;
   font-weight: 400;
   outline: none;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 .quantity select:nth-child(1) {
