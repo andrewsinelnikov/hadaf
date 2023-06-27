@@ -45,7 +45,24 @@ const ItemInput: React.FC<IProps> = ({
     return <select onChange={timesChange}>{list}</select>;
   };
 
-  const quantity = () => {};
+  const quantity = () => {
+    if (selectPeriod === "Daily") {
+      if (days! > 0) {
+        return days;
+      } else return 1;
+    }
+    if (selectPeriod === "Weekly") {
+      if (days! >= 7) {
+        return Math.trunc(days! / 7) * times;
+      } else return times;
+    }
+    if (selectPeriod === "Monthly") {
+      if (days! >= 30) {
+        return Math.trunc(days! / 30) * times;
+      } else return times;
+    }
+    if (selectPeriod === "Seasonly") return times;
+  };
 
   return (
     <form
