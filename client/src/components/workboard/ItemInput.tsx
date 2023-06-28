@@ -100,11 +100,18 @@ const ItemInput: React.FC<IProps> = ({
           ""
         ))}
       {itemType === "Step" && addInput === false && (
-        <div className='items-number' onClick={() => setAddInput(!addInput)}>
+        <div
+          className='items-number'
+          onClick={() => setAddInput(!addInput)}
+          style={{ cursor: "pointer" }}>
           one more step?
         </div>
       )}
-      <div className='add-item'>
+      <div
+        className='add-item'
+        style={{
+          display: itemType === "Step" && addInput === false ? "none" : "block",
+        }}>
         <input
           className='item-input'
           type='text'
