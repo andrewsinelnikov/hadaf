@@ -28,8 +28,7 @@ const ItemInput: React.FC<IProps> = ({
 
   useEffect(() => {
     setItem({ ...item, text: text });
-    if (items.length >= 5) setAddInput(!addInput);
-  }, [text, items]);
+  }, [text]);
 
   useEffect(() => {
     if (selectPeriod === "Daily") {
@@ -85,7 +84,10 @@ const ItemInput: React.FC<IProps> = ({
       onSubmit={(e) => {
         handleAdd(e);
         setText("");
-        setSelectPeriod("");
+        if (itemType === "Step") {
+          setSelectPeriod("");
+          if (items.length >= 5) setAddInput(!addInput);
+        }
       }}>
       {itemType === "Goal" &&
         (items.length === 0 ? (
@@ -98,7 +100,9 @@ const ItemInput: React.FC<IProps> = ({
           ""
         ))}
       {itemType === "Step" && addInput === false && (
-        <div className='items-number'>one more step?</div>
+        <div className='items-number' onClick={() => setAddInput(!addInput)}>
+          one more step?
+        </div>
       )}
       <div className='add-item'>
         <input
