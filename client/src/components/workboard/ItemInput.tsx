@@ -24,10 +24,12 @@ const ItemInput: React.FC<IProps> = ({
   const [selectPeriod, setSelectPeriod] = useState<String>();
   const [times, setTimes] = useState(1);
   const [count, setCount] = useState(1);
+  const [addInput, setAddInput] = useState(true);
 
   useEffect(() => {
     setItem({ ...item, text: text });
-  }, [text]);
+    if (items.length >= 5) setAddInput(!addInput);
+  }, [text, items]);
 
   useEffect(() => {
     if (selectPeriod === "Daily") {
