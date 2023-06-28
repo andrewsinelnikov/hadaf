@@ -60,7 +60,7 @@ const PlanForGoal = () => {
         <UserInfo />
         <div className='profile-content'>
           <div className='content'>
-            <TimeReminder action='plans' type='season' setDays={setDays} />
+            <TimeReminder action='goals' type='season' setDays={setDays} />
             <ItemList
               items={plan}
               setItems={setPlan}
