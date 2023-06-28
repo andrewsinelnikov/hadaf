@@ -97,6 +97,9 @@ const ItemInput: React.FC<IProps> = ({
         ) : (
           ""
         ))}
+      {itemType === "Step" && addInput === false && (
+        <div className='items-number'>one more step?</div>
+      )}
       <div className='add-item'>
         <input
           className='item-input'
