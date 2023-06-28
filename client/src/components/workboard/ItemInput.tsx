@@ -86,7 +86,7 @@ const ItemInput: React.FC<IProps> = ({
         setText("");
         if (itemType === "Step") {
           setSelectPeriod("");
-          if (items.length >= 5) setAddInput(!addInput);
+          if (items.length >= 4) setAddInput(!addInput);
         }
       }}>
       {itemType === "Goal" &&
