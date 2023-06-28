@@ -12,7 +12,7 @@ import TimeReminder from "../components/workboard/TimeReminder";
 import ItemList from "../components/workboard/ItemList";
 import ItemInput from "../components/workboard/ItemInput";
 import Footer from "../components/global/Footer";
-import { validateGoal } from "../utils/Validate";
+import { validateItem } from "../utils/Validate";
 import { ALERT } from "../redux/types/alertType";
 import { getSeason } from "../utils/getSeason";
 
@@ -44,7 +44,7 @@ const Goals = () => {
     e.preventDefault();
     if (!auth.access_token) return;
 
-    const check = validateGoal(goal);
+    const check = validateItem(goal, "Please type your goal");
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 

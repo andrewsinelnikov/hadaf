@@ -44,12 +44,12 @@ export const validatePhone = (phone: string) => {
   return re.test(phone);
 };
 
-export const validateGoal = (goal: IItem) => {
-  const { text } = goal;
+export const validateItem = (item: IItem, msg: string) => {
+  const { text } = item;
   const errors: string[] = [];
 
   if (!text) {
-    errors.push("Please type your goal");
+    errors.push(msg);
   } else if (text.length > 200) {
     errors.push("Your goal is up to 200 chars long");
   }
