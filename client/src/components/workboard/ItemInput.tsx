@@ -148,7 +148,7 @@ const ItemInput: React.FC<IProps> = ({
         )}
       </div>
       <div className='item-options'>
-        {text.length > 0 && itemType === "Step" && (
+        {text.length > 0 && itemType === "Step" && addInput && (
           <>
             <div className='quantity'>
               <select onChange={selectChange}>
