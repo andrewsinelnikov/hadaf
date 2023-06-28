@@ -48,7 +48,7 @@ export const validateItem = (item: IItem, msg: string) => {
   const { text } = item;
   const errors: string[] = [];
 
-  if (!text) {
+  if (!text.trim()) {
     errors.push(msg);
   } else if (text.length > 200) {
     errors.push("Your goal is up to 200 chars long");
