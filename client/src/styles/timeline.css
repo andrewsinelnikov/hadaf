@@ -22,13 +22,13 @@
   left: 4px;
 }
 
-.timeline .step:first-child::before {
+.timeline .step:first-child::after {
   background: var(--lightdark-30-color);
   width: 1px;
   content: "";
   position: absolute;
-  top: 23px;
-  bottom: -10px;
+  top: -16px;
+  bottom: 30px;
   left: 4px;
 }
 
