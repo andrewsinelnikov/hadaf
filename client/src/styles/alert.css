@@ -5,6 +5,7 @@
   bottom: 15px;
   left: 20px;
   right: 20px;
+  z-index: 50;
 }
 
 .toast-box {
@@ -20,7 +21,7 @@
   transition: opacity 256ms ease-in;
   background-clip: padding-box;
   pointer-events: auto;
-  z-index: 50;
+  /* z-index: 50; */
 
   /* background-clip: padding-box;
   width: 350px;
