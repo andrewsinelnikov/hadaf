@@ -17,8 +17,18 @@
   width: 1px;
   content: "";
   position: absolute;
-  top: 20px;
-  bottom: -7px;
+  top: 23px;
+  bottom: -10px;
+  left: 4px;
+}
+
+.timeline .step:first-child::before {
+  background: var(--lightdark-30-color);
+  width: 1px;
+  content: "";
+  position: absolute;
+  top: 23px;
+  bottom: -10px;
   left: 4px;
 }
 
@@ -33,9 +43,13 @@
 }
 
 .timeline .step .point:first-child {
-  margin-top: 7px;
+  margin-top: 10px;
 }
 
 .timeline .step .text {
   padding-left: 16px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--lightdark-color);
+  overflow-wrap: break-word;
 }
