@@ -53,7 +53,8 @@ const ItemList: React.FC<IProps> = ({
               {items.map((item) => (
                 <li key={item._id} className='step'>
                   <div className='point'></div>
-                  <div className='text'>{item.text}</div>
+                  {/* <div className='text'>{item.text}</div> */}
+                  <Item item={item} key={item._id} type={type} />
                 </li>
               ))}
             </ul>
