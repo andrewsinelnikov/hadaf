@@ -106,13 +106,22 @@
   transition: color 200ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
 }
 
+.item-plan {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--lightdark-30-color);
+}
+
 .item-plan .text {
   padding-left: 16px;
   font-size: 20px;
   font-weight: 500;
   color: var(--lightdark-color);
   overflow-wrap: break-word;
-  border-bottom: 1px solid var(--lightdark-30-color);
+}
+
+.item-plan .btn {
+  margin-bottom: 4px;
 }
 
 .notes-caption {
