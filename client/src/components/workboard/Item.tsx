@@ -103,7 +103,42 @@ const Item: React.FC<IProps> = ({ item, type }) => {
       )}
       {type === "plans" && (
         <form>
-          <div className='item-plan'>{item.text}</div>
+          {edit ? (
+            <div className='add-item'>
+              <input
+                className='item-input'
+                type='text'
+                name='text'
+                value={text}
+                onChange={(e) => {
+                  setText(e.target.value);
+                }}
+                autoComplete='off'
+                maxLength={200}
+                style={{
+                  borderBottom: "1px solid var(--lightdark-color)",
+                }}
+              />
+              {text.length > 0 && (
+                <small style={{ fontWeight: "bold" }}>
+                  <span
+                    style={{
+                      color: `${
+                        text.length > 200
+                          ? "var(--error-color)"
+                          : "var(--done-color)"
+                      }`,
+                    }}>
+                    {text.length}
+                  </span>{" "}
+                  / 200
+                </small>
+              )}
+            </div>
+          ) : (
+            // <div className='item-value'>{item.text}</div>
+            <div className='item-plan'>{item.text}</div>
+          )}
         </form>
       )}
     </>
