@@ -124,8 +124,8 @@
   cursor: pointer;
 }
 
-.quantity select:hover {
-  background: var(--darklight-color);
+.quantity:hover {
+  opacity: 1;
 }
 
 .quantity select:nth-child(1) {
