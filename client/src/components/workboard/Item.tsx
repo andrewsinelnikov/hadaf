@@ -10,9 +10,10 @@ import Progress from "./Progress";
 
 interface IProps {
   item: IItem;
+  type: string;
 }
 
-const Item: React.FC<IProps> = ({ item }) => {
+const Item: React.FC<IProps> = ({ item, type }) => {
   const [text, setText] = useState<string>("");
   const [edit, setEdit] = useState<IItem | null>(null);
 
@@ -42,7 +43,8 @@ const Item: React.FC<IProps> = ({ item }) => {
   };
 
   return (
-    <form className='item-goal'>
+    <>
+    {type === "goals" && <form className='item-goal'>
       {edit ? (
         <div className='add-item'>
           <input
@@ -96,7 +98,8 @@ const Item: React.FC<IProps> = ({ item }) => {
           Reach it
         </Link>
       </div>
-    </form>
+    </form>}
+    </>
   );
 };
 
