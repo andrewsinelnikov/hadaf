@@ -136,8 +136,15 @@ const Item: React.FC<IProps> = ({ item, type }) => {
               )}
             </div>
           ) : (
-            // <div className='item-value'>{item.text}</div>
-            <div className='item-plan'>{item.text}</div>
+            <>
+              <div className='item-plan'>{item.text}</div>
+              <button
+                type='button'
+                onClick={() => setEdit(item)}
+                className='btn btn-auto btn-action btn-dark'>
+                Edit
+              </button>
+            </>
           )}
         </form>
       )}
