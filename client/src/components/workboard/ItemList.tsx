@@ -32,7 +32,7 @@ const ItemList: React.FC<IProps> = ({
           <div className='items'>
             <p>Goals for the {season}</p>
             {items.map((item) => (
-              <Item item={item} key={item._id} />
+              <Item item={item} key={item._id} type={type} />
             ))}
           </div>
         ))}
