@@ -103,7 +103,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
       )}
       {type === "plans" && (
         <form>
-          <div className='text'>{item.text}</div>
+          <div className='item-plan'>{item.text}</div>
         </form>
       )}
     </>
