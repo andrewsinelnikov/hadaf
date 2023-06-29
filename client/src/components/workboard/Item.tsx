@@ -164,6 +164,9 @@ const Item: React.FC<IProps> = ({ item, type }) => {
                   className='btn btn-auto btn-action btn-dark'>
                   Edit
                 </button>
+                <Link to='/plans' className='btn btn-auto btn-success'>
+                  Realize
+                </Link>
               </div>
             </div>
           )}
