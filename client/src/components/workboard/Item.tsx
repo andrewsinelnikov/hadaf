@@ -44,61 +44,68 @@ const Item: React.FC<IProps> = ({ item, type }) => {
 
   return (
     <>
-    {type === "goals" && <form className='item-goal'>
-      {edit ? (
-        <div className='add-item'>
-          <input
-            className='item-input'
-            type='text'
-            name='text'
-            value={text}
-            onChange={(e) => {
-              setText(e.target.value);
-            }}
-            autoComplete='off'
-            maxLength={200}
-            style={{
-              borderBottom: "1px solid var(--lightdark-color)",
-            }}
-          />
-          {text.length > 0 && (
-            <small style={{ fontWeight: "bold" }}>
-              <span
+      {type === "goals" && (
+        <form className='item-goal'>
+          {edit ? (
+            <div className='add-item'>
+              <input
+                className='item-input'
+                type='text'
+                name='text'
+                value={text}
+                onChange={(e) => {
+                  setText(e.target.value);
+                }}
+                autoComplete='off'
+                maxLength={200}
                 style={{
-                  color: `${
-                    text.length > 200
-                      ? "var(--error-color)"
-                      : "var(--done-color)"
-                  }`,
-                }}>
-                {text.length}
-              </span>{" "}
-              / 200
-            </small>
+                  borderBottom: "1px solid var(--lightdark-color)",
+                }}
+              />
+              {text.length > 0 && (
+                <small style={{ fontWeight: "bold" }}>
+                  <span
+                    style={{
+                      color: `${
+                        text.length > 200
+                          ? "var(--error-color)"
+                          : "var(--done-color)"
+                      }`,
+                    }}>
+                    {text.length}
+                  </span>{" "}
+                  / 200
+                </small>
+              )}
+            </div>
+          ) : (
+            <div className='item-value'>{item.text}</div>
           )}
-        </div>
-      ) : (
-        <div className='item-value'>{item.text}</div>
+          <Progress completed={item.completeness} />
+          <div className='item-options'>
+            <button
+              type='button'
+              onClick={edit ? () => handleEdit() : () => setEdit(item)}
+              className='btn btn-auto btn-action btn-dark'>
+              {edit ? "Update" : "Edit"}
+            </button>
+            <button
+              type='button'
+              onClick={() => handleDelete(item._id!)}
+              className='btn btn-auto btn-action btn-dark'>
+              Delete
+            </button>
+            <Link to={`/plan/${item._id}`} className='btn btn-auto btn-success'>
+              Reach it
+            </Link>
+          </div>
+        </form>
       )}
-      <Progress completed={item.completeness} />
-      <div className='item-options'>
-        <button
-          type='button'
-          onClick={edit ? () => handleEdit() : () => setEdit(item)}
-          className='btn btn-auto btn-action btn-dark'>
-          {edit ? "Update" : "Edit"}
-        </button>
-        <button
-          type='button'
-          onClick={() => handleDelete(item._id!)}
-          className='btn btn-auto btn-action btn-dark'>
-          Delete
-        </button>
-        <Link to={`/plan/${item._id}`} className='btn btn-auto btn-success'>
-          Reach it
-        </Link>
-      </div>
-    </form>}
+      {type === "plans" && (
+        <form>
+          <div className='text'>{item.text}</div>
+        </form>
+      )}
     </>
   );
 };
