@@ -22,7 +22,7 @@
   left: 4px;
 }
 
-.timeline .step:first-child::after {
+/* .timeline .step:first-child::after {
   background: var(--lightdark-30-color);
   width: 1px;
   content: "";
@@ -30,7 +30,7 @@
   top: -16px;
   bottom: 43px;
   left: 4px;
-}
+} */
 
 .timeline .step .point {
   margin-left: -22px;

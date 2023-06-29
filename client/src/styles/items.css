@@ -68,11 +68,13 @@
   /* padding-right: 64px; */
 }
 
-.item-goal .item-options .btn {
+.item-goal .item-options .btn,
+.item-plan .btn {
   opacity: 0.7;
 }
 
-.item-goal .item-options .btn:hover {
+.item-goal .item-options .btn:hover,
+.item-plan .btn:hover {
   opacity: 1;
 }
 
@@ -122,6 +124,10 @@
 
 .item-plan .btn {
   margin-bottom: 8px;
+}
+
+.item-plan .btn:last-child {
+  margin-right: 14px;
 }
 
 .notes-caption {
