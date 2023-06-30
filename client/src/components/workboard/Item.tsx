@@ -45,7 +45,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
   return (
     <>
       {type === "goals" && (
-        <form className='item-goal'>
+        <form className='item item-goal'>
           {edit ? (
             <div className='add-item'>
               <input
@@ -102,7 +102,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
         </form>
       )}
       {type === "plans" && (
-        <form>
+        <form className='item'>
           {edit ? (
             <>
               <div className='add-item'>
@@ -156,7 +156,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
               <div className='text'>{item.text}</div>
               <div className='plan-options'>
                 <span>
-                  {item.completeness} out of {item.count}
+                  {item.completeness} of {item.count}
                 </span>
                 <button
                   type='button'

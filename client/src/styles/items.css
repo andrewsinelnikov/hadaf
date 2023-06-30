@@ -46,9 +46,14 @@
   margin-bottom: 8px;
 }
 
-.item-goal {
+.item {
   max-width: 810px;
   width: 100%;
+}
+
+.item-goal {
+  /* max-width: 810px;
+  width: 100%; */
   /* background-color: var(--darkmiddle-color); */
   border-radius: var(--border-radius);
   border: 1px solid var(--lightdark-30-color);
