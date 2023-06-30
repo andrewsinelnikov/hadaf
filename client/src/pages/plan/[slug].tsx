@@ -26,9 +26,10 @@ const PlanForGoal = () => {
   const [activeGoal, setActiveGoal] = useState<IItem>();
 
   const inialState = {
-    user: "",
+    goal: activeGoal?._id,
     text: "",
-    completeness: 1,
+    count: 0,
+    completeness: 0,
     isDone: false,
     createdAt: new Date().toISOString(),
   };
