@@ -13,7 +13,7 @@ import { IItem } from "../../utils/TypeScript";
 
 import { checkTokenExp } from "../../utils/checkTokenExp";
 
-export const createGoal =
+export const createPlanItem =
   (goal: IItem, token: string) =>
   async (dispatch: Dispatch<IAlertType | IGoalType>) => {
     const result = await checkTokenExp(token, dispatch);

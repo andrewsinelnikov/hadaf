@@ -149,9 +149,6 @@ const Item: React.FC<IProps> = ({ item, type }) => {
                   className='btn btn-auto btn-action btn-dark'>
                   Delete
                 </button>
-                {/* <Link to={`/plan/${item._id}`} className='btn btn-auto btn-success'>
-              Reach it
-            </Link> */}
               </div>
             </>
           ) : (

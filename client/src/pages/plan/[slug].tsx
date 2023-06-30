@@ -4,6 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { IParams } from "../../utils/TypeScript";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { ALERT } from "../../redux/types/alertType";
+import { createPlanItem } from "../../redux/actions/planAction";
 
 import UserLayout from "../../components/layouts/UserLayout";
 import UserInfo from "../../components/profile/UserInfo";
@@ -13,7 +15,6 @@ import ItemList from "../../components/workboard/ItemList";
 import Footer from "../../components/global/Footer";
 import ItemInput from "../../components/workboard/ItemInput";
 import { validateItem } from "../../utils/Validate";
-import { ALERT } from "../../redux/types/alertType";
 
 const PlanForGoal = () => {
   const { slug }: IParams = useParams<keyof IParams>() as IParams;
@@ -48,6 +49,8 @@ const PlanForGoal = () => {
     const check = validateItem(planItem, "Please type a step toward the goal");
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
+
+    dispatch(createPlanItem(planItem, auth.access_token));
 
     if (planItem) {
       setPlan([...plan, planItem]);
