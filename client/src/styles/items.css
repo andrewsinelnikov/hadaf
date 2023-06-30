@@ -125,6 +125,12 @@
   overflow-wrap: break-word;
 }
 
+.item-plan .plan-options .completeness {
+  margin-right: 8px;
+  color: var(--lightdark-color);
+  opacity: 0.5;
+}
+
 .item-plan .btn {
   margin-bottom: 8px;
 }

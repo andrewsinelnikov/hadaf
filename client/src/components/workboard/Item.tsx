@@ -155,7 +155,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
             <div className='item-plan'>
               <div className='text'>{item.text}</div>
               <div className='plan-options'>
-                <span>
+                <span className='completeness'>
                   {item.completeness} of {item.count}
                 </span>
                 <button
