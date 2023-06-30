@@ -62,8 +62,10 @@ export interface IItem {
   _id?: string;
   user?: string | IUser;
   text: string;
-  completeness: number;
-  isDone: boolean;
+  completeness?: number;
+  isDone?: boolean;
+  goal?: string;
+  count?: number;
   createdAt: string;
 }
 
