@@ -154,7 +154,10 @@ const Item: React.FC<IProps> = ({ item, type }) => {
           ) : (
             <div className='item-plan'>
               <div className='text'>{item.text}</div>
-              <div>
+              <div className='plan-options'>
+                <span>
+                  {item.completeness} out of {item.count}
+                </span>
                 <button
                   type='button'
                   onClick={() => setEdit(item)}

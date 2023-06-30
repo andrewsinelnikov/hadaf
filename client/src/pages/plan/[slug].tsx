@@ -52,7 +52,7 @@ const PlanForGoal = () => {
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
-    dispatch(createPlanItem(planItem, auth.access_token));
+    // dispatch(createPlanItem(planItem, auth.access_token));
     setPlan([...plan, planItem]);
   };
 

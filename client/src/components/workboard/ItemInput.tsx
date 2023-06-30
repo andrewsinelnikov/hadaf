@@ -29,7 +29,7 @@ const ItemInput: React.FC<IProps> = ({
   useEffect(() => {
     if (itemType === "Goal") setItem({ ...item, text: text });
     if (itemType === "Step") setItem({ ...item, text: text, count: count });
-  }, [text]);
+  }, [text, count]);
 
   useEffect(() => {
     if (selectPeriod === "Daily") {
