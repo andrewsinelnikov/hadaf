@@ -52,9 +52,6 @@
 }
 
 .item-goal {
-  /* max-width: 810px;
-  width: 100%; */
-  /* background-color: var(--darkmiddle-color); */
   border-radius: var(--border-radius);
   border: 1px solid var(--lightdark-30-color);
   padding: 8px 16px;
@@ -120,6 +117,7 @@
 }
 
 .item-plan .text {
+  width: 70%;
   padding-left: 16px;
   font-size: 20px;
   font-weight: 500;
