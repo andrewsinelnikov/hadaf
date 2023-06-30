@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { RootState } from "../redux/store";
 import { useAppDispatch, useAppSelector } from "../utils/hooks";
+import { ALERT } from "../redux/types/alertType";
 import { createGoal } from "../redux/actions/goalAction";
 
 import UserLayout from "../components/layouts/UserLayout";
@@ -13,7 +14,6 @@ import ItemList from "../components/workboard/ItemList";
 import ItemInput from "../components/workboard/ItemInput";
 import Footer from "../components/global/Footer";
 import { validateItem } from "../utils/Validate";
-import { ALERT } from "../redux/types/alertType";
 import { getSeason } from "../utils/getSeason";
 
 const Goals = () => {

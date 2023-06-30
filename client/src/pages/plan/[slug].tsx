@@ -45,16 +45,14 @@ const PlanForGoal = () => {
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!auth.access_token) return;
 
     const check = validateItem(planItem, "Please type a step toward the goal");
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
     dispatch(createPlanItem(planItem, auth.access_token));
-
-    if (planItem) {
-      setPlan([...plan, planItem]);
-    }
+    setPlan([...plan, planItem]);
   };
 
   return (
