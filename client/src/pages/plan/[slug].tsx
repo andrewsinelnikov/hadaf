@@ -30,7 +30,6 @@ const PlanForGoal = () => {
     text: "",
     count: 0,
     completeness: 0,
-    isDone: false,
     createdAt: new Date().toISOString(),
   };
 

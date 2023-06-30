@@ -59,3 +59,11 @@ export interface IGoal extends Document {
   isDone: boolean;
   _doc: object;
 }
+
+export interface IGoalPlan extends Document {
+  goal: string;
+  text: string;
+  count: number;
+  completeness: number;
+  _doc: object;
+}
