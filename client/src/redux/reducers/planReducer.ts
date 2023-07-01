@@ -1,31 +1,24 @@
-import {
-  IGoalType,
-  CREATE_GOAL,
-  GET_GOALS,
-  GET_CURRENT_GOALS,
-  UPDATE_GOAL,
-  DELETE_GOAL,
-} from "../types/goalType";
+import { IPlanType, CREATE_PLAN_ITEM } from "../types/planType";
 import { IItem } from "../../utils/TypeScript";
 
-const goalReducer = (state: IItem[] = [], action: IGoalType): IItem[] => {
+const planReducer = (state: IItem[] = [], action: IPlanType): IItem[] => {
   switch (action.type) {
-    case CREATE_GOAL:
+    case CREATE_PLAN_ITEM:
       return [action.payload, ...state];
-    case GET_GOALS:
-    case GET_CURRENT_GOALS:
-      return action.payload;
-    case UPDATE_GOAL:
-      return state.map((item) =>
-        item._id === action.payload._id
-          ? { ...item, text: action.payload.text }
-          : item
-      );
-    case DELETE_GOAL:
-      return state.filter((item) => item._id !== action.payload);
+    // case GET_GOALS:
+    // case GET_CURRENT_GOALS:
+    //   return action.payload;
+    // case UPDATE_GOAL:
+    //   return state.map((item) =>
+    //     item._id === action.payload._id
+    //       ? { ...item, text: action.payload.text }
+    //       : item
+    //   );
+    // case DELETE_GOAL:
+    //   return state.filter((item) => item._id !== action.payload);
     default:
       return state;
   }
 };
 
-export default goalReducer;
+export default planReducer;
