@@ -1,13 +1,13 @@
 import { IItem } from "../../utils/TypeScript";
 
-export const CREATE_GOAL = "CREATE_GOAL";
+export const CREATE_PLAN_ITEM = "CREATE_PLAN_ITEM";
 export const GET_GOALS = "GET_GOALS";
 export const GET_CURRENT_GOALS = "GET_CURRENT_GOALS";
 export const UPDATE_GOAL = "UPDATE_GOAL";
 export const DELETE_GOAL = "DELETE_GOAL";
 
-export interface ICreateGoal {
-  type: typeof CREATE_GOAL;
+export interface ICreatePlanItem {
+  type: typeof CREATE_PLAN_ITEM;
   payload: IItem;
 }
 
@@ -31,9 +31,4 @@ export interface IDeleteGoal {
   payload: string;
 }
 
-export type IGoalType =
-  | ICreateGoal
-  | IGetGoals
-  | IGetCurrentGoals
-  | IUpdateGoal
-  | IDeleteGoal;
+export type IPlanType = ICreatePlanItem;
