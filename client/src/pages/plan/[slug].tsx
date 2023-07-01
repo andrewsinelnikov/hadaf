@@ -28,7 +28,7 @@ const PlanForGoal = () => {
   const inialState = {
     goal: activeGoal?._id,
     text: "",
-    count: 0,
+    count: 1,
     completeness: 0,
     createdAt: new Date().toISOString(),
   };
