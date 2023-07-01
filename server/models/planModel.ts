@@ -1,23 +1,24 @@
 import mongoose from "mongoose";
-import { IGoal } from "../config/interface";
+import { IPlan } from "../config/interface";
 
-const goalSchema = new mongoose.Schema(
+const planSchema = new mongoose.Schema(
   {
-    user: { type: mongoose.Types.ObjectId, ref: "user" },
+    goal: { type: mongoose.Types.ObjectId, ref: "goal" },
     text: {
       type: String,
-      required: [true, "Please type your goal"],
+      required: [true, "Please type a plan iten"],
       trim: true,
-      maxLength: [200, "Your goal is up to 200 chars long"],
+      maxLength: [200, "Your plan item is up to 200 chars long"],
     },
-    completeness: {
+    count: {
       type: Number,
       required: true,
       default: 1,
     },
-    isDone: {
-      type: Boolean,
-      default: false,
+    completeness: {
+      type: Number,
+      required: true,
+      default: 0,
     },
   },
   {
@@ -25,4 +26,4 @@ const goalSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model<IGoal>("goal", goalSchema);
+export default mongoose.model<IPlan>("plan", planSchema);
