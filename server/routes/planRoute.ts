@@ -4,7 +4,7 @@ import auth from "../middleware/auth";
 
 const router = express.Router();
 
-// @route  POST api/plan
+// @route  POST api/plan/:goal
 // @desc   Create a plan item
 // @access Private
 router.route("/plan").post(auth, planCtrl.createPlanItem);

@@ -11,7 +11,11 @@ const planCtrl = {
     try {
       const { goal, text, count } = req.body;
 
-      const newPlanItem = new PlanItem({ goal, text, count });
+      const newPlanItem = new PlanItem({
+        goal,
+        text,
+        count,
+      });
       await newPlanItem.save();
 
       res.json({ newPlanItem });

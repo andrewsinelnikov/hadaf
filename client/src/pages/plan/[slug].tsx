@@ -26,7 +26,7 @@ const PlanForGoal = () => {
   const [activeGoal, setActiveGoal] = useState<IItem>();
 
   const inialState = {
-    goal: activeGoal?._id,
+    goal: "",
     text: "",
     count: 1,
     completeness: 0,
@@ -41,7 +41,8 @@ const PlanForGoal = () => {
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
     setActiveGoal(goals.find((item) => item._id === slug));
-  }, [auth.access_token, navigate, goals, slug]);
+    setPlanItem({ ...planItem, goal: activeGoal?._id });
+  }, [auth.access_token, navigate, goals, slug, activeGoal]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
