@@ -60,7 +60,7 @@ export interface IGoal extends Document {
   _doc: object;
 }
 
-export interface IGoalPlan extends Document {
+export interface IPlan extends Document {
   goal: string;
   text: string;
   count: number;
