@@ -20,6 +20,7 @@ app.use("/api", routes.authRoute);
 app.use("/api", routes.userRoute);
 app.use("/api", routes.categoryRoute);
 app.use("/api", routes.goalRoute);
+app.use("/api", routes.planRoute);
 
 // Connect Database
 import "./config/database";
