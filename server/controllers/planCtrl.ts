@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import Goal from "../models/goalModel";
 import PlanItem from "../models/planModel";
 import { IReqAuth } from "../config/interface";
 import bcrypt from "bcrypt";
