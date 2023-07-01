@@ -10,12 +10,12 @@ const planCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const { text } = req.body;
+      const { goal, text, count } = req.body;
 
-      const newGoal = new Goal({ user: req.user._id, text });
-      await newGoal.save();
+      const newPlanItem = new PlanItem({ goal, text, count });
+      await newPlanItem.save();
 
-      res.json({ newGoal });
+      res.json({ newPlanItem });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }
