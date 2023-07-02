@@ -11,8 +11,8 @@ export interface ICreatePlanItem {
   payload: IItem;
 }
 
-export interface IGetPlansGoal {
-  type: typeof GET_GOALS;
+export interface IGetPlansByGoal {
+  type: typeof GET_PLANS_BY_GOAL;
   payload: IItem[];
 }
 
