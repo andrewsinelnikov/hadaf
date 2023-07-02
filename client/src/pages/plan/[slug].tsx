@@ -5,7 +5,7 @@ import { RootState } from "../../redux/store";
 import { IParams } from "../../utils/TypeScript";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { ALERT } from "../../redux/types/alertType";
-import { createPlanItem } from "../../redux/actions/planAction";
+import { createPlanItem, getPlansByGoal } from "../../redux/actions/planAction";
 
 import UserLayout from "../../components/layouts/UserLayout";
 import UserInfo from "../../components/profile/UserInfo";
@@ -18,7 +18,7 @@ import { validateItem } from "../../utils/Validate";
 
 const PlanForGoal = () => {
   const { slug }: IParams = useParams<keyof IParams>() as IParams;
-  const { auth, goals } = useAppSelector((state: RootState) => state);
+  const { auth, goals, plans } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
@@ -40,8 +40,12 @@ const PlanForGoal = () => {
 
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
-    setActiveGoal(goals.find((item) => item._id === slug));
-  }, [auth.access_token, navigate, goals, slug]);
+    if (slug) {
+      setActiveGoal(goals.find((item) => item._id === slug));
+      dispatch(getPlansByGoal(slug, auth.access_token!));
+      setPlan(plans);
+    }
+  }, [auth.access_token, navigate, goals, slug, dispatch]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
