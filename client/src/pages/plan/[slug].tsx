@@ -40,12 +40,24 @@ const PlanForGoal = () => {
 
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
-    if (slug) {
-      setActiveGoal(goals.find((item) => item._id === slug));
-      dispatch(getPlansByGoal(slug, auth.access_token!));
-      setPlan(plans);
-    }
-  }, [auth.access_token, navigate, goals, slug, dispatch]);
+    if (!slug) return;
+
+    setActiveGoal(goals.find((item) => item._id === slug));
+    dispatch(getPlansByGoal(slug, auth.access_token!));
+
+    const data = plans.find((item) => item.goal === slug);
+    if (!data) return;
+    setPlan([...plan, data]);
+    // setPlan(plans.find((plan) => plan.go === slug));
+
+    // if (plans.every((item) => item.goal !== slug)) {
+    //   dispatch(getPlansByGoal(slug, auth.access_token!));
+    // } else {
+    //   const data = plans.find((item) => item.goal === slug);
+    //   if (!data) return;
+    //   setPlan([...plan, data]);
+    // }
+  }, [auth.access_token, navigate, goals, slug, plans, dispatch]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
