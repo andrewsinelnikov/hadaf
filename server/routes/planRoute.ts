@@ -9,10 +9,10 @@ const router = express.Router();
 // @access Private
 router.route("/plan").post(auth, planCtrl.createPlanItem);
 
-// @route  GET api/goals
-// @desc   Get all goals
+// @route  GET api/plans/:goal
+// @desc   Get plans by goal
 // @access Private
-router.route("/goal/:goal").get(auth, planCtrl.getPlansByGoal);
+router.route("/plans/:goal").get(auth, planCtrl.getPlansByGoal);
 
 // @route  GET api/current
 // @desc   Get current goals
