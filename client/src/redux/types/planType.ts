@@ -31,4 +31,4 @@ export interface IGetPlansByGoal {
 //   payload: string;
 // }
 
-export type IPlanType = ICreatePlanItem;
+export type IPlanType = ICreatePlanItem | IGetPlansByGoal;

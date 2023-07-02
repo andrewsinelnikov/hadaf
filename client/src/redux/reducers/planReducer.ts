@@ -1,13 +1,16 @@
-import { IPlanType, CREATE_PLAN_ITEM } from "../types/planType";
+import {
+  IPlanType,
+  CREATE_PLAN_ITEM,
+  GET_PLANS_BY_GOAL,
+} from "../types/planType";
 import { IItem } from "../../utils/TypeScript";
 
 const planReducer = (state: IItem[] = [], action: IPlanType): IItem[] => {
   switch (action.type) {
     case CREATE_PLAN_ITEM:
       return [action.payload, ...state];
-    // case GET_GOALS:
-    // case GET_CURRENT_GOALS:
-    //   return action.payload;
+    case GET_PLANS_BY_GOAL:
+      return action.payload;
     // case UPDATE_GOAL:
     //   return state.map((item) =>
     //     item._id === action.payload._id
