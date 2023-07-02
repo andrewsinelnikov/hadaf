@@ -28,8 +28,8 @@ const planCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const goals = await PlanItem.find().sort("-createdAt");
-      res.json({ goals });
+      const plans = await PlanItem.find({ goal: req.params.goal });
+      res.json({ plans });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }
