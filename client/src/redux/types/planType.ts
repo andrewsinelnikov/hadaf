@@ -1,7 +1,7 @@
 import { IItem } from "../../utils/TypeScript";
 
 export const CREATE_PLAN_ITEM = "CREATE_PLAN_ITEM";
-// export const GET_GOALS = "GET_GOALS";
+export const GET_PLANS_BY_GOAL = "GET_PLANS_BY_GOAL";
 // export const GET_CURRENT_GOALS = "GET_CURRENT_GOALS";
 // export const UPDATE_GOAL = "UPDATE_GOAL";
 // export const DELETE_GOAL = "DELETE_GOAL";
@@ -11,10 +11,10 @@ export interface ICreatePlanItem {
   payload: IItem;
 }
 
-// export interface IGetGoals {
-//   type: typeof GET_GOALS;
-//   payload: IItem[];
-// }
+export interface IGetPlansGoal {
+  type: typeof GET_GOALS;
+  payload: IItem[];
+}
 
 // export interface IGetCurrentGoals {
 //   type: typeof GET_CURRENT_GOALS;
