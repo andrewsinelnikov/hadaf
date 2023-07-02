@@ -23,17 +23,17 @@ const planCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  // getGoals: async (req: IReqAuth, res: Response) => {
-  //   if (!req.user)
-  //     return res.status(400).json({ msg: "Invalid Authentication" });
+  getPlans: async (req: IReqAuth, res: Response) => {
+    if (!req.user)
+      return res.status(400).json({ msg: "Invalid Authentication" });
 
-  //   try {
-  //     const goals = await Goal.find().sort("-createdAt");
-  //     res.json({ goals });
-  //   } catch (err: any) {
-  //     return res.status(500).json({ msg: err.message });
-  //   }
-  // },
+    try {
+      const goals = await PlanItem.find().sort("-createdAt");
+      res.json({ goals });
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   // getCurrentGoals: async (req: IReqAuth, res: Response) => {
   //   if (!req.user)
   //     return res.status(400).json({ msg: "Invalid Authentication" });
