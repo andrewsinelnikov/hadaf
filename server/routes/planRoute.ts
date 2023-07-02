@@ -4,7 +4,7 @@ import auth from "../middleware/auth";
 
 const router = express.Router();
 
-// @route  POST api/plan/:goal
+// @route  POST api/plan
 // @desc   Create a plan item
 // @access Private
 router.route("/plan").post(auth, planCtrl.createPlanItem);
@@ -12,7 +12,7 @@ router.route("/plan").post(auth, planCtrl.createPlanItem);
 // @route  GET api/goals
 // @desc   Get all goals
 // @access Private
-// router.route("/goals").get(auth, goalCtrl.getGoals);
+router.route("/goal/:goal").get(auth, planCtrl.getPlansByGoal);
 
 // @route  GET api/current
 // @desc   Get current goals
