@@ -1,6 +1,10 @@
 import { Dispatch } from "redux";
 import { ALERT, IAlertType } from "../types/alertType";
-import { CREATE_PLAN_ITEM, IPlanType } from "../types/planType";
+import {
+  IPlanType,
+  CREATE_PLAN_ITEM,
+  GET_PLANS_BY_GOAL,
+} from "../types/planType";
 import { postAPI, getAPI, patchAPI, deleteAPI } from "../../utils/FetchData";
 import { IItem } from "../../utils/TypeScript";
 
@@ -24,21 +28,21 @@ export const createPlanItem =
     }
   };
 
-// export const getGoals =
-//   (token: string) => async (dispatch: Dispatch<IAlertType | IGoalType>) => {
-//     const result = await checkTokenExp(token, dispatch);
-//     const access_token = result ? result : token;
-//     try {
-//       dispatch({ type: ALERT, payload: { loading: true } });
+export const getPlansByGoal =
+  (token: string) => async (dispatch: Dispatch<IAlertType | IGoalType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: ALERT, payload: { loading: true } });
 
-//       const res = await getAPI("goals", access_token);
-//       dispatch({ type: GET_GOALS, payload: res.data.goals });
+      const res = await getAPI("goals", access_token);
+      dispatch({ type: GET_GOALS, payload: res.data.goals });
 
-//       dispatch({ type: ALERT, payload: { loading: false } });
-//     } catch (err: any) {
-//       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-//     }
-//   };
+      dispatch({ type: ALERT, payload: { loading: false } });
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
 
 // export const getCurrentGoals =
 //   (token: string) => async (dispatch: Dispatch<IAlertType | IGoalType>) => {
