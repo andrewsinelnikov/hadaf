@@ -29,14 +29,15 @@ export const createPlanItem =
   };
 
 export const getPlansByGoal =
-  (token: string) => async (dispatch: Dispatch<IAlertType | IGoalType>) => {
+  (goal: string, token: string) =>
+  async (dispatch: Dispatch<IAlertType | IPlanType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await getAPI("goals", access_token);
-      dispatch({ type: GET_GOALS, payload: res.data.goals });
+      const res = await getAPI(`plans/${goal}`, access_token);
+      dispatch({ type: GET_PLANS_BY_GOAL, payload: res.data.plans });
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
