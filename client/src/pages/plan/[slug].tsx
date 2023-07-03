@@ -43,9 +43,9 @@ const PlanForGoal = () => {
     if (!slug) return;
 
     setActiveGoal(goals.find((item) => item._id === slug));
-    dispatch(getPlansByGoal(slug, auth.access_token!));
+    // dispatch(getPlansByGoal(slug, auth.access_token!));
 
-    setPlan(plans);
+    // setPlan(plans);
     // setPlan(plans.find((plan) => plan.go === slug));
 
     // if (plans.every((item) => item.goal !== slug)) {

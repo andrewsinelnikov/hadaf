@@ -11,9 +11,14 @@ export interface ICreatePlanItem {
   payload: IItem;
 }
 
+export interface IPlansGoal {
+  goal: string;
+  plans: IItem[];
+}
+
 export interface IGetPlansByGoal {
   type: typeof GET_PLANS_BY_GOAL;
-  payload: IItem[];
+  payload: IPlansGoal;
 }
 
 // export interface IGetCurrentGoals {
