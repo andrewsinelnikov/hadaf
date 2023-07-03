@@ -18,7 +18,9 @@ import { validateItem } from "../../utils/Validate";
 
 const PlanForGoal = () => {
   const { slug }: IParams = useParams<keyof IParams>() as IParams;
-  const { auth, goals, plans } = useAppSelector((state: RootState) => state);
+  const { auth, goals, plansGoal } = useAppSelector(
+    (state: RootState) => state
+  );
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
@@ -39,10 +41,15 @@ const PlanForGoal = () => {
   const [days, setDays] = useState<number>(0);
 
   useEffect(() => {
+    const goal = goals.find((item) => item._id === slug);
+    if (goal) setActiveGoal(goal);
+  }, [slug, goals]);
+
+  useEffect(() => {
     if (!auth.access_token) navigate("/login");
     if (!slug) return;
 
-    setActiveGoal(goals.find((item) => item._id === slug));
+    // setActiveGoal(goals.find((item) => item._id === slug));
     // dispatch(getPlansByGoal(slug, auth.access_token!));
 
     // setPlan(plans);
