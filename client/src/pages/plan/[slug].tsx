@@ -55,7 +55,7 @@ const PlanForGoal = () => {
       if (!data) return;
       setPlan(data.plans);
     }
-  }, [auth.access_token, navigate, slug, dispatch, plansGoal, planItem]);
+  }, [auth.access_token, navigate, slug, dispatch, plansGoal]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,7 +66,6 @@ const PlanForGoal = () => {
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
     dispatch(createPlanItem(planItem, auth.access_token));
-    dispatch(getPlansByGoal(slug, auth.access_token!));
     setPlan([...plan, planItem]);
   };
 
