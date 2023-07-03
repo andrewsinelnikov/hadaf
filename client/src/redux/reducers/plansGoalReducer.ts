@@ -2,9 +2,7 @@ import {
   IPlansGoal,
   IGetPlansByGoal,
   GET_PLANS_BY_GOAL,
-  // GET_PLANS_BY_GOAL,
 } from "../types/planType";
-import { IItem } from "../../utils/TypeScript";
 
 const plansGoalReducer = (
   state: IPlansGoal[] = [],
@@ -19,16 +17,6 @@ const plansGoalReducer = (
           plan.goal === action.payload.goal ? action.payload : plan
         );
       }
-    // case GET_PLANS_BY_GOAL:
-    //   return action.payload;
-    // case UPDATE_GOAL:
-    //   return state.map((item) =>
-    //     item._id === action.payload._id
-    //       ? { ...item, text: action.payload.text }
-    //       : item
-    //   );
-    // case DELETE_GOAL:
-    //   return state.filter((item) => item._id !== action.payload);
     default:
       return state;
   }
