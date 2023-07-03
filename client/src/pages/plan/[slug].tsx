@@ -48,12 +48,6 @@ const PlanForGoal = () => {
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
     if (!slug) return;
-
-    // dispatch(getPlansByGoal(slug, auth.access_token!));
-
-    // setPlan(plans);
-    // setPlan(plans.find((plan) => plan.go === slug));
-
     if (plansGoal.every((item) => item.goal !== slug)) {
       dispatch(getPlansByGoal(slug, auth.access_token!));
     } else {
