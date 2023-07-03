@@ -4,6 +4,7 @@ import alert from "./alertReducer";
 import categories from "./categoryReducer";
 import goals from "./goalReducer";
 import plans from "./planReducer";
+import plansGoal from "./plansGoalReducer";
 
 export default combineReducers({
   auth,
@@ -11,4 +12,5 @@ export default combineReducers({
   categories,
   goals,
   plans,
+  plansGoal,
 });

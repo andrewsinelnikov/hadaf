@@ -5,7 +5,7 @@ import {
 } from "../types/planType";
 import { IItem } from "../../utils/TypeScript";
 
-const planReducer = (state: IItem[] = [], action: IPlanType): IItem[] => {
+const plansGoalReducer = (state: IItem[] = [], action: IPlanType): IItem[] => {
   switch (action.type) {
     case CREATE_PLAN_ITEM:
       return [action.payload, ...state];
@@ -24,4 +24,4 @@ const planReducer = (state: IItem[] = [], action: IPlanType): IItem[] => {
   }
 };
 
-export default planReducer;
+export default plansGoalReducer;
