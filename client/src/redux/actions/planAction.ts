@@ -2,6 +2,7 @@ import { Dispatch } from "redux";
 import { ALERT, IAlertType } from "../types/alertType";
 import {
   IPlanType,
+  IGetPlansByGoal,
   CREATE_PLAN_ITEM,
   GET_PLANS_BY_GOAL,
 } from "../types/planType";
@@ -30,14 +31,14 @@ export const createPlanItem =
 
 export const getPlansByGoal =
   (goal: string, token: string) =>
-  async (dispatch: Dispatch<IAlertType | IPlanType>) => {
+  async (dispatch: Dispatch<IAlertType | IGetPlansByGoal>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
       const res = await getAPI(`plans/${goal}`, access_token);
-      dispatch({ type: GET_PLANS_BY_GOAL, payload: res.data.plans });
+      dispatch({ type: GET_PLANS_BY_GOAL, payload: { ...res.data, goal } });
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
