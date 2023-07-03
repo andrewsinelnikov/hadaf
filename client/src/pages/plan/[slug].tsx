@@ -45,9 +45,7 @@ const PlanForGoal = () => {
     setActiveGoal(goals.find((item) => item._id === slug));
     dispatch(getPlansByGoal(slug, auth.access_token!));
 
-    const data = plans.find((item) => item.goal === slug);
-    if (!data) return;
-    setPlan([...plan, data]);
+    setPlan(plans);
     // setPlan(plans.find((plan) => plan.go === slug));
 
     // if (plans.every((item) => item.goal !== slug)) {
@@ -57,7 +55,7 @@ const PlanForGoal = () => {
     //   if (!data) return;
     //   setPlan([...plan, data]);
     // }
-  }, [auth.access_token, navigate, goals, slug, plans, dispatch]);
+  }, [auth.access_token, navigate, goals, slug, dispatch]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
