@@ -42,6 +42,11 @@ const TimeReminder = ({
     //   : setActive("season");
   }, [action, setActive]);
 
+  let day = endOfDay();
+  useEffect(() => {
+    let currentTime = new Date().getTime();
+  }, [endOfDay]);
+
   const handleActive = (e: ButtonClick) => {
     e.preventDefault();
     setActive(e.currentTarget.id);
@@ -60,7 +65,7 @@ const TimeReminder = ({
               return (
                 <>
                   <p>The day ends in</p>
-                  <Countdown date={endOfDay()} />
+                  <Countdown date={day} />
                 </>
               );
             case "week":
