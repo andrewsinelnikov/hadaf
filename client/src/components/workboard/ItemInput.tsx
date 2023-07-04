@@ -104,7 +104,7 @@ const ItemInput: React.FC<IProps> = ({
         <div
           className='items-number'
           onClick={() => setAddInput(!addInput)}
-          style={{ cursor: "pointer" }}>
+          style={{ cursor: "pointer", display: "inline-block" }}>
           one more step?
         </div>
       )}
