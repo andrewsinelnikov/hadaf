@@ -38,6 +38,8 @@ const Countdown = ({ date, setDays }: IProps) => {
 
         setLeft({ days, hours, minutes, seconds });
         setDays && setDays(days);
+      } else {
+        window.location.reload();
       }
     }
   };
