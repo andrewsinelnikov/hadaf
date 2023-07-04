@@ -30,13 +30,15 @@ const Countdown = ({ date, setDays }: IProps) => {
       const currentTime = new Date().getTime();
       const gap = countdownTime - currentTime;
 
-      let days = Math.floor(gap / day);
-      let hours = Math.floor((gap % day) / hour);
-      let minutes = Math.floor((gap % hour) / minute);
-      let seconds = Math.floor((gap % minute) / second);
+      if (gap > 0) {
+        let days = Math.floor(gap / day);
+        let hours = Math.floor((gap % day) / hour);
+        let minutes = Math.floor((gap % hour) / minute);
+        let seconds = Math.floor((gap % minute) / second);
 
-      setLeft({ days, hours, minutes, seconds });
-      setDays && setDays(days);
+        setLeft({ days, hours, minutes, seconds });
+        setDays && setDays(days);
+      }
     }
   };
 
