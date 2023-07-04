@@ -80,7 +80,10 @@ const ItemInput: React.FC<IProps> = ({
     <form
       className='add'
       style={{
-        height: `${itemType === "Step" && "80px"}`,
+        height: `${
+          (itemType === "Step" && addInput === false && "auto") ||
+          (itemType === "Step" && "80px")
+        }`,
       }}
       onSubmit={(e) => {
         handleAdd(e);
