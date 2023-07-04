@@ -2,7 +2,7 @@
 .add-area {
   position: fixed;
   /* height: 124px; */
-  bottom: 10px;
+  bottom: 0px;
   max-width: 810px;
   /* max-width: 846px; */
   /* max-width: 786px; */
@@ -13,6 +13,7 @@
 
 .add {
   height: 124px;
+  margin-bottom: 10px;
 }
 
 .add-area {
