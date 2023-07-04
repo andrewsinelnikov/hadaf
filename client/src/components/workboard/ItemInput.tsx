@@ -32,6 +32,10 @@ const ItemInput: React.FC<IProps> = ({
   }, [text, count]);
 
   useEffect(() => {
+    if (items.length > 4) setAddInput(false);
+  }, [items]);
+
+  useEffect(() => {
     if (selectPeriod === "Daily") {
       if (days && days > 0) {
         setCount(days);
@@ -81,18 +85,18 @@ const ItemInput: React.FC<IProps> = ({
       className='add'
       style={{
         height: `${
-          (itemType === "Step" && addInput === false && "auto") ||
-          (itemType === "Step" && "80px")
+          (addInput === false && "auto") || (itemType === "Step" && "90px")
         }`,
-        width: `${itemType === "Step" && addInput === false && "auto"}`,
-        bottom: `${itemType === "Step" && addInput === false && "80px"}`,
+        width: `${addInput === false ? "auto" : "100%"}`,
+        bottom: `${addInput === false ? "80px" : "0px"}`,
+        marginLeft: `${addInput === false ? "946px" : "330px"}`,
       }}
       onSubmit={(e) => {
         handleAdd(e);
         setText("");
         if (itemType === "Step") {
           setSelectPeriod("");
-          if (items.length > 4) setAddInput(!addInput);
+          if (items.length > 4) setAddInput(false);
         }
       }}>
       {itemType === "Goal" &&
@@ -108,7 +112,7 @@ const ItemInput: React.FC<IProps> = ({
       {itemType === "Step" && addInput === false && (
         <div
           className='items-number'
-          onClick={() => setAddInput(!addInput)}
+          onClick={() => setAddInput(true)}
           style={{ cursor: "pointer", display: "inline-block" }}>
           one more step?
         </div>
