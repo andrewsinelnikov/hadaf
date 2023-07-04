@@ -85,7 +85,7 @@ const ItemInput: React.FC<IProps> = ({
           (itemType === "Step" && "80px")
         }`,
         width: `${itemType === "Step" && addInput === false && "auto"}`,
-        bottom: `${itemType === "Step" && addInput === false && "88px"}`,
+        bottom: `${itemType === "Step" && addInput === false && "80px"}`,
       }}
       onSubmit={(e) => {
         handleAdd(e);
