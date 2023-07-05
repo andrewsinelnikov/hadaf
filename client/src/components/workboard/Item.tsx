@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { RootState } from "../../redux/store";
 import { updateGoal, deleteGoal } from "../../redux/actions/goalAction";
-import { updatePlanItem } from "../../redux/actions/planAction";
+import { getPlansByGoal, updatePlanItem } from "../../redux/actions/planAction";
 
 import { IItem } from "../../utils/TypeScript";
 import { Link } from "react-router-dom";
@@ -32,7 +32,10 @@ const Item: React.FC<IProps> = ({ item, type }) => {
       if (edit.text === text) return;
       const data = { ...edit, text };
       if (type === "goals") dispatch(updateGoal(data, auth.access_token));
-      if (type === "plans") dispatch(updatePlanItem(data, auth.access_token));
+      if (type === "plans") {
+        dispatch(updatePlanItem(data, auth.access_token));
+        dispatch(getPlansByGoal(data.goal!, auth.access_token));
+      }
     }
 
     setText("");

@@ -66,7 +66,8 @@ const PlanForGoal = () => {
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
     dispatch(createPlanItem(planItem, auth.access_token));
-    setPlan([...plan, planItem]);
+    dispatch(getPlansByGoal(activeGoal!._id!, auth.access_token!));
+    // setPlan([...plan, planItem]);
   };
 
   return (
