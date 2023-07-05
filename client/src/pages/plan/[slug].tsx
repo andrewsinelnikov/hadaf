@@ -47,15 +47,15 @@ const PlanForGoal = () => {
 
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
-    if (!slug) return;
-    if (plansGoal.every((item) => item.goal !== slug)) {
-      dispatch(getPlansByGoal(slug, auth.access_token!));
+    if (!activeGoal) return;
+    if (plansGoal.every((item) => item.goal !== activeGoal._id)) {
+      dispatch(getPlansByGoal(activeGoal._id!, auth.access_token!));
     } else {
-      const data = plansGoal.find((item) => item.goal === slug);
+      const data = plansGoal.find((item) => item.goal === activeGoal._id);
       if (!data) return;
       setPlan(data.plans);
     }
-  }, [auth.access_token, navigate, slug, dispatch, plansGoal]);
+  }, [auth.access_token, navigate, activeGoal, dispatch, plansGoal]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();

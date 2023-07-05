@@ -28,9 +28,9 @@ const App = () => {
     if (auth.access_token) {
       dispatch(getCurrentGoals(auth.access_token));
       // dispatch(getGoals(auth.access_token));
-      if (slug) dispatch(getPlansByGoal(slug, auth.access_token));
+      // if (slug) dispatch(getPlansByGoal(slug, auth.access_token));
     }
-  }, [auth.access_token, dispatch, slug]);
+  }, [auth.access_token, dispatch]);
 
   return (
     <>
