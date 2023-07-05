@@ -1,6 +1,16 @@
 import React from "react";
 
-const Quantity = () => {
+interface IProps {
+  selectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  selectPeriod: string;
+  timesOptions: (n: number) => JSX.Element;
+}
+
+const Quantity: React.FC<IProps> = ({
+  selectChange,
+  selectPeriod,
+  timesOptions,
+}) => {
   return (
     <div className='quantity'>
       <select onChange={selectChange}>
