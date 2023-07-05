@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IItem } from "../../utils/TypeScript";
+import Quantity from "./Quantity";
 
 interface IProps {
   item: IItem;
@@ -21,7 +22,7 @@ const ItemInput: React.FC<IProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState<string>(item.text);
 
-  const [selectPeriod, setSelectPeriod] = useState<String>();
+  const [selectPeriod, setSelectPeriod] = useState<string>();
   const [times, setTimes] = useState(1);
   const [count, setCount] = useState(1);
   const [addInput, setAddInput] = useState(true);
@@ -160,25 +161,11 @@ const ItemInput: React.FC<IProps> = ({
       <div className='item-options'>
         {text.length > 0 && itemType === "Step" && addInput && (
           <>
-            <div className='quantity'>
-              <select onChange={selectChange}>
-                <option disabled selected>
-                  How often
-                </option>
-                <option value='Daily'>Daily</option>
-                <option value='Weekly'>Weekly</option>
-                <option value='Monthly'>Monthly</option>
-                <option value='Seasonly'>Seasonly</option>
-              </select>
-              {selectPeriod &&
-                (selectPeriod === "Weekly"
-                  ? timesOptions(6)
-                  : selectPeriod === "Monthly"
-                  ? timesOptions(4)
-                  : selectPeriod === "Seasonly"
-                  ? timesOptions(5)
-                  : "")}
-            </div>
+            <Quantity
+              selectChange={selectChange}
+              selectPeriod={selectPeriod!}
+              timesOptions={timesOptions}
+            />
             <button
               type='submit'
               className='btn btn-auto btn-success'

@@ -34,61 +34,23 @@ const planCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  // getCurrentGoals: async (req: IReqAuth, res: Response) => {
-  //   if (!req.user)
-  //     return res.status(400).json({ msg: "Invalid Authentication" });
+  updatePlanItem: async (req: IReqAuth, res: Response) => {
+    if (!req.user)
+      return res.status(400).json({ msg: "Invalid Authentication" });
 
-  //   try {
-  //     const date = new Date();
-  //     const season = getSeason(date);
+    try {
+      await PlanItem.findOneAndUpdate(
+        {
+          _id: req.params.id,
+        },
+        { text: req.body.text }
+      );
 
-  //     const startDates = {
-  //       spring: new Date(`${date.getFullYear()}-03-01`),
-  //       summer: new Date(`${date.getFullYear()}-06-01`),
-  //       autumn: new Date(`${date.getFullYear()}-09-01`),
-  //       winter: new Date(`${date.getFullYear()}-12-01`),
-  //     };
-
-  //     const seasonStart = startDates[season];
-
-  //     let nextSeasonStart;
-  //     if (season === "winter") {
-  //       nextSeasonStart = new Date(`1 Mar ${date.getFullYear() + 1}`);
-  //     } else {
-  //       nextSeasonStart = Object.values(startDates).find(
-  //         (date) => date > seasonStart
-  //       );
-  //     }
-
-  //     const goals = await Goal.find({
-  //       createdAt: {
-  //         $gte: seasonStart,
-  //         $lt: nextSeasonStart,
-  //       },
-  //     });
-  //     res.json({ goals });
-
-  //   } catch (err: any) {
-  //     return res.status(500).json({ msg: err.message });
-  //   }
-  // },
-  // updateGoal: async (req: IReqAuth, res: Response) => {
-  //   if (!req.user)
-  //     return res.status(400).json({ msg: "Invalid Authentication" });
-
-  //   try {
-  //     await Goal.findOneAndUpdate(
-  //       {
-  //         _id: req.params.id,
-  //       },
-  //       { text: req.body.text }
-  //     );
-
-  //     res.json({ msg: "Update Success!" });
-  //   } catch (err: any) {
-  //     return res.status(500).json({ msg: err.message });
-  //   }
-  // },
+      res.json({ msg: "Update Success!" });
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   // deleteGoal: async (req: IReqAuth, res: Response) => {
   //   if (!req.user)
   //     return res.status(400).json({ msg: "Invalid Authentication" });
