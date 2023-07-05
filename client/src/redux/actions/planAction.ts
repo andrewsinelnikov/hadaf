@@ -5,6 +5,7 @@ import {
   IGetPlansByGoal,
   CREATE_PLAN_ITEM,
   GET_PLANS_BY_GOAL,
+  UPDATE_PLAN_ITEM,
 } from "../types/planType";
 import { postAPI, getAPI, patchAPI, deleteAPI } from "../../utils/FetchData";
 import { IItem } from "../../utils/TypeScript";
@@ -46,35 +47,19 @@ export const getPlansByGoal =
     }
   };
 
-// export const getCurrentGoals =
-//   (token: string) => async (dispatch: Dispatch<IAlertType | IGoalType>) => {
-//     const result = await checkTokenExp(token, dispatch);
-//     const access_token = result ? result : token;
-//     try {
-//       dispatch({ type: ALERT, payload: { loading: true } });
+export const updateGoal =
+  (data: IItem, token: string) =>
+  async (dispatch: Dispatch<IAlertType | IPlanType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: UPDATE_PLAN_ITEM, payload: data });
 
-//       const res = await getAPI("current", access_token);
-//       dispatch({ type: GET_CURRENT_GOALS, payload: res.data.goals });
-
-//       dispatch({ type: ALERT, payload: { loading: false } });
-//     } catch (err: any) {
-//       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-//     }
-//   };
-
-// export const updateGoal =
-//   (data: IItem, token: string) =>
-//   async (dispatch: Dispatch<IAlertType | IGoalType>) => {
-//     const result = await checkTokenExp(token, dispatch);
-//     const access_token = result ? result : token;
-//     try {
-//       dispatch({ type: UPDATE_GOAL, payload: data });
-
-//       await patchAPI(`goal/${data._id}`, { text: data.text }, access_token);
-//     } catch (err: any) {
-//       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-//     }
-//   };
+      await patchAPI(`plan/${data._id}`, { text: data.text }, access_token);
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
 
 // export const deleteGoal =
 //   (id: string, token: string) =>
