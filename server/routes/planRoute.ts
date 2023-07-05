@@ -14,17 +14,10 @@ router.route("/plan").post(auth, planCtrl.createPlanItem);
 // @access Private
 router.route("/plans/:goal").get(auth, planCtrl.getPlansByGoal);
 
-// @route  GET api/current
-// @desc   Get current goals
+// @route  PATCH, DELETE api/plan/:id
+// @desc   Update, Delete plan item
 // @access Private
-// router.route("/current").get(auth, goalCtrl.getCurrentGoals);
-
-// @route  PATCH, DELETE api/goal/:id
-// @desc   Update, Delete goal
-// @access Private
-// router
-//   .route("/goal/:id")
-//   .patch(auth, goalCtrl.updateGoal)
+router.route("/plan/:id").patch(auth, planCtrl.updatePlanItem);
 //   .delete(auth, goalCtrl.deleteGoal);
 
 export default router;
