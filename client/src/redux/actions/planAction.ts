@@ -47,7 +47,7 @@ export const getPlansByGoal =
     }
   };
 
-export const updateGoal =
+export const updatePlanItem =
   (data: IItem, token: string) =>
   async (dispatch: Dispatch<IAlertType | IPlanType>) => {
     const result = await checkTokenExp(token, dispatch);

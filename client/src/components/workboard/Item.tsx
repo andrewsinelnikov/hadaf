@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { RootState } from "../../redux/store";
-import { deleteGoal, updateGoal } from "../../redux/actions/goalAction";
+import { updateGoal, deleteGoal } from "../../redux/actions/goalAction";
+import { updatePlanItem } from "../../redux/actions/planAction";
 
 import { IItem } from "../../utils/TypeScript";
 import { Link } from "react-router-dom";
@@ -30,7 +31,8 @@ const Item: React.FC<IProps> = ({ item, type }) => {
     if (edit) {
       if (edit.text === text) return;
       const data = { ...edit, text };
-      dispatch(updateGoal(data, auth.access_token));
+      if (type === "goals") dispatch(updateGoal(data, auth.access_token));
+      if (type === "plans") dispatch(updatePlanItem(data, auth.access_token));
     }
 
     setText("");
@@ -139,7 +141,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
               <div className='item-options'>
                 <button
                   type='button'
-                  // onClick={edit ? () => handleEdit() : () => setEdit(item)}
+                  onClick={edit ? () => handleEdit() : () => setEdit(item)}
                   className='btn btn-auto btn-action btn-dark'>
                   Update
                 </button>
