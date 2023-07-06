@@ -44,7 +44,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
 
   const handleDelete = (id: string) => {
     if (!auth.access_token) return;
-    dispatch(deleteGoal(id, auth.access_token));
+    if (type === "goals") dispatch(deleteGoal(id, auth.access_token));
   };
 
   return (
