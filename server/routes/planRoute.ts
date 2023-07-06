@@ -17,7 +17,9 @@ router.route("/plans/:goal").get(auth, planCtrl.getPlansByGoal);
 // @route  PATCH, DELETE api/plan/:id
 // @desc   Update, Delete plan item
 // @access Private
-router.route("/plan/:id").patch(auth, planCtrl.updatePlanItem);
-//   .delete(auth, goalCtrl.deleteGoal);
+router
+  .route("/plan/:id")
+  .patch(auth, planCtrl.updatePlanItem)
+  .delete(auth, planCtrl.deletePlanItem);
 
 export default router;
