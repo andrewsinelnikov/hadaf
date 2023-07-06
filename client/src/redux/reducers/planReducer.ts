@@ -2,7 +2,7 @@ import {
   IPlanType,
   CREATE_PLAN_ITEM,
   UPDATE_PLAN_ITEM,
-  // GET_PLANS_BY_GOAL,
+  DELETE_PLAN_ITEM,
 } from "../types/planType";
 import { IItem } from "../../utils/TypeScript";
 
@@ -16,8 +16,8 @@ const planReducer = (state: IItem[] = [], action: IPlanType): IItem[] => {
           ? { ...item, text: action.payload.text }
           : item
       );
-    // case DELETE_GOAL:
-    //   return state.filter((item) => item._id !== action.payload);
+    case DELETE_PLAN_ITEM:
+      return state.filter((item) => item._id !== action.payload);
     default:
       return state;
   }
