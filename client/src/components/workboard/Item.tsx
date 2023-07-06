@@ -3,7 +3,11 @@ import React, { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { RootState } from "../../redux/store";
 import { updateGoal, deleteGoal } from "../../redux/actions/goalAction";
-import { getPlansByGoal, updatePlanItem } from "../../redux/actions/planAction";
+import {
+  getPlansByGoal,
+  updatePlanItem,
+  deletePlanItem,
+} from "../../redux/actions/planAction";
 
 import { IItem } from "../../utils/TypeScript";
 import { Link } from "react-router-dom";
@@ -45,6 +49,10 @@ const Item: React.FC<IProps> = ({ item, type }) => {
   const handleDelete = (id: string) => {
     if (!auth.access_token) return;
     if (type === "goals") dispatch(deleteGoal(id, auth.access_token));
+    if (type === "plans") {
+      dispatch(deletePlanItem(id, auth.access_token));
+      dispatch(getPlansByGoal(edit?.goal!, auth.access_token));
+    }
   };
 
   return (
