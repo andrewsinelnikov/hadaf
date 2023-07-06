@@ -51,19 +51,19 @@ const planCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  // deleteGoal: async (req: IReqAuth, res: Response) => {
-  //   if (!req.user)
-  //     return res.status(400).json({ msg: "Invalid Authentication" });
+  deletePlanItem: async (req: IReqAuth, res: Response) => {
+    if (!req.user)
+      return res.status(400).json({ msg: "Invalid Authentication" });
 
-  //   try {
-  //     const goal = await Goal.findByIdAndDelete(req.params.id);
-  //     if (!goal) return res.status(400).json({ msg: "Goal does not exist" });
+    try {
+      const goal = await Goal.findByIdAndDelete(req.params.id);
+      if (!goal) return res.status(400).json({ msg: "Goal does not exist" });
 
-  //     res.json({ msg: "Delete Success!" });
-  //   } catch (err: any) {
-  //     return res.status(500).json({ msg: err.message });
-  //   }
-  // },
+      res.json({ msg: "Delete Success!" });
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
 };
 
 export default planCtrl;
