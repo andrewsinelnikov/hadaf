@@ -3,7 +3,7 @@ import { IItem } from "../../utils/TypeScript";
 export const CREATE_PLAN_ITEM = "CREATE_PLAN_ITEM";
 export const GET_PLANS_BY_GOAL = "GET_PLANS_BY_GOAL";
 export const UPDATE_PLAN_ITEM = "UPDATE_PLAN_ITEM";
-// export const DELETE_GOAL = "DELETE_GOAL";
+export const DELETE_PLAN_ITEM = "DELETE_PLAN_ITEM";
 
 export interface ICreatePlanItem {
   type: typeof CREATE_PLAN_ITEM;
