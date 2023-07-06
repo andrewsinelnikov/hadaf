@@ -56,8 +56,9 @@ const planCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const goal = await Goal.findByIdAndDelete(req.params.id);
-      if (!goal) return res.status(400).json({ msg: "Goal does not exist" });
+      const planItem = await PlanItem.findByIdAndDelete(req.params.id);
+      if (!planItem)
+        return res.status(400).json({ msg: "Plan item does not exist" });
 
       res.json({ msg: "Delete Success!" });
     } catch (err: any) {
