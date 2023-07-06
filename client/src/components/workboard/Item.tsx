@@ -158,7 +158,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
                 </button>
                 <button
                   type='button'
-                  // onClick={() => handleDelete(item._id!)}
+                  onClick={() => handleDelete(item._id!)}
                   className='btn btn-auto btn-action btn-dark'>
                   Delete
                 </button>
