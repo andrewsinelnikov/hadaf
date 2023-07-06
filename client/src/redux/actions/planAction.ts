@@ -61,16 +61,16 @@ export const updatePlanItem =
     }
   };
 
-// export const deleteGoal =
-//   (id: string, token: string) =>
-//   async (dispatch: Dispatch<IAlertType | IGoalType>) => {
-//     const result = await checkTokenExp(token, dispatch);
-//     const access_token = result ? result : token;
-//     try {
-//       dispatch({ type: DELETE_GOAL, payload: id });
+export const deletePlanItem =
+  (id: string, token: string) =>
+  async (dispatch: Dispatch<IAlertType | IGoalType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: DELETE_GOAL, payload: id });
 
-//       await deleteAPI(`goal/${id}`, access_token);
-//     } catch (err: any) {
-//       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-//     }
-//   };
+      await deleteAPI(`goal/${id}`, access_token);
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
