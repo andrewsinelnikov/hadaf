@@ -6,6 +6,7 @@ import {
   CREATE_PLAN_ITEM,
   GET_PLANS_BY_GOAL,
   UPDATE_PLAN_ITEM,
+  DELETE_PLAN_ITEM,
 } from "../types/planType";
 import { postAPI, getAPI, patchAPI, deleteAPI } from "../../utils/FetchData";
 import { IItem } from "../../utils/TypeScript";
@@ -63,13 +64,13 @@ export const updatePlanItem =
 
 export const deletePlanItem =
   (id: string, token: string) =>
-  async (dispatch: Dispatch<IAlertType | IGoalType>) => {
+  async (dispatch: Dispatch<IAlertType | IPlanType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
-      dispatch({ type: DELETE_GOAL, payload: id });
+      dispatch({ type: DELETE_PLAN_ITEM, payload: id });
 
-      await deleteAPI(`goal/${id}`, access_token);
+      await deleteAPI(`plan/${id}`, access_token);
     } catch (err: any) {
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
