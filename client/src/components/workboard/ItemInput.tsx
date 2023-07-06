@@ -90,7 +90,7 @@ const ItemInput: React.FC<IProps> = ({
         }`,
         width: `${addInput === false ? "auto" : "100%"}`,
         bottom: `${addInput === false ? "80px" : "0px"}`,
-        marginLeft: `${addInput === false ? "946px" : "330px"}`,
+        marginLeft: `${addInput === false ? "922px" : "330px"}`,
       }}
       onSubmit={(e) => {
         handleAdd(e);
@@ -114,7 +114,12 @@ const ItemInput: React.FC<IProps> = ({
         <div
           className='items-number'
           onClick={() => setAddInput(true)}
-          style={{ cursor: "pointer", display: "inline-block" }}>
+          style={{
+            cursor: "pointer",
+            display: "inline-block",
+            color: "var(--lightdark-color)",
+            backgroundColor: "var(--lightdark-30-color)",
+          }}>
           one more step?
         </div>
       )}
