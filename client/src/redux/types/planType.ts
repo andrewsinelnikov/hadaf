@@ -25,9 +25,9 @@ export interface IUpdatePlanItem {
   payload: IItem;
 }
 
-// export interface IDeleteGoal {
-//   type: typeof DELETE_GOAL;
-//   payload: string;
-// }
+export interface IDeletePlanItem {
+  type: typeof DELETE_PLAN_ITEM;
+  payload: string;
+}
 
-export type IPlanType = ICreatePlanItem | IUpdatePlanItem;
+export type IPlanType = ICreatePlanItem | IUpdatePlanItem | IDeletePlanItem;
