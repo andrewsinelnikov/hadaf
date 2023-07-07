@@ -15,6 +15,12 @@ const Plans = () => {
   const navigate = useNavigate();
 
   const today = new Date();
+  const date = today.toLocaleDateString("en-US", {
+    weekday: "narrow",
+    month: "short",
+    day: "numeric",
+  });
+  const option = { weekday: "narrow", month: "short", day: "numeric" };
 
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
@@ -59,7 +65,15 @@ const Plans = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='plans' />
-            <div>{currentWeek().map((day) => day.toDateString())}</div>
+            <div>
+              {currentWeek().map((day) =>
+                day.toLocaleDateString("en-US", {
+                  weekday: "long",
+                  month: "short",
+                  day: "numeric",
+                })
+              )}
+            </div>
           </div>
           <Footer />
         </div>
