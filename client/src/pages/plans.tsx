@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { RootState } from "../redux/store";
@@ -11,7 +11,11 @@ import { IItem } from "../utils/TypeScript";
 import Footer from "../components/global/Footer";
 import { currentWeek } from "../utils/CurrentWeek";
 
-const Plans = () => {
+interface IDay {
+  [key: number]: { title: string; ref: React.RefObject<HTMLButtonElement> };
+}
+
+const Plans: React.FC = () => {
   const { auth } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
 
