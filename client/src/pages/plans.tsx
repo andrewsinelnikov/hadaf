@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { RootState } from "../redux/store";
@@ -12,18 +12,46 @@ import Footer from "../components/global/Footer";
 import { currentWeek } from "../utils/CurrentWeek";
 
 interface IDay {
-  [key: number]: { title: string; ref: React.RefObject<HTMLButtonElement> };
+  [key: number]: { date?: Date; ref: React.RefObject<HTMLButtonElement> };
 }
 
 const Plans: React.FC = () => {
   const { auth } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
 
-  const today = new Date();
+  const day = new Date();
+  const today = day.getDay();
+  const week = currentWeek(day);
+  // let tabValues: IDay = week.reduce((acc, cur) => {
+  //   const key = cur.getDay()
+  //   acc[key] = { date: cur, ref: useRef(null) };
+  //   return acc;
+  // }, {});
+
+  const tabValues: IDay = {
+    1: { ref: useRef(null) },
+    2: { ref: useRef(null) },
+    3: { ref: useRef(null) },
+    4: { ref: useRef(null) },
+    5: { ref: useRef(null) },
+    6: { ref: useRef(null) },
+    7: { ref: useRef(null) },
+  };
+
+  Object.keys(tabValues).forEach((key) => {
+    tabValues[key as unknown as number].date =
+      week[(key as unknown as number) - 1];
+  });
+
+  const [selectedTab, setSelectedTab] = useState(today);
+
+  const handleClick = (index: number) => {
+    setSelectedTab(index);
+  };
 
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
-  }, [auth.access_token, navigate]);
+  }, [auth.access_token, navigate, today]);
 
   const [planItem, setPlanItem] = useState<string>("");
   const [plan, setPlan] = useState<Array<IItem>>([]);
@@ -45,13 +73,20 @@ const Plans: React.FC = () => {
           <div className='content'>
             <TimeReminder action='plans' />
             <div>
-              {currentWeek(today).map((day) =>
+              {/* {currentWeek(today).map((day) =>
                 day.toLocaleDateString("en-US", {
                   weekday: "long",
                   month: "short",
                   day: "numeric",
                 })
-              )}
+              )} */}
+
+              {tabValues[selectedTab].date!.toLocaleDateString("en-US", {
+                weekday: "long",
+                month: "short",
+                day: "numeric",
+              })}
+              {/* {today} */}
             </div>
           </div>
           <Footer />
