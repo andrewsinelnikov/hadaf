@@ -8,11 +8,23 @@ interface IProps {
   selectedTab: number;
 }
 
-const TabPanel: React.FC<IProps> = () => {
+const TabPanel: React.FC<IProps> = ({
+  children,
+  id,
+  tabId,
+  tabIndex,
+  selectedTab,
+}) => {
   return (
-    <div>
-      <h2>TabPanel</h2>
-    </div>
+    <section
+      className='tabpanel'
+      role='tabpanel'
+      id={id}
+      aria-labelledby={tabId}
+      hidden={selectedTab !== tabIndex}
+      tabIndex={0}>
+      {children}
+    </section>
   );
 };
 
