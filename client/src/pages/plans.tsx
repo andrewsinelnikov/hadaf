@@ -23,6 +23,8 @@ const Plans = () => {
   const [planItem, setPlanItem] = useState<string>("");
   const [plan, setPlan] = useState<Array<IItem>>([]);
 
+  const currentWeek = () => {};
+
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
 
