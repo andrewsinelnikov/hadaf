@@ -74,6 +74,8 @@
 @import url("./timeline.css");
 /* -------- Items --------- */
 @import url("./items.css");
+/* -------- Tabs --------- */
+@import url("./tabs.css");
 /* -------- Footer --------- */
 @import url("./footer.css");
 /* -------- Not Found --------- */
