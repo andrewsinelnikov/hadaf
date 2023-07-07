@@ -1,6 +1,14 @@
 import React from "react";
 
-const TabPanel = () => {
+interface IProps {
+  children: React.ReactNode;
+  id: string;
+  tabId: string;
+  tabIndex: number;
+  selectedTab: number;
+}
+
+const TabPanel: React.FC<IProps> = () => {
   return (
     <div>
       <h2>TabPanel</h2>
