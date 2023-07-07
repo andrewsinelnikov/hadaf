@@ -22,9 +22,18 @@ const Tab: React.FC<IProps> = ({
   const handleClick = () => handleChanged(index);
 
   return (
-    <div>
-      <h2>Tab</h2>
-    </div>
+    <button
+      className='tab'
+      type='button'
+      role='tab'
+      id={id}
+      aria-selected={selectedTab === index}
+      aria-controls={tabPanelId}
+      tabIndex={selectedTab === index ? 0 : -1}
+      onClick={handleClick}
+      ref={tabRef}>
+      {title}
+    </button>
   );
 };
 
