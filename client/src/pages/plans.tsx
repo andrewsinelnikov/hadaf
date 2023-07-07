@@ -14,6 +14,8 @@ const Plans = () => {
   const { auth } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
 
+  const today = new Date();
+
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
@@ -37,6 +39,11 @@ const Plans = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='plans' />
+            <div>
+              {new Date(
+                today.setDate(today.getDate() - today.getDay() + 1)
+              ).toDateString()}
+            </div>
           </div>
           <Footer />
         </div>
