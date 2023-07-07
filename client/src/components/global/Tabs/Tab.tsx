@@ -10,7 +10,17 @@ interface IProps {
   tabRef: React.LegacyRef<HTMLButtonElement>;
 }
 
-const Tab = () => {
+const Tab: React.FC<IProps> = ({
+  id,
+  title,
+  selectedTab,
+  index,
+  tabPanelId,
+  handleChanged,
+  tabRef,
+}) => {
+  const handleClick = () => handleChanged(index);
+
   return (
     <div>
       <h2>Tab</h2>
