@@ -23,7 +23,25 @@ const Plans = () => {
   const [planItem, setPlanItem] = useState<string>("");
   const [plan, setPlan] = useState<Array<IItem>>([]);
 
-  const currentWeek = () => {};
+  const currentWeek = () => {
+    const firstDayOfWeek = new Date(
+      today.setDate(today.getDate() - today.getDay() + 1)
+    );
+    const lastDayOfWeek = new Date(
+      today.setDate(today.getDate() - today.getDay() + 7)
+    );
+
+    const daysOfWeek = [];
+    for (
+      let i = firstDayOfWeek;
+      i <= lastDayOfWeek;
+      i.setDate(i.getDate() + 1)
+    ) {
+      daysOfWeek.push(new Date(i));
+    }
+
+    return daysOfWeek;
+  };
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,11 +59,7 @@ const Plans = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='plans' />
-            <div>
-              {new Date(
-                today.setDate(today.getDate() - today.getDay() + 1)
-              ).toDateString()}
-            </div>
+            <div>{currentWeek().map((day) => day.toDateString())}</div>
           </div>
           <Footer />
         </div>
