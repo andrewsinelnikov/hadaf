@@ -58,7 +58,7 @@ const Plans: React.FC = () => {
   //   })
   // );
 
-  const tabHeaders = Object.keys(tabValues);
+  const tabs = Object.keys(tabValues);
 
   const handleClick = (index: number) => {
     setSelectedTab(index);
@@ -153,8 +153,8 @@ const Plans: React.FC = () => {
                 role='tablist'
                 aria-label='user tabs'
                 onKeyDown={handleKeyPress}>
-                {tabHeaders.map((header) => (
-                  <Tab {...a11yProps(header as unknown as number)} />
+                {tabs.map((tab) => (
+                  <Tab {...a11yProps(tab as unknown as number)} />
                 ))}
               </div>
             </div>
