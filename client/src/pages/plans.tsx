@@ -68,6 +68,17 @@ const Plans: React.FC = () => {
     }
   };
 
+  const handleNextTab = (
+    firstTabInRound: number,
+    nextTab: number,
+    lastTabInRound: number
+  ) => {
+    const tabToSelect =
+      selectedTab === lastTabInRound ? firstTabInRound : nextTab;
+    setSelectedTab(tabToSelect);
+    tabValues[tabToSelect].ref.current?.focus();
+  };
+
   const a11yProps = (index: number) => {
     return {
       id: `tab-${index}`,
