@@ -11,6 +11,7 @@ import { IItem } from "../utils/TypeScript";
 import Footer from "../components/global/Footer";
 import { currentWeek } from "../utils/CurrentWeek";
 import Tab from "../components/global/Tabs/Tab";
+import TabPanel from "../components/global/Tabs/TabPanel";
 
 interface IDay {
   [key: number]: { date?: Date; ref: React.RefObject<HTMLButtonElement> };
@@ -158,6 +159,11 @@ const Plans: React.FC = () => {
                   <Tab {...a11yProps(tab as unknown as number)} />
                 ))}
               </div>
+              {tabs.map((panel) => (
+                <TabPanel {...a11yPanelProps(panel as unknown as number)}>
+                  {panel}
+                </TabPanel>
+              ))}
             </div>
           </div>
           <Footer />
