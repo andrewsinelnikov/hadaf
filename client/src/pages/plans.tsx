@@ -49,7 +49,13 @@ const Plans: React.FC = () => {
 
   const [selectedTab, setSelectedTab] = useState(today);
 
-  const headers = Object.values(tabValues).map((item) => item.date);
+  const headers = Object.values(tabValues).map((item) =>
+    item.date.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "short",
+      day: "numeric",
+    })
+  );
 
   const handleClick = (index: number) => {
     setSelectedTab(index);
