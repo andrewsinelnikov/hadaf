@@ -2,7 +2,7 @@ import React from "react";
 
 interface IProps {
   id: string;
-  title: string;
+  date: string;
   selectedTab: number;
   index: number;
   tabPanelId: string;
@@ -12,7 +12,7 @@ interface IProps {
 
 const Tab: React.FC<IProps> = ({
   id,
-  title,
+  date,
   selectedTab,
   index,
   tabPanelId,
@@ -32,7 +32,7 @@ const Tab: React.FC<IProps> = ({
       tabIndex={selectedTab === index ? 0 : -1}
       onClick={handleClick}
       ref={tabRef}>
-      {title}
+      {date}
     </button>
   );
 };
