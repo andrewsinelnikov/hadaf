@@ -19,6 +19,10 @@ const Plans: React.FC = () => {
   const { auth } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!auth.access_token) navigate("/login");
+  }, [auth.access_token, navigate]);
+
   const day = new Date();
   const today = day.getDay();
   const week = currentWeek(day);
@@ -49,12 +53,20 @@ const Plans: React.FC = () => {
     setSelectedTab(index);
   };
 
-  useEffect(() => {
-    if (!auth.access_token) navigate("/login");
-  }, [auth.access_token, navigate, today]);
+  const a11yProps = (index: number) => {
+    return {
+      id: `tab-${index}`,
+      index: index,
+      tabPanelId: `tabpanel-${index}`,
+      date: tabValues[index].date,
+      tabRef: tabValues[index].ref,
+      handleChanged: handleClick,
+      selectedTab: selectedTab,
+    };
+  };
 
-  const [planItem, setPlanItem] = useState<string>("");
-  const [plan, setPlan] = useState<Array<IItem>>([]);
+  // const [planItem, setPlanItem] = useState<string>("");
+  // const [plan, setPlan] = useState<Array<IItem>>([]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
