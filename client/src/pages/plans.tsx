@@ -65,6 +65,15 @@ const Plans: React.FC = () => {
     };
   };
 
+  const a11yPanelProps = (index: number) => {
+    return {
+      id: `tabpanel-${index}`,
+      tabId: `tab-${index}`,
+      tabIndex: index,
+      selectedTab: selectedTab,
+    };
+  };
+
   // const [planItem, setPlanItem] = useState<string>("");
   // const [plan, setPlan] = useState<Array<IItem>>([]);
 
