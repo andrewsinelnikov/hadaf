@@ -10,6 +10,7 @@ import ItemInput from "../components/workboard/ItemInput";
 import { IItem } from "../utils/TypeScript";
 import Footer from "../components/global/Footer";
 import { currentWeek } from "../utils/CurrentWeek";
+import Tab from "../components/global/Tabs/Tab";
 
 interface IDay {
   [key: number]: { date?: Date; ref: React.RefObject<HTMLButtonElement> };
@@ -94,7 +95,11 @@ const Plans: React.FC = () => {
       id: `tab-${index}`,
       index: index,
       tabPanelId: `tabpanel-${index}`,
-      date: tabValues[index].date,
+      date: tabValues[index].date!.toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "short",
+        day: "numeric",
+      }),
       tabRef: tabValues[index].ref,
       handleChanged: handleClick,
       selectedTab: selectedTab,
@@ -138,20 +143,20 @@ const Plans: React.FC = () => {
                 })
               )} */}
 
-              {tabValues[selectedTab].date!.toLocaleDateString("en-US", {
+              {/* {tabValues[selectedTab].date!.toLocaleDateString("en-US", {
                 weekday: "long",
                 month: "short",
                 day: "numeric",
-              })}
-              {
-                // <div
-                //   className='tabs'
-                //   role='tablist'
-                //   aria-label='user tabs'
-                //   onKeyDown={handleKeyPress}>
-                //   <Tab {...a11yProps(1)} />
-                // </div>
-              }
+              })} */}
+              <div
+                className='tabs'
+                role='tablist'
+                aria-label='user tabs'
+                onKeyDown={handleKeyPress}>
+                {tabHeaders.map((header) => (
+                  <Tab {...a11yProps(header as unknown as number)} />
+                ))}
+              </div>
             </div>
           </div>
           <Footer />
