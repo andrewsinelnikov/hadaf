@@ -49,13 +49,15 @@ const Plans: React.FC = () => {
 
   const [selectedTab, setSelectedTab] = useState(today);
 
-  const headers = Object.values(tabValues).map((item) =>
-    item.date.toLocaleDateString("en-US", {
-      weekday: "long",
-      month: "short",
-      day: "numeric",
-    })
-  );
+  // const headers = Object.values(tabValues).map((item) =>
+  //   item.date.toLocaleDateString("en-US", {
+  //     weekday: "long",
+  //     month: "short",
+  //     day: "numeric",
+  //   })
+  // );
+
+  const tabHeaders = Object.keys(tabValues);
 
   const handleClick = (index: number) => {
     setSelectedTab(index);
@@ -141,7 +143,15 @@ const Plans: React.FC = () => {
                 month: "short",
                 day: "numeric",
               })}
-              {/* {today} */}
+              {
+                // <div
+                //   className='tabs'
+                //   role='tablist'
+                //   aria-label='user tabs'
+                //   onKeyDown={handleKeyPress}>
+                //   <Tab {...a11yProps(1)} />
+                // </div>
+              }
             </div>
           </div>
           <Footer />
