@@ -53,6 +53,21 @@ const Plans: React.FC = () => {
     setSelectedTab(index);
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const tabCount = Object.keys(tabValues).length;
+
+    if (event.key === "ArrowLeft") {
+      const last = tabCount;
+      const next = selectedTab - 1;
+      handleNextTab(last, next, 1);
+    }
+    if (event.key === "ArrowRight") {
+      const first = 1;
+      const next = selectedTab + 1;
+      handleNextTab(first, next, tabCount);
+    }
+  };
+
   const a11yProps = (index: number) => {
     return {
       id: `tab-${index}`,
