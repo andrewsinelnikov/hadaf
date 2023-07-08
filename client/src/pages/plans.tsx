@@ -49,6 +49,8 @@ const Plans: React.FC = () => {
 
   const [selectedTab, setSelectedTab] = useState(today);
 
+  const headers = Object.values(tabValues).map((item) => item.date);
+
   const handleClick = (index: number) => {
     setSelectedTab(index);
   };
