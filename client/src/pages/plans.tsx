@@ -149,7 +149,8 @@ const Plans: React.FC = () => {
                 day: "numeric",
               })} */}
               <div
-                className='tabs'
+                className='tab-headers'
+                // className='tabs'
                 role='tablist'
                 aria-label='user tabs'
                 onKeyDown={handleKeyPress}>
