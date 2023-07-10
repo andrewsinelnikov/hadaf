@@ -28,6 +28,7 @@
   flex-grow: 1;
   flex-basis: 0;
   border: 1px solid var(--lightdark-30-color);
+  border-bottom-color: var(--lightdark-color);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
 }
