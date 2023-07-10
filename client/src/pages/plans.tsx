@@ -161,7 +161,8 @@ const Plans: React.FC = () => {
               </div>
               {tabs.map((panel) => (
                 <TabPanel {...a11yPanelProps(panel as unknown as number)}>
-                  {panel}
+                  selectedTab
+                  {selectedTab}
                 </TabPanel>
               ))}
             </div>
