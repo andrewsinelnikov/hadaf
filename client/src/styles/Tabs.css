@@ -9,9 +9,7 @@
   justify-content: center;
   background: transparent;
   outline: 0;
-  border: 0;
   margin: 0;
-  border-radius: 0;
   user-select: none;
   vertical-align: middle;
   text-decoration: none;
@@ -19,7 +17,7 @@
   font-size: 16px;
   line-height: 1.25;
   /* text-transform: uppercase; */
-  color: var(--lightdark-color);
+  color: var(--lightdark-50-color);
   min-width: 90px;
   position: relative;
   flex-shrink: 1;
@@ -29,4 +27,7 @@
   text-align: center;
   flex-grow: 1;
   flex-basis: 0;
+  border: 1px solid var(--lightdark-30-color);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
