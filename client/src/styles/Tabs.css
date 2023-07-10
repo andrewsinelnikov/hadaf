@@ -1,6 +1,13 @@
 .tab-headers {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+  -webkit-flex: 1 1 auto;
+  -ms-flexbox: 1 1 auto;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .tab {
@@ -25,13 +32,13 @@
   color: var(--lightdark-50-color);
   min-width: 90px;
   position: relative;
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
   padding: 8px 2px;
   overflow: hidden;
   white-space: normal;
   text-align: center;
-  flex-grow: 1;
-  flex-basis: 0;
+  /* flex-grow: 1;
+  flex-basis: 0; */
   border-width: 1px;
   border-style: solid;
   border-color: var(--lightdark-30-color);

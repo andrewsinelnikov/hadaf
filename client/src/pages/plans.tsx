@@ -156,11 +156,13 @@ const Plans: React.FC = () => {
                 aria-label='user tabs'
                 onKeyDown={handleKeyPress}>
                 {tabs.map((tab) => (
-                  <Tab {...a11yProps(tab as unknown as number)} />
+                  <Tab key={tab} {...a11yProps(tab as unknown as number)} />
                 ))}
               </div>
               {tabs.map((panel) => (
-                <TabPanel {...a11yPanelProps(panel as unknown as number)}>
+                <TabPanel
+                  key={panel}
+                  {...a11yPanelProps(panel as unknown as number)}>
                   selectedTab
                   {selectedTab}
                 </TabPanel>
