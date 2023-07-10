@@ -1,3 +1,8 @@
+.tab-headers {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
 .tab {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -27,7 +32,9 @@
   text-align: center;
   flex-grow: 1;
   flex-basis: 0;
-  border: 1px solid var(--lightdark-30-color);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--lightdark-30-color);
   border-bottom-color: var(--lightdark-color);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
