@@ -54,3 +54,8 @@
   border-bottom: none;
   cursor: auto;
 }
+
+.tab-headers > [aria-selected="false"]:hover {
+  color: var(--lightdark-color);
+  cursor: pointer;
+}
