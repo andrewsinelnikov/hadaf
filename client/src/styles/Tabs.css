@@ -50,5 +50,7 @@
 .tab-headers > [aria-selected="true"] {
   color: var(--lightdark-color);
   font-weight: 500;
+  border-color: var(--lightdark-color);
+  border-bottom: none;
   cursor: auto;
 }

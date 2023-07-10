@@ -26,19 +26,6 @@ const Tab: React.FC<IProps> = ({
       className='tab'
       type='button'
       role='tab'
-      style={{
-        // color: `${
-        //   selectedTab === index
-        //     ? "var(--lightdark-color)"
-        //     : "var(--lightdark-50-color)"
-        // }`,
-        borderColor: `${
-          selectedTab === index
-            ? "var(--lightdark-color)"
-            : "var(--lightdark-30-color)"
-        }`,
-        borderBottom: `${selectedTab === index ? "none" : ""}`,
-      }}
       id={id}
       aria-selected={selectedTab === index}
       aria-controls={tabPanelId}
