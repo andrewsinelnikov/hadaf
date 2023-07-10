@@ -97,7 +97,7 @@ const Plans: React.FC = () => {
       index: index,
       tabPanelId: `tabpanel-${index}`,
       date: tabValues[index].date!.toLocaleDateString("en-US", {
-        weekday: "long",
+        weekday: `${selectedTab === index ? "long" : "short"}`,
         month: "short",
         day: "numeric",
       }),
