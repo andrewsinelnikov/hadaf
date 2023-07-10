@@ -32,6 +32,14 @@ const Tab: React.FC<IProps> = ({
             ? "var(--lightdark-color)"
             : "var(--lightdark-50-color)"
         }`,
+        borderColor: `${
+          selectedTab === index
+            ? "var(--lightdark-color)"
+            : "var(--lightdark-30-color)"
+        }`,
+        // borderBottom: `${
+        //   selectedTab === index ? "none" : "var(--lightdark-30-color)"
+        // }`,
       }}
       id={id}
       aria-selected={selectedTab === index}
