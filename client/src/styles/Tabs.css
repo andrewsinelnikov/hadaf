@@ -46,3 +46,9 @@
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
 }
+
+.tab-headers > [aria-selected="true"] {
+  color: var(--lightdark-color);
+  font-weight: 500;
+  cursor: auto;
+}
