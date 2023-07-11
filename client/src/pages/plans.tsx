@@ -132,29 +132,30 @@ const Plans: React.FC = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='plans' type={type} setType={setType} />
-            <div>
-              {/* {tabValues[selectedTab].date!.toLocaleDateString("en-US", {
+            {type === "week" && (
+              <div>
+                {/* {tabValues[selectedTab].date!.toLocaleDateString("en-US", {
                 weekday: "long",
                 month: "short",
                 day: "numeric",
               })} */}
-              <div
-                className='tab-headers'
-                // className='tabs'
-                role='tablist'
-                aria-label='user tabs'
-                onKeyDown={handleKeyPress}>
-                {tabs.map((tab) => (
-                  <Tab key={tab} {...a11yProps(parseInt(tab))} />
+                <div
+                  className='tab-headers'
+                  // className='tabs'
+                  role='tablist'
+                  aria-label='user tabs'
+                  onKeyDown={handleKeyPress}>
+                  {tabs.map((tab) => (
+                    <Tab key={tab} {...a11yProps(parseInt(tab))} />
+                  ))}
+                </div>
+                {tabs.map((panel) => (
+                  <TabPanel key={panel} {...a11yPanelProps(parseInt(panel))}>
+                    {panel} {selectedTab}
+                  </TabPanel>
                 ))}
               </div>
-              {tabs.map((panel) => (
-                <TabPanel key={panel} {...a11yPanelProps(parseInt(panel))}>
-                  {/* selectedTab */}
-                  {panel} {selectedTab}
-                </TabPanel>
-              ))}
-            </div>
+            )}
           </div>
           <Footer />
         </div>
