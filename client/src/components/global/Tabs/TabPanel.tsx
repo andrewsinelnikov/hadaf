@@ -15,7 +15,6 @@ const TabPanel: React.FC<IProps> = ({
   tabIndex,
   selectedTab,
 }) => {
-  console.log(selectedTab, " ", tabIndex);
   return (
     <section
       className='tabpanel'

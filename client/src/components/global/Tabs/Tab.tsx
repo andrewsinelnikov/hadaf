@@ -27,13 +27,13 @@ const Tab: React.FC<IProps> = ({
       type='button'
       role='tab'
       id={id}
-      aria-selected={selectedTab === index}
+      aria-selected={selectedTab == index}
       aria-controls={tabPanelId}
-      tabIndex={selectedTab === index ? 0 : -1}
+      tabIndex={selectedTab == index ? 0 : -1}
       onClick={handleClick}
       ref={tabRef}>
       {date.toLocaleDateString("en-US", {
-        weekday: `${selectedTab === index ? "long" : "short"}`,
+        weekday: `${selectedTab == index ? "long" : "short"}`,
         month: "short",
         day: "numeric",
       })}
