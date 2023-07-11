@@ -100,6 +100,7 @@ const Plans: React.FC = () => {
       tabRef: tabValues[index].ref,
       handleChanged: handleClick,
       selectedTab: selectedTab,
+      today: today,
     };
   };
 
