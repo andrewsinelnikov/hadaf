@@ -31,10 +31,10 @@ const Tab: React.FC<IProps> = ({
       style={{
         color: `${
           index < today
-            ? "var(--lightdark-50-color)"
+            ? "var(--lightdark-30-color)"
             : index === today
             ? "var(--light-color)"
-            : "var(--lightdark-color)"
+            : "var(--lightdark-50-color)"
         }`,
       }}
       id={id}
