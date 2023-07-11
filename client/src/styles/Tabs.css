@@ -29,7 +29,7 @@
   font-size: 16px;
   line-height: 1.25;
   /* text-transform: uppercase; */
-  color: var(--lightdark-50-color);
+  color: var(--lightdark-30-color);
   min-width: 90px;
   position: relative;
   /* flex-shrink: 1; */
@@ -48,7 +48,7 @@
 }
 
 .tab-headers > [aria-selected="true"] {
-  color: var(--lightdark-color);
+  color: var(--lightdark-color) !important;
   font-weight: 500;
   border-color: var(--lightdark-color);
   border-bottom: none;
@@ -56,6 +56,6 @@
 }
 
 .tab-headers > [aria-selected="false"]:hover {
-  color: var(--lightdark-color);
+  color: var(--lightdark-color) !important;
   cursor: pointer;
 }
