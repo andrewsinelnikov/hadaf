@@ -96,11 +96,7 @@ const Plans: React.FC = () => {
       id: `tab-${index}`,
       index: index,
       tabPanelId: `tabpanel-${index}`,
-      date: tabValues[index].date!.toLocaleDateString("en-US", {
-        weekday: `${selectedTab === index ? "long" : "short"}`,
-        month: "short",
-        day: "numeric",
-      }),
+      date: tabValues[index].date!,
       tabRef: tabValues[index].ref,
       handleChanged: handleClick,
       selectedTab: selectedTab,
@@ -127,7 +123,7 @@ const Plans: React.FC = () => {
     //   setPlanItem("");
     // }
   };
-
+  console.log(today);
   return (
     <UserLayout navbarType={1}>
       <div className='profile'>
@@ -163,8 +159,8 @@ const Plans: React.FC = () => {
                 <TabPanel
                   key={panel}
                   {...a11yPanelProps(panel as unknown as number)}>
-                  selectedTab
-                  {selectedTab}
+                  {/* selectedTab */}
+                  {panel} {selectedTab}
                 </TabPanel>
               ))}
             </div>

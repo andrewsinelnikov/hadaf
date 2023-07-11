@@ -22,7 +22,7 @@ const TabPanel: React.FC<IProps> = ({
       id={id}
       aria-labelledby={tabId}
       hidden={selectedTab !== tabIndex}
-      tabIndex={0}>
+      tabIndex={selectedTab}>
       {children}
     </section>
   );
