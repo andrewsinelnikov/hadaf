@@ -7,6 +7,7 @@ import { endOfDay, endOfSeason, endOfWeek } from "../../utils/FindEnd";
 interface IProps {
   action: string;
   type?: string;
+  setType?: React.Dispatch<React.SetStateAction<string>>;
   message?: string;
   setDays?: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -14,6 +15,7 @@ interface IProps {
 const TimeReminder = ({
   action,
   type = "",
+  setType,
   message = "What are you waiting for? Meet the challenge",
   setDays,
 }: IProps) => {
@@ -45,6 +47,7 @@ const TimeReminder = ({
   const handleActive = (e: ButtonClick) => {
     e.preventDefault();
     setActive(e.currentTarget.id);
+    if (type && setType) setType(e.currentTarget.id);
   };
 
   const isActive = (time: string) => {

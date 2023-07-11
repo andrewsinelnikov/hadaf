@@ -20,6 +20,7 @@ interface IDay {
 const Plans: React.FC = () => {
   const { auth } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
+  const [type, setType] = useState("week");
 
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
@@ -124,23 +125,14 @@ const Plans: React.FC = () => {
     //   setPlanItem("");
     // }
   };
-  console.log(today);
   return (
     <UserLayout navbarType={1}>
       <div className='profile'>
         <UserInfo />
         <div className='profile-content'>
           <div className='content'>
-            <TimeReminder action='plans' />
+            <TimeReminder action='plans' type={type} setType={setType} />
             <div>
-              {/* {currentWeek(today).map((day) =>
-                day.toLocaleDateString("en-US", {
-                  weekday: "long",
-                  month: "short",
-                  day: "numeric",
-                })
-              )} */}
-
               {/* {tabValues[selectedTab].date!.toLocaleDateString("en-US", {
                 weekday: "long",
                 month: "short",
