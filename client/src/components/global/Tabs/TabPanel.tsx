@@ -15,14 +15,15 @@ const TabPanel: React.FC<IProps> = ({
   tabIndex,
   selectedTab,
 }) => {
+  console.log(selectedTab, " ", tabIndex);
   return (
     <section
       className='tabpanel'
       role='tabpanel'
       id={id}
       aria-labelledby={tabId}
-      hidden={selectedTab !== tabIndex}
-      tabIndex={selectedTab}>
+      hidden={selectedTab != tabIndex}
+      tabIndex={0}>
       {children}
     </section>
   );

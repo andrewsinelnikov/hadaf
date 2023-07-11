@@ -2,7 +2,7 @@ import React from "react";
 
 interface IProps {
   id: string;
-  date: string;
+  date: Date;
   selectedTab: number;
   index: number;
   tabPanelId: string;
@@ -32,7 +32,11 @@ const Tab: React.FC<IProps> = ({
       tabIndex={selectedTab === index ? 0 : -1}
       onClick={handleClick}
       ref={tabRef}>
-      {date}
+      {date.toLocaleDateString("en-US", {
+        weekday: `${selectedTab === index ? "long" : "short"}`,
+        month: "short",
+        day: "numeric",
+      })}
     </button>
   );
 };
