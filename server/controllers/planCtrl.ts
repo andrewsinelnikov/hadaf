@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import PlanItem from "../models/planModel";
+import Goal from "../models/goalModel";
 import { IReqAuth } from "../config/interface";
 import bcrypt from "bcrypt";
 
@@ -16,6 +17,8 @@ const planCtrl = {
         text,
         count,
       });
+
+      await Goal.updateOne({ _id: goal }, { $inc: { field: count } });
       await newPlanItem.save();
 
       res.json({ newPlanItem });
