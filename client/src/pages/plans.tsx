@@ -26,9 +26,9 @@ const Plans: React.FC = () => {
     if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
 
-  const day = new Date();
-  const today = day.getDay();
-  const week = currentWeek(day);
+  const date = new Date();
+  const today = date.getDay();
+  const week = currentWeek(date);
   // let tabValues: IDay = week.reduce((acc, cur) => {
   //   const key = cur.getDay()
   //   acc[key] = { date: cur, ref: useRef(null) };
@@ -51,14 +51,6 @@ const Plans: React.FC = () => {
   });
 
   const [selectedTab, setSelectedTab] = useState(today);
-
-  // const headers = Object.values(tabValues).map((item) =>
-  //   item.date.toLocaleDateString("en-US", {
-  //     weekday: "long",
-  //     month: "short",
-  //     day: "numeric",
-  //   })
-  // );
 
   const tabs = Object.keys(tabValues);
 
@@ -114,8 +106,8 @@ const Plans: React.FC = () => {
     };
   };
 
-  // const [planItem, setPlanItem] = useState<string>("");
-  // const [plan, setPlan] = useState<Array<IItem>>([]);
+  const [planItem, setPlanItem] = useState<string>("");
+  const [day, setDay] = useState<Array<IItem>>([]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
