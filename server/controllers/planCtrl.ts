@@ -18,7 +18,7 @@ const planCtrl = {
         count,
       });
 
-      await Goal.updateOne(
+      await Goal.findOneAndUpdate(
         { _id: goal },
         {
           $set: {
