@@ -18,7 +18,14 @@ const planCtrl = {
         count,
       });
 
-      await Goal.updateOne({ _id: goal }, { $inc: { field: count } });
+      await Goal.updateOne(
+        { _id: goal },
+        {
+          $set: {
+            completeness: { $add: ["$completeness", count] },
+          },
+        }
+      );
       await newPlanItem.save();
 
       res.json({ newPlanItem });
