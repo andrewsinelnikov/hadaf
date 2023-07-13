@@ -74,7 +74,11 @@ export const updateGoal =
       if (!plan) {
         await patchAPI(`goal/${data._id}`, { text: data.text }, access_token);
       } else {
-        await patchAPI(`goal/${data.goal}`, { text: data.text }, access_token);
+        await patchAPI(
+          `goal/${data.goal}`,
+          { count: data.count },
+          access_token
+        );
       }
     } catch (err: any) {
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
