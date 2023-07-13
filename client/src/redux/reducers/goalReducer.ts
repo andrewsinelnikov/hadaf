@@ -20,8 +20,8 @@ const goalReducer = (state: IItem[] = [], action: IGoalType): IItem[] => {
         item._id === action.payload._id
           ? {
               ...item,
-              // text: action.payload.text,
-              comcompleteness: item.completeness! + action.payload.count!,
+              text: action.payload.text,
+              completeness: action.payload.count,
             }
           : item
       );
