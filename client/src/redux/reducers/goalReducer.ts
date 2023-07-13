@@ -18,7 +18,11 @@ const goalReducer = (state: IItem[] = [], action: IGoalType): IItem[] => {
     case UPDATE_GOAL:
       return state.map((item) =>
         item._id === action.payload._id
-          ? { ...item, text: action.payload.text }
+          ? {
+              ...item,
+              text: action.payload.text,
+              comcompleteness: action.payload.completeness,
+            }
           : item
       );
     case DELETE_GOAL:
