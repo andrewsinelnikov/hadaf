@@ -173,9 +173,9 @@ const goalCtrl = {
         },
         {
           // text,
-          // $set: {
-          completeness: { $add: ["$completeness", req.body.count] },
-          // },
+          $set: {
+            completeness: { $add: ["$completeness", req.body.count] },
+          },
         }
       );
 
