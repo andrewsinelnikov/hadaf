@@ -64,14 +64,18 @@ export const getCurrentGoals =
   };
 
 export const updateGoal =
-  (data: IItem, token: string) =>
+  (data: IItem, token: string, plan?: boolean) =>
   async (dispatch: Dispatch<IAlertType | IGoalType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
       dispatch({ type: UPDATE_GOAL, payload: data });
 
-      await patchAPI(`goal/${data._id}`, { text: data.text }, access_token);
+      if (!plan) {
+        await patchAPI(`goal/${data._id}`, { text: data.text }, access_token);
+      } else {
+        await patchAPI(`goal/${data.goal}`, { text: data.text }, access_token);
+      }
     } catch (err: any) {
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
