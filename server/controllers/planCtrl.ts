@@ -18,14 +18,14 @@ const planCtrl = {
         count,
       });
 
-      await Goal.findOneAndUpdate(
-        { _id: goal },
-        {
-          $set: {
-            completeness: { $add: ["$completeness", count] },
-          },
-        }
-      );
+      // await Goal.findOneAndUpdate(
+      //   { _id: goal },
+      //   {
+      //     $set: {
+      //       completeness: { $add: ["$completeness", count] },
+      //     },
+      //   }
+      // );
       await newPlanItem.save();
 
       res.json({ newPlanItem });
