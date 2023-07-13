@@ -15,6 +15,7 @@ import ItemList from "../../components/workboard/ItemList";
 import Footer from "../../components/global/Footer";
 import ItemInput from "../../components/workboard/ItemInput";
 import { validateItem } from "../../utils/Validate";
+import { updateGoal } from "../../redux/actions/goalAction";
 
 const PlanForGoal = () => {
   const { slug }: IParams = useParams<keyof IParams>() as IParams;
@@ -66,6 +67,7 @@ const PlanForGoal = () => {
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
     dispatch(createPlanItem(planItem, auth.access_token));
+    dispatch(updateGoal(planItem, auth.access_token, true));
     dispatch(getPlansByGoal(activeGoal!._id!, auth.access_token!));
     // setPlan([...plan, planItem]);
   };
