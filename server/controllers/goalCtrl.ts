@@ -165,11 +165,17 @@ const goalCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
+      const { text, count } = req.body;
       await Goal.findOneAndUpdate(
         {
           _id: req.params.id,
         },
-        { text: req.body.text }
+        {
+          text,
+          $set: {
+            completeness: { $add: ["$completeness", count] },
+          },
+        }
       );
 
       res.json({ msg: "Update Success!" });
