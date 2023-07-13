@@ -166,12 +166,13 @@ const goalCtrl = {
 
     try {
       const { text, count } = req.body;
+      console.log(text, count);
       await Goal.findOneAndUpdate(
         {
           _id: req.params.id,
         },
         {
-          text,
+          // text,
           $set: {
             completeness: { $add: ["$completeness", count] },
           },
