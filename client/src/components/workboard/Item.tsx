@@ -46,7 +46,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
     setEdit(null);
   };
 
-  const handleDelete = (id: string || IItem) => {
+  const handleDelete = (id: string) => {
     if (!auth.access_token) return;
     if (type === "goals") dispatch(deleteGoal(id, auth.access_token));
     if (type === "plans") {
