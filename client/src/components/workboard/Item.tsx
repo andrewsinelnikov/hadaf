@@ -51,7 +51,10 @@ const Item: React.FC<IProps> = ({ item, type }) => {
     if (type === "goals") dispatch(deleteGoal(id, auth.access_token));
     if (type === "plans") {
       dispatch(deletePlanItem(id, auth.access_token));
-      dispatch(updateGoal(item, auth.access_token, true));
+      let data = item;
+      let count = -item.count!;
+      data = { ...data, count };
+      dispatch(updateGoal(data, auth.access_token, true));
       dispatch(getPlansByGoal(edit?.goal!, auth.access_token));
     }
   };
