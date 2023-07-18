@@ -100,7 +100,13 @@ const Item: React.FC<IProps> = ({ item, type }) => {
           ) : (
             <div className='item-value'>{item.text}</div>
           )}
-          <Progress completed={item.completeness === 1 ? 10 : 2} />
+          <Progress
+            completed={
+              item.completeness === 1
+                ? 1
+                : (item.completeness! * 100) / item.count!
+            }
+          />
           <div className='item-options'>
             <button
               type='button'
