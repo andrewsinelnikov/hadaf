@@ -51,11 +51,13 @@ const Item: React.FC<IProps> = ({ item, type }) => {
     if (type === "goals") dispatch(deleteGoal(id, auth.access_token));
     if (type === "plans") {
       dispatch(deletePlanItem(id, auth.access_token));
-      let data = item;
-      let count = -item.count!;
-      data = { ...data, count };
-      dispatch(updateGoal(data, auth.access_token, true));
-      dispatch(getPlansByGoal(edit?.goal!, auth.access_token));
+      if (edit) {
+        let data = edit;
+        let count = -edit.count!;
+        data = { ...data, count };
+        dispatch(updateGoal(data, auth.access_token, true));
+        dispatch(getPlansByGoal(edit.goal!, auth.access_token));
+      }
     }
   };
 
@@ -162,7 +164,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
                 </button>
                 <button
                   type='button'
-                  onClick={() => handleDelete(item._id!)}
+                  onClick={() => handleDelete(edit._id!)}
                   className='btn btn-auto btn-action btn-dark'>
                   Delete
                 </button>
