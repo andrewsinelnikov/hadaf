@@ -82,7 +82,7 @@ const PlanForGoal = () => {
             <ItemList
               items={plan}
               setItems={setPlan}
-              type='plans'
+              action='plans'
               goal={activeGoal?.text}
             />
           </div>

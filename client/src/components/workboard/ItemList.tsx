@@ -5,7 +5,7 @@ import Item from "./Item";
 interface IProps {
   items: IItem[];
   setItems: React.Dispatch<React.SetStateAction<IItem[]>>;
-  type: string;
+  action: string;
   season?: string;
   goal?: string;
 }
@@ -13,13 +13,13 @@ interface IProps {
 const ItemList: React.FC<IProps> = ({
   items,
   setItems,
-  type,
+  action,
   season,
   goal,
 }) => {
   return (
     <>
-      {type === "goals" &&
+      {action === "goals" &&
         (items.length === 0 ? (
           <div className='items-zero'>
             <div className='items-message'>
@@ -32,11 +32,11 @@ const ItemList: React.FC<IProps> = ({
           <div className='items'>
             <p>Goals for the {season}</p>
             {items.map((item) => (
-              <Item item={item} key={item._id} type={type} />
+              <Item item={item} key={item._id} action={action} />
             ))}
           </div>
         ))}
-      {type === "plans" &&
+      {action === "plans" &&
         (items.length === 0 ? (
           <div className='items-zero'>
             <div className='items-message'>
@@ -54,7 +54,7 @@ const ItemList: React.FC<IProps> = ({
                 <li key={item._id} className='step'>
                   <div className='point'></div>
                   {/* <div className='text'>{item.text}</div> */}
-                  <Item item={item} key={item._id} type={type} />
+                  <Item item={item} key={item._id} action={action} />
                 </li>
               ))}
             </ul>

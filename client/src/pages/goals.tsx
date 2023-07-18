@@ -63,7 +63,7 @@ const Goals = () => {
             <ItemList
               items={goals}
               setItems={setMyGoals}
-              type='goals'
+              action='goals'
               season={season}
             />
           </div>
