@@ -15,10 +15,10 @@ import Progress from "./Progress";
 
 interface IProps {
   item: IItem;
-  type: string;
+  action: string;
 }
 
-const Item: React.FC<IProps> = ({ item, type }) => {
+const Item: React.FC<IProps> = ({ item, action }) => {
   const [text, setText] = useState<string>("");
   const [edit, setEdit] = useState<IItem | null>(null);
 
@@ -35,8 +35,8 @@ const Item: React.FC<IProps> = ({ item, type }) => {
     if (edit) {
       if (edit.text === text) return;
       const data = { ...edit, text };
-      if (type === "goals") dispatch(updateGoal(data, auth.access_token));
-      if (type === "plans") {
+      if (action === "goals") dispatch(updateGoal(data, auth.access_token));
+      if (action === "plans") {
         dispatch(updatePlanItem(data, auth.access_token));
         dispatch(getPlansByGoal(data.goal!, auth.access_token));
       }
@@ -48,8 +48,8 @@ const Item: React.FC<IProps> = ({ item, type }) => {
 
   const handleDelete = (id: string) => {
     if (!auth.access_token) return;
-    if (type === "goals") dispatch(deleteGoal(id, auth.access_token));
-    if (type === "plans") {
+    if (action === "goals") dispatch(deleteGoal(id, auth.access_token));
+    if (action === "plans") {
       dispatch(deletePlanItem(id, auth.access_token));
       if (edit) {
         let data = edit;
@@ -63,7 +63,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
 
   return (
     <>
-      {type === "goals" && (
+      {action === "goals" && (
         <form className='item item-goal'>
           {edit ? (
             <div className='add-item'>
@@ -126,7 +126,7 @@ const Item: React.FC<IProps> = ({ item, type }) => {
           </div>
         </form>
       )}
-      {type === "plans" && (
+      {action === "plans" && (
         <form className='item'>
           {edit ? (
             <>
