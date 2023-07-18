@@ -20,6 +20,7 @@ const Goals = () => {
   const inialState = {
     user: "",
     text: "",
+    count: 1,
     completeness: 1,
     isDone: false,
     createdAt: new Date().toISOString(),
