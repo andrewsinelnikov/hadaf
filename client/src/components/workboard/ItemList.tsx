@@ -47,7 +47,7 @@ const ItemList: React.FC<IProps> = ({
         ) : (
           <div className='items'>
             <div className='item-goal'>
-              <div className='item-value'>{goal}</div>
+              <div className='item-title'>{goal}</div>
             </div>
             <ul className='timeline'>
               {items.map((item) => (
