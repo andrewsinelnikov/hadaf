@@ -10,6 +10,11 @@ const goalSchema = new mongoose.Schema(
       trim: true,
       maxLength: [200, "Your goal is up to 200 chars long"],
     },
+    count: {
+      type: Number,
+      required: true,
+      default: 1,
+    },
     completeness: {
       type: Number,
       required: true,
