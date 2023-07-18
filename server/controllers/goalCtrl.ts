@@ -175,7 +175,8 @@ const goalCtrl = {
         {
           text,
           $inc: {
-            completeness: count,
+            count: count,
+            // completeness: count,
           },
           // $set: {
           //   completeness: { $add: ["$completeness", count] },
