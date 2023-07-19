@@ -148,6 +148,7 @@ const Plans: React.FC = () => {
                 ))}
               </div>
             )}
+            {type === "season" && <div>Goal's plans</div>}
           </div>
           <Footer />
         </div>
