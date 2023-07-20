@@ -151,6 +151,12 @@ const Plans: React.FC = () => {
             {type === "season" && (
               <div>
                 <h2>{goals.length}</h2>
+                <div>
+                  <select>
+                    <option value='0'>{goals[0].text}</option>
+                    <option value='1'>{goals[1].text}</option>
+                  </select>
+                </div>
               </div>
             )}
           </div>
