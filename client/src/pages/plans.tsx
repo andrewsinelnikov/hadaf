@@ -18,7 +18,7 @@ interface IDay {
 }
 
 const Plans: React.FC = () => {
-  const { auth } = useAppSelector((state: RootState) => state);
+  const { auth, goals } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
   const [type, setType] = useState("week");
 
@@ -148,7 +148,11 @@ const Plans: React.FC = () => {
                 ))}
               </div>
             )}
-            {type === "season" && <div>Goal's plans</div>}
+            {type === "season" && (
+              <div>
+                <h2>{goals.length}</h2>
+              </div>
+            )}
           </div>
           <Footer />
         </div>
