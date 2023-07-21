@@ -150,7 +150,7 @@ const Plans: React.FC = () => {
             )}
             {type === "season" && (
               <div>
-                <h2>{goals.length}</h2>
+                <h2>{goals.length !== 0 ? goals.length : "No goals"}</h2>
                 <div>
                   <select>
                     <option value='0'>{goals[0].text}</option>
