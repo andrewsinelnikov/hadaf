@@ -41,6 +41,7 @@ const Actions = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='actions' />
+            <h2>Back up the plan with action to turn your goal into reality</h2>
           </div>
           <Footer />
         </div>
