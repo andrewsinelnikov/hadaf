@@ -12,11 +12,15 @@ import { randomNum } from "../utils/randomNum";
 const Home = () => {
   const navigate = useNavigate();
 
-  const { auth } = useAppSelector((state: RootState) => state);
+  const { auth, goals } = useAppSelector((state: RootState) => state);
 
   useEffect(() => {
-    if (auth.access_token) navigate("/actions");
-  }, [auth.access_token, navigate]);
+    if (auth.access_token && goals) {
+      navigate("/actions");
+    } else {
+      navigate("/goals");
+    }
+  }, [auth.access_token, goals, navigate]);
 
   return (
     <HomePageLayout>
