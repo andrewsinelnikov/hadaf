@@ -184,13 +184,15 @@ const Plans: React.FC = () => {
                       </p>
                       {goalsWithNoPlans.map((goal) => (
                         <div key={goal._id} className='item item-goal'>
-                          <div className='item-value'>{goal.text}</div>
-                          <div className='item-options'>
-                            <Link
-                              to={`/plan/${goal._id}`}
-                              className='btn btn-auto btn-success'>
-                              Make plans
-                            </Link>
+                          <div className='item-noplan'>
+                            <div className='text'>{goal.text}</div>
+                            <div className='item-options'>
+                              <Link
+                                to={`/plan/${goal._id}`}
+                                className='btn btn-auto btn-success'>
+                                Make plans
+                              </Link>
+                            </div>
                           </div>
                         </div>
                       ))}
