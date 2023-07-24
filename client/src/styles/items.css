@@ -60,6 +60,11 @@
   cursor: pointer;
 }
 
+.item-select option {
+  color: var(--lightdark-color);
+  background: var(--dark-color);
+}
+
 .item-goal {
   border-radius: var(--border-radius);
   border: 1px solid var(--lightdark-30-color);
