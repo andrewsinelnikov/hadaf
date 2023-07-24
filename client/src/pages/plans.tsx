@@ -169,21 +169,28 @@ const Plans: React.FC = () => {
             {type === "season" && (
               <div>
                 <h2>{goals.length === 0 && "No goals"}</h2>
-                <div>
+                <div className='items'>
                   {/* item-goal item-title */}
                   {/* <select className='item item-goal item-title item-select'>
                     <option value='0'>{goals[0].text}</option>
                     <option value='1'>{goals[1].text}</option>
                   </select> */}
-                  <h1>Goals with created plans</h1>
+                  {goalsWithNoPlans.length !== 0 && (
+                    <>
+                      <p>
+                        Map out you goal
+                        {goalsWithNoPlans.length === 1 ? "" : "s"}
+                      </p>
+                      <ul>
+                        {goalsWithNoPlans.map((goal) => (
+                          <li key={goal._id}>{goal.text}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                  <p>Goals with created plans</p>
                   <ul>
                     {goalsWithPlans.map((goal) => (
-                      <li key={goal._id}>{goal.text}</li>
-                    ))}
-                  </ul>
-                  <h1>Goals with no plans</h1>
-                  <ul>
-                    {goalsWithNoPlans.map((goal) => (
                       <li key={goal._id}>{goal.text}</li>
                     ))}
                   </ul>
