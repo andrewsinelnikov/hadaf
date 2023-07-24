@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { RootState } from "../redux/store";
 import { useAppSelector } from "../utils/hooks";
@@ -12,6 +12,7 @@ import Footer from "../components/global/Footer";
 import { currentWeek } from "../utils/CurrentWeek";
 import Tab from "../components/global/Tabs/Tab";
 import TabPanel from "../components/global/Tabs/TabPanel";
+import { getSeason } from "../utils/getSeason";
 
 interface IDay {
   [key: number]: { date?: Date; ref: React.RefObject<HTMLButtonElement> };
@@ -178,17 +179,24 @@ const Plans: React.FC = () => {
                   {goalsWithNoPlans.length !== 0 && (
                     <>
                       <p>
-                        Map out you goal
+                        Map out your goal
                         {goalsWithNoPlans.length === 1 ? "" : "s"}
                       </p>
-                      <ul>
-                        {goalsWithNoPlans.map((goal) => (
-                          <li key={goal._id}>{goal.text}</li>
-                        ))}
-                      </ul>
+                      {goalsWithNoPlans.map((goal) => (
+                        <div key={goal._id} className='item item-goal'>
+                          <div className='item-value'>{goal.text}</div>
+                          <div className='item-options'>
+                            <Link
+                              to={`/plan/${goal._id}`}
+                              className='btn btn-auto btn-success'>
+                              Make plans
+                            </Link>
+                          </div>
+                        </div>
+                      ))}
                     </>
                   )}
-                  <p>Goals with created plans</p>
+                  <p>Plans for the {getSeason(new Date())}</p>
                   <ul>
                     {goalsWithPlans.map((goal) => (
                       <li key={goal._id}>{goal.text}</li>
