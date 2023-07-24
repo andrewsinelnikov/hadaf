@@ -139,7 +139,8 @@
   border-bottom: 1px solid var(--lightdark-30-color);
 }
 
-.item-plan .text {
+.item-plan .text,
+.item-noplan .text {
   width: 70%;
   padding-left: 16px;
   font-size: 20px;
