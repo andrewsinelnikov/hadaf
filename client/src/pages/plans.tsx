@@ -31,15 +31,17 @@ const Plans: React.FC = () => {
 
   // let goalsWithPlans: IItem[];
   const [goalsWithPlans, setGoalsWithPlans] = useState<Array<IItem>>([]);
+  const [goalsWithNoPlans, setGoalsWithNoPlans] = useState<Array<IItem>>([]);
 
   useEffect(() => {
     const data = goals.filter((goal) =>
       plansGoal.some((plan) => plan.goal === goal._id)
     );
     setGoalsWithPlans(data);
-    const goalsWithNoPlans = goals.filter(
-      (goal) => !goalsWithPlans.some((plan) => plan._id === goal._id)
+    const data2 = goals.filter(
+      (goal) => !data.some((plan) => plan._id === goal._id)
     );
+    setGoalsWithNoPlans(data2);
   }, [goals]);
 
   const date = new Date();
@@ -176,6 +178,12 @@ const Plans: React.FC = () => {
                   <h1>Goals with created plans</h1>
                   <ul>
                     {goalsWithPlans.map((goal) => (
+                      <li key={goal._id}>{goal.text}</li>
+                    ))}
+                  </ul>
+                  <h1>Goals with no plans</h1>
+                  <ul>
+                    {goalsWithNoPlans.map((goal) => (
                       <li key={goal._id}>{goal.text}</li>
                     ))}
                   </ul>
