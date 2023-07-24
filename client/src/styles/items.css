@@ -65,6 +65,14 @@
   background: var(--dark-color);
 }
 
+/* .item-select option:hover,
+.item-select option:focus,
+.item-select option:active,
+.item-select option:checked {
+  color: var(--lightdark-color);
+  background: red;
+} */
+
 .item-goal {
   border-radius: var(--border-radius);
   border: 1px solid var(--lightdark-30-color);
