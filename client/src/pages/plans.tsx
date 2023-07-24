@@ -40,10 +40,13 @@ const Plans: React.FC = () => {
     );
     setGoalsWithPlans(data);
     const data2 = goals.filter(
-      (goal) => !data.some((plan) => plan._id === goal._id)
+      (goal) => !plansGoal.some((plan) => plan.goal === goal._id)
     );
+    // const data2 = goals.filter(
+    //   (goal) => !data.some((plan) => plan._id === goal._id)
+    // );
     setGoalsWithNoPlans(data2);
-  }, [goals]);
+  }, [goals, plansGoal]);
 
   const date = new Date();
   const today = date.getDay();
