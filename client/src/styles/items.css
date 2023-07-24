@@ -54,8 +54,6 @@
 }
 
 .item-select {
-  max-width: 794px;
-  width: 100%;
   background: transparent;
   border: none;
   outline: none;
@@ -66,14 +64,6 @@
   color: var(--lightdark-color);
   background: var(--dark-color);
 }
-
-/* .item-select option:hover,
-.item-select option:focus,
-.item-select option:active,
-.item-select option:checked {
-  color: var(--lightdark-color);
-  background: red;
-} */
 
 .item-goal {
   border-radius: var(--border-radius);
