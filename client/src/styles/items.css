@@ -53,6 +53,13 @@
   width: 100%;
 }
 
+.item-select {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .item-goal {
   border-radius: var(--border-radius);
   border: 1px solid var(--lightdark-30-color);
