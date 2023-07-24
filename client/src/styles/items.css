@@ -54,6 +54,8 @@
 }
 
 .item-select {
+  max-width: 794px;
+  width: 100%;
   background: transparent;
   border: none;
   outline: none;
