@@ -18,13 +18,29 @@ interface IDay {
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals } = useAppSelector((state: RootState) => state);
+  const { auth, goals, plansGoal } = useAppSelector(
+    (state: RootState) => state
+  );
   const navigate = useNavigate();
+
   const [type, setType] = useState("week");
 
   useEffect(() => {
     if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
+
+  // let goalsWithPlans: IItem[];
+  const [goalsWithPlans, setGoalsWithPlans] = useState<Array<IItem>>([]);
+
+  useEffect(() => {
+    const data = goals.filter((goal) =>
+      plansGoal.some((plan) => plan.goal === goal._id)
+    );
+    setGoalsWithPlans(data);
+    const goalsWithNoPlans = goals.filter(
+      (goal) => !goalsWithPlans.some((plan) => plan._id === goal._id)
+    );
+  }, [goals]);
 
   const date = new Date();
   const today = date.getDay();
@@ -150,13 +166,19 @@ const Plans: React.FC = () => {
             )}
             {type === "season" && (
               <div>
-                <h2>{goals.length !== 0 ? goals.length : "No goals"}</h2>
+                <h2>{goals.length === 0 && "No goals"}</h2>
                 <div>
                   {/* item-goal item-title */}
-                  <select className='item item-goal item-title item-select'>
+                  {/* <select className='item item-goal item-title item-select'>
                     <option value='0'>{goals[0].text}</option>
                     <option value='1'>{goals[1].text}</option>
-                  </select>
+                  </select> */}
+                  <h1>Goals with created plans</h1>
+                  <ul>
+                    {goalsWithPlans.map((goal) => (
+                      <li key={goal._id}>{goal.text}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             )}
