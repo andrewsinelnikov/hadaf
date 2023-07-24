@@ -152,7 +152,7 @@ const Plans: React.FC = () => {
               <div>
                 <h2>{goals.length !== 0 ? goals.length : "No goals"}</h2>
                 <div>
-                  <select>
+                  <select className='item-goal'>
                     <option value='0'>{goals[0].text}</option>
                     <option value='1'>{goals[1].text}</option>
                   </select>
