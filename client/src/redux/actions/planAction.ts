@@ -31,6 +31,22 @@ export const createPlanItem =
     }
   };
 
+export const getCurrentPlans =
+  (token: string) => async (dispatch: Dispatch<IAlertType | IGoalType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: ALERT, payload: { loading: true } });
+
+      const res = await getAPI("current", access_token);
+      dispatch({ type: GET_CURRENT_GOALS, payload: res.data.goals });
+
+      dispatch({ type: ALERT, payload: { loading: false } });
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
+
 export const getPlansByGoal =
   (goal: string, token: string) =>
   async (dispatch: Dispatch<IAlertType | IGetPlansByGoal>) => {
