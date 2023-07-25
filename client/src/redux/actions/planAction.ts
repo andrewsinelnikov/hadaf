@@ -40,7 +40,7 @@ export const getCurrentPlans =
       dispatch({ type: ALERT, payload: { loading: true } });
 
       const res = await getAPI("current_plans", access_token);
-      dispatch({ type: GET_CURRENT_PLANS, payload: res.data.goals });
+      dispatch({ type: GET_CURRENT_PLANS, payload: res.data.plans });
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
