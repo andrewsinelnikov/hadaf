@@ -19,9 +19,7 @@ interface IDay {
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plansGoal } = useAppSelector(
-    (state: RootState) => state
-  );
+  const { auth, goals, plans } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
 
   const [type, setType] = useState("week");
@@ -36,17 +34,17 @@ const Plans: React.FC = () => {
 
   useEffect(() => {
     const data = goals.filter((goal) =>
-      plansGoal.some((plan) => plan.goal === goal._id)
+      plans.some((plan) => plan.goal === goal._id)
     );
     setGoalsWithPlans(data);
-    const data2 = goals.filter(
-      (goal) => !plansGoal.some((plan) => plan.goal === goal._id)
-    );
     // const data2 = goals.filter(
-    //   (goal) => !data.some((plan) => plan._id === goal._id)
+    //   (goal) => !plansGoal.some((plan) => plan.goal === goal._id)
     // );
+    const data2 = goals.filter(
+      (goal) => !data.some((plan) => plan._id === goal._id)
+    );
     setGoalsWithNoPlans(data2);
-  }, [goals, plansGoal]);
+  }, [goals, plans]);
 
   const date = new Date();
   const today = date.getDay();
