@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
+import bcrypt from "bcrypt";
 import Goal from "../models/goalModel";
 import { IReqAuth } from "../config/interface";
-import bcrypt from "bcrypt";
+import { getSeason } from "../config/getSeason";
 
 const goalCtrl = {
   createGoal: async (req: IReqAuth, res: Response) => {
@@ -202,19 +203,6 @@ const goalCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-};
-
-const getSeason = (date: Date) => {
-  const month = date.getMonth() + 1;
-  if (month >= 3 && month <= 5) {
-    return "spring";
-  } else if (month >= 6 && month <= 8) {
-    return "summer";
-  } else if (month >= 9 && month <= 11) {
-    return "autumn";
-  } else {
-    return "winter";
-  }
 };
 
 export default goalCtrl;
