@@ -33,6 +33,7 @@ const planCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  getCurrentPlans: async (req: IReqAuth, res: Response) => {},
   getPlansByGoal: async (req: IReqAuth, res: Response) => {
     if (!req.user)
       return res.status(400).json({ msg: "Invalid Authentication" });
