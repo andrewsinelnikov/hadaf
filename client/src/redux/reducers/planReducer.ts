@@ -1,6 +1,7 @@
 import {
   IPlanType,
   CREATE_PLAN_ITEM,
+  GET_CURRENT_PLANS,
   UPDATE_PLAN_ITEM,
   DELETE_PLAN_ITEM,
 } from "../types/planType";
@@ -10,6 +11,8 @@ const planReducer = (state: IItem[] = [], action: IPlanType): IItem[] => {
   switch (action.type) {
     case CREATE_PLAN_ITEM:
       return [action.payload, ...state];
+    case GET_CURRENT_PLANS:
+      return action.payload;
     case UPDATE_PLAN_ITEM:
       return state.map((item) =>
         item._id === action.payload._id
