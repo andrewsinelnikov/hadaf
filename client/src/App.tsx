@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from "./utils/hooks";
 import { RootState } from "./redux/store";
 import { refreshToken } from "./redux/actions/authAction";
 import { getCurrentGoals, getGoals } from "./redux/actions/goalAction";
-import { getPlansByGoal } from "./redux/actions/planAction";
+import { getCurrentPlans, getPlansByGoal } from "./redux/actions/planAction";
 
 import PageRender from "./PageRender";
 import ScrollToTop from "./components/global/ScrollToTop";
@@ -27,6 +27,7 @@ const App = () => {
     dispatch(refreshToken());
     if (auth.access_token) {
       dispatch(getCurrentGoals(auth.access_token));
+      dispatch(getCurrentPlans(auth.access_token));
       // dispatch(getGoals(auth.access_token));
       // if (slug) dispatch(getPlansByGoal(slug, auth.access_token));
     }
