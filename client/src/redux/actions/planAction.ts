@@ -4,6 +4,7 @@ import {
   IPlanType,
   IGetPlansByGoal,
   CREATE_PLAN_ITEM,
+  GET_CURRENT_PLANS,
   GET_PLANS_BY_GOAL,
   UPDATE_PLAN_ITEM,
   DELETE_PLAN_ITEM,
@@ -32,14 +33,14 @@ export const createPlanItem =
   };
 
 export const getCurrentPlans =
-  (token: string) => async (dispatch: Dispatch<IAlertType | IGoalType>) => {
+  (token: string) => async (dispatch: Dispatch<IAlertType | IPlanType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await getAPI("current", access_token);
-      dispatch({ type: GET_CURRENT_GOALS, payload: res.data.goals });
+      const res = await getAPI("current-plans", access_token);
+      dispatch({ type: GET_CURRENT_PLANS, payload: res.data.goals });
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
