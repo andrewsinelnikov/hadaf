@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import PlanItem from "../models/planModel";
-import Goal from "../models/goalModel";
 import { IReqAuth } from "../config/interface";
-import bcrypt from "bcrypt";
 import { getSeason } from "../config/getSeason";
 
 const planCtrl = {
