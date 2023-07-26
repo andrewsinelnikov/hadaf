@@ -222,6 +222,7 @@ const Plans: React.FC = () => {
                           items={goalPlans}
                           setItems={setGoalPlans}
                           action='plans'
+                          options={true}
                           goal={goalsWithPlans[0].text}
                         />
                       </>
