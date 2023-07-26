@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { RootState } from "../redux/store";
-import { useAppSelector } from "../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../utils/hooks";
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
@@ -13,13 +13,17 @@ import { currentWeek } from "../utils/CurrentWeek";
 import Tab from "../components/global/Tabs/Tab";
 import TabPanel from "../components/global/Tabs/TabPanel";
 import { getSeason } from "../utils/getSeason";
+import { getPlansByGoal } from "../redux/actions/planAction";
 
 interface IDay {
   [key: number]: { date?: Date; ref: React.RefObject<HTMLButtonElement> };
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plans } = useAppSelector((state: RootState) => state);
+  const { auth, goals, plans, plansGoal } = useAppSelector(
+    (state: RootState) => state
+  );
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const [type, setType] = useState("week");
@@ -31,19 +35,29 @@ const Plans: React.FC = () => {
   // let goalsWithPlans: IItem[];
   const [goalsWithPlans, setGoalsWithPlans] = useState<Array<IItem>>([]);
   const [goalsWithNoPlans, setGoalsWithNoPlans] = useState<Array<IItem>>([]);
+  const [goalPlans, setGoalPlans] = useState<Array<IItem>>([]);
 
   useEffect(() => {
     const data = goals.filter((goal) =>
       plans.some((plan) => plan.goal === goal._id)
     );
     setGoalsWithPlans(data);
-    // const data2 = goals.filter(
-    //   (goal) => !plansGoal.some((plan) => plan.goal === goal._id)
-    // );
     const data2 = goals.filter(
       (goal) => !data.some((plan) => plan._id === goal._id)
     );
     setGoalsWithNoPlans(data2);
+
+    if (goalsWithPlans.length === 1) {
+      if (plansGoal.every((item) => item.goal !== goalsWithPlans[0]._id)) {
+        dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
+      } else {
+        const data = plansGoal.find(
+          (item) => item.goal === goalsWithPlans[0]._id
+        );
+        if (!data) return;
+        setGoalPlans(data.plans);
+      }
+    }
   }, [goals, plans]);
 
   const date = new Date();
