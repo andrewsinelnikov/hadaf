@@ -19,7 +19,7 @@ interface IProps {
   options?: boolean;
 }
 
-const Item: React.FC<IProps> = ({ item, action }) => {
+const Item: React.FC<IProps> = ({ item, action, options }) => {
   const [text, setText] = useState<string>("");
   const [edit, setEdit] = useState<IItem | null>(null);
 
@@ -127,7 +127,7 @@ const Item: React.FC<IProps> = ({ item, action }) => {
           </div>
         </form>
       )}
-      {action === "plans" && (
+      {action === "plans" && !options && (
         <form className='item'>
           {edit ? (
             <>
@@ -198,7 +198,7 @@ const Item: React.FC<IProps> = ({ item, action }) => {
           )}
         </form>
       )}
-      {!action && (
+      {action === "plans" && options && (
         <div className='item'>
           <div className='item-plan'>
             <div className='text'>{item.text}</div>
