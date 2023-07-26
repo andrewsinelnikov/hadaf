@@ -48,8 +48,19 @@ const Plans: React.FC = () => {
     );
     setGoalsWithNoPlans(data2);
 
+    // if (goalsWithPlans.length === 1) {
+    //   dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
+    //   const data = plansGoal.find(
+    //     (item) => item.goal === goalsWithPlans[0]._id
+    //   );
+    //   if (!data) return;
+    //   setGoalPlans(data.plans);
+    // }
+  }, [goals, plans]);
+
+  useEffect(() => {
     if (goalsWithPlans.length === 1) {
-      if (plansGoal.every((item) => item.goal !== goalsWithPlans[0]._id)) {
+      if (plans.every((item) => item.goal !== goalsWithPlans[0]._id)) {
         dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
       } else {
         const data = plansGoal.find(
@@ -59,7 +70,7 @@ const Plans: React.FC = () => {
         setGoalPlans(data.plans);
       }
     }
-  }, [goals, plans, plansGoal]);
+  }, [plans, plansGoal]);
 
   const date = new Date();
   const today = date.getDay();
