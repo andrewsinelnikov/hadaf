@@ -149,6 +149,11 @@
   overflow-wrap: break-word;
 }
 
+.item-noplan .text {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
 .item-plan .plan-options .completeness {
   margin-right: 8px;
   color: var(--lightdark-color);
