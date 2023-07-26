@@ -38,7 +38,7 @@
   margin-bottom: 24px;
 }
 
-.items p:last-child {
+.items p:not(:first-child) {
   margin-top: 16px;
 }
 
