@@ -15,7 +15,7 @@ import Progress from "./Progress";
 
 interface IProps {
   item: IItem;
-  action: string;
+  action?: string;
 }
 
 const Item: React.FC<IProps> = ({ item, action }) => {
@@ -196,6 +196,13 @@ const Item: React.FC<IProps> = ({ item, action }) => {
             </div>
           )}
         </form>
+      )}
+      {!action && (
+        <div className='item'>
+          <div className='item-plan'>
+            <div className='text'>{item.text}</div>
+          </div>
+        </div>
       )}
     </>
   );
