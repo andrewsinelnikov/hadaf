@@ -4,7 +4,7 @@ import Item from "./Item";
 
 interface IProps {
   items: IItem[];
-  setItems: React.Dispatch<React.SetStateAction<IItem[]>>;
+  setItems?: React.Dispatch<React.SetStateAction<IItem[]>>;
   action: string;
   season?: string;
   goal?: string;
