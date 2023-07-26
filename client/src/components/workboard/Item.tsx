@@ -15,7 +15,8 @@ import Progress from "./Progress";
 
 interface IProps {
   item: IItem;
-  action?: string;
+  action: string;
+  options?: boolean;
 }
 
 const Item: React.FC<IProps> = ({ item, action }) => {

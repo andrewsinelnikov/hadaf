@@ -57,7 +57,7 @@ const ItemList: React.FC<IProps> = ({
                   {action ? (
                     <Item item={item} key={item._id} action={action} />
                   ) : (
-                    <Item item={item} key={item._id} />
+                    <Item item={item} key={item._id} action={action} />
                   )}
                 </li>
               ))}
