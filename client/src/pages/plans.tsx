@@ -199,7 +199,7 @@ const Plans: React.FC = () => {
                       ))}
                     </>
                   )}
-                  <p>Plans for the {getSeason(new Date())}</p>
+                  <p>{getSeason(new Date())} plans (by goals)</p>
                   <ul>
                     {goalsWithPlans.map((goal) => (
                       <li key={goal._id}>{goal.text}</li>
