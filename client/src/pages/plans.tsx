@@ -14,6 +14,7 @@ import Tab from "../components/global/Tabs/Tab";
 import TabPanel from "../components/global/Tabs/TabPanel";
 import { getSeason } from "../utils/getSeason";
 import { getPlansByGoal } from "../redux/actions/planAction";
+import ItemList from "../components/workboard/ItemList";
 
 interface IDay {
   [key: number]: { date?: Date; ref: React.RefObject<HTMLButtonElement> };
@@ -58,7 +59,7 @@ const Plans: React.FC = () => {
         setGoalPlans(data.plans);
       }
     }
-  }, [goals, plans]);
+  }, [goals, plans, plansGoal]);
 
   const date = new Date();
   const today = date.getDay();
@@ -217,6 +218,12 @@ const Plans: React.FC = () => {
                     (goalsWithPlans.length === 1 ? (
                       <>
                         <p>{getSeason(new Date())} plans (for goal)</p>
+                        <ItemList
+                          items={goalPlans}
+                          setItems={setGoalPlans}
+                          action='plans'
+                          goal={goalsWithPlans[0].text}
+                        />
                       </>
                     ) : (
                       <>
