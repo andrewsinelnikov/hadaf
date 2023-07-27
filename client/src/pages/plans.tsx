@@ -42,20 +42,13 @@ const Plans: React.FC = () => {
     const data = goals.filter((goal) =>
       plans.some((plan) => plan.goal === goal._id)
     );
-    setGoalsWithPlans(data);
+    // setGoalsWithPlans(data);
+    goalsWithPlans.push(...data);
     const data2 = goals.filter(
       (goal) => !data.some((plan) => plan._id === goal._id)
     );
-    setGoalsWithNoPlans(data2);
-
-    // if (goalsWithPlans.length === 1) {
-    //   dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
-    //   const data = plansGoal.find(
-    //     (item) => item.goal === goalsWithPlans[0]._id
-    //   );
-    //   if (!data) return;
-    //   setGoalPlans(data.plans);
-    // }
+    // setGoalsWithNoPlans(data2);
+    goalsWithNoPlans.push(...data2);
   }, [goals, plans]);
 
   useEffect(() => {
@@ -63,11 +56,11 @@ const Plans: React.FC = () => {
       if (plans.every((item) => item.goal !== goalsWithPlans[0]._id)) {
         dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
       } else {
-        const data = plansGoal.find(
+        const data = plans.filter(
           (item) => item.goal === goalsWithPlans[0]._id
         );
         if (!data) return;
-        setGoalPlans(data.plans);
+        setGoalPlans(data);
       }
     }
   }, [plans, plansGoal]);
