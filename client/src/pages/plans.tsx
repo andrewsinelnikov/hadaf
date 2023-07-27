@@ -58,6 +58,30 @@ const Plans: React.FC = () => {
     }
   }, [goals, plans]);
 
+  const renderActiveGoalPlans = () => {
+    if (activeGoal !== null) {
+      return (
+        <ItemList
+          items={activeGoalPlans}
+          setItems={setGoalPlans}
+          action='plans'
+          options={true}
+          goal={activeGoal}
+        />
+      );
+    } else {
+      return null;
+    }
+  };
+
+  <ItemList
+    items={goalPlans}
+    setItems={setGoalPlans}
+    action='plans'
+    options={true}
+    goal={goalsWithPlans[0].text}
+  />;
+
   const date = new Date();
   const today = date.getDay();
   const week = currentWeek(date);
