@@ -63,20 +63,6 @@ const Plans: React.FC = () => {
     }
   }, [goals, plans]);
 
-  // useEffect(() => {
-  //   if (goalsWithPlans.length === 1) {
-  //     if (plans.every((item) => item.goal !== goalsWithPlans[0]._id)) {
-  //       dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
-  //     } else {
-  //       const data = plans.filter(
-  //         (item) => item.goal === goalsWithPlans[0]._id
-  //       );
-  //       if (!data) return;
-  //       setGoalPlans(data);
-  //     }
-  //   }
-  // }, [plans, plansGoal]);
-
   const date = new Date();
   const today = date.getDay();
   const week = currentWeek(date);
