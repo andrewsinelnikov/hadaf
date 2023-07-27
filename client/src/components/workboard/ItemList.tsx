@@ -48,9 +48,11 @@ const ItemList: React.FC<IProps> = ({
           </div>
         ) : (
           <div className='items'>
-            <div className='item-goal'>
-              <div className='item-title'>{goal}</div>
-            </div>
+            {goal && (
+              <div className='item-goal'>
+                <div className='item-title'>{goal}</div>
+              </div>
+            )}
             <ul className='timeline'>
               {items.map((item) => (
                 <li key={item._id} className='step'>
