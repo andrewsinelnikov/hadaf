@@ -21,9 +21,7 @@ interface IDay {
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plans, plansGoal } = useAppSelector(
-    (state: RootState) => state
-  );
+  const { auth, goals, plans } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -33,7 +31,6 @@ const Plans: React.FC = () => {
     if (!auth.access_token) navigate("/login");
   }, [auth.access_token, navigate]);
 
-  // let goalsWithPlans: IItem[];
   const [goalsWithPlans, setGoalsWithPlans] = useState<Array<IItem>>([]);
   const [goalsWithNoPlans, setGoalsWithNoPlans] = useState<Array<IItem>>([]);
   const [goalPlans, setGoalPlans] = useState<Array<IItem>>([]);
@@ -42,12 +39,10 @@ const Plans: React.FC = () => {
     const data = goals.filter((goal) =>
       plans.some((plan) => plan.goal === goal._id)
     );
-    // setGoalsWithPlans(data);
     goalsWithPlans.push(...data);
     const data2 = goals.filter(
       (goal) => !data.some((plan) => plan._id === goal._id)
     );
-    // setGoalsWithNoPlans(data2);
     goalsWithNoPlans.push(...data2);
 
     if (goalsWithPlans.length === 1) {
@@ -231,11 +226,16 @@ const Plans: React.FC = () => {
                     ) : (
                       <>
                         <p>{getSeason(new Date())} plans (by goals)</p>
-                        <ul>
+                        {/* <ul>
                           {goalsWithPlans.map((goal) => (
                             <li key={goal._id}>{goal.text}</li>
                           ))}
-                        </ul>
+                        </ul> */}
+                        <select className='item item-goal item-title item-select'>
+                          {goalsWithPlans.map((goal) => (
+                            <option value={goal._id}>{goal.text}</option>
+                          ))}
+                        </select>
                       </>
                     ))}
                 </div>
