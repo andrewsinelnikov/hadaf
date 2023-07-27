@@ -7,7 +7,7 @@ import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
 import ItemInput from "../components/workboard/ItemInput";
-import { IItem } from "../utils/TypeScript";
+import { IItem, InputChange } from "../utils/TypeScript";
 import Footer from "../components/global/Footer";
 import { currentWeek } from "../utils/CurrentWeek";
 import Tab from "../components/global/Tabs/Tab";
@@ -34,6 +34,7 @@ const Plans: React.FC = () => {
   const [goalsWithPlans, setGoalsWithPlans] = useState<Array<IItem>>([]);
   const [goalsWithNoPlans, setGoalsWithNoPlans] = useState<Array<IItem>>([]);
   const [goalPlans, setGoalPlans] = useState<Array<IItem>>([]);
+  const [activeGoal, setActiveGoal] = useState(null);
 
   useEffect(() => {
     const data = goals.filter((goal) =>
@@ -62,11 +63,10 @@ const Plans: React.FC = () => {
     if (activeGoal !== null) {
       return (
         <ItemList
-          items={activeGoalPlans}
+          items={goalPlans}
           setItems={setGoalPlans}
           action='plans'
           options={true}
-          goal={activeGoal}
         />
       );
     } else {
@@ -74,13 +74,10 @@ const Plans: React.FC = () => {
     }
   };
 
-  <ItemList
-    items={goalPlans}
-    setItems={setGoalPlans}
-    action='plans'
-    options={true}
-    goal={goalsWithPlans[0].text}
-  />;
+  const handleChange = (event: InputChange) => {
+    const goal = event.target.value;
+    // setActiveGoal(goal);
+  };
 
   const date = new Date();
   const today = date.getDay();
