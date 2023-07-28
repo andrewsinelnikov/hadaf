@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { IItem, InputChange } from "../../utils/TypeScript";
 import Quantity from "./Quantity";
 
@@ -7,6 +9,7 @@ interface IProps {
   setItem?: React.Dispatch<React.SetStateAction<IItem>>;
   itemType: string;
   items?: IItem[];
+  activeGoal?: string;
   handleAdd?: (e: React.FormEvent) => void;
   days?: number;
 }
@@ -16,9 +19,12 @@ const ItemInput: React.FC<IProps> = ({
   setItem,
   itemType,
   items,
+  activeGoal,
   handleAdd,
   days,
 }) => {
+  const navigate = useNavigate();
+
   const [isFocused, setIsFocused] = useState(false);
   const [text, setText] = useState("");
 
@@ -120,7 +126,7 @@ const ItemInput: React.FC<IProps> = ({
       {itemType === "Plan" && addInput === false && (
         <span
           className='items-number'
-          onClick={() => setAddInput(true)}
+          onClick={() => navigate(`/plan/${activeGoal}`)}
           style={{
             cursor: "pointer",
             display: "inline-block",

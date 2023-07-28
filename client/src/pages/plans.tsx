@@ -57,7 +57,7 @@ const Plans: React.FC = () => {
         if (!data3) return;
         setGoalPlans(data3);
       }
-      setActiveGoal(goalsWithPlans[0].text);
+      setActiveGoal(goalsWithPlans[0]._id!);
     }
   }, [goals, plans]);
 
@@ -248,7 +248,7 @@ const Plans: React.FC = () => {
                   {goalsWithPlans.length !== 0 &&
                     (goalsWithPlans.length === 1 ? (
                       <>
-                        <p>{getSeason(new Date())} plans (for goal)</p>
+                        <p>{getSeason(new Date())} Plans (for Goal)</p>
                         <ItemList
                           items={goalPlans}
                           setItems={setGoalPlans}
@@ -259,7 +259,7 @@ const Plans: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        <p>{getSeason(new Date())} plans (by goals)</p>
+                        <p>{getSeason(new Date())} Plans (by Goals)</p>
                         <select
                           value={activeGoal!}
                           onChange={handleChange}
@@ -277,7 +277,9 @@ const Plans: React.FC = () => {
           </div>
           <Footer />
         </div>
-        {type === "season" && <ItemInput itemType='Plan' />}
+        {type === "season" && (
+          <ItemInput itemType='Plan' activeGoal={activeGoal!} />
+        )}
       </div>
     </UserLayout>
   );
