@@ -277,13 +277,7 @@ const Plans: React.FC = () => {
           </div>
           <Footer />
         </div>
-        {/* <ItemInput
-          item={planItem}
-          setItem={setPlanItem}
-          itemType='Plan Item'
-          items={plan}
-          handleAdd={addPlanItem}
-        /> */}
+        <ItemInput itemType='Plan' />
       </div>
     </UserLayout>
   );
