@@ -34,7 +34,7 @@ const Plans: React.FC = () => {
   const [goalsWithPlans, setGoalsWithPlans] = useState<Array<IItem>>([]);
   const [goalsWithNoPlans, setGoalsWithNoPlans] = useState<Array<IItem>>([]);
   const [goalPlans, setGoalPlans] = useState<Array<IItem>>([]);
-  const [activeGoal, setActiveGoal] = useState(null);
+  const [activeGoal, setActiveGoal] = useState<string | null>(null);
 
   useEffect(() => {
     const data = goals.filter((goal) =>
@@ -46,7 +46,8 @@ const Plans: React.FC = () => {
     );
     goalsWithNoPlans.push(...data2);
 
-    if (goalsWithPlans.length === 1) {
+    // if (goalsWithPlans.length === 1) {
+    if (goalsWithPlans) {
       if (plans.every((item) => item.goal !== goalsWithPlans[0]._id)) {
         dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
       } else {
@@ -56,6 +57,7 @@ const Plans: React.FC = () => {
         if (!data3) return;
         setGoalPlans(data3);
       }
+      setActiveGoal(goalsWithPlans[0].text)
     }
   }, [goals, plans]);
 
@@ -257,6 +259,7 @@ const Plans: React.FC = () => {
                             <option value={goal._id}>{goal.text}</option>
                           ))}
                         </select>
+                        {renderActiveGoalPlans()}
                       </>
                     ))}
                 </div>
