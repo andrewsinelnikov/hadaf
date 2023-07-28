@@ -35,7 +35,7 @@ const ItemInput: React.FC<IProps> = ({
   }, [text, count]);
 
   useEffect(() => {
-    if (items && items.length > 4) setAddInput(false);
+    if ((items && items.length > 4) || itemType === "Plan") setAddInput(false);
   }, [items]);
 
   useEffect(() => {
