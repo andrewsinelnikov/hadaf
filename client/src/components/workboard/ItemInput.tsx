@@ -30,7 +30,7 @@ const ItemInput: React.FC<IProps> = ({
   useEffect(() => {
     if (itemType === "Goal") setItem({ ...item, text: text });
     if (itemType === "Step") setItem({ ...item, text: text, count: count });
-  }, [item, itemType, setItem, text, count]);
+  }, [text, count]);
 
   useEffect(() => {
     if (items.length > 4) setAddInput(false);
@@ -110,6 +110,19 @@ const ItemInput: React.FC<IProps> = ({
         ) : (
           ""
         ))}
+      {itemType === "Plan" && addInput === false && (
+        <div
+          className='items-number'
+          onClick={() => setAddInput(true)}
+          style={{
+            cursor: "pointer",
+            display: "inline-block",
+            color: "var(--lightdark-color)",
+            backgroundColor: "var(--lightdark-30-color)",
+          }}>
+          one more step?
+        </div>
+      )}
       {itemType === "Step" && addInput === false && (
         <div
           className='items-number'
