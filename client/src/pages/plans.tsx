@@ -21,9 +21,7 @@ interface IDay {
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plans, plansGoal } = useAppSelector(
-    (state: RootState) => state
-  );
+  const { auth, goals, plans } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -262,12 +260,8 @@ const Plans: React.FC = () => {
                     ) : (
                       <>
                         <p>{getSeason(new Date())} plans (by goals)</p>
-                        {/* <ul>
-                          {goalsWithPlans.map((goal) => (
-                            <li key={goal._id}>{goal.text}</li>
-                          ))}
-                        </ul> */}
                         <select
+                          value={activeGoal!}
                           onChange={handleChange}
                           className='item item-goal item-title item-select'>
                           {goalsWithPlans.map((goal) => (
