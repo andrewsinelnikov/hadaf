@@ -36,7 +36,7 @@ const ItemInput: React.FC<IProps> = ({
 
   useEffect(() => {
     if (items && items.length > 4) setAddInput(false);
-  }, [items]);
+  }, [items, setAddInput]);
 
   useEffect(() => {
     if (selectPeriod === "Daily") {
@@ -94,7 +94,8 @@ const ItemInput: React.FC<IProps> = ({
         bottom: `${addInput === false ? "80px" : "0px"}`,
         marginLeft: `${
           (itemType === "Step" && addInput === false && "922px") ||
-          (itemType === "Plan" && "900px")
+          (itemType === "Plan" && addInput === false && "900px") ||
+          "330px"
         }`,
       }}
       onSubmit={(e) => {
@@ -187,28 +188,30 @@ const ItemInput: React.FC<IProps> = ({
           )}
         </div>
       )}
-      <div className='item-options'>
-        {text.length > 0 && itemType === "Step" && addInput && (
-          <>
-            <Quantity
-              selectChange={selectChange}
-              selectPeriod={selectPeriod!}
-              timesOptions={timesOptions}
-            />
-            <button
-              type='submit'
-              className='btn btn-auto btn-success'
-              disabled={selectPeriod ? false : true}>
+      {text.length > 0 && (
+        <div className='item-options'>
+          {itemType === "Step" && addInput && (
+            <>
+              <Quantity
+                selectChange={selectChange}
+                selectPeriod={selectPeriod!}
+                timesOptions={timesOptions}
+              />
+              <button
+                type='submit'
+                className='btn btn-auto btn-success'
+                disabled={selectPeriod ? false : true}>
+                Add
+              </button>
+            </>
+          )}
+          {text.length > 0 && itemType === "Goal" && (
+            <button type='submit' className='btn btn-auto btn-success'>
               Add
             </button>
-          </>
-        )}
-        {text.length > 0 && itemType === "Goal" && (
-          <button type='submit' className='btn btn-auto btn-success'>
-            Add
-          </button>
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </form>
   );
 };
