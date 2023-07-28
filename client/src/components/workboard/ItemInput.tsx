@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IItem } from "../../utils/TypeScript";
+import { IItem, InputChange } from "../../utils/TypeScript";
 import Quantity from "./Quantity";
 
 interface IProps {
@@ -35,8 +35,8 @@ const ItemInput: React.FC<IProps> = ({
   }, [text, count]);
 
   useEffect(() => {
-    if (items && items.length > 4) setAddInput(false);
-  }, [items, setAddInput]);
+    if ((items && items.length > 4) || itemType === "Plan") setAddInput(false);
+  }, [items]);
 
   useEffect(() => {
     if (selectPeriod === "Daily") {
@@ -57,11 +57,11 @@ const ItemInput: React.FC<IProps> = ({
     if (selectPeriod === "Seasonly") setCount(times);
   }, [days, selectPeriod, times, setCount, setTimes, setSelectPeriod]);
 
-  const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const selectChange = (e: InputChange) => {
     setSelectPeriod(e.target.value);
   };
 
-  const timesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const timesChange = (e: InputChange) => {
     setTimes(e.target.value as unknown as number);
   };
 
@@ -125,7 +125,7 @@ const ItemInput: React.FC<IProps> = ({
             cursor: "pointer",
             display: "inline-block",
             color: "var(--lightdark-color)",
-            backgroundColor: "var(--lightdark-30-color)",
+            backgroundColor: "var(--darklight-color)",
           }}>
           update the plan?
         </span>
@@ -138,7 +138,7 @@ const ItemInput: React.FC<IProps> = ({
             cursor: "pointer",
             display: "inline-block",
             color: "var(--lightdark-color)",
-            backgroundColor: "var(--lightdark-30-color)",
+            backgroundColor: "var(--darklight-color)",
           }}>
           one more step?
         </div>
