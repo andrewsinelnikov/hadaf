@@ -3,11 +3,11 @@ import { IItem } from "../../utils/TypeScript";
 import Quantity from "./Quantity";
 
 interface IProps {
-  item: IItem;
-  setItem: React.Dispatch<React.SetStateAction<IItem>>;
+  item?: IItem;
+  setItem?: React.Dispatch<React.SetStateAction<IItem>>;
   itemType: string;
-  items: IItem[] | null;
-  handleAdd: (e: React.FormEvent) => void;
+  items?: IItem[];
+  handleAdd?: (e: React.FormEvent) => void;
   days?: number;
 }
 
@@ -20,7 +20,7 @@ const ItemInput: React.FC<IProps> = ({
   days,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [text, setText] = useState<string>(item.text);
+  const [text, setText] = useState("");
 
   const [selectPeriod, setSelectPeriod] = useState<string>();
   const [times, setTimes] = useState(1);
@@ -28,8 +28,10 @@ const ItemInput: React.FC<IProps> = ({
   const [addInput, setAddInput] = useState(true);
 
   useEffect(() => {
-    if (itemType === "Goal") setItem({ ...item, text: text });
-    if (itemType === "Step") setItem({ ...item, text: text, count: count });
+    if (item && setItem) {
+      if (itemType === "Goal") setItem({ ...item, text: text });
+      if (itemType === "Step") setItem({ ...item, text: text, count: count });
+    }
   }, [text, count]);
 
   useEffect(() => {
@@ -93,7 +95,7 @@ const ItemInput: React.FC<IProps> = ({
         marginLeft: `${addInput === false ? "922px" : "330px"}`,
       }}
       onSubmit={(e) => {
-        handleAdd(e);
+        handleAdd && handleAdd(e);
         setText("");
         if (itemType === "Step") {
           setSelectPeriod("");
