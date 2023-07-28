@@ -35,7 +35,7 @@ const ItemInput: React.FC<IProps> = ({
   }, [text, count]);
 
   useEffect(() => {
-    if ((items && items.length > 4) || itemType === "Plan") setAddInput(false);
+    if (items && items.length > 4) setAddInput(false);
   }, [items]);
 
   useEffect(() => {
@@ -113,18 +113,17 @@ const ItemInput: React.FC<IProps> = ({
             </div>
           )
         ))}
-      {itemType === "Plan" && (
+      {itemType === "Plan" && addInput === false && (
         <div
           className='items-number'
           onClick={() => setAddInput(true)}
           style={{
             cursor: "pointer",
             display: "inline-block",
-            justifySelf: "end",
             color: "var(--lightdark-color)",
             backgroundColor: "var(--lightdark-30-color)",
           }}>
-          one more step?
+          update the plan?
         </div>
       )}
       {itemType === "Step" && addInput === false && (
