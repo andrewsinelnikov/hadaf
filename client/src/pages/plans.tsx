@@ -21,7 +21,9 @@ interface IDay {
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plans } = useAppSelector((state: RootState) => state);
+  const { auth, goals, plans, plansGoal } = useAppSelector(
+    (state: RootState) => state
+  );
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -79,15 +81,18 @@ const Plans: React.FC = () => {
   const handleChange = (event: InputChange) => {
     const goal = event.target.value;
     setActiveGoal(goal);
-    const selectedGoal = goals.find((item) => item.text === goal);
+    console.log(goal);
+    const selectedGoal = goalsWithPlans.find((item) => item._id === goal);
+    console.log(selectedGoal);
     if (selectedGoal) {
       if (plans.every((item) => item.goal !== selectedGoal._id)) {
         dispatch(getPlansByGoal(selectedGoal._id!, auth.access_token!));
       } else {
-        const data3 = plans.filter((item) => item.goal === selectedGoal._id);
-        if (!data3) return;
-        setGoalPlans(data3);
+        const data4 = plans.filter((item) => item.goal === selectedGoal._id);
+        if (!data4) return;
+        setGoalPlans(data4);
       }
+      // renderActiveGoalPlans();
     }
   };
 
