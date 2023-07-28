@@ -6,7 +6,7 @@ interface IProps {
   item: IItem;
   setItem: React.Dispatch<React.SetStateAction<IItem>>;
   itemType: string;
-  items: IItem[];
+  items: IItem[] | null;
   handleAdd: (e: React.FormEvent) => void;
   days?: number;
 }
@@ -33,7 +33,7 @@ const ItemInput: React.FC<IProps> = ({
   }, [text, count]);
 
   useEffect(() => {
-    if (items.length > 4) setAddInput(false);
+    if (items && items.length > 4) setAddInput(false);
   }, [items]);
 
   useEffect(() => {
@@ -97,18 +97,19 @@ const ItemInput: React.FC<IProps> = ({
         setText("");
         if (itemType === "Step") {
           setSelectPeriod("");
-          if (items.length > 4) setAddInput(false);
+          if (items && items.length > 4) setAddInput(false);
         }
       }}>
       {itemType === "Goal" &&
-        (items.length === 0 ? (
+        (items && items.length === 0 ? (
           <div className='items-number'>max number - 3</div>
-        ) : 3 - items.length > 0 ? (
-          <div className='items-number'>
-            possible to add - {3 - items.length}
-          </div>
         ) : (
-          ""
+          items &&
+          3 - items.length > 0 && (
+            <div className='items-number'>
+              possible to add - {3 - items.length}
+            </div>
+          )
         ))}
       {itemType === "Plan" && addInput === false && (
         <div
