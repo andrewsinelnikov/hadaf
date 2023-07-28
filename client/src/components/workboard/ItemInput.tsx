@@ -30,7 +30,7 @@ const ItemInput: React.FC<IProps> = ({
   useEffect(() => {
     if (itemType === "Goal") setItem({ ...item, text: text });
     if (itemType === "Step") setItem({ ...item, text: text, count: count });
-  }, [text, count]);
+  }, [item, itemType, setItem, text, count]);
 
   useEffect(() => {
     if (items.length > 4) setAddInput(false);
@@ -53,7 +53,7 @@ const ItemInput: React.FC<IProps> = ({
       } else setCount(times);
     }
     if (selectPeriod === "Seasonly") setCount(times);
-  }, [selectPeriod, times, setCount, setTimes, setSelectPeriod]);
+  }, [days, selectPeriod, times, setCount, setTimes, setSelectPeriod]);
 
   const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectPeriod(e.target.value);
