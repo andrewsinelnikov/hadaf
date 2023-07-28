@@ -79,7 +79,16 @@ const Plans: React.FC = () => {
   const handleChange = (event: InputChange) => {
     const goal = event.target.value;
     setActiveGoal(goal);
-    const data3 = goals.find((item) => item.text === goal);
+    const selectedGoal = goals.find((item) => item.text === goal);
+    if (selectedGoal) {
+      if (plans.every((item) => item.goal !== selectedGoal._id)) {
+        dispatch(getPlansByGoal(selectedGoal._id!, auth.access_token!));
+      } else {
+        const data3 = plans.filter((item) => item.goal === selectedGoal._id);
+        if (!data3) return;
+        setGoalPlans(data3);
+      }
+    }
   };
 
   const date = new Date();
