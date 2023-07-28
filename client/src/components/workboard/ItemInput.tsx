@@ -92,7 +92,10 @@ const ItemInput: React.FC<IProps> = ({
         }`,
         width: `${addInput === false ? "auto" : "100%"}`,
         bottom: `${addInput === false ? "80px" : "0px"}`,
-        marginLeft: `${addInput === false ? "922px" : "330px"}`,
+        marginLeft: `${
+          (itemType === "Step" && addInput === false && "922px") ||
+          (itemType === "Plan" && "900px")
+        }`,
       }}
       onSubmit={(e) => {
         handleAdd && handleAdd(e);
@@ -114,7 +117,7 @@ const ItemInput: React.FC<IProps> = ({
           )
         ))}
       {itemType === "Plan" && addInput === false && (
-        <div
+        <span
           className='items-number'
           onClick={() => setAddInput(true)}
           style={{
@@ -124,7 +127,7 @@ const ItemInput: React.FC<IProps> = ({
             backgroundColor: "var(--lightdark-30-color)",
           }}>
           update the plan?
-        </div>
+        </span>
       )}
       {itemType === "Step" && addInput === false && (
         <div
