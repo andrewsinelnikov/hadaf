@@ -81,9 +81,7 @@ const Plans: React.FC = () => {
   const handleChange = (event: InputChange) => {
     const goal = event.target.value;
     setActiveGoal(goal);
-    console.log(goal);
     const selectedGoal = goalsWithPlans.find((item) => item._id === goal);
-    console.log(selectedGoal);
     if (selectedGoal) {
       if (plans.every((item) => item.goal !== selectedGoal._id)) {
         dispatch(getPlansByGoal(selectedGoal._id!, auth.access_token!));
