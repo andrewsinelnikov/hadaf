@@ -264,7 +264,9 @@ const Plans: React.FC = () => {
                             <li key={goal._id}>{goal.text}</li>
                           ))}
                         </ul> */}
-                        <select className='item item-goal item-title item-select'>
+                        <select
+                          onChange={handleChange}
+                          className='item item-goal item-title item-select'>
                           {goalsWithPlans.map((goal) => (
                             <option value={goal._id}>{goal.text}</option>
                           ))}
