@@ -34,7 +34,9 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
     if (!auth.access_token || !text) return;
 
     if (edit) {
-      if (edit.text === text) return;
+      if (edit.text === text) {
+        return setEdit(null);
+      }
       const data = { ...edit, text };
       if (action === "goals") dispatch(updateGoal(data, auth.access_token));
       if (action === "plans") {
