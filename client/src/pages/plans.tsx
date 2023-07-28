@@ -57,7 +57,7 @@ const Plans: React.FC = () => {
         if (!data3) return;
         setGoalPlans(data3);
       }
-      setActiveGoal(goalsWithPlans[0].text)
+      setActiveGoal(goalsWithPlans[0].text);
     }
   }, [goals, plans]);
 
@@ -78,7 +78,8 @@ const Plans: React.FC = () => {
 
   const handleChange = (event: InputChange) => {
     const goal = event.target.value;
-    // setActiveGoal(goal);
+    setActiveGoal(goal);
+    const data3 = goals.find((item) => item.text === goal);
   };
 
   const date = new Date();
