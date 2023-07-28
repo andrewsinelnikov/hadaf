@@ -113,13 +113,14 @@ const ItemInput: React.FC<IProps> = ({
             </div>
           )
         ))}
-      {itemType === "Plan" && addInput === false && (
+      {itemType === "Plan" && (
         <div
           className='items-number'
           onClick={() => setAddInput(true)}
           style={{
             cursor: "pointer",
             display: "inline-block",
+            justifySelf: "end",
             color: "var(--lightdark-color)",
             backgroundColor: "var(--lightdark-30-color)",
           }}>
@@ -139,46 +140,51 @@ const ItemInput: React.FC<IProps> = ({
           one more step?
         </div>
       )}
-      <div
-        className='add-item'
-        style={{
-          display: itemType === "Step" && addInput === false ? "none" : "block",
-        }}>
-        <input
-          className='item-input'
-          type='text'
-          name='text'
-          value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          autoComplete='off'
-          maxLength={200}
-          placeholder={`Type a ${itemType}...`}
+      {itemType !== "Plan" && (
+        <div
+          className='add-item'
           style={{
-            borderBottom: `${
-              isFocused
-                ? "1px solid var(--lightdark-color)"
-                : "1px solid var(--lightdark-50-color)"
-            }`,
-          }}
-        />
-        {isFocused && text.length > 0 && (
-          <small style={{ fontWeight: "bold" }}>
-            <span
-              style={{
-                color: `${
-                  text.length > 200 ? "var(--error-color)" : "var(--done-color)"
-                }`,
-              }}>
-              {text.length}
-            </span>{" "}
-            / 200
-          </small>
-        )}
-      </div>
+            display:
+              itemType === "Step" && addInput === false ? "none" : "block",
+          }}>
+          <input
+            className='item-input'
+            type='text'
+            name='text'
+            value={text}
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            autoComplete='off'
+            maxLength={200}
+            placeholder={`Type a ${itemType}...`}
+            style={{
+              borderBottom: `${
+                isFocused
+                  ? "1px solid var(--lightdark-color)"
+                  : "1px solid var(--lightdark-50-color)"
+              }`,
+            }}
+          />
+          {isFocused && text.length > 0 && (
+            <small style={{ fontWeight: "bold" }}>
+              <span
+                style={{
+                  color: `${
+                    text.length > 200
+                      ? "var(--error-color)"
+                      : "var(--done-color)"
+                  }`,
+                }}>
+                {text.length}
+              </span>{" "}
+              / 200
+            </small>
+          )}
+        </div>
+      )}
       <div className='item-options'>
         {text.length > 0 && itemType === "Step" && addInput && (
           <>

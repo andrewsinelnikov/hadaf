@@ -215,7 +215,7 @@ const Plans: React.FC = () => {
               </div>
             )}
             {type === "season" && (
-              <div>
+              <>
                 <h2>{goals.length === 0 && "No goals"}</h2>
                 <div className='items'>
                   {/* item-goal item-title */}
@@ -272,12 +272,14 @@ const Plans: React.FC = () => {
                       </>
                     ))}
                 </div>
-              </div>
+              </>
             )}
           </div>
           <Footer />
         </div>
-        <ItemInput itemType='Plan' />
+        {type === "season" && goalsWithNoPlans.length !== 0 && (
+          <ItemInput itemType='Plan' />
+        )}
       </div>
     </UserLayout>
   );
