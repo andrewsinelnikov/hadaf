@@ -79,12 +79,14 @@ const PlanForGoal = () => {
         <div className='profile-content'>
           <div className='content'>
             <TimeReminder action='goals' type='season' setDays={setDays} />
-            <ItemList
-              items={plan}
-              setItems={setPlan}
-              action='plans'
-              goal={activeGoal?.text}
-            />
+            <div className='goal-plan'>
+              <ItemList
+                items={plan}
+                setItems={setPlan}
+                action='plans'
+                goal={activeGoal?.text}
+              />
+            </div>
           </div>
           <Footer />
         </div>
