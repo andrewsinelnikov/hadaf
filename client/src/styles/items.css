@@ -32,6 +32,14 @@
   color: var(--primary-color);
 }
 
+.items-message a,
+.items-message a:hover,
+.items-message a:visited {
+  color: var(--lightdark-color);
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .items p {
   font-size: 40px;
   line-height: 1;
