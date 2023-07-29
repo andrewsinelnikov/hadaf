@@ -88,18 +88,12 @@ const Plans: React.FC = () => {
         if (!data4) return;
         setGoalPlans(data4);
       }
-      // renderActiveGoalPlans();
     }
   };
 
   const date = new Date();
   const today = date.getDay();
   const week = currentWeek(date);
-  // let tabValues: IDay = week.reduce((acc, cur) => {
-  //   const key = cur.getDay()
-  //   acc[key] = { date: cur, ref: useRef(null) };
-  //   return acc;
-  // }, {});
 
   const tabValues: IDay = {
     1: { ref: useRef(null) },
@@ -192,14 +186,8 @@ const Plans: React.FC = () => {
             <TimeReminder action='plans' type={type} setType={setType} />
             {type === "week" && (
               <div>
-                {/* {tabValues[selectedTab].date!.toLocaleDateString("en-US", {
-                weekday: "long",
-                month: "short",
-                day: "numeric",
-              })} */}
                 <div
                   className='tab-headers'
-                  // className='tabs'
                   role='tablist'
                   aria-label='user tabs'
                   onKeyDown={handleKeyPress}>
@@ -218,11 +206,6 @@ const Plans: React.FC = () => {
               <>
                 <h2>{goals.length === 0 && "No goals"}</h2>
                 <div className='items'>
-                  {/* item-goal item-title */}
-                  {/* <select className='item item-goal item-title item-select'>
-                    <option value='0'>{goals[0].text}</option>
-                    <option value='1'>{goals[1].text}</option>
-                  </select> */}
                   {goalsWithNoPlans.length !== 0 && (
                     <>
                       <p>
