@@ -25,6 +25,8 @@ const Plans: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  let season = getSeason(new Date());
+
   const [type, setType] = useState("week");
 
   useEffect(() => {
@@ -204,7 +206,14 @@ const Plans: React.FC = () => {
             )}
             {type === "season" && (
               <>
-                <h2>{goals.length === 0 && "No goals"}</h2>
+                {goals.length === 0 && (
+                  <div className='items-zero'>
+                    <div className='items-message'>
+                      <span>What do you want to achieve this {season}?</span>
+                      Set Goals
+                    </div>
+                  </div>
+                )}
                 <div className='items'>
                   {goalsWithNoPlans.length !== 0 && (
                     <>
