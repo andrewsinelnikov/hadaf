@@ -20,7 +20,7 @@ const TimeReminder = ({
   setDays,
 }: IProps) => {
   const timeBtns = [
-    { key: 1, label: "day" },
+    // { key: 1, label: "day" },
     { key: 2, label: "week" },
     { key: 3, label: "season" },
   ];
