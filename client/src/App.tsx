@@ -1,25 +1,17 @@
 import { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useParams,
-} from "react-router-dom";
-// import { useDispatch } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "./utils/hooks";
 import { RootState } from "./redux/store";
 import { refreshToken } from "./redux/actions/authAction";
-import { getCurrentGoals, getGoals } from "./redux/actions/goalAction";
-import { getCurrentPlans, getPlansByGoal } from "./redux/actions/planAction";
+import { getCurrentGoals } from "./redux/actions/goalAction";
+import { getCurrentPlans } from "./redux/actions/planAction";
 
 import PageRender from "./PageRender";
 import ScrollToTop from "./components/global/ScrollToTop";
 import { Alert } from "./components/alert/Alert";
-import { IParams } from "./utils/TypeScript";
 
 const App = () => {
-  const { slug }: IParams = useParams<keyof IParams>() as IParams;
   const { auth } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
 
@@ -28,8 +20,6 @@ const App = () => {
     if (auth.access_token) {
       dispatch(getCurrentGoals(auth.access_token));
       dispatch(getCurrentPlans(auth.access_token));
-      // dispatch(getGoals(auth.access_token));
-      // if (slug) dispatch(getPlansByGoal(slug, auth.access_token));
     }
   }, [auth.access_token, dispatch]);
 
