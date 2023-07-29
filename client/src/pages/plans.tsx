@@ -210,7 +210,7 @@ const Plans: React.FC = () => {
                   <div className='items-zero'>
                     <div className='items-message'>
                       <span>What do you want to achieve this {season}?</span>
-                      Set Goals
+                      <Link to='/goals'>Set Goals</Link>
                     </div>
                   </div>
                 )}
