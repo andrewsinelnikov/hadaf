@@ -173,10 +173,18 @@ const Plans: React.FC = () => {
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // if (planItem) {
-    //   setPlan([...plan, { _id: Date.now(), text: planItem, isDone: false }]);
-    //   setPlanItem("");
-    // }
+    if (planItem) {
+      setDay([
+        ...day,
+        {
+          _id: Date.now().toLocaleString(),
+          createdAt: Date.now().toLocaleString(),
+          text: planItem,
+          isDone: false,
+        },
+      ]);
+      setPlanItem("");
+    }
   };
   return (
     <UserLayout navbarType={1}>
