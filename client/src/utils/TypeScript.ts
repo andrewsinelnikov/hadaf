@@ -65,6 +65,7 @@ export interface IItem {
   completeness?: number;
   isDone?: boolean;
   goal?: string;
+  period?: string;
   count?: number;
   createdAt: string;
 }
