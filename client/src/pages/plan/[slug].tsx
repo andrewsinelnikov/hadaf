@@ -68,7 +68,7 @@ const PlanForGoal = () => {
 
     dispatch(createPlanItem(planItem, auth.access_token));
     dispatch(updateGoal(planItem, auth.access_token, true));
-    dispatch(getPlansByGoal(activeGoal!._id!, auth.access_token!));
+    dispatch(getPlansByGoal(activeGoal?._id!, auth.access_token!));
     // setPlan([...plan, planItem]);
   };
 
