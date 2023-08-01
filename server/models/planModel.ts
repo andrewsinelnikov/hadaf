@@ -6,9 +6,13 @@ const planSchema = new mongoose.Schema(
     goal: { type: mongoose.Types.ObjectId, ref: "goal" },
     text: {
       type: String,
-      required: [true, "Please type a plan iten"],
+      required: [true, "Please type a plan item"],
       trim: true,
       maxLength: [200, "Your plan item is up to 200 chars long"],
+    },
+    period: {
+      type: String,
+      required: [true, "Please select a frequency for the item"],
     },
     count: {
       type: Number,
