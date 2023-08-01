@@ -9,11 +9,12 @@ const planCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const { goal, text, count } = req.body;
+      const { goal, text, period, count } = req.body;
 
       const newPlanItem = new PlanItem({
         goal,
         text,
+        period,
         count,
       });
 
