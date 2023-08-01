@@ -36,7 +36,8 @@ const ItemInput: React.FC<IProps> = ({
   useEffect(() => {
     if (item && setItem) {
       if (itemType === "Goal") setItem({ ...item, text: text });
-      if (itemType === "Step") setItem({ ...item, text: text, count: count });
+      if (itemType === "Step")
+        setItem({ ...item, text: text, period: selectPeriod, count: count });
     }
   }, [text, count]);
 
