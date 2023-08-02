@@ -276,6 +276,7 @@ const Plans: React.FC = () => {
           </div>
           <Footer />
         </div>
+        {type === "week" && <ItemInput itemType='Step' />}
         {type === "season" && (
           <ItemInput itemType='Plan' activeGoal={activeGoal!} />
         )}
