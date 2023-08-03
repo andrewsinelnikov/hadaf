@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { IPlan } from "../config/interface";
+import { IDay } from "../config/interface";
 
 const daySchema = new mongoose.Schema(
   {
@@ -30,4 +30,4 @@ const daySchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model<IPlan>("day", daySchema);
+export default mongoose.model<IDay>("day", daySchema);
