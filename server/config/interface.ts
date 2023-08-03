@@ -67,3 +67,8 @@ export interface IPlan extends Document {
   completeness: number;
   _doc: object;
 }
+
+export interface IDay extends Document {
+  date: string;
+  _doc: object;
+}
