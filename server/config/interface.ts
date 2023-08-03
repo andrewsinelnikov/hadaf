@@ -70,5 +70,6 @@ export interface IPlan extends Document {
 
 export interface IDay extends Document {
   date: string;
+  plans: Array<{ plan_id: string; done: boolean }>;
   _doc: object;
 }
