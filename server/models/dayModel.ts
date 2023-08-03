@@ -7,18 +7,21 @@ const daySchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    plans: [
-      {
-        plan_id: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "plan",
+    plans: {
+      type: [
+        {
+          plan_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "plan",
+          },
+          done: {
+            type: Boolean,
+            default: false,
+          },
         },
-        done: {
-          type: Boolean,
-          default: false,
-        },
-      },
-    ],
+      ],
+      default: [],
+    },
   },
   {
     timestamps: true,
