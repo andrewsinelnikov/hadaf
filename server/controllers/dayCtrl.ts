@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import Day from "../models/dayModel";
 import { IReqAuth } from "../config/interface";
+import Day from "../models/dayModel";
+import PlanItem from "../models/planModel";
 
 const planCtrl = {
   createDay: async (req: IReqAuth, res: Response) => {
@@ -8,16 +9,17 @@ const planCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const { goal, text, period, count } = req.body;
+      const { date } = req.body;
 
-      const newDay = new Day({
-        goal,
-        text,
-        period,
-        count,
-      });
+      const newDay = new Day({ date });
 
       await newDay.save();
+
+      const planItems = await PlanItem.find({ period: "daily" });
+
+      for (const planItem of planItems) {
+        newDay.plans.push(planItem._id);
+      }
 
       res.json({ newDay });
     } catch (err: any) {
