@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { IPlan } from "../config/interface";
 
-const planSchema = new mongoose.Schema(
+const daySchema = new mongoose.Schema(
   {
     goal: { type: mongoose.Types.ObjectId, ref: "goal" },
     text: {
@@ -30,4 +30,4 @@ const planSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model<IPlan>("plan", planSchema);
+export default mongoose.model<IPlan>("day", daySchema);
