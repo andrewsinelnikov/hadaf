@@ -21,6 +21,7 @@ app.use("/api", routes.userRoute);
 app.use("/api", routes.categoryRoute);
 app.use("/api", routes.goalRoute);
 app.use("/api", routes.planRoute);
+app.use("/api", routes.dayRoute);
 
 // Connect Database
 import "./config/database";
