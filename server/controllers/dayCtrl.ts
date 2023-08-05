@@ -15,7 +15,7 @@ const planCtrl = {
 
       await newDay.save();
 
-      const planItems = await PlanItem.find({ period: "daily" });
+      const planItems = await PlanItem.find({ period: "Daily" });
 
       for (const planItem of planItems) {
         newDay.plans.push({ plan_id: planItem._id, done: false });
