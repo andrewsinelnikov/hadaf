@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { IReqAuth } from "../config/interface";
 import Day from "../models/dayModel";
 import PlanItem from "../models/planModel";
+import { getSeason } from "../config/getSeason";
 
 const planCtrl = {
   createDay: async (req: IReqAuth, res: Response) => {
@@ -14,6 +15,30 @@ const planCtrl = {
       const newDay = new Day({ date });
 
       await newDay.save();
+
+      //
+      const today = new Date();
+      const season = getSeason(today);
+
+      const startDates = {
+        spring: new Date(`${date.getFullYear()}-03-01`),
+        summer: new Date(`${date.getFullYear()}-06-01`),
+        autumn: new Date(`${date.getFullYear()}-09-01`),
+        winter: new Date(`${date.getFullYear()}-12-01`),
+      };
+
+      const seasonStart = startDates[season];
+
+      let nextSeasonStart;
+      if (season === "winter") {
+        nextSeasonStart = new Date(`1 Mar ${date.getFullYear() + 1}`);
+      } else {
+        nextSeasonStart = Object.values(startDates).find(
+          (date) => date > seasonStart
+        );
+      }
+
+      //
 
       const planItems = await PlanItem.find({ period: "Daily" });
 
