@@ -1,6 +1,10 @@
 import axios from "axios";
 
-export const postAPI = async (url: string, post: object, token?: string) => {
+export const postAPI = async (
+  url: string,
+  post: object | string,
+  token?: string
+) => {
   const res = await axios.post(`/api/${url}`, post, {
     headers: { Authorization: token as string },
   });
