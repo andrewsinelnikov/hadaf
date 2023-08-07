@@ -40,7 +40,13 @@ const planCtrl = {
 
       //
 
-      const planItems = await PlanItem.find({ period: "Daily" });
+      const planItems = await PlanItem.find({
+        period: "Daily",
+        createdAt: {
+          $gte: seasonStart,
+          $lt: nextSeasonStart,
+        },
+      });
 
       for (const planItem of planItems) {
         newDay.plans.push({ plan_id: planItem._id, done: false });
