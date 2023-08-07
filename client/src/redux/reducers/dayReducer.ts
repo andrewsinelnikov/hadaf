@@ -1,29 +1,13 @@
-import {
-  IPlanType,
-  CREATE_PLAN_ITEM,
-  GET_CURRENT_PLANS,
-  UPDATE_PLAN_ITEM,
-  DELETE_PLAN_ITEM,
-} from "../types/planType";
-import { IItem } from "../../utils/TypeScript";
+import { IDayType, CREATE_DAY } from "../types/dayType";
+import { IDay } from "../../utils/TypeScript";
 
-const planReducer = (state: IItem[] = [], action: IPlanType): IItem[] => {
+const dayReducer = (state: IDay[] = [], action: IDayType): IDay[] => {
   switch (action.type) {
-    case CREATE_PLAN_ITEM:
+    case CREATE_DAY:
       return [action.payload, ...state];
-    case GET_CURRENT_PLANS:
-      return action.payload;
-    case UPDATE_PLAN_ITEM:
-      return state.map((item) =>
-        item._id === action.payload._id
-          ? { ...item, text: action.payload.text }
-          : item
-      );
-    case DELETE_PLAN_ITEM:
-      return state.filter((item) => item._id !== action.payload);
     default:
       return state;
   }
 };
 
-export default planReducer;
+export default dayReducer;
