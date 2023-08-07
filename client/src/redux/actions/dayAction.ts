@@ -14,8 +14,8 @@ import { IItem } from "../../utils/TypeScript";
 
 import { checkTokenExp } from "../../utils/checkTokenExp";
 
-export const createPlanItem =
-  (planItem: IItem, token: string) =>
+export const createDay =
+  (date: IItem, token: string) =>
   async (dispatch: Dispatch<IAlertType | IPlanType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
