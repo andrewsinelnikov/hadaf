@@ -10,15 +10,15 @@ const planCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const { date } = req.body;
+      // const { date } = req.body;
+      const date = new Date();
 
       const newDay = new Day({ date });
 
-      await newDay.save();
+      // await newDay.save();
 
       //
-      const today = new Date();
-      const season = getSeason(today);
+      const season = getSeason(date);
 
       const startDates = {
         spring: new Date(`${date.getFullYear()}-03-01`),
@@ -45,6 +45,8 @@ const planCtrl = {
       for (const planItem of planItems) {
         newDay.plans.push({ plan_id: planItem._id, done: false });
       }
+
+      await newDay.save();
 
       res.json({ newDay });
     } catch (err: any) {
