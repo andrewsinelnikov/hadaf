@@ -120,9 +120,10 @@ const Plans: React.FC = () => {
 
   const handleClick = (index: number) => {
     setSelectedTab(index);
-    dispatch(
-      createDay(tabValues[index]!.date!.toLocaleString(), auth.access_token!)
-    );
+    console.log(tabValues[index]!.date!.toString());
+    // dispatch(
+    //   createDay(tabValues[index]!.date!.toDateString(), auth.access_token!)
+    // );
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {

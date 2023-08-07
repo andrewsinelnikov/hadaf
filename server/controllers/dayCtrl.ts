@@ -10,15 +10,15 @@ const dayCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      // const { date } = req.body;
-      const date = new Date();
+      const { date } = req.body;
+      // const date = new Date();
 
       const newDay = new Day({ date });
 
       // await newDay.save();
 
       //
-      const season = getSeason(date);
+      const season = getSeason(date as Date);
 
       const startDates = {
         spring: new Date(`${date.getFullYear()}-03-01`),
