@@ -70,6 +70,13 @@ export interface IItem {
   createdAt: string;
 }
 
+export interface IDay {
+  _id?: string;
+  date: string;
+  plans?: Array<{ plan_id: string; done: boolean }>;
+  createdAt: string;
+}
+
 export interface IJournalNote {
   _id: number;
   title?: string;
