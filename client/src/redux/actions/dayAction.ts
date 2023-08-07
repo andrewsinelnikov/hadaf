@@ -14,7 +14,7 @@ export const createDay =
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await postAPI("day", date, access_token);
+      const res = await postAPI("day", { date }, access_token);
 
       dispatch({ type: CREATE_DAY, payload: res.data.newDay });
 

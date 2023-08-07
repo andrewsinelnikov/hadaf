@@ -4,7 +4,7 @@ import Day from "../models/dayModel";
 import PlanItem from "../models/planModel";
 import { getSeason } from "../config/getSeason";
 
-const planCtrl = {
+const dayCtrl = {
   createDay: async (req: IReqAuth, res: Response) => {
     if (!req.user)
       return res.status(400).json({ msg: "Invalid Authentication" });
@@ -61,4 +61,4 @@ const planCtrl = {
   },
 };
 
-export default planCtrl;
+export default dayCtrl;
