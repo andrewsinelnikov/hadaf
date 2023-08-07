@@ -1,4 +1,4 @@
-import { IItem } from "../../utils/TypeScript";
+import { IDay } from "../../utils/TypeScript";
 
 export const CREATE_DAY = "CREATE_DAY";
 export const GET_GOALS = "GET_GOALS";
@@ -8,27 +8,27 @@ export const DELETE_GOAL = "DELETE_GOAL";
 
 export interface ICreateDay {
   type: typeof CREATE_DAY;
-  payload: IItem;
+  payload: IDay;
 }
 
-export interface IGetGoals {
-  type: typeof GET_GOALS;
-  payload: IItem[];
-}
+// export interface IGetGoals {
+//   type: typeof GET_GOALS;
+//   payload: IItem[];
+// }
 
-export interface IGetCurrentGoals {
-  type: typeof GET_CURRENT_GOALS;
-  payload: IItem[];
-}
+// export interface IGetCurrentGoals {
+//   type: typeof GET_CURRENT_GOALS;
+//   payload: IItem[];
+// }
 
-export interface IUpdateGoal {
-  type: typeof UPDATE_GOAL;
-  payload: IItem;
-}
+// export interface IUpdateGoal {
+//   type: typeof UPDATE_GOAL;
+//   payload: IItem;
+// }
 
-export interface IDeleteGoal {
-  type: typeof DELETE_GOAL;
-  payload: string;
-}
+// export interface IDeleteGoal {
+//   type: typeof DELETE_GOAL;
+//   payload: string;
+// }
 
 export type IDayType = ICreateDay;
