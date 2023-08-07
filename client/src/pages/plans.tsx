@@ -15,13 +15,16 @@ import TabPanel from "../components/global/Tabs/TabPanel";
 import { getSeason } from "../utils/getSeason";
 import { getPlansByGoal } from "../redux/actions/planAction";
 import ItemList from "../components/workboard/ItemList";
+import { createDay } from "../redux/actions/dayAction";
 
-interface IDay {
+interface IDate {
   [key: number]: { date?: Date; ref: React.RefObject<HTMLButtonElement> };
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plans } = useAppSelector((state: RootState) => state);
+  const { auth, goals, plans, day } = useAppSelector(
+    (state: RootState) => state
+  );
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -96,7 +99,7 @@ const Plans: React.FC = () => {
   const today = date.getDay();
   const week = currentWeek(date);
 
-  const tabValues: IDay = {
+  const tabValues: IDate = {
     1: { ref: useRef(null) },
     2: { ref: useRef(null) },
     3: { ref: useRef(null) },
@@ -117,6 +120,9 @@ const Plans: React.FC = () => {
 
   const handleClick = (index: number) => {
     setSelectedTab(index);
+    dispatch(
+      createDay(tabValues[index]!.date!.toLocaleString(), auth.access_token!)
+    );
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -168,21 +174,21 @@ const Plans: React.FC = () => {
   };
 
   const [planItem, setPlanItem] = useState<string>("");
-  const [day, setDay] = useState<Array<IItem>>([]);
+  // const [day, setDay] = useState<Array<IItem>>([]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (planItem) {
-      setDay([
-        ...day,
-        {
-          _id: Date.now().toLocaleString(),
-          createdAt: Date.now().toLocaleString(),
-          text: planItem,
-          isDone: false,
-        },
-      ]);
+      // setDay([
+      //   ...day,
+      //   {
+      //     _id: Date.now().toLocaleString(),
+      //     createdAt: Date.now().toLocaleString(),
+      //     text: planItem,
+      //     isDone: false,
+      //   },
+      // ]);
       setPlanItem("");
     }
   };

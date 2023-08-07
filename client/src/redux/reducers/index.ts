@@ -13,5 +13,6 @@ export default combineReducers({
   categories,
   goals,
   plans,
+  plansGoal,
   day,
 });
