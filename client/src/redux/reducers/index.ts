@@ -5,6 +5,7 @@ import categories from "./categoryReducer";
 import goals from "./goalReducer";
 import plans from "./planReducer";
 import plansGoal from "./plansGoalReducer";
+import day from "./dayReducer";
 
 export default combineReducers({
   auth,
@@ -12,5 +13,5 @@ export default combineReducers({
   categories,
   goals,
   plans,
-  plansGoal,
+  day,
 });
