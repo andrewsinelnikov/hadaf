@@ -15,8 +15,6 @@ const dayCtrl = {
 
       const newDay = new Day({ date: currentDate });
 
-      // await newDay.save();
-
       //
       const season = getSeason(currentDate);
 
