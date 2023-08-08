@@ -116,11 +116,17 @@ const Plans: React.FC = () => {
 
   const [selectedTab, setSelectedTab] = useState(today);
 
+  useEffect(() => {
+    if (selectedTab)
+      dispatch(
+        createDay(tabValues[selectedTab].date!.toString(), auth.access_token!)
+      );
+  }, [dispatch]);
+
   const tabs = Object.keys(tabValues);
 
   const handleClick = (index: number) => {
     setSelectedTab(index);
-    // console.log(tabValues[index]!.date!.toString());
     dispatch(createDay(tabValues[index]!.date!.toString(), auth.access_token!));
   };
 

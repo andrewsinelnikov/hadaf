@@ -22,7 +22,7 @@ const Tab: React.FC<IProps> = ({
   tabRef,
 }) => {
   const handleClick = () => handleChanged(index);
-  console.log(selectedTab, " ", today);
+
   return (
     <button
       className='tab'
