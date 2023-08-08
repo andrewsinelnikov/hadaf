@@ -13,7 +13,7 @@ const dayCtrl = {
       const { date } = req.body;
       const currentDate = new Date(date);
 
-      const newDay = new Day({ currentDate });
+      const newDay = new Day({ date: currentDate });
 
       // await newDay.save();
 
