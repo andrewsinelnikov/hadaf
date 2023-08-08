@@ -59,6 +59,7 @@ const dayCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  getDay: async (req: IReqAuth, res: Response) => {},
 };
 
 export default dayCtrl;
