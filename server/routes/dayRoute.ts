@@ -5,8 +5,13 @@ import auth from "../middleware/auth";
 const router = express.Router();
 
 // @route  POST api/day
-// @desc   Create / Get day's plan
+// @desc   Create day's plan
 // @access Private
-router.route("/day").post(auth, dayCtrl.createDay).get(auth, dayCtrl.getDay);
+router.route("/day").post(auth, dayCtrl.createDay);
+
+// @route  GET api/day/:date
+// @desc   Get day's plan
+// @access Private
+router.route("/day/:date").get(auth, dayCtrl.getDay);
 
 export default router;
