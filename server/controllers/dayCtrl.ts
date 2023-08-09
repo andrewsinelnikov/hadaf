@@ -46,6 +46,8 @@ const dayCtrl = {
       const selectedDate = new Date(req.params.date);
 
       const day = await Day.findOne({ date: selectedDate });
+      if (!day) return res.status(400).json({ msg: "No records for this day" });
+
       res.json({ day });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
