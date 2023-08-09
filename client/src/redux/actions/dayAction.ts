@@ -48,7 +48,7 @@ export const getDay =
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await getAPI("day", access_token);
+      const res = await getAPI(`day/${date}`, access_token);
       dispatch({ type: GET_DAY, payload: res.data.day });
 
       dispatch({ type: ALERT, payload: { loading: false } });
