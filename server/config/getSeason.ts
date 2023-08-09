@@ -11,4 +11,29 @@ export const getSeason = (date: Date) => {
   }
 };
 
-export const getSeasonStartEndDates = (date: Date) => {}
+export const getSeasonStartEndDates = (date: Date) => {
+  const season = getSeason(date);
+
+  const startDates = {
+    spring: new Date(`${date.getFullYear()}-03-01`),
+    summer: new Date(`${date.getFullYear()}-06-01`),
+    autumn: new Date(`${date.getFullYear()}-09-01`),
+    winter: new Date(`${date.getFullYear()}-12-01`),
+  };
+
+  const seasonStart = startDates[season];
+
+  let nextSeasonStart;
+  if (season === "winter") {
+    nextSeasonStart = new Date(`1 Mar ${date.getFullYear() + 1}`);
+  } else {
+    nextSeasonStart = Object.values(startDates).find(
+      (date) => date > seasonStart
+    );
+  }
+
+  return {
+    seasonStart,
+    nextSeasonStart,
+  };
+};
