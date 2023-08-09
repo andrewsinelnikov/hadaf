@@ -10,3 +10,5 @@ export const getSeason = (date: Date) => {
     return "winter";
   }
 };
+
+export const getSeasonStartEndDates = (date: Date) => {}
