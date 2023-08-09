@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import Goal from "../models/goalModel";
 import { IReqAuth } from "../config/interface";
-import { getSeason } from "../config/getSeason";
+import { getSeasonStartEndDates } from "../config/getSeason";
 
 const goalCtrl = {
   createGoal: async (req: IReqAuth, res: Response) => {
@@ -37,25 +37,8 @@ const goalCtrl = {
 
     try {
       const date = new Date();
-      const season = getSeason(date);
 
-      const startDates = {
-        spring: new Date(`${date.getFullYear()}-03-01`),
-        summer: new Date(`${date.getFullYear()}-06-01`),
-        autumn: new Date(`${date.getFullYear()}-09-01`),
-        winter: new Date(`${date.getFullYear()}-12-01`),
-      };
-
-      const seasonStart = startDates[season];
-
-      let nextSeasonStart;
-      if (season === "winter") {
-        nextSeasonStart = new Date(`1 Mar ${date.getFullYear() + 1}`);
-      } else {
-        nextSeasonStart = Object.values(startDates).find(
-          (date) => date > seasonStart
-        );
-      }
+      const { seasonStart, nextSeasonStart } = getSeasonStartEndDates(date);
 
       const goals = await Goal.find({
         createdAt: {
