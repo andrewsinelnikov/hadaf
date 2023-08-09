@@ -42,8 +42,8 @@ const dayCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      const { date } = req.body;
-      const selectedDate = new Date(date);
+      // const { date } = req.body;
+      const selectedDate = new Date(req.params.date);
 
       const day = await Day.findOne({ date: selectedDate });
       res.json({ day });
