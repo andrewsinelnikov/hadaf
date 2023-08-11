@@ -119,7 +119,10 @@ const Plans: React.FC = () => {
   useEffect(() => {
     if (auth.access_token && selectedTab)
       dispatch(
-        getDay(tabValues[selectedTab].date!.toString(), auth.access_token)
+        getDay(
+          tabValues[selectedTab].date!.toISOString().split("T")[0],
+          auth.access_token
+        )
       );
     if (!day) {
       dispatch(
