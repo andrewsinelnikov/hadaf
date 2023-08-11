@@ -41,14 +41,14 @@ export const createDay =
 //   };
 
 export const getDay =
-  (data: IDay, token: string) =>
+  (date: string, token: string) =>
   async (dispatch: Dispatch<IAlertType | IDayType>) => {
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await getAPI(`day/${data.date}`, access_token);
+      const res = await getAPI(`day/${date}`, access_token);
       dispatch({ type: GET_DAY, payload: res.data.day });
 
       dispatch({ type: ALERT, payload: { loading: false } });

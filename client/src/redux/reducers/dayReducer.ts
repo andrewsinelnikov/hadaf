@@ -1,6 +1,7 @@
 import { IDayType, CREATE_DAY, GET_DAY } from "../types/dayType";
 import { IDay } from "../../utils/TypeScript";
 
+// const dayReducer = (state: IDay[] = [], action: IDayType): IDay[] => {
 const dayReducer = (state: IDay[] = [], action: IDayType): IDay[] => {
   switch (action.type) {
     case CREATE_DAY:
