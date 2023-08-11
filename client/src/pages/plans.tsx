@@ -126,7 +126,7 @@ const Plans: React.FC = () => {
         createDay(tabValues[selectedTab].date!.toString(), auth.access_token!)
       );
     }
-  }, [dispatch]);
+  }, [dispatch, auth.access_token, selectedTab]);
 
   const tabs = Object.keys(tabValues);
 
