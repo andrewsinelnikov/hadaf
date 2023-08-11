@@ -43,9 +43,15 @@ const dayCtrl = {
 
     try {
       // const { date } = req.body;
-      const selectedDate = new Date(req.params.date);
+      const selectedDate = new Date(req.params.date).toISOString();
 
-      const day = await Day.findOne({ date: selectedDate });
+      const query = {
+        date: { $regex: /^" + selectedDate + "$/ },
+      };
+
+      const day = await Day.findOne({
+        query,
+      });
       if (!day) return res.status(400).json({ msg: "No records for this day" });
 
       res.json({ day });
