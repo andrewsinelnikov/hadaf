@@ -8,7 +8,7 @@ const dayReducer = (state: IDay[] = [], action: IDayType): IDay[] => {
       return [action.payload, ...state];
     // return action.payload;
     case GET_DAY:
-      return [...state, action.payload];
+      return [action.payload];
     default:
       return state;
   }
