@@ -15,7 +15,7 @@ import TabPanel from "../components/global/Tabs/TabPanel";
 import { getSeason } from "../utils/getSeason";
 import { getPlansByGoal } from "../redux/actions/planAction";
 import ItemList from "../components/workboard/ItemList";
-import { createDay } from "../redux/actions/dayAction";
+import { createDay, getDay } from "../redux/actions/dayAction";
 
 interface IDate {
   [key: number]: { date?: Date; ref: React.RefObject<HTMLButtonElement> };
@@ -117,10 +117,15 @@ const Plans: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(today);
 
   useEffect(() => {
-    if (selectedTab)
+    if (auth.access_token && selectedTab)
+      dispatch(
+        getDay(tabValues[selectedTab].date!.toString(), auth.access_token)
+      );
+    if (!day) {
       dispatch(
         createDay(tabValues[selectedTab].date!.toString(), auth.access_token!)
       );
+    }
   }, [dispatch]);
 
   const tabs = Object.keys(tabValues);
