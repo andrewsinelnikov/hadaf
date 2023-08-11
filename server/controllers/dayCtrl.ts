@@ -46,7 +46,7 @@ const dayCtrl = {
       const selectedDate = new Date(req.params.date).toISOString();
 
       const query = {
-        date: { $regex: /^" + selectedDate + "$/ },
+        date: { $regex: /^" + selectedDate + "/ },
       };
 
       const day = await Day.findOne({
