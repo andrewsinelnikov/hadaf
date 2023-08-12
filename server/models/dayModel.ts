@@ -4,7 +4,7 @@ import { IDay } from "../config/interface";
 const daySchema = new mongoose.Schema(
   {
     date: {
-      type: Date,
+      type: String,
       required: true,
     },
     plans: {
