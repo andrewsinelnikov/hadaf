@@ -47,14 +47,12 @@ const dayCtrl = {
       //   .toISOString()
       //   .split("T")[0];
 
-      const query = {
-        date: { $regex: /^" + date + "/ },
-      };
-      console.log(date + " " + query.date);
+      // const query = {
+      //   date: { $regex: /^" + date + "/ },
+      // };
+      // console.log(date + " " + query.date);
 
-      const day = await Day.findOne({
-        query,
-      });
+      const day = await Day.findOne({ date });
       // if (!day) return res.status(400).json({ msg: "No records for this day" });
 
       res.json({ day });
