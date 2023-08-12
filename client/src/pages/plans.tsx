@@ -126,7 +126,10 @@ const Plans: React.FC = () => {
       );
     if (!day) {
       dispatch(
-        createDay(tabValues[selectedTab].date!.toString(), auth.access_token!)
+        createDay(
+          tabValues[selectedTab].date!.toISOString().split("T")[0],
+          auth.access_token!
+        )
       );
     }
   }, [dispatch, auth.access_token, selectedTab]);
