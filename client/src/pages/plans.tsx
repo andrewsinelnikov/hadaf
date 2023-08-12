@@ -124,7 +124,9 @@ const Plans: React.FC = () => {
           auth.access_token
         )
       );
+    console.log("get");
     if (!day && selectedTab >= today) {
+      console.log("create");
       dispatch(
         createDay(
           tabValues[selectedTab].date!.toISOString().split("T")[0],
