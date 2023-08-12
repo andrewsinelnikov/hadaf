@@ -124,7 +124,7 @@ const Plans: React.FC = () => {
           auth.access_token
         )
       );
-    if (!day) {
+    if (!day && selectedTab >= today) {
       dispatch(
         createDay(
           tabValues[selectedTab].date!.toISOString().split("T")[0],
@@ -138,10 +138,10 @@ const Plans: React.FC = () => {
 
   const handleClick = (index: number) => {
     setSelectedTab(index);
-    if (selectedTab > today)
-      dispatch(
-        createDay(tabValues[index]!.date!.toString(), auth.access_token!)
-      );
+    // if (selectedTab > today)
+    //   dispatch(
+    //     createDay(tabValues[index]!.date!.toString(), auth.access_token!)
+    //   );
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
