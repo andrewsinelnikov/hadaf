@@ -42,14 +42,15 @@ const dayCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      // const { date } = req.body;
-      const selectedDate = new Date(req.params.date)
-        .toISOString()
-        .split("T")[0];
+      const { date } = req.params;
+      // const selectedDate = new Date(req.params.date)
+      //   .toISOString()
+      //   .split("T")[0];
 
       const query = {
-        date: { $regex: /^" + selectedDate + "/ },
+        date: { $regex: /^" + date + "/ },
       };
+      console.log(date + " " + query.date);
 
       const day = await Day.findOne({
         query,
