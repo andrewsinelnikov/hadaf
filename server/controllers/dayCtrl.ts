@@ -13,7 +13,7 @@ const dayCtrl = {
       const { date } = req.body;
       const currentDate = new Date(date);
 
-      const newDay = new Day({ date: currentDate });
+      const newDay = new Day({ date });
 
       const { seasonStart, nextSeasonStart } =
         getSeasonStartEndDates(currentDate);
