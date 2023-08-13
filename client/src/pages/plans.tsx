@@ -125,7 +125,7 @@ const Plans: React.FC = () => {
           auth.access_token
         )
       );
-    if (!day && day === null && selectedTab === today) {
+    if (!day && day === null && selectedTab >= today) {
       dispatch(
         createDay(
           tabValues[selectedTab].date!.toISOString().split("T")[0],
@@ -139,13 +139,13 @@ const Plans: React.FC = () => {
 
   const handleClick = (index: number) => {
     setSelectedTab(index);
-    if (!day && day === null && index > today)
-      dispatch(
-        createDay(
-          tabValues[index]!.date!.toISOString().split("T")[0],
-          auth.access_token!
-        )
-      );
+    // if (!day && day === null && index > today)
+    //   dispatch(
+    //     createDay(
+    //       tabValues[index]!.date!.toISOString().split("T")[0],
+    //       auth.access_token!
+    //     )
+    //   );
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
