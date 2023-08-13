@@ -1,9 +1,15 @@
-export const currentWeek = (todayDate: Date) => {
-  const firstDayOfWeek = new Date(
-    todayDate.setDate(todayDate.getDate() - todayDate.getDay() + 1)
+export const currentWeek = (today: Date) => {
+  let firstDayOfWeek;
+  today.getDay() === 0
+    ? (firstDayOfWeek = new Date(today.setDate(today.getDate())))
+    : (firstDayOfWeek = new Date(
+        today.setDate(today.getDate() - today.getDay() + 1)
+      ));
+  firstDayOfWeek = new Date(
+    today.setDate(today.getDate() - today.getDay() + 1)
   );
   const lastDayOfWeek = new Date(
-    todayDate.setDate(todayDate.getDate() - todayDate.getDay() + 7)
+    today.setDate(today.getDate() - today.getDay() + 7)
   );
 
   const daysOfWeek = [];
