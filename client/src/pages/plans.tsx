@@ -96,8 +96,7 @@ const Plans: React.FC = () => {
   };
 
   const date = new Date();
-  let today: number;
-  date.getDay() === 0 ? (today = date.getDay() + 7) : (today = date.getDay());
+  const today = date.getDay() + (date.getDay() === 0 ? 7 : 0);
   const week = currentWeek(date);
 
   const tabValues: IDate = {

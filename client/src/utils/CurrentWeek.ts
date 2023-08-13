@@ -12,13 +12,20 @@ export const currentWeek = (today: Date) => {
   //       today.setDate(today.getDate() - today.getDay() + 7)
   //     ));
   const firstDayOfWeek = new Date(
-    today.setDate(today.getDate() - today.getDay() + 1) -
-      (today.getDay() === 0 ? 7 : 0)
+    today.setDate(
+      today.getDate() - today.getDay() + 1 - (today.getDay() === 0 ? 7 : 0)
+    )
   );
-  
+  // const firstDayOfWeek = new Date(
+  //   today.setDate(today.getDate() - today.getDay() + 1)
+  // );
+  // const lastDayOfWeek = new Date(
+  //   today.setDate(today.getDate() - today.getDay() + 7)
+  // );
   const lastDayOfWeek = new Date(
-    today.setDate(today.getDate() - today.getDay() + 7) +
-      (today.getDay() === 0 ? -7 : 0)
+    today.setDate(
+      today.getDate() - today.getDay() + 7 + (today.getDay() === 0 ? -7 : 0)
+    )
   );
 
   const daysOfWeek = [];
