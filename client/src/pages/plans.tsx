@@ -125,7 +125,7 @@ const Plans: React.FC = () => {
           auth.access_token
         )
       );
-    if (!day && day === null && selectedTab >= today) {
+    if ((!day || day === null) && selectedTab >= today) {
       dispatch(
         createDay(
           tabValues[selectedTab].date!.toISOString().split("T")[0],
