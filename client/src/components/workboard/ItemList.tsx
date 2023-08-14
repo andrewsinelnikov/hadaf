@@ -81,7 +81,7 @@ const ItemList: React.FC<IProps> = ({
           </div>
         ) : (
           <div className='items'>
-            <p>Goals for the {season}</p>
+            <p>Plans for the day</p>
             {items.map((item) => (
               <Item item={item} key={item._id} action={action} />
             ))}
