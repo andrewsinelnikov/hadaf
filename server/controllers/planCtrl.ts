@@ -68,14 +68,8 @@ const planCtrl = {
       return res.status(400).json({ msg: "Invalid Authentication" });
 
     try {
-      await PlanItem.findOneAndUpdate(
-        {
-          _id: req.params.id,
-        },
-        { text: req.body.text }
-      );
-
-      res.json({ msg: "Update Success!" });
+      const plan = await PlanItem.findById(req.params.id);
+      res.json({ plan });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }
