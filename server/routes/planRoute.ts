@@ -19,11 +19,12 @@ router.route("/current_plans").get(auth, planCtrl.getCurrentPlans);
 // @access Private
 router.route("/plans/:goal").get(auth, planCtrl.getPlansByGoal);
 
-// @route  PATCH, DELETE api/plan/:id
-// @desc   Update, Delete plan item
+// @route  GET, PATCH, DELETE api/plan/:id
+// @desc   Get, Update, Delete plan item
 // @access Private
 router
   .route("/plan/:id")
+  .get(auth, planCtrl.getPlanById)
   .patch(auth, planCtrl.updatePlanItem)
   .delete(auth, planCtrl.deletePlanItem);
 
