@@ -69,6 +69,24 @@ const ItemList: React.FC<IProps> = ({
             </ul>
           </div>
         ))}
+      {action === "plansForDay" &&
+        (items.length === 0 ? (
+          <div className='items-zero'>
+            <div className='items-message'>
+              {/* <p>Start the adventure</p> */}
+              What plans will make this day successful and bring you closer to
+              your goals?
+            </div>
+            {/* <div className='items-number'>max number - 3</div> */}
+          </div>
+        ) : (
+          <div className='items'>
+            <p>Goals for the {season}</p>
+            {items.map((item) => (
+              <Item item={item} key={item._id} action={action} />
+            ))}
+          </div>
+        ))}
     </>
   );
 };
