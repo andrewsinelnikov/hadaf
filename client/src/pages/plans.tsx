@@ -114,16 +114,21 @@ const Plans: React.FC = () => {
       week[(key as unknown as number) - 1];
   });
 
+  const tabs = Object.keys(tabValues);
+
   const [selectedTab, setSelectedTab] = useState(today);
 
   useEffect(() => {
-    if (auth.access_token && selectedTab)
+    if (auth.access_token)
       dispatch(
         getDay(
           tabValues[selectedTab].date!.toISOString().split("T")[0],
           auth.access_token
         )
       );
+  }, [dispatch, auth.access_token, selectedTab]);
+
+  useEffect(() => {
     if ((!day || day === null) && selectedTab >= today) {
       dispatch(
         createDay(
@@ -132,19 +137,10 @@ const Plans: React.FC = () => {
         )
       );
     }
-  }, [dispatch, auth.access_token, selectedTab]);
-
-  const tabs = Object.keys(tabValues);
+  }, [dispatch, day, selectedTab]);
 
   const handleClick = (index: number) => {
     setSelectedTab(index);
-    // if (!day && day === null && index > today)
-    //   dispatch(
-    //     createDay(
-    //       tabValues[index]!.date!.toISOString().split("T")[0],
-    //       auth.access_token!
-    //     )
-    //   );
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -234,7 +230,7 @@ const Plans: React.FC = () => {
                 </div>
                 {tabs.map((panel) => (
                   <TabPanel key={panel} {...a11yPanelProps(parseInt(panel))}>
-                    {panel} {selectedTab}{" "}
+                    {panel} {selectedTab}
                   </TabPanel>
                 ))}
               </div>
