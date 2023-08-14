@@ -63,6 +63,23 @@ const planCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  getPlanById: async (req: IReqAuth, res: Response) => {
+    if (!req.user)
+      return res.status(400).json({ msg: "Invalid Authentication" });
+
+    try {
+      await PlanItem.findOneAndUpdate(
+        {
+          _id: req.params.id,
+        },
+        { text: req.body.text }
+      );
+
+      res.json({ msg: "Update Success!" });
+    } catch (err: any) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   updatePlanItem: async (req: IReqAuth, res: Response) => {
     if (!req.user)
       return res.status(400).json({ msg: "Invalid Authentication" });

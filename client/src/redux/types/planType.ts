@@ -45,6 +45,6 @@ export interface IGetPlansByIds {
 export type IPlanType =
   | ICreatePlanItem
   | IGetCurrentPlans
-  | IGetCurrentPlans
+  | IGetPlansByIds
   | IUpdatePlanItem
   | IDeletePlanItem;
