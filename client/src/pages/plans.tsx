@@ -234,6 +234,10 @@ const Plans: React.FC = () => {
                     {day &&
                       day.plans &&
                       day.plans.map((plan) => <div>{plan.plan_id}</div>)}
+                    {/* <ItemList
+              items={goals}
+              action='goals'
+            /> */}
                   </TabPanel>
                 ))}
               </div>
