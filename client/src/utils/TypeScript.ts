@@ -72,9 +72,9 @@ export interface IItem {
 
 export interface IDay {
   _id?: string;
-  date: string;
+  date?: string;
   plans?: Array<{ plan_id: string; done: boolean }>;
-  createdAt: string;
+  createdAt?: string;
 }
 
 export interface IJournalNote {
