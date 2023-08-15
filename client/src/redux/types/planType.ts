@@ -3,7 +3,7 @@ import { IItem } from "../../utils/TypeScript";
 export const CREATE_PLAN_ITEM = "CREATE_PLAN_ITEM";
 export const GET_CURRENT_PLANS = "GET_CURRENT_PLANS";
 export const GET_PLANS_BY_GOAL = "GET_PLANS_BY_GOAL";
-export const GET_PLANS_BY_IDS = "GET_PLANS_BY_IDS";
+export const GET_PLAN_BY_ID = "GET_PLAN_BY_ID";
 export const UPDATE_PLAN_ITEM = "UPDATE_PLAN_ITEM";
 export const DELETE_PLAN_ITEM = "DELETE_PLAN_ITEM";
 
@@ -13,8 +13,9 @@ export interface ICreatePlanItem {
 }
 
 export interface IGetPlanById {
-  type: typeof GET_PLANS_BY_IDS;
-  payload: IItem[];
+  type: typeof GET_PLAN_BY_ID;
+  // payload: IItem[];
+  payload: string;
 }
 
 export interface IUpdatePlanItem {
