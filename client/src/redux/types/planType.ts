@@ -15,7 +15,7 @@ export interface ICreatePlanItem {
 export interface IGetPlanById {
   type: typeof GET_PLAN_BY_ID;
   // payload: IItem[];
-  payload: string;
+  payload: IItem;
 }
 
 export interface IUpdatePlanItem {
