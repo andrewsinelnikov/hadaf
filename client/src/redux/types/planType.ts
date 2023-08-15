@@ -12,6 +12,11 @@ export interface ICreatePlanItem {
   payload: IItem;
 }
 
+export interface IGetPlanById {
+  type: typeof GET_PLANS_BY_IDS;
+  payload: IItem[];
+}
+
 export interface IUpdatePlanItem {
   type: typeof UPDATE_PLAN_ITEM;
   payload: IItem;
@@ -37,14 +42,9 @@ export interface IGetPlansByGoal {
   payload: IPlansGoal;
 }
 
-export interface IGetPlansByIds {
-  type: typeof GET_PLANS_BY_IDS;
-  payload: IItem[];
-}
-
 export type IPlanType =
   | ICreatePlanItem
   | IGetCurrentPlans
-  | IGetPlansByIds
+  | IGetPlanById
   | IUpdatePlanItem
   | IDeletePlanItem;
