@@ -65,6 +65,20 @@ export const getPlansByGoal =
     }
   };
 
+export const getPlanById =
+  (id: string, token: string) =>
+  async (dispatch: Dispatch<IAlertType | IPlanType>) => {
+    const result = await checkTokenExp(token, dispatch);
+    const access_token = result ? result : token;
+    try {
+      dispatch({ type: DELETE_PLAN_ITEM, payload: id });
+
+      await deleteAPI(`plan/${id}`, access_token);
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+    }
+  };
+
 export const updatePlanItem =
   (data: IItem, token: string) =>
   async (dispatch: Dispatch<IAlertType | IPlanType>) => {
