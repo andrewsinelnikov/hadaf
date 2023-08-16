@@ -8,6 +8,7 @@ import {
   GET_PLANS_BY_GOAL,
   UPDATE_PLAN_ITEM,
   DELETE_PLAN_ITEM,
+  GET_PLAN_BY_ID,
 } from "../types/planType";
 import { postAPI, getAPI, patchAPI, deleteAPI } from "../../utils/FetchData";
 import { IItem } from "../../utils/TypeScript";
@@ -71,9 +72,13 @@ export const getPlanById =
     const result = await checkTokenExp(token, dispatch);
     const access_token = result ? result : token;
     try {
-      dispatch({ type: DELETE_PLAN_ITEM, payload: id });
+      dispatch({ type: ALERT, payload: { loading: true } });
 
-      await deleteAPI(`plan/${id}`, access_token);
+      const res = await getAPI(`plan/${id}`, access_token);
+      
+      dispatch({ type: GET_PLAN_BY_ID, payload: res.data.plan });
+
+      dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
