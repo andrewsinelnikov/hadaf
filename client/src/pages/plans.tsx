@@ -13,7 +13,7 @@ import { currentWeek } from "../utils/CurrentWeek";
 import Tab from "../components/global/Tabs/Tab";
 import TabPanel from "../components/global/Tabs/TabPanel";
 import { getSeason } from "../utils/getSeason";
-import { getPlansByGoal } from "../redux/actions/planAction";
+import { getPlanById, getPlansByGoal } from "../redux/actions/planAction";
 import ItemList from "../components/workboard/ItemList";
 import { createDay, getDay } from "../redux/actions/dayAction";
 
@@ -192,7 +192,21 @@ const Plans: React.FC = () => {
   };
 
   const [planItem, setPlanItem] = useState<string>("");
-  // const [day, setDay] = useState<Array<IItem>>([]);
+  const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
+
+  useEffect(() => {
+    day &&
+      day.plans &&
+      day.plans?.length > 0 &&
+      day.plans.map((item) =>
+        dispatch(getPlanById(item.plan_id, auth.access_token!))
+      );
+    // dispatch(
+    //   createDay(
+    //     tabValues[selectedTab].date!.toISOString().split("T")[0],
+    //     auth.access_token!
+    //   )
+  }, [dispatch, day, selectedTab]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
