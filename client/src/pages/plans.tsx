@@ -198,9 +198,10 @@ const Plans: React.FC = () => {
     day &&
       day.plans &&
       day.plans?.length > 0 &&
-      day.plans.map((item) =>
-        dispatch(getPlanById(item.plan_id, auth.access_token!))
-      );
+      day.plans.map((item) => {
+        dispatch(getPlanById(item.plan_id, auth.access_token!));
+        if (plans) setDayPlan([plans[0], ...dayPlan]);
+      });
     // dispatch(
     //   createDay(
     //     tabValues[selectedTab].date!.toISOString().split("T")[0],
