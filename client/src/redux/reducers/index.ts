@@ -5,6 +5,7 @@ import categories from "./categoryReducer";
 import goals from "./goalReducer";
 import plans from "./planReducer";
 import plansGoal from "./plansGoalReducer";
+import planItem from "./planItemReducer";
 import day from "./dayReducer";
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
   goals,
   plans,
   plansGoal,
+  planItem,
   day,
 });
