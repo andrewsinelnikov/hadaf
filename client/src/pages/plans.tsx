@@ -200,7 +200,7 @@ const Plans: React.FC = () => {
       day.plans?.length > 0 &&
       day.plans.map((item) => {
         dispatch(getPlanById(item.plan_id, auth.access_token!));
-        if (plans) setDayPlan([plans[0], ...dayPlan]);
+        if (plans) setDayPlan([...dayPlan, plans[0]]);
       });
     // dispatch(
     //   createDay(
@@ -208,6 +208,8 @@ const Plans: React.FC = () => {
     //     auth.access_token!
     //   )
   }, [dispatch, day, selectedTab]);
+
+  console.log(dayPlan);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
@@ -310,7 +312,9 @@ const Plans: React.FC = () => {
                           onChange={handleChange}
                           className='item item-goal item-title item-select'>
                           {goalsWithPlans.map((goal) => (
-                            <option value={goal._id}>{goal.text}</option>
+                            <option key={goal._id} value={goal._id}>
+                              {goal.text}
+                            </option>
                           ))}
                         </select>
                         {renderActiveGoalPlans()}
