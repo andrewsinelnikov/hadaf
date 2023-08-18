@@ -22,7 +22,7 @@ interface IDate {
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plans, day } = useAppSelector(
+  const { auth, goals, plans, planItem, day } = useAppSelector(
     (state: RootState) => state
   );
   const dispatch = useAppDispatch();
@@ -191,7 +191,7 @@ const Plans: React.FC = () => {
     };
   };
 
-  const [planItem, setPlanItem] = useState<string>("");
+  // const [planItem, setPlanItem] = useState<string>("");
   const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
 
   useEffect(() => {
@@ -199,7 +199,7 @@ const Plans: React.FC = () => {
       day.plans &&
       day.plans.map((plan) => {
         dispatch(getPlanById(plan.plan_id, auth.access_token!));
-        // if (plans) setDayPlan([...dayPlan, plans[0]]);
+        if (planItem) setDayPlan([...dayPlan, planItem]);
       });
     // dispatch(
     //   createDay(
@@ -211,18 +211,18 @@ const Plans: React.FC = () => {
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (planItem) {
-      // setDay([
-      //   ...day,
-      //   {
-      //     _id: Date.now().toLocaleString(),
-      //     createdAt: Date.now().toLocaleString(),
-      //     text: planItem,
-      //     isDone: false,
-      //   },
-      // ]);
-      setPlanItem("");
-    }
+    // if (planItem) {
+    // setDay([
+    //   ...day,
+    //   {
+    //     _id: Date.now().toLocaleString(),
+    //     createdAt: Date.now().toLocaleString(),
+    //     text: planItem,
+    //     isDone: false,
+    //   },
+    // ]);
+    // setPlanItem("");
+    // }
   };
   return (
     <UserLayout navbarType={1}>
