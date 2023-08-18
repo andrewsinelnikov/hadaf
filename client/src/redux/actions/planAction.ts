@@ -75,8 +75,10 @@ export const getPlanById =
       dispatch({ type: ALERT, payload: { loading: true } });
 
       const res = await getAPI(`plan/${id}`, access_token);
-      
+
       dispatch({ type: GET_PLAN_BY_ID, payload: res.data.plan });
+
+      console.log(res.data.plan);
 
       dispatch({ type: ALERT, payload: { loading: false } });
     } catch (err: any) {

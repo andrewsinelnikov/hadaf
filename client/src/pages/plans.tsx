@@ -200,7 +200,7 @@ const Plans: React.FC = () => {
       day.plans?.length > 0 &&
       day.plans.map((item) => {
         dispatch(getPlanById(item.plan_id, auth.access_token!));
-        if (plans) setDayPlan([...dayPlan, plans[0]]);
+        // if (plans) setDayPlan([...dayPlan, plans[0]]);
       });
     // dispatch(
     //   createDay(
@@ -208,8 +208,6 @@ const Plans: React.FC = () => {
     //     auth.access_token!
     //   )
   }, [dispatch, day, selectedTab]);
-
-  console.log(dayPlan);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
