@@ -22,7 +22,7 @@ interface IDate {
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plans, day } = useAppSelector(
+  const { auth, goals, plans, planItem, day } = useAppSelector(
     (state: RootState) => state
   );
   const dispatch = useAppDispatch();
@@ -194,19 +194,19 @@ const Plans: React.FC = () => {
   // const [planItem, setPlanItem] = useState<string>("");
   const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
 
-  // useEffect(() => {
-  //   day &&
-  //     day.plans &&
-  //     day.plans.map((plan) => {
-  //       dispatch(getPlanById(plan.plan_id, auth.access_token!));
-  //       if (planItem) setDayPlan([...dayPlan, planItem]);
-  //     });
-  // dispatch(
-  //   createDay(
-  //     tabValues[selectedTab].date!.toISOString().split("T")[0],
-  //     auth.access_token!
-  //   )
-  // }, [dispatch, day, selectedTab]);
+  useEffect(() => {
+    day &&
+      day.plans &&
+      day.plans.map((plan) => {
+        dispatch(getPlanById(plan.plan_id, auth.access_token!));
+        // if (planItem) setDayPlan([...dayPlan, planItem]);
+      });
+    // dispatch(
+    //   createDay(
+    //     tabValues[selectedTab].date!.toISOString().split("T")[0],
+    //     auth.access_token!
+    //   )
+  }, [dispatch, day, selectedTab]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
