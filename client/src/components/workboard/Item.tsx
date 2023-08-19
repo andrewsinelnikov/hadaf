@@ -27,7 +27,7 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (edit && edit.text) setText(edit.text);
+    if (edit) setText(edit.text);
   }, [edit]);
 
   const handleEdit = () => {
