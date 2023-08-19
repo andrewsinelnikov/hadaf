@@ -208,6 +208,8 @@ const Plans: React.FC = () => {
     //   )
   }, [dispatch, day, selectedTab]);
 
+  // console.log(dayPlan)
+
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
 
