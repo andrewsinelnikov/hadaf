@@ -199,8 +199,7 @@ const Plans: React.FC = () => {
       day.plans &&
       day.plans.map((plan) => {
         dispatch(getPlanById(plan.plan_id, auth.access_token!));
-        console.log(planItem);
-        // if (planItem) setDayPlan([...dayPlan, planItem]);
+        if (planItem) setDayPlan([...dayPlan, planItem]);
       });
     // dispatch(
     //   createDay(
