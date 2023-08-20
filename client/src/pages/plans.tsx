@@ -195,11 +195,13 @@ const Plans: React.FC = () => {
   const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
 
   useEffect(() => {
+    setDayPlan([]);
     day &&
       day.plans &&
       day.plans.map((plan) => {
         dispatch(getPlanById(plan.plan_id, auth.access_token!));
         if (planItem) setDayPlan([...dayPlan, planItem]);
+        console.log(dayPlan);
       });
     // dispatch(
     //   createDay(
@@ -208,7 +210,7 @@ const Plans: React.FC = () => {
     //   )
   }, [dispatch, day, selectedTab]);
 
-  // console.log(dayPlan)
+  console.log(dayPlan);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
