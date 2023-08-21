@@ -22,7 +22,7 @@ interface IDate {
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plans, planItem, day } = useAppSelector(
+  const { auth, goals, plans, planItemRef, day } = useAppSelector(
     (state: RootState) => state
   );
   const dispatch = useAppDispatch();
@@ -195,6 +195,8 @@ const Plans: React.FC = () => {
   // const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
   const dayPlan = useRef<Array<IItem>>([]);
 
+  const [planItem, setPlanItem] = useState(planItemRef.current);
+
   useEffect(() => {
     // setDayPlan([]);
     day &&
@@ -202,6 +204,8 @@ const Plans: React.FC = () => {
       day.plans.map((plan) => {
         // console.log(plan.plan_id);
         dispatch(getPlanById(plan.plan_id, auth.access_token!));
+        // planItemRef.current = state.plans[plan.plan_id];
+        console.log(planItemRef.current);
         // dayPlan.current.push(planItem);
         // if (planItem) setDayPlan([...dayPlan, planItem]);
         console.log(planItem);
