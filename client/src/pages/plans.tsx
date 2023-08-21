@@ -192,17 +192,19 @@ const Plans: React.FC = () => {
   };
 
   // const [planItem, setPlanItem] = useState<string>("");
-  const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
+  // const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
+  const dayPlan = useRef<Array<IItem>>([]);
 
   useEffect(() => {
-    setDayPlan([]);
-    let i = 0;
+    // setDayPlan([]);
     day &&
       day.plans &&
       day.plans.map((plan) => {
-        console.log(plan.plan_id);
+        // console.log(plan.plan_id);
         dispatch(getPlanById(plan.plan_id, auth.access_token!));
-        if (planItem) setDayPlan([...dayPlan, planItem]);
+        // dayPlan.current.push(planItem);
+        // if (planItem) setDayPlan([...dayPlan, planItem]);
+        console.log(planItem);
       });
     // dispatch(
     //   createDay(
@@ -253,10 +255,10 @@ const Plans: React.FC = () => {
                     {/* {day &&
                       day.plans &&
                       day.plans.map((plan) => <div>{plan.plan_id}</div>)} */}
-                    {dayPlan &&
+                    {/* {dayPlan &&
                       dayPlan.map((item) => (
                         <div key={item._id}>{item.text}</div>
-                      ))}
+                      ))} */}
                     {/* <ItemList
               items={goals}
               action='goals'
