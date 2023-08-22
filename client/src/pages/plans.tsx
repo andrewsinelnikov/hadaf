@@ -260,10 +260,10 @@ const Plans: React.FC = () => {
                     {/* {day &&
                       day.plans &&
                       day.plans.map((plan) => <div>{plan.plan_id}</div>)} */}
-                    {/* {dayPlan &&
+                    {dayPlan &&
                       dayPlan.map((item) => (
                         <div key={item._id}>{item.text}</div>
-                      ))} */}
+                      ))}
                     {/* <ItemList
               items={goals}
               action='goals'
