@@ -193,6 +193,7 @@ const Plans: React.FC = () => {
 
   // const [planItem, setPlanItem] = useState<string>("");
   const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
+  console.log(planItem);
 
   useEffect(() => {
     setDayPlan([]);
@@ -204,7 +205,7 @@ const Plans: React.FC = () => {
 
         // dayPlan.current.push(planItem);
         if (planItem) setDayPlan([...dayPlan, planItem]);
-        console.log(planItem);
+        // console.log(planItem);
       });
     // console.log(planItem);
     // day &&
@@ -218,7 +219,7 @@ const Plans: React.FC = () => {
     //   )
   }, [dispatch, day, selectedTab]);
 
-  console.log(dayPlan);
+  // console.log(dayPlan);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
@@ -260,10 +261,10 @@ const Plans: React.FC = () => {
                     {/* {day &&
                       day.plans &&
                       day.plans.map((plan) => <div>{plan.plan_id}</div>)} */}
-                    {dayPlan &&
+                    {/* {dayPlan &&
                       dayPlan.map((item) => (
                         <div key={item._id}>{item.text}</div>
-                      ))}
+                      ))} */}
                     {/* <ItemList
               items={goals}
               action='goals'

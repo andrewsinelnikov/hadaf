@@ -1,7 +1,7 @@
 import { IPlanType, GET_PLAN_BY_ID } from "../types/planType";
 import { IItem } from "../../utils/TypeScript";
 
-const planItemReducer = (state: IItem[] = [], action: IPlanType) => {
+const planItemReducer = (state = null, action: IPlanType) => {
   switch (action.type) {
     case GET_PLAN_BY_ID:
       return action.payload;
