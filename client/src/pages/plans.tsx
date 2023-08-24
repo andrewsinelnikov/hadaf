@@ -197,15 +197,17 @@ const Plans: React.FC = () => {
   // let i = 0;
   useEffect(() => {
     setDayPlan([]);
+    console.log(dayPlan);
     day &&
       day.plans &&
       day.plans.map((plan) => {
-        console.log(plan);
+        // console.log(plan);
         const planDayly = plans.find((item) => item._id === plan.plan_id);
         console.log(planDayly);
         // console.log(++i);
 
-        // if (planDayly) setDayPlan([...dayPlan, planDayly]);
+        setDayPlan([...dayPlan, planDayly]);
+        console.log(dayPlan);
         // console.log(plan.plan_id);
         // dispatch(getPlanById(plan.plan_id, auth.access_token!));
 
