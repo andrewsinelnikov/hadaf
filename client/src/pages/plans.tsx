@@ -192,44 +192,23 @@ const Plans: React.FC = () => {
   };
 
   // const [planItem, setPlanItem] = useState<string>("");
-  // const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
-  let dayPlan: IItem[];
-  // console.log(planItem);
-  // let i = 0;
+  const [dayPlan, setDayPlan] = useState<IItem[]>([]);
+  let planArr: IItem[];
+
   useEffect(() => {
     // setDayPlan([]);
-    dayPlan = [];
-    console.log("new again");
+    planArr = [];
+    console.log("new");
     day &&
       day.plans &&
       day.plans.map((plan) => {
-        // console.log(plan);
         const planDayly = plans.find((item) => item._id === plan.plan_id);
-        console.log(planDayly);
-        // console.log(++i);
-        if (planDayly) dayPlan.push(planDayly);
         // if (planDayly) setDayPlan([...dayPlan, planDayly]);
-        console.log(dayPlan);
-        // console.log(plan.plan_id);
-        // dispatch(getPlanById(plan.plan_id, auth.access_token!));
-
-        // dayPlan.current.push(planItem);
-        // if (planItem) setDayPlan([...dayPlan, planItem]);
-        // console.log(planItem);
+        console.log(planDayly);
+        if (planDayly) planArr.push(planDayly);
       });
-    // console.log(planItem);
-    // day &&
-    //   day.plans &&
-    //   dispatch(getPlanById(day.plans[0].plan_id, auth.access_token!));
-    // console.log(planItem);
-    // dispatch(
-    //   createDay(
-    //     tabValues[selectedTab].date!.toISOString().split("T")[0],
-    //     auth.access_token!
-    //   )
-  }, [day, type]);
-
-  // console.log(dayPlan);
+    setDayPlan(planArr);
+  }, [day, selectedTab, type]);
 
   const addPlanItem = (e: React.FormEvent) => {
     e.preventDefault();
