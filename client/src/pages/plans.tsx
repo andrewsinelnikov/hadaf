@@ -199,7 +199,7 @@ const Plans: React.FC = () => {
   useEffect(() => {
     // setDayPlan([]);
     dayPlan = [];
-    console.log("new");
+    console.log("new again");
     day &&
       day.plans &&
       day.plans.map((plan) => {
@@ -227,7 +227,7 @@ const Plans: React.FC = () => {
     //     tabValues[selectedTab].date!.toISOString().split("T")[0],
     //     auth.access_token!
     //   )
-  }, [selectedTab, type]);
+  }, [day, type]);
 
   // console.log(dayPlan);
 
