@@ -192,11 +192,13 @@ const Plans: React.FC = () => {
   };
 
   // const [planItem, setPlanItem] = useState<string>("");
-  const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
+  // const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
+  let dayPlan: IItem[] = [];
   // console.log(planItem);
   // let i = 0;
   useEffect(() => {
-    setDayPlan([]);
+    // setDayPlan([]);
+    dayPlan = [];
     console.log(dayPlan);
     day &&
       day.plans &&
@@ -205,8 +207,8 @@ const Plans: React.FC = () => {
         const planDayly = plans.find((item) => item._id === plan.plan_id);
         console.log(planDayly);
         // console.log(++i);
-
-        setDayPlan([...dayPlan, planDayly]);
+        if (planDayly) dayPlan.push(planDayly);
+        // if (planDayly) setDayPlan([...dayPlan, planDayly]);
         console.log(dayPlan);
         // console.log(plan.plan_id);
         // dispatch(getPlanById(plan.plan_id, auth.access_token!));
