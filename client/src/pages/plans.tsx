@@ -193,13 +193,13 @@ const Plans: React.FC = () => {
 
   // const [planItem, setPlanItem] = useState<string>("");
   // const [dayPlan, setDayPlan] = useState<Array<IItem>>([]);
-  let dayPlan: IItem[] = [];
+  let dayPlan: IItem[];
   // console.log(planItem);
   // let i = 0;
   useEffect(() => {
     // setDayPlan([]);
     dayPlan = [];
-    console.log(dayPlan);
+    console.log("new");
     day &&
       day.plans &&
       day.plans.map((plan) => {
@@ -227,7 +227,7 @@ const Plans: React.FC = () => {
     //     tabValues[selectedTab].date!.toISOString().split("T")[0],
     //     auth.access_token!
     //   )
-  }, [dispatch, day, selectedTab, type]);
+  }, [selectedTab, type]);
 
   // console.log(dayPlan);
 
