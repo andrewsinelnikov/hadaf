@@ -199,8 +199,8 @@ const Plans: React.FC = () => {
     planArr = [];
     if (day && day.plans) {
       day.plans.map((plan) => {
-        const planDayly = plans.find((item) => item._id === plan.plan_id);
-        if (planDayly) planArr.push(planDayly);
+        const planForDay = plans.find((item) => item._id === plan.plan_id);
+        if (planForDay) planArr.push(planForDay);
       });
     }
     setDayPlan(planArr);
