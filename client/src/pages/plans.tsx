@@ -197,12 +197,12 @@ const Plans: React.FC = () => {
 
   useEffect(() => {
     planArr = [];
-    day &&
-      day.plans &&
+    if (day && day.plans) {
       day.plans.map((plan) => {
         const planDayly = plans.find((item) => item._id === plan.plan_id);
         if (planDayly) planArr.push(planDayly);
       });
+    }
     setDayPlan(planArr);
   }, [day, selectedTab, type]);
 
