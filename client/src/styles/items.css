@@ -150,6 +150,7 @@
 }
 
 .item-plan .text,
+.item-day .text,
 .item-noplan .text {
   width: 70%;
   padding-left: 16px;
