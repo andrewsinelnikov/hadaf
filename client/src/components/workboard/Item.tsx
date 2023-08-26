@@ -211,6 +211,11 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
         <div className='item item-goal'>
           <div className='item-day'>
             <div className='text'>{item.text}</div>
+            <div>
+              <Link to='/actions' className='btn btn-auto btn-success'>
+                Act
+              </Link>
+            </div>
           </div>
         </div>
       )}
