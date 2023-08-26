@@ -139,7 +139,8 @@
 }
 
 .item-noplan,
-.item-plan {
+.item-plan,
+.item-day {
   display: flex;
   justify-content: space-between;
 }
