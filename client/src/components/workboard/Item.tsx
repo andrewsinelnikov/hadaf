@@ -209,7 +209,7 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
       )}
       {action === "plansForDay" && (
         <div className='item item-goal'>
-          <div className='item-plan'>
+          <div className='item-day'>
             <div className='text'>{item.text}</div>
           </div>
         </div>
