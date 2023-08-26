@@ -63,7 +63,7 @@
 .tabpanel {
   min-height: 415px;
   margin: 0;
-  padding-top: 8px;
+  padding-top: 16px;
   overflow-x: hidden;
   outline: none;
 }
