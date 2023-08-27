@@ -124,7 +124,7 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
               Delete
             </button>
             <Link to={`/plan/${item._id}`} className='btn btn-auto btn-success'>
-              Reach it
+              Plan out
             </Link>
           </div>
         </form>
