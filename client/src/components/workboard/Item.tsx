@@ -193,7 +193,7 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
                   Edit
                 </button>
                 <Link to='/plans' className='btn btn-auto btn-success'>
-                  Realize
+                  Schedule
                 </Link>
               </div>
             </div>
