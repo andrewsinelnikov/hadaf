@@ -74,8 +74,9 @@ const ItemList: React.FC<IProps> = ({
           <div className='items-zero'>
             <div className='items-message'>
               {/* <p>Start the adventure</p> */}
-              What plans will make this day successful and bring you closer to
-              your goals?
+              {/* What plans will make this day successful and bring you closer to
+              your goals? */}
+              What plans for the day will bring you closer to your goals?
             </div>
             {/* <div className='items-number'>max number - 3</div> */}
           </div>
