@@ -213,7 +213,7 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
             <div className='text'>{item.text}</div>
             <div>
               <Link to='/actions' className='btn btn-auto btn-success'>
-                Act
+                Realize
               </Link>
             </div>
           </div>
