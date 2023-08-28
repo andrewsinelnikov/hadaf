@@ -212,12 +212,14 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
           <div className='item-day'>
             <div className='text'>{item.text}</div>
             <div>
-              <button
-                type='button'
-                onClick={() => handleDelete(item._id!)}
-                className='btn btn-auto btn-action btn-dark'>
-                Delete
-              </button>
+              {item.period !== "Daily" && (
+                <button
+                  type='button'
+                  onClick={() => handleDelete(item._id!)}
+                  className='btn btn-auto btn-action btn-dark'>
+                  Delete
+                </button>
+              )}
               <Link to='/actions' className='btn btn-auto btn-success'>
                 Realize
               </Link>
