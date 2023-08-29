@@ -194,6 +194,7 @@ const Plans: React.FC = () => {
   // const [planItem, setPlanItem] = useState<string>("");
   const [dayPlan, setDayPlan] = useState<IItem[]>([]);
   let planArr: IItem[];
+  const possiblePlans = [];
 
   useEffect(() => {
     planArr = [];
@@ -204,6 +205,7 @@ const Plans: React.FC = () => {
       });
     }
     setDayPlan(planArr);
+    const set = new Set(dayPlan);
   }, [day, selectedTab, type]);
 
   const addPlanItem = (e: React.FormEvent) => {
