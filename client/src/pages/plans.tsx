@@ -196,24 +196,26 @@ const Plans: React.FC = () => {
   let planArr: IItem[];
   const possiblePlans = [];
 
-  function getPlansNotInDayPlan(plans, dayPlan) {
-  // Create an empty array to store the plans that are not in dayPlan.
-  const plansNotInDayPlan = [];
+  function getElemssNotAdded(generalArray: IItem[], addedElements: IItem[]) {
+    // Create an empty array to store the plans that are not in addedElements.
+    const leftElements = [];
 
-  // Iterate over the plans array.
-  for (const plan of plans) {
-    // Check if the plan is in dayPlan.
-    const isPlanInDayPlan = dayPlan.some((dayPlanPlan) => dayPlanPlan._id === plan._id);
+    // Iterate over the generalArray array.
+    for (const elem of generalArray) {
+      // Check if the elem is in addedElements.
+      const isElemInAddedElements = addedElements.some(
+        (item) => item._id === elem._id
+      );
 
-    // If the plan is not in dayPlan, add it to the plansNotInDayPlan array.
-    if (!isPlanInDayPlan) {
-      plansNotInDayPlan.push(plan);
+      // If the plan is not in addedElements, add it to the leftElements array.
+      if (!isElemInAddedElements) {
+        leftElements.push(elem);
+      }
     }
-  }
 
-  // Return the plansNotInDayPlan array.
-  return plansNotInDayPlan;
-}
+    // Return the leftElements array.
+    return leftElements;
+  }
 
   useEffect(() => {
     planArr = [];
