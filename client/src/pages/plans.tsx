@@ -194,9 +194,9 @@ const Plans: React.FC = () => {
   // const [planItem, setPlanItem] = useState<string>("");
   const [dayPlan, setDayPlan] = useState<IItem[]>([]);
   let planArr: IItem[];
-  const possiblePlans = [];
+  let possiblePlans: IItem[];
 
-  function getElemssNotAdded(generalArray: IItem[], addedElements: IItem[]) {
+  function getElemsNotAdded(generalArray: IItem[], addedElements: IItem[]) {
     // Create an empty array to store the plans that are not in addedElements.
     const leftElements = [];
 
@@ -226,7 +226,8 @@ const Plans: React.FC = () => {
       });
     }
     setDayPlan(planArr);
-    const set = new Set(dayPlan);
+
+    possiblePlans = getElemsNotAdded(plans, dayPlan);
   }, [day, selectedTab, type]);
 
   const addPlanItem = (e: React.FormEvent) => {
