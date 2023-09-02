@@ -42,6 +42,7 @@ const Plans: React.FC = () => {
   const [activeGoal, setActiveGoal] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!goals) return;
     const data = goals.filter((goal) =>
       plans.some((plan) => plan.goal === goal._id)
     );
