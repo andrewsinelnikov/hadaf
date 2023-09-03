@@ -42,27 +42,28 @@ const Plans: React.FC = () => {
   const [activeGoal, setActiveGoal] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!goals) return;
-    const data = goals.filter((goal) =>
-      plans.some((plan) => plan.goal === goal._id)
-    );
-    goalsWithPlans.push(...data);
-    const data2 = goals.filter(
-      (goal) => !data.some((plan) => plan._id === goal._id)
-    );
-    goalsWithNoPlans.push(...data2);
+    if (goals) {
+      const data = goals.filter((goal) =>
+        plans.some((plan) => plan.goal === goal._id)
+      );
+      goalsWithPlans.push(...data);
+      const data2 = goals.filter(
+        (goal) => !data.some((plan) => plan._id === goal._id)
+      );
+      goalsWithNoPlans.push(...data2);
 
-    if (goalsWithPlans) {
-      if (plans.every((item) => item.goal !== goalsWithPlans[0]._id)) {
-        dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
-      } else {
-        const data3 = plans.filter(
-          (item) => item.goal === goalsWithPlans[0]._id
-        );
-        if (!data3) return;
-        setGoalPlans(data3);
+      if (goalsWithPlans) {
+        if (plans.every((item) => item.goal !== goalsWithPlans[0]._id)) {
+          dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
+        } else {
+          const data3 = plans.filter(
+            (item) => item.goal === goalsWithPlans[0]._id
+          );
+          if (!data3) return;
+          setGoalPlans(data3);
+        }
+        setActiveGoal(goalsWithPlans[0]._id!);
       }
-      setActiveGoal(goalsWithPlans[0]._id!);
     }
   }, [goals, plans]);
 
