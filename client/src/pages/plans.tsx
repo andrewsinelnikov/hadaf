@@ -52,7 +52,7 @@ const Plans: React.FC = () => {
       );
       goalsWithNoPlans.push(...data2);
 
-      if (goalsWithPlans) {
+      if (goalsWithPlans.length > 0) {
         if (plans.every((item) => item.goal !== goalsWithPlans[0]._id)) {
           dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
         } else {
