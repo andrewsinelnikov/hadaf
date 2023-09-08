@@ -353,6 +353,9 @@ const Plans: React.FC = () => {
         {type === "season" && goals.length !== 0 && (
           <ItemInput itemType='Plan' activeGoal={activeGoal!} />
         )}
+        {type === "season" && goals.length === 0 && (
+          <ItemInput itemType='NoGoals' />
+        )}
       </div>
     </UserLayout>
   );
