@@ -289,7 +289,6 @@ const Plans: React.FC = () => {
                   <div className='items-zero'>
                     <div className='items-message'>
                       What do you want to achieve this {season}?
-                      {/* <Link to='/goals'>Set Goals</Link> */}
                     </div>
                   </div>
                 )}
