@@ -288,8 +288,8 @@ const Plans: React.FC = () => {
                 {goals.length === 0 && (
                   <div className='items-zero'>
                     <div className='items-message'>
-                      <span>What do you want to achieve this {season}?</span>
-                      <Link to='/goals'>Set Goals</Link>
+                      What do you want to achieve this {season}?
+                      {/* <Link to='/goals'>Set Goals</Link> */}
                     </div>
                   </div>
                 )}
