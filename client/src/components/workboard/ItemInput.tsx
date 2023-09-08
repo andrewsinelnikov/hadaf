@@ -43,6 +43,7 @@ const ItemInput: React.FC<IProps> = ({
 
   useEffect(() => {
     if ((items && items.length > 4) || itemType === "Plan") setAddInput(false);
+    if (itemType === "NoGoals") setAddInput(false);
   }, [items]);
 
   useEffect(() => {
@@ -101,6 +102,7 @@ const ItemInput: React.FC<IProps> = ({
         bottom: `${addInput === false ? "80px" : "0px"}`,
         marginLeft: `${
           (itemType === "Step" && addInput === false && "922px") ||
+          (itemType === "NoGoals" && addInput === false && "922px") ||
           (itemType === "Plan" && addInput === false && "898px") ||
           "330px"
         }`,
@@ -140,7 +142,7 @@ const ItemInput: React.FC<IProps> = ({
         </span>
       )}
       {itemType === "NoGoals" && addInput === false && (
-        <span
+        <div
           className='items-number'
           onClick={() => navigate(`/goals`)}
           style={{
@@ -148,11 +150,9 @@ const ItemInput: React.FC<IProps> = ({
             display: "inline-block",
             color: "var(--lightdark-color)",
             backgroundColor: "var(--darklight-color)",
-            // backgroundColor: "var(--dark-color)",
-            // border: "2px solid var(--darklight-color)",
           }}>
           set goals
-        </span>
+        </div>
       )}
       {itemType === "Step" && addInput === false && (
         <div
@@ -172,7 +172,10 @@ const ItemInput: React.FC<IProps> = ({
           className='add-item'
           style={{
             display:
-              itemType === "Step" && addInput === false ? "none" : "block",
+              (itemType === "Step" || itemType === "NoGoals") &&
+              addInput === false
+                ? "none"
+                : "block",
           }}>
           <input
             className='item-input'
