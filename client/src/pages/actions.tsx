@@ -12,7 +12,7 @@ import { IItem } from "../utils/TypeScript";
 import Footer from "../components/global/Footer";
 
 const Actions = () => {
-  const { auth } = useAppSelector((state: RootState) => state);
+  const { auth, plans } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -56,6 +56,7 @@ const Actions = () => {
           items={actions}
           handleAdd={addAction}
         /> */}
+        {plans.length === 0 && <ItemInput itemType='NoPlans' />}
       </div>
     </UserLayout>
   );
