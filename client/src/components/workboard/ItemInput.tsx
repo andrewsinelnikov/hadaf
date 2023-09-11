@@ -42,10 +42,14 @@ const ItemInput: React.FC<IProps> = ({
   }, [text, count]);
 
   useEffect(() => {
-    if ((items && items.length > 4) || itemType === "Plan") setAddInput(false);
-    if (itemType === "NoGoals") setAddInput(false);
-    if (itemType === "NoPlans") setAddInput(false);
-  }, [items]);
+    if (
+      (items && items.length > 4) ||
+      itemType === "Plan" ||
+      itemType === "NoGoals" ||
+      itemType === "NoPlans"
+    )
+      setAddInput(false);
+  }, [items, itemType]);
 
   useEffect(() => {
     if (selectPeriod === "Daily") {
