@@ -155,6 +155,19 @@ const ItemInput: React.FC<IProps> = ({
           set goals
         </div>
       )}
+      {itemType === "NoPlans" && addInput === false && (
+        <div
+          className='items-number'
+          onClick={() => navigate(`/plans`)}
+          style={{
+            cursor: "pointer",
+            display: "inline-block",
+            color: "var(--lightdark-color)",
+            backgroundColor: "var(--darklight-color)",
+          }}>
+          make plans
+        </div>
+      )}
       {itemType === "Step" && addInput === false && (
         <div
           className='items-number'
