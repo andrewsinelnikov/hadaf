@@ -350,12 +350,15 @@ const Plans: React.FC = () => {
           <Footer />
         </div>
         {type === "week" && <ItemInput itemType='Step' />}
-        {type === "season" && goals.length !== 0 && (
-          <ItemInput itemType='Plan' activeGoal={activeGoal!} />
-        )}
-        {type === "season" && goals.length === 0 && (
+        {type === "season" &&
+          (goals.length === 0 ? (
+            <ItemInput itemType='NoGoals' />
+          ) : (
+            <ItemInput itemType='Plan' activeGoal={activeGoal!} />
+          ))}
+        {/* {type === "season" && goals.length === 0 && (
           <ItemInput itemType='NoGoals' />
-        )}
+        )} */}
       </div>
     </UserLayout>
   );
