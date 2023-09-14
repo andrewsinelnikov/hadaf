@@ -15,10 +15,12 @@ const Home = () => {
   const { auth, goals } = useAppSelector((state: RootState) => state);
 
   useEffect(() => {
-    if (auth.access_token && goals.length > 0) {
-      navigate("/actions");
-    } else {
-      navigate("/goals");
+    if (auth.access_token) {
+      if (goals.length > 0) {
+        navigate("/actions");
+      } else {
+        navigate("/goals");
+      }
     }
   }, [auth.access_token, goals, navigate]);
 
