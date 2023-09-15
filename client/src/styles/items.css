@@ -16,6 +16,10 @@
   height: calc(100vh - 60px - 112px - 124px);
 }
 
+.items-plan {
+  height: calc(100vh - 60px - 112px - 124px - 38px);
+}
+
 .items-message,
 .items p {
   font-size: 48px;
