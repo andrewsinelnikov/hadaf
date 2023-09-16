@@ -22,7 +22,8 @@ interface IDate {
 }
 
 const Plans: React.FC = () => {
-  const { auth, goals, plans, planItem, day } = useAppSelector(
+  // const { auth, goals, plans, planItem, day } = useAppSelector(
+  const { auth, goals, plans, day } = useAppSelector(
     (state: RootState) => state
   );
   const dispatch = useAppDispatch();
@@ -358,7 +359,15 @@ const Plans: React.FC = () => {
           ))}
         {type === "season" &&
           (goals.length === 0 ? (
-            <ItemInput itemType='NoGoals' />
+            // <ItemInput itemType='NoGoals' />
+            <ItemInput
+              item={planItem}
+              setItem={setPlanItem}
+              itemType='Step'
+              items={plan}
+              handleAdd={addPlanItem}
+              days={days}
+            />
           ) : (
             <ItemInput itemType='Plan' activeGoal={activeGoal!} />
           ))}
