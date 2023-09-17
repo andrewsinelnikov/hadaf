@@ -42,6 +42,16 @@ const Plans: React.FC = () => {
   const [goalPlans, setGoalPlans] = useState<Array<IItem>>([]);
   const [activeGoal, setActiveGoal] = useState<string | null>(null);
 
+  const inialState = {
+    // goal: slug,
+    text: "",
+    count: 1,
+    completeness: 0,
+    createdAt: new Date().toISOString(),
+  };
+
+  const [planItem, setPlanItem] = useState<IItem>(inialState);
+
   useEffect(() => {
     if (goals) {
       const data = goals.filter((goal) =>
