@@ -374,9 +374,9 @@ const Plans: React.FC = () => {
               item={planItem}
               setItem={setPlanItem}
               itemType='Step'
-              items={plan}
+              items={dayPlan}
               handleAdd={addPlanItem}
-              days={days}
+              days={1}
             />
           ) : (
             <ItemInput itemType='Plan' activeGoal={activeGoal!} />
