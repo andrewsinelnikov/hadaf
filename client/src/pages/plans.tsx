@@ -281,9 +281,6 @@ const Plans: React.FC = () => {
                   <TabPanel key={panel} {...a11yPanelProps(parseInt(panel))}>
                     {/* {panel} {selectedTab} */}
 
-                    {/* {day &&
-                      day.plans &&
-                      day.plans.map((plan) => <div>{plan.plan_id}</div>)} */}
                     {dayPlan && (
                       <ItemList items={dayPlan} action='plansForDay' />
                     )}
