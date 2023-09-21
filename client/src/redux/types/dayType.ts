@@ -26,9 +26,4 @@ export interface IGetDay {
 //   payload: IItem;
 // }
 
-// export interface IDeleteGoal {
-//   type: typeof DELETE_GOAL;
-//   payload: string;
-// }
-
 export type IDayType = ICreateDay | IGetDay;
