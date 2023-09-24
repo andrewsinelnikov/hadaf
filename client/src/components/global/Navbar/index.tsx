@@ -11,7 +11,6 @@ interface IProps {
 
 const Navbar: React.FC<IProps> = ({ navbarType }: IProps) => {
   const [openSearch, setOpenSearch] = useState(false);
-  // const { pathname } = useLocation();
 
   return (
     <nav
