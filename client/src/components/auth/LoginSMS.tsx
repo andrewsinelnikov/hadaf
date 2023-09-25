@@ -16,9 +16,6 @@ const LoginSMS = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='form-group'>
-        {/* <label htmlFor='phone' className='form-label'>
-          Phone number
-        </label> */}
         <input
           type='text'
           className='form-control'
