@@ -21,15 +21,6 @@
   transition: opacity 256ms ease-in;
   background-clip: padding-box;
   pointer-events: auto;
-  /* z-index: 50; */
-
-  /* background-clip: padding-box;
-  width: 350px;
-  max-width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  top: 65px;
-  right: 5px;
-  min-width: 200px; */
 }
 /* .toast {
   width: 350px;
