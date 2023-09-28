@@ -114,7 +114,6 @@
 .auth_divider::before {
   content: "";
   flex: 0 1 100%;
-  /* border-bottom: 1px solid var(--darklight-color); */
   border-bottom: 1px solid var(--lightdark-color);
   margin: 0 10px;
   margin-left: 0;
@@ -125,7 +124,6 @@
 .auth_divider::after {
   content: "";
   flex: 0 1 100%;
-  /* border-bottom: 1px solid var(--darklight-color); */
   border-bottom: 1px solid var(--lightdark-color);
   margin: 0 10px;
   margin-right: 0;
