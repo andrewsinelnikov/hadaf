@@ -357,12 +357,6 @@ const Plans: React.FC = () => {
         {/* {type === "week" && <ItemInput itemType='Step' />} */}
         {type === "week" &&
           (goals.length === 0 ? (
-            <ItemInput itemType='NoGoals' />
-          ) : (
-            <ItemInput itemType='Step' />
-          ))}
-        {type === "season" &&
-          (goals.length === 0 ? (
             // <ItemInput itemType='NoGoals' />
             <ItemInput
               item={planItem}
@@ -373,6 +367,20 @@ const Plans: React.FC = () => {
               days={1}
             />
           ) : (
+            <ItemInput itemType='Step' />
+          ))}
+        {type === "season" &&
+          (goals.length === 0 ? (
+            <ItemInput itemType='NoGoals' />
+          ) : (
+            // <ItemInput
+            //   item={planItem}
+            //   setItem={setPlanItem}
+            //   itemType='Step'
+            //   items={dayPlan}
+            //   handleAdd={addPlanItem}
+            //   days={1}
+            // />
             <ItemInput itemType='Plan' activeGoal={activeGoal!} />
           ))}
         {/* {type === "season" && goals.length === 0 && (
