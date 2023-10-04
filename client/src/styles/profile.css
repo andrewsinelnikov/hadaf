@@ -42,10 +42,7 @@
   /* width: 272px;
   height: 320px; */
   object-fit: cover;
-  /* border-radius: var(--border-radius); */
   position: absolute;
-  /* right: 8rem;
-  top: 2rem; */
 }
 
 .info-img > :nth-child(1),
