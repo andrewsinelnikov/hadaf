@@ -202,7 +202,6 @@
   max-width: 591px;
   width: 100%;
   color: var(--lightdark-color);
-  /* border: 1px solid var(--success-color); */
   border-radius: var(--border-radius);
   padding: 27px;
   padding-left: 37px;
