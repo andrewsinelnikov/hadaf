@@ -61,7 +61,6 @@
 }
 
 .tabpanel {
-  /* min-height: 415px; */
   min-height: calc(100vh - 60px - 112px - 124px);
   margin: 0;
   padding-top: 16px;
