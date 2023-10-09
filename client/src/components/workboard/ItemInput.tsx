@@ -106,10 +106,11 @@ const ItemInput: React.FC<IProps> = ({
         width: `${addInput === false ? "auto" : "100%"}`,
         bottom: `${addInput === false ? "80px" : "0px"}`,
         marginLeft: `${
-          (itemType === "Step" && addInput === false && "922px") ||
+          (itemType === "Step" && addInput === false && "932px") ||
+          // (itemType === "Step" && addInput === false && "922px") ||
           (itemType === "NoGoals" && addInput === false && "995px") ||
           (itemType === "NoPlans" && addInput === false && "970px") ||
-          (itemType === "Plan" && addInput === false && "898px") ||
+          (itemType === "Plan" && addInput === false && "910px") ||
           "330px"
         }`,
       }}
