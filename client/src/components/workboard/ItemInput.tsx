@@ -144,7 +144,7 @@ const ItemInput: React.FC<IProps> = ({
             // backgroundColor: "var(--dark-color)",
             // border: "2px solid var(--darklight-color)",
           }}>
-          update the plan?
+          update the plan
         </span>
       )}
       {itemType === "NoGoals" && addInput === false && (
@@ -183,7 +183,7 @@ const ItemInput: React.FC<IProps> = ({
             color: "var(--lightdark-color)",
             backgroundColor: "var(--darklight-color)",
           }}>
-          one more step?
+          one more step
         </div>
       )}
       {itemType !== "Plan" && (
