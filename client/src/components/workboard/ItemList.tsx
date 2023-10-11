@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { IItem } from "../../utils/TypeScript";
 import Item from "./Item";
 
@@ -81,7 +83,12 @@ const ItemList: React.FC<IProps> = ({
           </div>
         ) : (
           <div className='items'>
-            <p>Plans for the Day</p>
+            <p>
+              Plans for the Day{" "}
+              <Link to='/actions' className='btn btn-auto btn-success'>
+                Realize
+              </Link>
+            </p>
             {items.map((item) => (
               <Item item={item} key={item._id} action={action} />
             ))}
