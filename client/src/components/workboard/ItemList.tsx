@@ -84,11 +84,12 @@ const ItemList: React.FC<IProps> = ({
         ) : (
           <div className='items'>
             <p>
-              Plans for the Day{" "}
+              Plans for the Day
               <Link to='/actions' className='btn btn-auto btn-success'>
                 Realize
               </Link>
             </p>
+
             {items.map((item) => (
               <Item item={item} key={item._id} action={action} />
             ))}
