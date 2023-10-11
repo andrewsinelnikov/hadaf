@@ -24,6 +24,16 @@
   text-align: center;
 }
 
+.items p {
+  position: relative;
+}
+
+.items p a {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
 .items-message span {
   display: block;
   color: var(--primary-color);
