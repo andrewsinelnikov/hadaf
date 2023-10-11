@@ -220,9 +220,9 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
                   Delete
                 </button>
               )}
-              <Link to='/actions' className='btn btn-auto btn-success'>
+              {/* <Link to='/actions' className='btn btn-auto btn-success'>
                 Realize
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
