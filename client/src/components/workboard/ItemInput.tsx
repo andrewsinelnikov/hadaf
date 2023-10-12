@@ -148,7 +148,7 @@ const ItemInput: React.FC<IProps> = ({
           update the plan
         </span>
       )}
-      {itemType === "Task" && addInput === false && (
+      {itemType === "Task" && (
         <span
           className='items-number'
           onClick={() => navigate(`/plan/${activeGoal}`)}
@@ -160,7 +160,7 @@ const ItemInput: React.FC<IProps> = ({
             // backgroundColor: "var(--dark-color)",
             // border: "2px solid var(--darklight-color)",
           }}>
-          Additional tasks
+          additional tasks
         </span>
       )}
       {itemType === "NoGoals" && addInput === false && (
