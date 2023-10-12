@@ -367,7 +367,10 @@ const Plans: React.FC = () => {
               days={1}
             />
           ) : (
-            <ItemInput itemType='Step' />
+            <>
+              <ItemInput itemType='Task' />
+              <ItemInput itemType='Step' />
+            </>
           ))}
         {type === "season" &&
           (goals.length === 0 ? (
