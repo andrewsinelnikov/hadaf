@@ -224,10 +224,11 @@ const ItemInput: React.FC<IProps> = ({
           className='add-item'
           style={{
             display:
-              (itemType === "Step" ||
+              ((itemType === "Step" ||
                 itemType === "NoGoals" ||
                 itemType === "NoPlans") &&
-              addInput === false
+                addInput === false) ||
+              itemType === "Task"
                 ? "none"
                 : "block",
           }}>
