@@ -232,27 +232,29 @@ const ItemInput: React.FC<IProps> = ({
                 ? "none"
                 : "block",
           }}>
-          <input
-            className='item-input'
-            type='text'
-            name='text'
-            value={text}
-            onChange={(e) => {
-              setText(e.target.value);
-            }}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            autoComplete='off'
-            maxLength={200}
-            placeholder={`Type a ${itemType}...`}
-            style={{
-              borderBottom: `${
-                isFocused
-                  ? "1px solid var(--lightdark-color)"
-                  : "1px solid var(--lightdark-50-color)"
-              }`,
-            }}
-          />
+          {itemType !== "Todo" && (
+            <input
+              className='item-input'
+              type='text'
+              name='text'
+              value={text}
+              onChange={(e) => {
+                setText(e.target.value);
+              }}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              autoComplete='off'
+              maxLength={200}
+              placeholder={`Type a ${itemType}...`}
+              style={{
+                borderBottom: `${
+                  isFocused
+                    ? "1px solid var(--lightdark-color)"
+                    : "1px solid var(--lightdark-50-color)"
+                }`,
+              }}
+            />
+          )}
           {isFocused && text.length > 0 && (
             <small style={{ fontWeight: "bold" }}>
               <span
