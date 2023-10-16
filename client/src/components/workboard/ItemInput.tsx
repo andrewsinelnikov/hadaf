@@ -255,6 +255,15 @@ const ItemInput: React.FC<IProps> = ({
               }}
             />
           )}
+          {itemType === "Todo" && (
+            <select>
+              <option selected hidden>
+                Choose a Task...
+              </option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+            </select>
+          )}
           {isFocused && text.length > 0 && (
             <small style={{ fontWeight: "bold" }}>
               <span
