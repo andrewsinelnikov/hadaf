@@ -369,7 +369,8 @@ const Plans: React.FC = () => {
           ) : (
             <>
               <ItemInput itemType='Task' />
-              <ItemInput itemType='Step' />
+              {/* <ItemInput itemType='Step' /> */}
+              <ItemInput itemType='Todo' />
             </>
           ))}
         {type === "season" &&
