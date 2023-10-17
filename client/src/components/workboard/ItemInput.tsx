@@ -32,6 +32,7 @@ const ItemInput: React.FC<IProps> = ({
   const [times, setTimes] = useState(1);
   const [count, setCount] = useState(1);
   const [addInput, setAddInput] = useState(true);
+  const [selectInput, setSelectInput] = useState(true);
 
   useEffect(() => {
     if (item && setItem) {
@@ -112,7 +113,7 @@ const ItemInput: React.FC<IProps> = ({
           (itemType === "NoPlans" && addInput === false && "970px") ||
           (itemType === "Plan" && addInput === false && "910px") ||
           (itemType === "Task" && "898px") ||
-          (itemType === "Todo" && "973px") ||
+          (itemType === "Todo" && selectInput === false && "973px") ||
           "330px"
         }`,
       }}
@@ -150,7 +151,7 @@ const ItemInput: React.FC<IProps> = ({
           update the plan
         </span>
       )}
-      {itemType === "Todo" && (
+      {itemType === "Todo" && selectInput === false && (
         <span
           className='items-number'
           onClick={() => navigate(`/plan/${activeGoal}`)}
