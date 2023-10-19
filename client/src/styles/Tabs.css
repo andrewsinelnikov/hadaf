@@ -25,10 +25,8 @@
   user-select: none;
   vertical-align: middle;
   text-decoration: none;
-  /* font-weight: 500; */
   font-size: 16px;
   line-height: 1.25;
-  /* text-transform: uppercase; */
   color: var(--lightdark-30-color);
   min-width: 90px;
   position: relative;
