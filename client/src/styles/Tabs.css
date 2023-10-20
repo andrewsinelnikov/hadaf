@@ -30,7 +30,6 @@
   color: var(--lightdark-30-color);
   min-width: 90px;
   position: relative;
-  /* flex-shrink: 1; */
   padding: 8px 2px;
   overflow: hidden;
   white-space: normal;
