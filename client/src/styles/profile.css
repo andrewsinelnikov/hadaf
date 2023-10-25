@@ -92,14 +92,6 @@
   display: inline-block;
 }
 
-/* .info-tools {
-  flex: 10%;
-}
-
-.info-actions {
-  flex: 50%;
-} */
-
 .action-active,
 .info-actions a:disabled,
 .tool-active,
