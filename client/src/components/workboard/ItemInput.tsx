@@ -175,8 +175,6 @@ const ItemInput: React.FC<IProps> = ({
             display: "inline-block",
             color: "var(--lightdark-color)",
             backgroundColor: "var(--darklight-color)",
-            // backgroundColor: "var(--dark-color)",
-            // border: "2px solid var(--darklight-color)",
           }}>
           additional tasks
         </span>
