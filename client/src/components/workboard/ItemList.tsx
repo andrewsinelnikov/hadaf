@@ -29,7 +29,6 @@ const ItemList: React.FC<IProps> = ({
             <div className='items-message'>
               Write down the most important Goals to accomplish this {season}
             </div>
-            {/* <div className='items-number'>max number - 3</div> */}
           </div>
         ) : (
           <div className='items'>
