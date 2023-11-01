@@ -255,7 +255,15 @@ const ItemInput: React.FC<IProps> = ({
             />
           )}
           {itemType === "Todo" && (
-            <select className='choose-input'>
+            <select
+              className='choose-input'
+              style={{
+                borderBottom: `${
+                  isFocused
+                    ? "1px solid var(--lightdark-color)"
+                    : "1px solid var(--lightdark-50-color)"
+                }`,
+              }}>
               <option selected hidden>
                 Choose a Task...
               </option>
