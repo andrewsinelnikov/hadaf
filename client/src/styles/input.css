@@ -48,6 +48,11 @@
   height: 40px;
 }
 
+.choose-input {
+  width: 95%;
+  padding-bottom: 0;
+}
+
 .area-input {
   height: auto;
   padding: 6.5px 14px;
