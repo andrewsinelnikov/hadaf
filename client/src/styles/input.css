@@ -63,12 +63,7 @@
   border-top-left-radius: var(--border-radius);
 }
 
-/* .area-input:focus {
-  height: auto;
-  overflow-y: auto;
-}
-
-.area-input:not(:focus) {
+/*.area-input:not(:focus) {
   overflow-y: auto;
 } */
 
