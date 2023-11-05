@@ -63,10 +63,6 @@
   border-top-left-radius: var(--border-radius);
 }
 
-/*.area-input:not(:focus) {
-  overflow-y: auto;
-} */
-
 .add-item small {
   position: absolute;
   color: var(--lightdark-color);
