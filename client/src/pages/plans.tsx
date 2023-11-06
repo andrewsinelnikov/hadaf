@@ -354,7 +354,6 @@ const Plans: React.FC = () => {
           </div>
           <Footer />
         </div>
-        {/* {type === "week" && <ItemInput itemType='Step' />} */}
         {type === "week" &&
           (goals.length === 0 ? (
             // <ItemInput itemType='NoGoals' />
