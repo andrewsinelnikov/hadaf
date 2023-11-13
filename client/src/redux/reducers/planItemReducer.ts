@@ -11,8 +11,6 @@ const planItemReducer = (state = null, action: IPlanType) => {
     //       ? { ...item, text: action.payload.text }
     //       : item
     //   );
-    // case DELETE_PLAN_ITEM:
-    //   return state.filter((item) => item._id !== action.payload);
     default:
       return state;
   }
