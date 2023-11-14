@@ -54,6 +54,11 @@
   cursor: pointer;
 }
 
+.choose-input option {
+  color: var(--lightdark-color);
+  background: var(--dark-color);
+}
+
 .area-input {
   height: auto;
   padding: 6.5px 14px;
