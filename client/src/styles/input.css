@@ -59,6 +59,10 @@
   background: var(--dark-color);
 }
 
+.choose-input option[hidden] {
+  color: green;
+}
+
 .area-input {
   height: auto;
   padding: 6.5px 14px;
