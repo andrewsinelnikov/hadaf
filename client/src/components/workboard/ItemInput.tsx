@@ -102,7 +102,8 @@ const ItemInput: React.FC<IProps> = ({
       className='add'
       style={{
         height: `${
-          (addInput === false && "auto") || (itemType === "Step" && "90px")
+          (addInput === false && "auto") ||
+          ((itemType === "Step" || itemType === "Todo") && "90px")
         }`,
         width: `${addInput === false ? "auto" : "100%"}`,
         bottom: `${addInput === false ? "80px" : "0px"}`,
