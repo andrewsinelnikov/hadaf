@@ -49,18 +49,17 @@
 }
 
 .choose-input {
-  /* width: 95%; */
   padding-bottom: 0;
   cursor: pointer;
+}
+
+.choose-input:hover {
+  color: var(--lightdark-color) !important;
 }
 
 .choose-input option {
   color: var(--lightdark-color);
   background: var(--dark-color);
-}
-
-.choose-input option[hidden] {
-  color: green;
 }
 
 .area-input {
