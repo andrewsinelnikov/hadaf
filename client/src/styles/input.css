@@ -49,8 +49,9 @@
 }
 
 .choose-input {
-  width: 95%;
+  /* width: 95%; */
   padding-bottom: 0;
+  cursor: pointer;
 }
 
 .area-input {
