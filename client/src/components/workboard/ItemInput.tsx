@@ -263,6 +263,7 @@ const ItemInput: React.FC<IProps> = ({
                     ? "1px solid var(--lightdark-color)"
                     : "1px solid var(--lightdark-50-color)"
                 }`,
+                color: "var(--lightdark-50-color)",
               }}>
               <option selected hidden>
                 Choose a Task...
