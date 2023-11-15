@@ -170,7 +170,7 @@ const ItemInput: React.FC<IProps> = ({
       {itemType === "Task" && (
         <span
           className='items-number'
-          onClick={() => navigate(`/plan/${activeGoal}`)}
+          onClick={() => setSelectInput(!selectInput)}
           style={{
             cursor: "pointer",
             display: "inline-block",
