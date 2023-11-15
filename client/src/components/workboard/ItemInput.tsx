@@ -114,7 +114,6 @@ const ItemInput: React.FC<IProps> = ({
           (itemType === "NoPlans" && addInput === false && "970px") ||
           (itemType === "Plan" && addInput === false && "910px") ||
           (itemType === "Task" && (selectInput ? "898px" : "973px")) ||
-          (itemType === "Todo" && selectInput === false && "973px") ||
           "330px"
         }`,
       }}
