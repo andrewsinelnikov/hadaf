@@ -177,7 +177,7 @@ const ItemInput: React.FC<IProps> = ({
             color: "var(--lightdark-color)",
             backgroundColor: "var(--darklight-color)",
           }}>
-          additional tasks
+          {selectInput ? "additional tasks" : "first to do"}
         </span>
       )}
       {itemType === "NoGoals" && addInput === false && (
