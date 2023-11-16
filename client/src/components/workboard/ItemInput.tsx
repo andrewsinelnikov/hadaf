@@ -254,7 +254,7 @@ const ItemInput: React.FC<IProps> = ({
               }}
             />
           )}
-          {itemType === "Todo" && (
+          {itemType === "Todo" && selectInput && (
             <select
               className='choose-input'
               style={{
