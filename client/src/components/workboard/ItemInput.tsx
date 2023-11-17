@@ -231,7 +231,8 @@ const ItemInput: React.FC<IProps> = ({
                 ? "none"
                 : "block",
           }}>
-          {itemType !== "Todo" && (
+          {(itemType !== "Todo" ||
+            (itemType === "Todo" && selectInput === false)) && (
             <input
               className='item-input'
               type='text'
@@ -254,7 +255,7 @@ const ItemInput: React.FC<IProps> = ({
               }}
             />
           )}
-          {itemType === "Todo" && selectInput && (
+          {itemType === "Todo" && selectInput === true && (
             <select
               className='choose-input'
               style={{
