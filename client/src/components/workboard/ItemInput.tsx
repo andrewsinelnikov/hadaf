@@ -151,7 +151,7 @@ const ItemInput: React.FC<IProps> = ({
           update the plan
         </span>
       )}
-      {itemType === "Todo" && selectInput === false && (
+      {/* {itemType === "Todo" && selectInput === false && (
         <span
           className='items-number'
           onClick={() => navigate(`/plan/${activeGoal}`)}
@@ -165,7 +165,7 @@ const ItemInput: React.FC<IProps> = ({
           }}>
           first to do
         </span>
-      )}
+      )} */}
       {itemType === "Task" && (
         <span
           className='items-number'
