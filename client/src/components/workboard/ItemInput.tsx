@@ -240,7 +240,7 @@ const ItemInput: React.FC<IProps> = ({
             />
           )}
           {itemType === "Todo" &&
-            (selectInput === true ? (
+            (selectInput ? (
               <select
                 className='choose-input'
                 style={{
