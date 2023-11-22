@@ -97,6 +97,19 @@ const ItemInput: React.FC<IProps> = ({
     );
   };
 
+  const renderInput = () => {
+    if (selectInput) {
+      return (
+        <select>
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+      );
+    } else {
+      return <input type='text' />;
+    }
+  };
+
   return (
     <form
       className='add'
