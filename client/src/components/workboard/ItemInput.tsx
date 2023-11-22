@@ -240,7 +240,7 @@ const ItemInput: React.FC<IProps> = ({
             />
           )}
           {
-            itemType === "Todo" && (selectInput ? "select" : "type")
+            itemType === "Todo" && (selectInput === true ? "select" : "type")
             //       (selectInput ? (
             //         <select
             //           className='choose-input'
