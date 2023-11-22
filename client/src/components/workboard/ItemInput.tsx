@@ -239,47 +239,49 @@ const ItemInput: React.FC<IProps> = ({
               }}
             />
           )}
-          {itemType === "Todo" &&
-            (selectInput ? (
-              <select
-                className='choose-input'
-                style={{
-                  borderBottom: `${
-                    isFocused
-                      ? "1px solid var(--lightdark-color)"
-                      : "1px solid var(--lightdark-50-color)"
-                  }`,
-                  color: "var(--lightdark-50-color)",
-                }}>
-                <option selected hidden>
-                  Choose a Task...
-                </option>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-              </select>
-            ) : (
-              <input
-                className='item-input'
-                type='text'
-                name='text'
-                value={text}
-                onChange={(e) => {
-                  setText(e.target.value);
-                }}
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
-                autoComplete='off'
-                maxLength={200}
-                placeholder={`Type a ${itemType}...`}
-                style={{
-                  borderBottom: `${
-                    isFocused
-                      ? "1px solid var(--lightdark-color)"
-                      : "1px solid var(--lightdark-50-color)"
-                  }`,
-                }}
-              />
-            ))}
+          {
+            itemType === "Todo" && (selectInput ? "select" : "type")
+            //       (selectInput ? (
+            //         <select
+            //           className='choose-input'
+            //           style={{
+            //             borderBottom: `${
+            //               isFocused
+            //                 ? "1px solid var(--lightdark-color)"
+            //                 : "1px solid var(--lightdark-50-color)"
+            //             }`,
+            //             color: "var(--lightdark-50-color)",
+            //           }}>
+            //           <option selected hidden>
+            //             Choose a Task...
+            //           </option>
+            //           <option value='1'>1</option>
+            //           <option value='2'>2</option>
+            //         </select>
+            //       ) : (
+            //         <input
+            //           className='item-input'
+            //           type='text'
+            //           name='text'
+            //           value={text}
+            //           onChange={(e) => {
+            //             setText(e.target.value);
+            //           }}
+            //           onFocus={() => setIsFocused(true)}
+            //           onBlur={() => setIsFocused(false)}
+            //           autoComplete='off'
+            //           maxLength={200}
+            //           placeholder={`Type a ${itemType}...`}
+            //           style={{
+            //             borderBottom: `${
+            //               isFocused
+            //                 ? "1px solid var(--lightdark-color)"
+            //                 : "1px solid var(--lightdark-50-color)"
+            //             }`,
+            //           }}
+            //         />
+            //       ))
+          }
           {isFocused && text.length > 0 && (
             <small style={{ fontWeight: "bold" }}>
               <span
@@ -297,6 +299,7 @@ const ItemInput: React.FC<IProps> = ({
           )}
         </div>
       )}
+
       {text.length > 0 && (
         <div className='item-options'>
           {itemType === "Step" && addInput && (
