@@ -167,7 +167,7 @@ const ItemInput: React.FC<IProps> = ({
       {itemType === "Task" && (
         <span
           className='items-number'
-          onClick={() => setSelectInput(!selectInput)}
+          onClick={(prevSelectInput) => setSelectInput(!prevSelectInput)}
           style={{
             cursor: "pointer",
             display: "inline-block",
