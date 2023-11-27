@@ -71,6 +71,23 @@ const ItemInput: React.FC<IProps> = ({
     if (selectPeriod === "Seasonly") setCount(times);
   }, [days, selectPeriod, times, setCount, setTimes, setSelectPeriod]);
 
+  let elementInput;
+
+  useEffect(() => {
+    if (selectInput) {
+      elementInput = (
+        <select>
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+      );
+    } else {
+      elementInput = (
+        <input type='text' placeholder={`Type a ${itemType}...`} />
+      );
+    }
+  }, [selectInput]);
+
   const selectChange = (e: InputChange) => {
     setSelectPeriod(e.target.value);
   };
@@ -256,18 +273,9 @@ const ItemInput: React.FC<IProps> = ({
               }}
             />
           )}
+
           {
-            itemType === "Todo" &&
-              (selectInput === true ? (
-                <input type='text' placeholder='hi' />
-              ) : (
-                <select>
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                  <option>Option 4</option>
-                </select>
-              ))
+            itemType === "Todo" && elementInput
 
             //       (selectInput ? (
             //         <select
