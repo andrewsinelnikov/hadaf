@@ -98,17 +98,19 @@ const ItemInput: React.FC<IProps> = ({
   };
 
   const renderInput = () => {
-    if (selectInput) {
+    if (selectInput === true) {
       return (
-        <select>
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
-          <option>Option 4</option>
-        </select>
+        // <select>
+        //   <option>Option 1</option>
+        //   <option>Option 2</option>
+        //   <option>Option 3</option>
+        //   <option>Option 4</option>
+        // </select>
+        <div>I</div>
       );
     } else {
-      return <input type='text' />;
+      // return <input type='text' placeholder={`Type a ${itemType}...`} />;
+      return <div>OK</div>;
     }
   };
 
@@ -166,7 +168,10 @@ const ItemInput: React.FC<IProps> = ({
       {itemType === "Task" && (
         <span
           className='items-number'
-          onClick={() => setSelectInput(!selectInput)}
+          onClick={() =>
+            // setSelectInput(!selectInput)
+            setSelectInput((prevInputType) => !prevInputType)
+          }
           style={{
             cursor: "pointer",
             display: "inline-block",
@@ -253,15 +258,15 @@ const ItemInput: React.FC<IProps> = ({
           )}
           {
             itemType === "Todo" &&
-              (selectInput ? (
+              (selectInput === true ? (
+                <input type='text' placeholder='hi' />
+              ) : (
                 <select>
                   <option>Option 1</option>
                   <option>Option 2</option>
                   <option>Option 3</option>
                   <option>Option 4</option>
                 </select>
-              ) : (
-                <input type='text' />
               ))
 
             //       (selectInput ? (
