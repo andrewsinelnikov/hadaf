@@ -114,6 +114,17 @@ const ItemInput: React.FC<IProps> = ({
     );
   };
 
+  const Greeting = () => {
+    if (selectInput) {
+      return (
+        <select>
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+      );
+    }
+    return <input type='text' placeholder={`Type a ${itemType}...`} />;
+  };
   const renderInput = () => {
     if (selectInput === true) {
       return (
@@ -276,7 +287,9 @@ const ItemInput: React.FC<IProps> = ({
 
           {itemType === "Todo" && (
             <>
-              {selectInput ? (
+              {selectInput === true && <>Hi</>}
+              {selectInput === false && <>Bye</>}
+              {/* {selectInput ? (
                 <select
                   className='choose-input'
                   style={{
@@ -315,7 +328,7 @@ const ItemInput: React.FC<IProps> = ({
                     }`,
                   }}
                 />
-              )}
+              )} */}
             </>
           )}
           {isFocused && text.length > 0 && (
