@@ -287,8 +287,7 @@ const ItemInput: React.FC<IProps> = ({
 
           {itemType === "Todo" && (
             <>
-              {selectInput === true && <>Hi</>}
-              {selectInput === false && <>Bye</>}
+              {renderInput()}
               {/* {selectInput ? (
                 <select
                   className='choose-input'
