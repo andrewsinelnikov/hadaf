@@ -88,6 +88,11 @@ const ItemInput: React.FC<IProps> = ({
     }
   }, [selectInput]);
 
+  useEffect(() => {
+  // Trigger a re-render when the `selectInput` state changes
+  console.log("Select Input:", selectInput);
+}, [selectInput]);
+
   const selectChange = (e: InputChange) => {
     setSelectPeriod(e.target.value);
   };
@@ -287,8 +292,8 @@ const ItemInput: React.FC<IProps> = ({
 
           {itemType === "Todo" && (
             <>
-              {renderInput()}
-              {/* {selectInput ? (
+              {/* {renderInput()} */}
+              {selectInput ? (
                 <select
                   className='choose-input'
                   style={{
@@ -327,7 +332,7 @@ const ItemInput: React.FC<IProps> = ({
                     }`,
                   }}
                 />
-              )} */}
+              )}
             </>
           )}
           {isFocused && text.length > 0 && (
