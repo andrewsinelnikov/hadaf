@@ -89,9 +89,9 @@ const ItemInput: React.FC<IProps> = ({
   }, [selectInput]);
 
   useEffect(() => {
-  // Trigger a re-render when the `selectInput` state changes
-  console.log("Select Input:", selectInput);
-}, [selectInput]);
+    // Trigger a re-render when the `selectInput` state changes
+    console.log("Select Input:", selectInput);
+  }, [selectInput]);
 
   const selectChange = (e: InputChange) => {
     setSelectPeriod(e.target.value);
@@ -290,9 +290,49 @@ const ItemInput: React.FC<IProps> = ({
             />
           )}
 
-          {itemType === "Todo" && (
-            <>
-              {/* {renderInput()} */}
+          {itemType === "Todo" && selectInput === true && (
+            <select
+              className='choose-input'
+              style={{
+                borderBottom: `${
+                  isFocused
+                    ? "1px solid var(--lightdark-color)"
+                    : "1px solid var(--lightdark-50-color)"
+                }`,
+                color: "var(--lightdark-50-color)",
+              }}>
+              <option selected hidden>
+                Choose a Task...
+              </option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+            </select>
+          )}
+          {itemType === "Todo" && selectInput === false && (
+            <input
+              className='item-input'
+              type='text'
+              name='text'
+              value={text}
+              onChange={(e) => {
+                setText(e.target.value);
+              }}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              autoComplete='off'
+              maxLength={200}
+              placeholder={`Type a ${itemType}...`}
+              style={{
+                borderBottom: `${
+                  isFocused
+                    ? "1px solid var(--lightdark-color)"
+                    : "1px solid var(--lightdark-50-color)"
+                }`,
+              }}
+            />
+          )}
+          {/* {itemType === "Todo" && (
+            <div>
               {selectInput ? (
                 <select
                   className='choose-input'
@@ -333,8 +373,8 @@ const ItemInput: React.FC<IProps> = ({
                   }}
                 />
               )}
-            </>
-          )}
+            </div>
+          )} */}
           {isFocused && text.length > 0 && (
             <small style={{ fontWeight: "bold" }}>
               <span
