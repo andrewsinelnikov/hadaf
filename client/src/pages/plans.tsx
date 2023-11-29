@@ -323,7 +323,7 @@ const Plans: React.FC = () => {
                   {goalsWithPlans.length !== 0 &&
                     (goalsWithPlans.length === 1 ? (
                       <>
-                        <p>{getSeason(new Date())} Plans (for goal)</p>
+                        <p>{getSeason(new Date())} Plans for</p>
                         <ItemList
                           items={goalPlans}
                           setItems={setGoalPlans}
