@@ -290,52 +290,8 @@ const ItemInput: React.FC<IProps> = ({
             />
           )}
 
-          {
-            itemType === "Todo" && elementInput
-            // <select
-            //   className='choose-input'
-            //   style={{
-            //     display: `${selectInput ? "block" : "none"}`,
-            //     borderBottom: `${
-            //       isFocused
-            //         ? "1px solid var(--lightdark-color)"
-            //         : "1px solid var(--lightdark-50-color)"
-            //     }`,
-            //     color: "var(--lightdark-50-color)",
-            //   }}>
-            //   <option selected hidden>
-            //     Choose a Task...
-            //   </option>
-            //   <option value='1'>1</option>
-            //   <option value='2'>2</option>
-            // </select>
-          }
-          {/* {itemType === "Todo" && (
-            <input
-              className='item-input'
-              type='text'
-              name='text'
-              value={text}
-              onChange={(e) => {
-                setText(e.target.value);
-              }}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setIsFocused(false)}
-              autoComplete='off'
-              maxLength={200}
-              placeholder={`Type a ${itemType}...`}
-              style={{
-                display: `${selectInput ? "none" : "block"}`,
-                borderBottom: `${
-                  isFocused
-                    ? "1px solid var(--lightdark-color)"
-                    : "1px solid var(--lightdark-50-color)"
-                }`,
-              }}
-            />
-          )} */}
-          {/* {itemType === "Todo" && (
-            <div>
+          {itemType === "Todo" && (
+            <>
               {selectInput ? (
                 <select
                   className='choose-input'
@@ -366,7 +322,7 @@ const ItemInput: React.FC<IProps> = ({
                   onBlur={() => setIsFocused(false)}
                   autoComplete='off'
                   maxLength={200}
-                  placeholder={`Type a ${itemType}...`}
+                  placeholder='Type a Task'
                   style={{
                     borderBottom: `${
                       isFocused
@@ -376,8 +332,8 @@ const ItemInput: React.FC<IProps> = ({
                   }}
                 />
               )}
-            </div>
-          )} */}
+            </>
+          )}
           {isFocused && text.length > 0 && (
             <small style={{ fontWeight: "bold" }}>
               <span
