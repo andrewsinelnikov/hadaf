@@ -32,7 +32,7 @@ const ItemInput: React.FC<IProps> = ({
   const [times, setTimes] = useState(1);
   const [count, setCount] = useState(1);
   const [addInput, setAddInput] = useState(true);
-  const [selectInput, setSelectInput] = useState(true);
+  const [selectInput, setSelectInput] = useState(false);
 
   useEffect(() => {
     if (item && setItem) {
