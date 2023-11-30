@@ -32,7 +32,7 @@ const ItemInput: React.FC<IProps> = ({
   const [times, setTimes] = useState(1);
   const [count, setCount] = useState(1);
   const [addInput, setAddInput] = useState(true);
-  const [selectInput, setSelectInput] = useState(false);
+  const [selectInput, setSelectInput] = useState(true);
 
   useEffect(() => {
     if (item && setItem) {
@@ -86,7 +86,7 @@ const ItemInput: React.FC<IProps> = ({
         <input type='text' placeholder={`Type a ${itemType}...`} />
       );
     }
-  }, [selectInput]);
+  }, [selectInput, elementInput]);
 
   useEffect(() => {
     // Trigger a re-render when the `selectInput` state changes
@@ -290,10 +290,11 @@ const ItemInput: React.FC<IProps> = ({
             />
           )}
 
-          {itemType === "Todo" && selectInput === true && (
+          {itemType === "Todo" && (
             <select
               className='choose-input'
               style={{
+                display: `${selectInput ? "block" : "none"}`,
                 borderBottom: `${
                   isFocused
                     ? "1px solid var(--lightdark-color)"
@@ -308,7 +309,7 @@ const ItemInput: React.FC<IProps> = ({
               <option value='2'>2</option>
             </select>
           )}
-          {itemType === "Todo" && selectInput === false && (
+          {itemType === "Todo" && (
             <input
               className='item-input'
               type='text'
@@ -323,6 +324,7 @@ const ItemInput: React.FC<IProps> = ({
               maxLength={200}
               placeholder={`Type a ${itemType}...`}
               style={{
+                display: `${selectInput ? "none" : "block"}`,
                 borderBottom: `${
                   isFocused
                     ? "1px solid var(--lightdark-color)"
