@@ -17,7 +17,7 @@ interface IProps {
 interface IInput {
   selectInput: boolean;
   isFocused: boolean;
-  // setIsFocused: React.Dispatch<React.SetStateAction<boolean>>
+  setIsFocused: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Input: React.FC<IInput> = ({ selectInput, isFocused }) => {
