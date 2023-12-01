@@ -14,6 +14,57 @@ interface IProps {
   days?: number;
 }
 
+interface IInput {
+  selectInput: boolean;
+  isFocused: boolean;
+  // setIsFocused: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Input: React.FC<IInput> = ({ selectInput, isFocused }) => {
+  if (selectInput)
+    return (
+      <select
+        className='choose-input'
+        style={{
+          borderBottom: `${
+            isFocused
+              ? "1px solid var(--lightdark-color)"
+              : "1px solid var(--lightdark-50-color)"
+          }`,
+          color: "var(--lightdark-50-color)",
+        }}>
+        <option selected hidden>
+          Choose a Task...
+        </option>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+      </select>
+    );
+
+  return (
+    <input
+      className='item-input'
+      type='text'
+      name='text'
+      // value={text}
+      // onChange={(e) => {
+      //   setText(e.target.value);
+      // }}
+      // onFocus={() => setIsFocused(true)}
+      // onBlur={() => setIsFocused(false)}
+      autoComplete='off'
+      maxLength={200}
+      placeholder='Type a Task'
+      style={{
+        borderBottom: `${
+          isFocused
+            ? "1px solid var(--lightdark-color)"
+            : "1px solid var(--lightdark-50-color)"
+        }`,
+      }}
+    />
+  );
+};
 const ItemInput: React.FC<IProps> = ({
   item,
   setItem,
