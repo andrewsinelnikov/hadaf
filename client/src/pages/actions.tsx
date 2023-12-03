@@ -6,7 +6,6 @@ import { useAppSelector } from "../utils/hooks";
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
-// import UserPosts from "../components/profile/UserPosts";
 import ItemInput from "../components/workboard/ItemInput";
 import { IItem } from "../utils/TypeScript";
 import Footer from "../components/global/Footer";
