@@ -37,7 +37,8 @@ const sendEmail = async (to: string, url: string, txt: string) => {
       to: to,
       subject: "HADAF - Validation your email address",
       html: `
-                <div style="max-width: 700px; margin: auto; border: 10px solid #ddd; padding: 50px 20px; font-size: 110%;">
+                <div style="max-width: 700px; margin: auto; padding: 10px 20px; font-size: 110%;">
+                  <div style="border: 2px solid #ab915d; padding: 10px 20px;">
                     <h2 style="text-align: center; text-transform: uppercase; color: teal;">Welcome To Hadaf!</h2>
                     <p>
                         Congratulations! You're almost set to start using Hadaf.
@@ -47,6 +48,7 @@ const sendEmail = async (to: string, url: string, txt: string) => {
                     <a href=${url} style="background: crimson; text-decoration: none; color: white; padding: 10px 20px; margin: 10px 0; display: inline-block;">${txt}</a>
                     <p>If the button doesn't work for any reason, you can also click on the link below</p>
                     <div>${url}</div>
+                  </div>
                 </div>
             `,
     };
