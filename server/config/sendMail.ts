@@ -37,7 +37,7 @@ const sendEmail = async (to: string, url: string, txt: string) => {
       to: to,
       subject: "HADAF - Validation your email address",
       html: `
-                <div style="max-width: 700px; margin: auto; padding: 10px 20px; font-size: 110%;">
+                <div style="max-width: 700px; background: #0f1f2f; margin: auto; padding: 10px 20px; font-size: 110%;">
                   <div style="border: 2px solid #ab915d; padding: 10px 20px;">
                     <h1 style="color: #ab915d; font-size: 30px; text-transform: uppercase; font-weight: 700; padding-bottom: 0.35rem;">HADAF</h1>
                     <h2 style="text-align: center; text-transform: uppercase; color: teal;">Welcome To Hadaf!</h2>
