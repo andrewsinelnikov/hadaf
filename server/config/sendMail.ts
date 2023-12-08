@@ -46,7 +46,7 @@ const sendEmail = async (to: string, url: string, txt: string) => {
                         Just click the button below to validate your email address.
                     </p>
 
-                    <a href=${url} style="background: crimson; text-decoration: none; color: white; padding: 10px 20px; margin: 10px 0; display: inline-block;">${txt}</a>
+                    <a href=${url} style="border: 2px solid #ab915d; font-size: 16px; font-weight: 400; text-align: center; text-decoration: none; color: #e7e0b9; padding: 10px 20px; margin: 10px; display: inline-block;">${txt}</a>
                     <p>If the button doesn't work for any reason, you can also click on the link below</p>
                     <a href=${url} style="text-decoration: underline;">Validate your email address</a>
                   </div>
