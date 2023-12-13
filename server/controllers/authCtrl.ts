@@ -115,9 +115,7 @@ const authCtrl = {
       );
       if (!decoded.id) return res.status(400).json({ msg: "Please, log in" });
 
-      const user = await Users.findById(decoded.id).select(
-        "-password +rf_token"
-      );
+      const user = await Users.findById(decoded.id).select("-password");
       //   "-password +rf_token"
       // );
       if (!user)
