@@ -17,9 +17,6 @@ const App = () => {
 
   useEffect(() => {
     dispatch(refreshToken());
-  }, [dispatch]);
-
-  useEffect(() => {
     if (auth.access_token) {
       dispatch(getCurrentGoals(auth.access_token));
       dispatch(getCurrentPlans(auth.access_token));
