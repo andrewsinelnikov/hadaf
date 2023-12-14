@@ -108,12 +108,12 @@ const authCtrl = {
   refreshToken: async (req: Request, res: Response) => {
     try {
       const rf_token = req.cookies.refreshtoken;
-      if (!rf_token) return res.status(400).json({ msg: "Please, log in" });
+      if (!rf_token) return res.status(400).json({ msg: "Please, log in 1" });
 
       const decoded = <IDecodedToken>(
         jwt.verify(rf_token, `${process.env.REFRESH_TOKEN_SECRET}`)
       );
-      if (!decoded.id) return res.status(400).json({ msg: "Please, log in" });
+      if (!decoded.id) return res.status(400).json({ msg: "Please, log in 2" });
 
       const user = await Users.findById(decoded.id).select("-password");
       //   "-password +rf_token"
@@ -122,15 +122,15 @@ const authCtrl = {
         return res.status(400).json({ msg: "The account does not exist" });
 
       if (rf_token !== user.rf_token)
-        return res.status(400).json({ msg: "Please, log in" });
+        return res.status(400).json({ msg: "Please, log in 3" });
 
       const access_token = generateAccessToken({ id: user._id });
-      const refresh_token = generateRefreshToken({ id: user._id }, res);
+      // const refresh_token = generateRefreshToken({ id: user._id }, res);
 
-      await Users.findOneAndUpdate(
-        { _id: user._id },
-        { rf_token: refresh_token }
-      );
+      // await Users.findOneAndUpdate(
+      //   { _id: user._id },
+      //   { rf_token: refresh_token }
+      // );
 
       return res.json({ access_token, user });
     } catch (err: any) {
