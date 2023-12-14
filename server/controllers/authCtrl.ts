@@ -121,8 +121,8 @@ const authCtrl = {
       if (!user)
         return res.status(400).json({ msg: "The account does not exist" });
 
-      if (rf_token !== user.rf_token)
-        return res.status(400).json({ msg: "Please, log in 3" });
+      // if (rf_token !== user.rf_token)
+      //   return res.status(400).json({ msg: "Please, log in 3" });
 
       const access_token = generateAccessToken({ id: user._id });
       // const refresh_token = generateRefreshToken({ id: user._id }, res);
