@@ -33,9 +33,9 @@ const Plans: React.FC = () => {
 
   const [type, setType] = useState("week");
 
-  useEffect(() => {
-    if (!auth.access_token) navigate("/login");
-  }, [auth.access_token, navigate]);
+  // useEffect(() => {
+  //   if (!auth.access_token) navigate("/login");
+  // }, [auth.access_token, navigate]);
 
   const [goalsWithPlans, setGoalsWithPlans] = useState<Array<IItem>>([]);
   const [goalsWithNoPlans, setGoalsWithNoPlans] = useState<Array<IItem>>([]);
@@ -259,6 +259,9 @@ const Plans: React.FC = () => {
     // setPlanItem("");
     // }
   };
+
+  if (!auth.access_token) navigate("/login");
+
   return (
     <UserLayout navbarType={1}>
       <div className='profile'>
