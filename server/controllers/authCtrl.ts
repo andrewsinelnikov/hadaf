@@ -98,7 +98,7 @@ const authCtrl = {
     //   return res.status(400).json({ msg: "Invalid Authentication" });
     try {
       res.clearCookie("refreshtoken", { path: `/api/refresh_token` });
-      await Users.findOneAndUpdate({ _id: req.user?._id }, { rf_token: "" });
+      // await Users.findOneAndUpdate({ _id: req.user?._id }, { rf_token: "" });
 
       return res.json({ msg: "Logged out" });
     } catch (err: any) {
