@@ -132,7 +132,7 @@ const authCtrl = {
       //   { rf_token: refresh_token }
       // );
 
-      return res.json({ access_token, user });
+      res.json({ access_token, user });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }
