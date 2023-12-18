@@ -268,14 +268,21 @@ const loginUser = async (user: IUser, password: string, res: Response) => {
   }
 
   const access_token = generateAccessToken({ id: user._id });
-  const refresh_token = generateRefreshToken({ id: user._id }, res);
+  const refresh_token = generateRefreshToken({ id: user._id });
+  // const refresh_token = generateRefreshToken({ id: user._id }, res);
 
-  await Users.findOneAndUpdate(
-    { _id: user._id },
-    {
-      rf_token: refresh_token,
-    }
-  );
+  // await Users.findOneAndUpdate(
+  //   { _id: user._id },
+  //   {
+  //     rf_token: refresh_token,
+  //   }
+  // );
+
+  res.cookie("refreshtoken", refresh_token, {
+    httpOnly: true,
+    path: `/api/refresh_token`,
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+  });
 
   res.json({
     msg: "Login Success",
