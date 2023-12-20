@@ -115,22 +115,22 @@ const authCtrl = {
       );
       if (!decoded.id) return res.status(400).json({ msg: "Please, log in 2" });
 
-      const user = await Users.findById(decoded.id).select("-password");
+      const user = await Users.findById(decoded.id).select("-password +rf_token");
       //   "-password +rf_token"
       // );
       if (!user)
         return res.status(400).json({ msg: "The account does not exist" });
 
-      // if (rf_token !== user.rf_token)
-      //   return res.status(400).json({ msg: "Please, log in 3" });
+      if (rf_token !== user.rf_token)
+        return res.status(400).json({ msg: "Please, log in 3" });
 
       const access_token = generateAccessToken({ id: user._id });
-      // const refresh_token = generateRefreshToken({ id: user._id }, res);
+      const refresh_token = generateRefreshToken({ id: user._id }, res);
 
-      // await Users.findOneAndUpdate(
-      //   { _id: user._id },
-      //   { rf_token: refresh_token }
-      // );
+      await Users.findOneAndUpdate(
+        { _id: user._id },
+        { rf_token: refresh_token }
+      );
 
       res.json({ access_token, user });
     } catch (err: any) {
