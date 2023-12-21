@@ -115,7 +115,9 @@ const authCtrl = {
       );
       if (!decoded.id) return res.status(400).json({ msg: "Please, log in 2" });
 
-      const user = await Users.findById(decoded.id).select("-password +rf_token");
+      const user = await Users.findById(decoded.id).select(
+        "-password +rf_token"
+      );
       //   "-password +rf_token"
       // );
       if (!user)
@@ -268,21 +270,20 @@ const loginUser = async (user: IUser, password: string, res: Response) => {
   }
 
   const access_token = generateAccessToken({ id: user._id });
-  const refresh_token = generateRefreshToken({ id: user._id });
-  // const refresh_token = generateRefreshToken({ id: user._id }, res);
+  const refresh_token = generateRefreshToken({ id: user._id }, res);
 
-  // await Users.findOneAndUpdate(
-  //   { _id: user._id },
-  //   {
-  //     rf_token: refresh_token,
-  //   }
-  // );
+  await Users.findOneAndUpdate(
+    { _id: user._id },
+    {
+      rf_token: refresh_token,
+    }
+  );
 
-  res.cookie("refreshtoken", refresh_token, {
-    httpOnly: true,
-    path: `/api/refresh_token`,
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-  });
+  // res.cookie("refreshtoken", refresh_token, {
+  //   httpOnly: true,
+  //   path: `/api/refresh_token`,
+  //   maxAge: 30 * 24 * 60 * 60 * 1000,
+  // });
 
   res.json({
     msg: "Login Success",
