@@ -296,20 +296,19 @@ const registerUser = async (user: IUserParams, res: Response) => {
   const newUser = new Users(user);
 
   const access_token = generateAccessToken({ id: newUser._id });
-  const refresh_token = generateRefreshToken({ id: newUser._id });
-  // const refresh_token = generateRefreshToken({ id: newUser._id }, res);
+  const refresh_token = generateRefreshToken({ id: newUser._id }, res);
 
-  // newUser.rf_token = refresh_token;
-  // await newUser.save();
+  newUser.rf_token = refresh_token;
+  await newUser.save();
 
-  res.cookie("refreshtoken", refresh_token, {
-    httpOnly: true,
-    path: `/api/refresh_token`,
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-  });
+  // res.cookie("refreshtoken", refresh_token, {
+  //   httpOnly: true,
+  //   path: `/api/refresh_token`,
+  //   maxAge: 30 * 24 * 60 * 60 * 1000,
+  // });
 
   res.json({
-    msg: "Login Success",
+    msg: "Register Success",
     access_token,
     user: { ...newUser._doc, password: "" },
   });
