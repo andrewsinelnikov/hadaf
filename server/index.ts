@@ -4,7 +4,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
-import routes from "./routes";
+import routes from "./routes/index";
 
 // Init Middleware
 const app = express();
@@ -16,12 +16,13 @@ app.use(cookieParser());
 
 // Define Routes
 // app.get("/", (req, res) => res.json({ msg: "API Running" }));
-app.use("/api", routes.authRoute);
-app.use("/api", routes.userRoute);
-app.use("/api", routes.categoryRoute);
-app.use("/api", routes.goalRoute);
-app.use("/api", routes.planRoute);
-app.use("/api", routes.dayRoute);
+app.use("/api", routes);
+// app.use("/api", routes.authRoute);
+// app.use("/api", routes.userRoute);
+// app.use("/api", routes.categoryRoute);
+// app.use("/api", routes.goalRoute);
+// app.use("/api", routes.planRoute);
+// app.use("/api", routes.dayRoute);
 
 // Connect Database
 import "./config/database";
