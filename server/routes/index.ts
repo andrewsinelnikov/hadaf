@@ -5,13 +5,13 @@ import goalRoute from "./goalRoute";
 import planRoute from "./planRoute";
 import dayRoute from "./dayRoute";
 
-const routes = {
+const routes = [
   authRoute,
   userRoute,
   goalRoute,
   planRoute,
   dayRoute,
   categoryRoute,
-};
+];
 
 export default routes;
