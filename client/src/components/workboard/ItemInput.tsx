@@ -268,7 +268,7 @@ const ItemInput: React.FC<IProps> = ({
       {itemType === "NoGoals" && addInput === false && (
         <div
           className='items-number'
-          onClick={() => navigate(`/goals`)}
+          // onClick={() => navigate(`/goals`)}
           style={{
             cursor: "pointer",
             display: "inline-block",
@@ -281,7 +281,7 @@ const ItemInput: React.FC<IProps> = ({
       {itemType === "NoPlans" && addInput === false && (
         <div
           className='items-number'
-          onClick={() => navigate(`/plans`)}
+          // onClick={() => navigate(`/plans`)}
           style={{
             cursor: "pointer",
             display: "inline-block",
