@@ -14,9 +14,9 @@ const Actions = () => {
   const { auth, plans } = useAppSelector((state: RootState) => state);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!auth.access_token) navigate("/login");
-  // }, [auth.access_token, navigate]);
+  useEffect(() => {
+    if (!auth.access_token) navigate("/login");
+  }, [auth.access_token, navigate]);
 
   const [action, setAction] = useState<string>("");
   const [actions, setActions] = useState<Array<IItem>>([]);
@@ -33,7 +33,7 @@ const Actions = () => {
     // }
   };
 
-  if (!auth.access_token) navigate("/login");
+  // if (!auth.access_token) navigate("/login");
 
   return (
     <UserLayout navbarType={1}>
