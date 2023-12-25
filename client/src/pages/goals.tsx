@@ -37,9 +37,9 @@ const Goals = () => {
   const date = new Date();
   let season = getSeason(date);
 
-  // useEffect(() => {
-  //   if (!auth.access_token) navigate("/login");
-  // }, [auth.access_token, navigate]);
+  useEffect(() => {
+    if (!auth.access_token) navigate("/login");
+  }, [auth.access_token, navigate]);
 
   const addGoal = (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,7 +53,7 @@ const Goals = () => {
     setMyGoals([...myGoals, goal]);
   };
 
-  if (!auth.access_token) navigate("/login");
+  // if (!auth.access_token) navigate("/login");
 
   return (
     <UserLayout navbarType={1}>
