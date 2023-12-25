@@ -18,11 +18,6 @@ app.use(cookieParser());
 // app.get("/", (req, res) => res.json({ msg: "API Running" }));
 app.use("/api", routes);
 // app.use("/api", routes.authRoute);
-// app.use("/api", routes.userRoute);
-// app.use("/api", routes.categoryRoute);
-// app.use("/api", routes.goalRoute);
-// app.use("/api", routes.planRoute);
-// app.use("/api", routes.dayRoute);
 
 // Connect Database
 import "./config/database";
