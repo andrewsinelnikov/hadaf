@@ -66,10 +66,10 @@ export const logout =
 
     try {
       localStorage.removeItem("logged");
-      // dispatch({ type: AUTH, payload: {} });
-      // await getAPI("logout", access_token);
-      await getAPI("logout");
-      window.location.href = "/";
+      dispatch({ type: AUTH, payload: {} });
+      await getAPI("logout", access_token);
+      // await getAPI("logout");
+      // window.location.href = "/";
     } catch (err: any) {
       dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
     }
