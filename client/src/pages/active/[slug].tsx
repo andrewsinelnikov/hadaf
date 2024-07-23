@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 import { IParams } from "../../utils/TypeScript";
@@ -9,9 +9,11 @@ const Active = () => {
   const { slug }: IParams = useParams<keyof IParams>() as IParams;
   const [err, setErr] = useState("");
   const [success, setSuccess] = useState("");
+  const hasFetched = useRef(false);
 
   useEffect(() => {
     if (slug) {
+      hasFetched.current = true;
       postAPI("active", { active_token: slug })
         .then((res) => setSuccess(res.data.msg))
         .catch((err) => setErr(err.response.data.msg));
