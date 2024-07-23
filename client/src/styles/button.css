@@ -1,0 +1,103 @@
+.btn {
+  width: 100%;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--lightdark-color);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background: var(--darklight-color);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  padding: 0.35rem 0.75rem;
+  margin-top: 4px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+  appearance: button;
+  -webkit-appearance: button;
+}
+
+.btn:hover {
+  background: var(--dark-color);
+}
+
+.btn:focus {
+  outline-color: var(--dark-color);
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.btn-md {
+  width: 30%;
+  margin-right: 2rem;
+}
+
+.btn-auto {
+  width: auto;
+  display: inline-block;
+  padding: 1px 12px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.btn-action {
+  color: var(--lightdark-color);
+  margin-right: 8px;
+}
+
+.btn-dark {
+  background: transparent;
+  border: 2px solid var(--darklight-color);
+}
+
+.btn-dark:hover {
+  background: var(--darklight-color);
+  color: var(--lightdark-color);
+}
+
+.btn-success {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+}
+
+.btn-success:hover {
+  background: var(--primary-color);
+  color: var(--dark-color);
+}
+
+.btn-time {
+  width: auto;
+  text-transform: capitalize;
+  color: var(--light-color);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  padding-bottom: 1px;
+  margin: 0;
+  margin-left: 16px;
+}
+
+.btn-time:hover {
+  color: var(--lightdark-color);
+}
+
+.time-active {
+  color: var(--lightdark-color);
+  border-bottom: 1px solid var(--lightdark-color);
+  padding-bottom: 0;
+  pointer-events: none;
+}
+
+.time-active:hover {
+  color: var(--lightdark-color);
+}
