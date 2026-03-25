@@ -57,23 +57,24 @@ const Plans: React.FC = () => {
       const data = goals.filter((goal) =>
         plans.some((plan) => plan.goal === goal._id)
       );
-      goalsWithPlans.push(...data);
       const data2 = goals.filter(
         (goal) => !data.some((plan) => plan._id === goal._id)
       );
-      goalsWithNoPlans.push(...data2);
 
-      if (goalsWithPlans.length > 0) {
-        if (plans.every((item) => item.goal !== goalsWithPlans[0]._id)) {
-          dispatch(getPlansByGoal(goalsWithPlans[0]._id!, auth.access_token!));
+      setGoalsWithPlans(data);
+      setGoalsWithNoPlans(data2);
+
+      if (data.length > 0) {
+        if (plans.every((item) => item.goal !== data[0]._id)) {
+          dispatch(getPlansByGoal(data[0]._id!, auth.access_token!));
         } else {
           const data3 = plans.filter(
-            (item) => item.goal === goalsWithPlans[0]._id
+            (item) => item.goal === data[0]._id
           );
           if (!data3) return;
           setGoalPlans(data3);
         }
-        setActiveGoal(goalsWithPlans[0]._id!);
+        setActiveGoal(data[0]._id!);
       }
     }
   }, [goals, plans]);
