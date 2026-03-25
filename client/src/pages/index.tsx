@@ -27,15 +27,18 @@ const Home = () => {
   return (
     <HomePageLayout>
       <div className='home-left'>
-        <h1>life is going</h1>
+        <h1>life<br />is<br />going</h1>
+        <p className='home-tagline'>Your time. Your goals. Your season.</p>
       </div>
       <div className='home-right'>
-        <p>The day ends in</p>
-        <Countdown date={endOfDay()} />
-        <p>
-          What are you <br /> waiting for?
+        <p className='home-eyebrow'>The day ends in</p>
+        <div className='home-countdown'>
+          <Countdown date={endOfDay()} />
+        </div>
+        <p className='home-question'>
+          What are you<br />waiting for?
         </p>
-        <p>
+        <div className='home-actions'>
           <a
             href={wasters[randomNum(wasters)]}
             target='_blank'
@@ -46,11 +49,8 @@ const Home = () => {
           <Link to='/login' className='btn btn-md btn-success'>
             Start now
           </Link>
-        </p>
+        </div>
       </div>
-      {/* Today <Countdown date={endOfDay()} />
-      Week <Countdown date={endOfWeek()} />
-      Season <Countdown date={endOfSeason()} /> */}
     </HomePageLayout>
   );
 };
