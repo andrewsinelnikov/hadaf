@@ -1,11 +1,8 @@
 .add,
 .add-area {
   position: fixed;
-  /* height: 124px; */
   bottom: 0px;
   max-width: 810px;
-  /* max-width: 846px; */
-  /* max-width: 786px; */
   width: 100%;
   margin-left: 330px;
   background-color: var(--dark-color);
@@ -13,6 +10,30 @@
 
 .add {
   height: 134px;
+}
+
+.add--short {
+  height: 90px;
+}
+
+.add--collapsed {
+  width: auto;
+  height: auto;
+  bottom: 80px;
+  margin-left: auto;
+  right: 24px;
+}
+
+@media (max-width: 768px) {
+  .add,
+  .add-area {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .add--collapsed {
+    right: 16px;
+  }
 }
 
 .add-area {
