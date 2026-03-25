@@ -24,6 +24,13 @@
   line-height: 1.2;
 }
 
+.countdown-days {
+  font-size: 1.4em;
+  display: block;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
 .reminder-message {
   font-size: 24px;
   font-weight: 700;
@@ -34,10 +41,20 @@
     -1px 1px 0 var(--primary-color), 1px 1px 0 var(--primary-color);
 }
 
-/* @supports (-webkit-text-stroke: 1px var(--primary-color)) {
-  .reminder-message {
-    -webkit-text-stroke: 1px var(--primary-color);
-    -webkit-text-fill-color: var(--dark-color);
-    text-shadow: none;
+@media (max-width: 768px) {
+  .reminder {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
-} */
+
+  .reminder-time {
+    min-width: unset;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .reminder-message {
+    font-size: 18px;
+  }
+}
