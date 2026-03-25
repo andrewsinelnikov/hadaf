@@ -139,11 +139,6 @@ const ItemInput: React.FC<IProps> = ({
     }
   }, [selectInput, elementInput]);
 
-  useEffect(() => {
-    // Trigger a re-render when the `selectInput` state changes
-    console.log("Select Input:", selectInput);
-  }, [selectInput]);
-
   const selectChange = (e: InputChange) => {
     setSelectPeriod(e.target.value);
   };
@@ -170,53 +165,16 @@ const ItemInput: React.FC<IProps> = ({
     );
   };
 
-  const Greeting = () => {
-    if (selectInput) {
-      return (
-        <select>
-          <option>Option 1</option>
-          <option>Option 2</option>
-        </select>
-      );
-    }
-    return <input type='text' placeholder={`Type a ${itemType}...`} />;
-  };
-  const renderInput = () => {
-    if (selectInput === true) {
-      return (
-        // <select>
-        //   <option>Option 1</option>
-        //   <option>Option 2</option>
-        //   <option>Option 3</option>
-        //   <option>Option 4</option>
-        // </select>
-        <div>I</div>
-      );
-    } else {
-      // return <input type='text' placeholder={`Type a ${itemType}...`} />;
-      return <div>OK</div>;
-    }
+  const getFormClassName = () => {
+    const classes = ["add"];
+    if (addInput === false) classes.push("add--collapsed");
+    if (itemType === "Step" || itemType === "Todo") classes.push("add--short");
+    return classes.join(" ");
   };
 
   return (
     <form
-      className='add'
-      style={{
-        height: `${
-          (addInput === false && "auto") ||
-          ((itemType === "Step" || itemType === "Todo") && "90px")
-        }`,
-        width: `${addInput === false ? "auto" : "100%"}`,
-        bottom: `${addInput === false ? "80px" : "0px"}`,
-        marginLeft: `${
-          (itemType === "Step" && addInput === false && "932px") ||
-          (itemType === "NoGoals" && addInput === false && "995px") ||
-          (itemType === "NoPlans" && addInput === false && "970px") ||
-          (itemType === "Plan" && addInput === false && "910px") ||
-          (itemType === "Task" && (selectInput ? "898px" : "973px")) ||
-          "330px"
-        }`,
-      }}
+      className={getFormClassName()}
       onSubmit={(e) => {
         handleAdd && handleAdd(e);
         setText("");
