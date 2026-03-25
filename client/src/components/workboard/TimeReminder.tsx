@@ -77,7 +77,7 @@ const TimeReminder = ({
               return (
                 <>
                   <p>The season ends in</p>
-                  <Countdown date={endOfSeason()} setDays={setDays} />
+                  <Countdown date={endOfSeason()} setDays={setDays} showDays={true} />
                 </>
               );
             default:
