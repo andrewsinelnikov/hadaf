@@ -22,33 +22,30 @@ const Login = () => {
     <Layout navbarType={0}>
       <div className='auth_page'>
         <div className='auth_box'>
-          <h3 className='auth_title'>Login</h3>
+          <div className='auth_header'>
+            <h3 className='auth_title'>Welcome back</h3>
+            <p className='auth_subtitle'>
+              New here?{" "}
+              <Link to='/register'>Create an account</Link>
+            </p>
+          </div>
 
           {sms ? <LoginSMS /> : <LoginPass />}
 
-          <small className='auth_forgot' style={{ cursor: "pointer" }}>
-            <span>
-              <Link to='/forgot_password'>Forgot password</Link>
-            </span>
-
-            <span onClick={(e) => setSms(!sms)}>
-              {sms ? "Sign in with password" : "Sign in with SMS"}
-            </span>
-          </small>
+          <div className='auth_links'>
+            <Link to='/forgot_password'>Forgot password?</Link>
+            <button
+              className='auth_mode_toggle'
+              onClick={() => setSms(!sms)}>
+              {sms ? "Use password instead" : "Sign in with SMS"}
+            </button>
+          </div>
 
           <div className='auth_divider'>
             <span>or</span>
           </div>
-          <LoginSocial />
 
-          <p style={{ marginTop: "1.5rem", textAlign: "center" }}>
-            {`Don't have an account? `}
-            <Link
-              to={`/register`}
-              style={{ fontWeight: "500", textTransform: "uppercase" }}>
-              Sign up
-            </Link>
-          </p>
+          <LoginSocial />
         </div>
       </div>
     </Layout>
