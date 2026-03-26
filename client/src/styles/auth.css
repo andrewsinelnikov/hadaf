@@ -281,6 +281,41 @@
 
 .auth_social {
   margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.auth_social_google_hidden {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.auth_google_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 100%;
+  height: 48px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.04em;
+  color: var(--lightdark-color);
+  background: rgba(231, 224, 185, 0.05);
+  border: 1px solid rgba(231, 224, 185, 0.12);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth_google_btn:hover {
+  border-color: rgba(231, 224, 185, 0.25);
+  background: rgba(231, 224, 185, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* ── Footer note ── */
