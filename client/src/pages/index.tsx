@@ -28,7 +28,7 @@ const Home = () => {
     <HomePageLayout>
       <div className='home-left'>
         <h1>life<br />is<br />going</h1>
-        <p className='home-tagline'>Your time. Your goals. Your season.</p>
+        <p className='home-tagline'>Your time. Your goals. Your result.</p>
       </div>
       <div className='home-right'>
         <p className='home-eyebrow'>The day ends in</p>
