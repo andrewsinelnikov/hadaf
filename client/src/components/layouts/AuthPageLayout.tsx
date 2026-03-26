@@ -1,14 +1,14 @@
 import React from "react";
-import Footer from "../global/Footer";
 
-const AuthPageLayout: React.FC<{}> = (props) => {
-  // https://stackoverflow.com/questions/65605219/rendre-footer-component-all-page-except-404-pages-in-react
+interface IProps {
+  children: React.ReactNode;
+}
 
+const AuthPageLayout: React.FC<IProps> = ({ children }) => {
   return (
-    <>
-      <div className='container'>{props.children}</div>
-      <Footer />
-    </>
+    <div className='auth_layout'>
+      {children}
+    </div>
   );
 };
 
