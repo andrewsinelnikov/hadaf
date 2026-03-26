@@ -4,9 +4,10 @@ interface IProps {
   date: Date;
   setDays?: React.Dispatch<React.SetStateAction<number>>;
   showDays?: boolean;
+  showLabels?: boolean;
 }
 
-const Countdown = ({ date, setDays, showDays = false }: IProps) => {
+const Countdown = ({ date, setDays, showDays = false, showLabels = false }: IProps) => {
   const countdownTime = date.getTime();
   const [left, setLeft] = useState({
     days: 0,
@@ -46,27 +47,57 @@ const Countdown = ({ date, setDays, showDays = false }: IProps) => {
     }
   };
 
+  const pad = (n: number) => (n > 9 ? `${n}` : `0${n}`);
+
   if (expired) return <p>—</p>;
+
+  if (showLabels) {
+    return (
+      <div className='countdown-labeled'>
+        {showDays && left.days > 0 && (
+          <>
+            <div className='countdown-unit'>
+              <span className='countdown-value'>{pad(left.days)}</span>
+              <span className='countdown-label'>days</span>
+            </div>
+            <span className='countdown-sep'>:</span>
+          </>
+        )}
+        <div className='countdown-unit'>
+          <span className='countdown-value'>{pad(left.hours)}</span>
+          <span className='countdown-label'>hours</span>
+        </div>
+        <span className='countdown-sep'>:</span>
+        <div className='countdown-unit'>
+          <span className='countdown-value'>{pad(left.minutes)}</span>
+          <span className='countdown-label'>min</span>
+        </div>
+        <span className='countdown-sep'>:</span>
+        <div className='countdown-unit'>
+          <span className='countdown-value'>{pad(left.seconds)}</span>
+          <span className='countdown-label'>sec</span>
+        </div>
+      </div>
+    );
+  }
 
   if (showDays && left.days > 0) {
     return (
       <p>
-        <span className="countdown-days">
+        <span className='countdown-days'>
           {left.days === 1 ? "1 day" : `${left.days} days`}
         </span>
         {" "}
-        {(left.hours > 9 ? left.hours : `0${left.hours}`)}:
-        {(left.minutes > 9 ? left.minutes : `0${left.minutes}`)}:
-        {(left.seconds > 9 ? left.seconds : `0${left.seconds}`)}
+        {pad(left.hours)}:{pad(left.minutes)}:{pad(left.seconds)}
       </p>
     );
   }
 
   return (
     <p>
-      {(left.hours > 9 ? left.hours : `0${left.hours}`) || "00"}:
-      {(left.minutes > 9 ? left.minutes : `0${left.minutes}`) || "00"}:
-      {(left.seconds > 9 ? left.seconds : `0${left.seconds}`) || "00"}
+      {pad(left.hours) || "00"}:
+      {pad(left.minutes) || "00"}:
+      {pad(left.seconds) || "00"}
     </p>
   );
 };
