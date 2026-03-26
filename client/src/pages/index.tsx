@@ -33,7 +33,7 @@ const Home = () => {
       <div className='home-right'>
         <p className='home-eyebrow'>The day ends in</p>
         <div className='home-countdown'>
-          <Countdown date={endOfDay()} />
+          <Countdown date={endOfDay()} showLabels={true} />
         </div>
         <p className='home-question'>
           What are you<br />waiting for?

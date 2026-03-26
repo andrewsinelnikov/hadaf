@@ -129,6 +129,48 @@
   margin: 0;
 }
 
+.countdown-labeled {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-value {
+  font-size: clamp(52px, 8vw, 112px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--lightdark-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+  font-size: clamp(9px, 0.85vw, 12px);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lightdark-30-color);
+  margin-top: 6px;
+  width: 100%;
+  text-align: center;
+}
+
+.countdown-sep {
+  font-size: clamp(52px, 8vw, 112px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--lightdark-30-color);
+  padding: 0 2px;
+  align-self: flex-start;
+  margin-top: -0.05em;
+}
+
 .home-question {
   margin-top: 2rem;
   font-size: clamp(22px, 3vw, 38px);
