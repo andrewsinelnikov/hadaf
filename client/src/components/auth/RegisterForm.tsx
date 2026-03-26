@@ -13,7 +13,7 @@ const RegisterForm = () => {
   const [typeCfPass, setTypeCfPass] = useState(false);
 
   const dispatch = useAppDispatch();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChangeInput = (e: InputChange) => {
     const { value, name } = e.target;
@@ -23,13 +23,13 @@ const RegisterForm = () => {
   const handleSubmit = (e: FormSubmit) => {
     e.preventDefault();
     dispatch(register(userRegister));
-
     navigate("/login");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className='form-group'>
+        <label className='form-label' htmlFor='name'>Full name</label>
         <input
           type='text'
           className='form-control'
@@ -37,11 +37,14 @@ const RegisterForm = () => {
           id='name'
           value={name}
           onChange={handleChangeInput}
-          placeholder='Full Name (up to 25 characters)'
+          placeholder='Your name'
+          autoComplete='name'
+          maxLength={25}
         />
       </div>
 
       <div className='form-group'>
+        <label className='form-label' htmlFor='account'>Email or phone</label>
         <input
           type='text'
           className='form-control'
@@ -49,11 +52,13 @@ const RegisterForm = () => {
           id='account'
           value={account}
           onChange={handleChangeInput}
-          placeholder='Email or Mobile number'
+          placeholder='you@example.com'
+          autoComplete='username'
         />
       </div>
 
       <div className='form-group'>
+        <label className='form-label' htmlFor='password'>Password</label>
         <div className='pass'>
           <input
             type={typePass ? "text" : "password"}
@@ -62,20 +67,20 @@ const RegisterForm = () => {
             id='password'
             value={password}
             onChange={handleChangeInput}
-            placeholder='Password (8 or more characters)'
+            placeholder='8 or more characters'
+            autoComplete='new-password'
           />
-          <small onClick={(e) => setTypePass(!typePass)}>
-            {/* {typePass ? "Hide" : "Show"} */}
-            {typePass ? (
-              <i className='fa-solid fa-eye-slash' />
-            ) : (
-              <i className='fa-solid fa-eye' />
-            )}
+          <small onClick={() => setTypePass(!typePass)}>
+            {typePass
+              ? <i className='fa-solid fa-eye-slash' />
+              : <i className='fa-solid fa-eye' />
+            }
           </small>
         </div>
       </div>
 
       <div className='form-group'>
+        <label className='form-label' htmlFor='cf_password'>Confirm password</label>
         <div className='pass'>
           <input
             type={typeCfPass ? "text" : "password"}
@@ -84,23 +89,23 @@ const RegisterForm = () => {
             id='cf_password'
             value={cf_password}
             onChange={handleChangeInput}
-            placeholder='Confirm Password'
+            placeholder='••••••••'
+            autoComplete='new-password'
           />
-          <small onClick={(e) => setTypeCfPass(!typeCfPass)}>
-            {typeCfPass ? (
-              <i className='fa-solid fa-eye-slash' />
-            ) : (
-              <i className='fa-solid fa-eye' />
-            )}
+          <small onClick={() => setTypeCfPass(!typeCfPass)}>
+            {typeCfPass
+              ? <i className='fa-solid fa-eye-slash' />
+              : <i className='fa-solid fa-eye' />
+            }
           </small>
         </div>
       </div>
 
       <button
         type='submit'
-        disabled={name && account && password && cf_password ? false : true}
+        disabled={!name || !account || !password || !cf_password}
         className='btn'>
-        Join
+        Create account
       </button>
     </form>
   );
