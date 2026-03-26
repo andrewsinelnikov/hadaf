@@ -16,19 +16,21 @@ const LoginSMS = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='form-group'>
+        <label className='form-label' htmlFor='phone'>Phone number</label>
         <input
-          type='text'
+          type='tel'
           className='form-control'
           name='phone'
           id='phone'
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          placeholder='Mobile Number (+012345678912)'
+          placeholder='+1 234 567 8900'
+          autoComplete='tel'
         />
       </div>
 
-      <button type='submit' className='btn' disabled={phone ? false : true}>
-        Sign in
+      <button type='submit' className='btn' disabled={!phone}>
+        Send code
       </button>
     </form>
   );
