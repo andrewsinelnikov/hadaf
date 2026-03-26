@@ -25,6 +25,7 @@ const LoginPass = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='form-group'>
+        <label className='form-label' htmlFor='account'>Email or phone</label>
         <input
           type='text'
           className='form-control'
@@ -32,11 +33,13 @@ const LoginPass = () => {
           id='account'
           value={account}
           onChange={handleChangeInput}
-          placeholder='Email or phone number'
+          placeholder='you@example.com'
+          autoComplete='username'
         />
       </div>
 
       <div className='form-group'>
+        <label className='form-label' htmlFor='password'>Password</label>
         <div className='pass'>
           <input
             type={typePass ? "text" : "password"}
@@ -45,15 +48,14 @@ const LoginPass = () => {
             id='password'
             value={password}
             onChange={handleChangeInput}
-            placeholder='Password'
+            placeholder='••••••••'
+            autoComplete='current-password'
           />
-          <small onClick={(e) => setTypePass(!typePass)}>
-            {/* {typePass ? "Hide" : "Show"} */}
-            {typePass ? (
-              <i className='fa-solid fa-eye-slash' />
-            ) : (
-              <i className='fa-solid fa-eye' />
-            )}
+          <small onClick={() => setTypePass(!typePass)}>
+            {typePass
+              ? <i className='fa-solid fa-eye-slash' />
+              : <i className='fa-solid fa-eye' />
+            }
           </small>
         </div>
       </div>
@@ -61,7 +63,7 @@ const LoginPass = () => {
       <button
         type='submit'
         className='btn'
-        disabled={account && password ? false : true}>
+        disabled={!account || !password}>
         Sign in
       </button>
     </form>
