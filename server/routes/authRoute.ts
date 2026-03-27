@@ -1,52 +1,56 @@
 import express from "express";
+import rateLimit from "express-rate-limit";
 import authCtrl from "../controllers/authCtrl";
-import { validateRegister } from "../middleware/valid";
+import auth from "../middleware/auth";
+import { validateRegister, validateLogin } from "../middleware/valid";
 
 const router = express.Router();
 
-// @route  POST api/register
-// @desc   Register user
-// @access Public
-router.post("/register", validateRegister, authCtrl.register);
+// Strict rate limit for auth endpoints (brute-force protection)
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 min
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { msg: "Too many attempts. Please try again in 15 minutes." },
+  skipSuccessfulRequests: true, // only count failures
+});
 
-// @route  POST api/active
-// @desc   Active account
-// @access Public
-router.post("/active", authCtrl.activeAccount);
+// Slightly more lenient limit for token refresh (called on every app load)
+const refreshLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
-// @route  POST api/login
-// @desc   Login user
-// @access Public
-router.post("/login", authCtrl.login);
+// ── Registration & activation ─────────────────────────────────────────────────
+// @route  POST /api/register
+router.post("/register", authLimiter, validateRegister, authCtrl.register);
 
-// @route  GET api/logout
-// @desc   Logout user
-// @access Public
-router.get("/logout", authCtrl.logout);
+// @route  POST /api/active
+router.post("/active", authLimiter, authCtrl.activeAccount);
 
-// @route  GET api/refresh_token
-// @desc   Refresh Token
-// @access Public
-router.get("/refresh_token", authCtrl.refreshToken);
+// ── Email / phone login ───────────────────────────────────────────────────────
+// @route  POST /api/login
+router.post("/login", authLimiter, validateLogin, authCtrl.login);
 
-// @route  POST api/google_login
-// @desc   Google Login
-// @access Public
-router.post("/google_login", authCtrl.googleLogin);
+// ── Session management ────────────────────────────────────────────────────────
+// @route  GET /api/logout
+router.get("/logout", auth, authCtrl.logout);
 
-// @route  POST api/facebook_login
-// @desc   Facebook Login
-// @access Public
-router.post("/facebook_login", authCtrl.facebookLogin);
+// @route  GET /api/refresh_token
+router.get("/refresh_token", refreshLimiter, authCtrl.refreshToken);
 
-// @route  POST api/login_sms
-// @desc   Login SMS
-// @access Public
-router.post("/login_sms", authCtrl.loginSMS);
+// ── Google OAuth ──────────────────────────────────────────────────────────────
+// @route  POST /api/google_login
+router.post("/google_login", authLimiter, authCtrl.googleLogin);
 
-// @route  POST api/sms_verify
-// @desc   SMS Verify
-// @access Public
-router.post("/sms_verify", authCtrl.smsVerify);
+// ── SMS OTP ───────────────────────────────────────────────────────────────────
+// @route  POST /api/login_sms
+router.post("/login_sms", authLimiter, authCtrl.loginSMS);
+
+// @route  POST /api/sms_verify
+router.post("/sms_verify", authLimiter, authCtrl.smsVerify);
 
 export default router;
