@@ -8,8 +8,8 @@ export interface IUser extends Document {
   image: string;
   usta: string;
   bbook: string;
-  role: string;
-  type: string;
+  role: "user" | "admin";
+  type: "register" | "google" | "sms";
   rf_token?: string;
   _doc: object;
 }
@@ -38,14 +38,8 @@ export interface IUserParams {
   name: string;
   account: string;
   password: string;
-  avatar?: string;
-  type: string;
-}
-
-export interface IFbData {
-  email: string;
-  name: string;
-  picture: { data: { url: string } };
+  image?: string;
+  type: "register" | "google" | "sms";
 }
 
 export interface IReqAuth extends Request {
@@ -69,6 +63,7 @@ export interface IPlan extends Document {
 }
 
 export interface IDay extends Document {
+  user: string;
   date: string;
   plans: Array<{ plan_id: string; done: boolean }>;
   _doc: object;
