@@ -5,18 +5,30 @@ import { IDecodedToken, IReqAuth } from "../config/interface";
 
 const auth = async (req: IReqAuth, res: Response, next: NextFunction) => {
   try {
-    const token = req.header("Authorization");
-    if (!token) return res.status(400).json({ msg: "Invalid Authentication" });
+    const authHeader = req.header("Authorization");
+    if (!authHeader || !authHeader.startsWith("Bearer "))
+      return res.status(401).json({ msg: "Invalid authentication" });
 
-    const decoded = <IDecodedToken>(
-      jwt.verify(token, `${process.env.ACCESS_TOKEN_SECRET}`)
-    );
-    if (!decoded)
-      return res.status(400).json({ msg: "Invalid Authentication" });
+    const token = authHeader.slice(7); // strip "Bearer "
 
-    // const user = await Users.findOne({ _id: decoded.id });
-    const user = await Users.findOne({ _id: decoded.id }).select("-password");
-    if (!user) return res.status(400).json({ msg: "User does not exist" });
+    let decoded: IDecodedToken;
+    try {
+      decoded = jwt.verify(
+        token,
+        `${process.env.ACCESS_TOKEN_SECRET}`
+      ) as IDecodedToken;
+    } catch {
+      return res
+        .status(401)
+        .json({ msg: "Session expired. Please sign in again." });
+    }
+
+    if (!decoded?.id)
+      return res.status(401).json({ msg: "Invalid authentication" });
+
+    const user = await Users.findById(decoded.id).select("-password");
+    if (!user)
+      return res.status(401).json({ msg: "Account no longer exists" });
 
     req.user = user;
     next();
