@@ -31,6 +31,7 @@ const Home = () => {
         <p className='home-tagline'>Your time. Your goals. Your result.</p>
       </div>
       <div className='home-right'>
+        <span className='home-mobile-heading'>life is going</span>
         <p className='home-eyebrow'>The day ends in</p>
         <div className='home-countdown'>
           <Countdown date={endOfDay()} showLabels={true} />

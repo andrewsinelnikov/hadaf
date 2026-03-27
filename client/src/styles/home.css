@@ -220,11 +220,16 @@
   color: var(--primary-color);
 }
 
+.home-mobile-heading {
+  display: none;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .home {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    height: auto;
+    min-height: calc(100vh - var(--nav-size));
   }
 
   .home::after {
@@ -232,36 +237,57 @@
   }
 
   .home-left {
-    padding: 3rem 2rem 2rem;
-    justify-content: flex-start;
-    animation-delay: 0s;
-  }
-
-  .home-left h1 {
-    font-size: clamp(56px, 16vw, 110px);
-  }
-
-  .home-tagline {
-    margin-top: 1rem;
+    display: none;
   }
 
   .home-right {
-    padding: 0 2rem 3rem;
-    animation-delay: 0.1s;
+    padding: 3rem 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation-delay: 0s;
+  }
+
+  .home-mobile-heading {
+    display: block;
+    font-size: clamp(36px, 10vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .countdown-labeled {
+    justify-content: center;
+  }
+
+  .countdown-value,
+  .countdown-sep,
+  .home-countdown p {
+    font-size: clamp(64px, 18vw, 100px);
+  }
+
+  .countdown-label {
+    font-size: clamp(9px, 2vw, 12px);
+    letter-spacing: 0.15em;
+  }
+
+  .home-question {
+    font-size: clamp(28px, 7vw, 42px);
+    margin-top: 1.5rem;
+  }
+
+  .home-actions {
+    justify-content: center;
+    margin-top: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .home-left {
-    padding: 2.5rem 1.5rem 1.5rem;
-  }
-
   .home-right {
-    padding: 0 1.5rem 2.5rem;
-  }
-
-  .home-question {
-    font-size: 20px;
+    padding: 2rem 1.5rem;
   }
 
   .home-actions {
