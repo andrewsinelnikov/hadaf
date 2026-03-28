@@ -27,12 +27,15 @@ app.use(helmet());
 const allowedOrigins = (process.env.ALLOWED_ORIGINS ?? "http://localhost:3000")
   .split(",")
   .map((o) => o.trim());
-
+ 
 app.use(
   cors({
     origin: (origin, cb) => {
-      // Allow requests with no origin (mobile apps, curl, Postman)
-      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+      // Allow requests with no origin (mobile apps, curl, Postman, server-to-server)
+      if (!origin) return cb(null, true);
+      if (allowedOrigins.includes(origin)) return cb(null, true);
+      // In development, be more permissive
+      if (process.env.NODE_ENV !== "production") return cb(null, true);
       cb(new Error(`CORS: origin ${origin} not allowed`));
     },
     credentials: true,
