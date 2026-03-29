@@ -1,64 +1,61 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { ALERT } from "../../redux/types/alertType";
 
 interface IProps {
-  title: string;
+  type: "success" | "error";
   body: string | string[];
-  bgColor: string;
 }
 
-const Toast = ({ title, body, bgColor }: IProps) => {
+const Toast = ({ type, body }: IProps) => {
   const dispatch = useDispatch();
-
-  const handleClose = () => {
-    dispatch({ type: ALERT, payload: {} });
-  };
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => dispatch({ type: ALERT, payload: {} }), 7000);
-  }, [dispatch]);
+    // Trigger entrance animation
+    const enterTimer = setTimeout(() => setVisible(true), 10);
+    // Auto-dismiss after 6s
+    const exitTimer = setTimeout(() => handleClose(), 6000);
+    return () => {
+      clearTimeout(enterTimer);
+      clearTimeout(exitTimer);
+    };
+  }, []);
+
+  const handleClose = () => {
+    setVisible(false);
+    setTimeout(() => dispatch({ type: ALERT, payload: {} }), 300);
+  };
+
+  const messages = typeof body === "string" ? [body] : body;
 
   return (
-    <div className='toast'>
-      <div className={`toast-box show`} style={{ background: `${bgColor}` }}>
-        <div className='toast-header' style={{ color: `${bgColor}` }}>
-          <strong>{title}</strong>
-          <button
-            type='button'
-            className='btn-close'
-            data-bs-dismiss='toast'
-            aria-label='Close'
-            onClick={handleClose}>
-            <i className='fa-solid fa-xmark fa-lg' />
-          </button>
-        </div>
-        <div className='toast-body'>
-          <div
-            className='toast-body-sign'
-            style={{
-              color: `${
-                title === "Success" ? "rgb(48, 206, 17)" : "rgb(210, 17, 17)"
-              }`,
-            }}>
-            {title === "Success" ? (
-              <i className='fa-solid fa-circle-check fa-2x' />
+    <div className={`toast-wrapper ${visible ? "toast-wrapper--visible" : ""}`}>
+      <div className={`toast-card toast-card--${type}`}>
+        <div className="toast-indicator" />
+        <div className="toast-content">
+          <div className="toast-icon">
+            {type === "success" ? (
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2.5 8.5L6.5 12.5L13.5 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             ) : (
-              <i className='fa-solid fa-circle-exclamation fa-2x' />
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 4v5M8 11.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
             )}
           </div>
-          <div className='toast-body-msg'>
-            {typeof body === "string" ? (
-              body
-            ) : (
-              <ul>
-                {body.map((text, index) => (
-                  <li key={index}>{text}</li>
-                ))}
-              </ul>
-            )}
+          <div className="toast-messages">
+            {messages.map((msg, i) => (
+              <p key={i} className="toast-message">{msg}</p>
+            ))}
           </div>
         </div>
+        <button className="toast-close" onClick={handleClose} aria-label="Dismiss">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </button>
       </div>
     </div>
   );
