@@ -10,28 +10,16 @@ export const Alert = () => {
   return (
     <>
       {alert.loading && <Loading />}
-      {alert.errors && (
-        <Toast
-          title='Errors'
-          body={alert.errors}
-          bgColor='linear-gradient(90deg, rgba(47, 15, 15, 0.9) 0%, rgba(15, 31, 47, 0.9) 100%)'
-        />
-      )}
-      {alert.success && (
-        <Toast
-          title='Success'
-          body={alert.success}
-          bgColor='linear-gradient(90deg, rgba(24, 47, 15, 0.9) 0%, rgba(15, 31, 47, 0.9) 100%)'
-        />
-      )}
+      {alert.errors && <Toast type="error" body={alert.errors} />}
+      {alert.success && <Toast type="success" body={alert.success} />}
     </>
   );
 };
 
-export const showErrMsg = (msg: string) => {
-  return <div className='errMsg'>{msg}</div>;
-};
+export const showErrMsg = (msg: string) => (
+  <p className="inline-msg inline-msg--error">{msg}</p>
+);
 
-export const showSuccessMsg = (msg: string) => {
-  return <div className='successMsg'>{msg}</div>;
-};
+export const showSuccessMsg = (msg: string) => (
+  <p className="inline-msg inline-msg--success">{msg}</p>
+);
