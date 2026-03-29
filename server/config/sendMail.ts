@@ -53,8 +53,16 @@ const sendEmail = async (to: string, url: string, txt: string) => {
                 </div>
             `,
     };
-
+    
+    console.log("MAIL DEBUG:", {
+  clientId: CLIENT_ID?.slice(0, 20),
+  hasSecret: !!CLIENT_SECRET,
+  hasRefreshToken: !!REFRESH_TOKEN,
+  sender: SENDER_EMAIL,
+});
     const result = await transport.sendMail(mailOptions);
+
+
     return result;
   } catch (err: any) {
     console.log(err);
