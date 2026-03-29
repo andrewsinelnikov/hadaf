@@ -1,105 +1,48 @@
+/* ── Loading overlay ── */
+
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
   position: fixed;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background: rgba(15, 31, 47, 0.5);
-  color: var(--lightdark-color);
-  top: 0;
-  left: 0;
-  z-index: 99;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 31, 47, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-.loading svg {
-  animation: upDown 1s ease-in-out infinite;
+.loading-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(15, 31, 47, 0.9);
+  border: 1px solid rgba(171, 145, 93, 0.2);
+  border-radius: 4px;
 }
 
-.loader-circle,
-.loader-pointer,
-.loader-line {
-  fill: none;
-  stroke-width: 4px;
-  stroke: var(--lightdark-color);
+.loading-clock {
+  overflow: visible;
 }
 
-.loader-circle {
-  stroke: var(--success-color);
+.loading-arc {
+  transform-origin: 32px 32px;
+  animation: loading-spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.loader-center {
-  fill: var(--lightdark-color);
+.loading-hour {
+  transform-origin: 32px 32px;
+  animation: loading-spin 6s linear infinite;
 }
 
-.loader-logo {
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  fill: var(--lightdark-color);
-  animation: text 8s ease-in infinite;
-  -moz-animation: text 8s ease-in infinite;
-  -webkit-animation: text 8s ease-in infinite;
+.loading-minute {
+  transform-origin: 32px 32px;
+  animation: loading-spin 1s linear infinite;
 }
 
-@keyframes text {
-  50% {
-    /* opacity: 0.1; */
-    fill: var(--success-color);
-  }
-}
-
-.loader-pointer {
-  -webkit-transform-origin: bottom center;
-  -moz-transform-origin: bottom center;
-  -ms-transform-origin: bottom center;
-  transform-origin: bottom center;
-  animation: spin 2s linear infinite;
-  -moz-animation: spin 2s linear infinite;
-  -webkit-animation: spin 2s linear infinite;
-}
-
-.loader-line {
-  -webkit-transform-origin: bottom center;
-  -moz-transform-origin: bottom center;
-  -ms-transform-origin: bottom center;
-  transform-origin: bottom center;
-  animation: spin 8s linear infinite;
-  -moz-animation: spin 8s linear infinite;
-  -webkit-animation: spin 8s linear infinite;
-}
-
-@-moz-keyframes spin {
-  from {
-    -moz-transform: rotate(0deg);
-    -moz-transform-origin: 50% 50%;
-  }
-  to {
-    -moz-transform: rotate(360deg);
-    -moz-transform-origin: 50% 50%;
-  }
-}
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-    -webkit-transform-origin: 50% 50%;
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    -webkit-transform-origin: 50% 50%;
-  }
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-    transform-origin: 50% 50%;
-  }
-  to {
-    transform: rotate(360deg);
-    transform-origin: 50% 50%;
-  }
+@keyframes loading-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
