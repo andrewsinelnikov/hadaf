@@ -106,7 +106,12 @@ const authCtrl = {
       const url = `${CLIENT_URL}/active/${active_token}`;
 
       if (validateEmail(account)) {
-        await sendEmail(account, url, "Verify your email address");
+        try {
+          await sendEmail(account, url, "Verify your email address");
+        } catch (mailErr: any) {
+          console.error("Email send failed:", mailErr.message);
+          return res.status(500).json({ msg: "Failed to send verification email. Please try again." });
+        }
         return res.json({
           msg: "Account created. Please check your email to activate it.",
         });

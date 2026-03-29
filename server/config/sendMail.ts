@@ -1,72 +1,43 @@
-const nodemailer = require("nodemailer");
-import { OAuth2Client } from "google-auth-library";
+import nodemailer from "nodemailer";
 
-const OAUTH_PLAYGROUND = "https://developers.google.com/oauthplayground";
-
-const CLIENT_ID = `${process.env.MAIL_CLIENT_ID}`;
-const CLIENT_SECRET = `${process.env.MAIL_CLIENT_SECRET}`;
-const REFRESH_TOKEN = `${process.env.MAIL_REFRESH_TOKEN}`;
-const SENDER_EMAIL = `${process.env.SENDER_EMAIL_ADDRESS}`;
-
-const sendEmail = async (to: string, url: string, txt: string) => {
-  const oAuth2Client = new OAuth2Client(
-    CLIENT_ID,
-    CLIENT_SECRET,
-    OAUTH_PLAYGROUND
-  );
-
-  oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-
-  try {
-    const access_token = await oAuth2Client.getAccessToken();
-
-    const transport = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        type: "OAuth2",
-        user: SENDER_EMAIL,
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
-        refreshToken: REFRESH_TOKEN,
-        access_token,
-      },
-    });
-
-    const mailOptions = {
-      from: SENDER_EMAIL,
-      to: to,
-      subject: "HADAF - Validation your email address",
-      html: `
-                <div style="max-width: 700px; background: #0f1f2f; color: #e7e0b9; margin: auto; padding: 10px 20px; font-size: 110%;">
-                  <div style="border: 2px solid #ab915d; padding: 10px 20px;">
-                    <h1 style="color: ##895602; font-size: 30px; text-transform: uppercase; font-weight: 700; padding-bottom: 0.35rem;">HADAF</h1>
-                    <h2 style="text-align: center; text-transform: uppercase; color: #ab915d;">Welcome To Hadaf!</h2>
-                    <p>
-                        Congratulations! You're almost set to start using Hadaf.
-                        Just click the button below to validate your email address.
-                    </p>
-
-                    <a href=${url} style="border: 2px solid #ab915d; font-size: 16px; font-weight: 400; text-align: center; text-decoration: none; color: #e7e0b9; padding: 10px 20px; margin: 10px; display: inline-block;">${txt}</a>
-                    <p>If the button doesn't work for any reason, you can also click on the link below</p>
-                    <a href=${url} style="text-decoration: underline;">Validate your email address</a>
-                  </div>
-                </div>
-            `,
-    };
-    
-    console.log("MAIL DEBUG:", {
-  clientId: CLIENT_ID?.slice(0, 20),
-  hasSecret: !!CLIENT_SECRET,
-  hasRefreshToken: !!REFRESH_TOKEN,
-  sender: SENDER_EMAIL,
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.SENDER_EMAIL_ADDRESS,
+    pass: process.env.SENDER_EMAIL_PASSWORD,
+  },
 });
-    const result = await transport.sendMail(mailOptions);
 
+const sendEmail = async (to: string, url: string, subject: string) => {
+  const mailOptions = {
+    from: `"Hadaf" <${process.env.SENDER_EMAIL_ADDRESS}>`,
+    to,
+    subject: `Hadaf — ${subject}`,
+    html: `
+      <div style="max-width:600px;margin:auto;background:#0f1f2f;color:#e7e0b9;padding:40px 32px;font-family:'Helvetica Neue',sans-serif;">
+        <div style="border:1px solid #ab915d;padding:32px;">
+          <h1 style="margin:0 0 4px;font-size:22px;letter-spacing:0.15em;text-transform:uppercase;color:#ab915d;">HADAF</h1>
+          <p style="margin:0 0 28px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(231,224,185,0.4);">
+            Your time. Your goals. Your result.
+          </p>
+          <h2 style="margin:0 0 16px;font-size:20px;font-weight:700;color:#e7e0b9;">${subject}</h2>
+          <p style="margin:0 0 28px;font-size:15px;line-height:1.6;color:rgba(231,224,185,0.7);">
+            You're almost set. Click the button below to activate your account and start working towards your goals.
+          </p>
+          <a href="${url}"
+             style="display:inline-block;padding:12px 28px;background:#ab915d;color:#0f1f2f;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-radius:2px;">
+            Activate account
+          </a>
+          <p style="margin:28px 0 0;font-size:12px;color:rgba(231,224,185,0.3);">
+            If the button doesn't work, copy this link into your browser:<br/>
+            <a href="${url}" style="color:rgba(171,145,93,0.6);word-break:break-all;">${url}</a>
+          </p>
+        </div>
+      </div>
+    `,
+  };
 
-    return result;
-  } catch (err: any) {
-    console.log(err);
-  }
+  await transporter.sendMail(mailOptions);
 };
 
 export default sendEmail;
