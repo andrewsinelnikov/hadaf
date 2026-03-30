@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { RootState } from "../../redux/store";
-import { IParams } from "../../utils/TypeScript";
+import { IParams } from "../../types";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { ALERT } from "../../redux/types/alertType";
 import { createPlanItem, getPlansByGoal } from "../../redux/actions/planAction";
@@ -10,7 +10,7 @@ import { createPlanItem, getPlansByGoal } from "../../redux/actions/planAction";
 import UserLayout from "../../components/layouts/UserLayout";
 import UserInfo from "../../components/profile/UserInfo";
 import TimeReminder from "../../components/workboard/TimeReminder";
-import { IItem } from "../../utils/TypeScript";
+import { IItem } from "../../types";
 import ItemList from "../../components/workboard/ItemList";
 import Footer from "../../components/global/Footer";
 import ItemInput from "../../components/workboard/ItemInput";
@@ -50,7 +50,7 @@ const PlanForGoal = () => {
     if (!auth.access_token) navigate("/login");
     if (!activeGoal) return;
     if (plansGoal.every((item) => item.goal !== activeGoal._id)) {
-      dispatch(getPlansByGoal(activeGoal._id!, auth.access_token!));
+      dispatch(getPlansByGoal(activeGoal._id!));
     } else {
       const data = plansGoal.find((item) => item.goal === activeGoal._id);
       if (!data) return;
@@ -66,9 +66,9 @@ const PlanForGoal = () => {
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
-    dispatch(createPlanItem(planItem, auth.access_token));
-    dispatch(updateGoal(planItem, auth.access_token, true));
-    dispatch(getPlansByGoal(activeGoal?._id!, auth.access_token!));
+    dispatch(createPlanItem(planItem));
+    dispatch(updateGoal(planItem, true));
+    dispatch(getPlansByGoal(activeGoal?._id!));
   };
 
   return (
