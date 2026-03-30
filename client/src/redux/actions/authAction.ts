@@ -1,11 +1,9 @@
 import { Dispatch } from "redux";
-import { AUTH, IAuthType } from "./../types/authType";
-import { ALERT, IAlertType } from "./../types/alertType";
-
-import { IUserLogin, IUserRegister } from "../../utils/TypeScript";
+import { AUTH, IAuthType } from "../types/authType";
+import { ALERT, IAlertType } from "../types/alertType";
+import { IUserLogin, IUserRegister } from "../../types";
 import { postAPI, getAPI } from "../../utils/FetchData";
 import { validateRegister, validatePhone } from "../../utils/Validate";
-import { checkTokenExp } from "../../utils/checkTokenExp";
 
 export const login =
   (userLogin: IUserLogin) =>
@@ -13,13 +11,11 @@ export const login =
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
       const res = await postAPI("login", userLogin);
-
       dispatch({ type: AUTH, payload: res.data });
-
       dispatch({ type: ALERT, payload: { success: res.data.msg } });
       localStorage.setItem("logged", "hadaf");
     } catch (err: any) {
-      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+      dispatch({ type: ALERT, payload: { errors: err.response?.data?.msg ?? "Login failed" } });
     }
   };
 
@@ -32,12 +28,10 @@ export const register =
 
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
-
       const res = await postAPI("register", userRegister);
-
       dispatch({ type: ALERT, payload: { success: res.data.msg } });
     } catch (err: any) {
-      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+      dispatch({ type: ALERT, payload: { errors: err.response?.data?.msg ?? "Registration failed" } });
     }
   };
 
@@ -48,105 +42,73 @@ export const refreshToken =
 
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
-
       const res = await getAPI("refresh_token");
-
       dispatch({ type: AUTH, payload: res.data });
-
       dispatch({ type: ALERT, payload: {} });
     } catch (err: any) {
-      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+      // Refresh failed on app load — clear silently, don't show error
+      localStorage.removeItem("logged");
+      dispatch({ type: AUTH, payload: {} });
+      dispatch({ type: ALERT, payload: {} });
     }
   };
 
 export const logout =
-  (token: string) => async (dispatch: Dispatch<IAuthType | IAlertType>) => {
-    const result = await checkTokenExp(token, dispatch);
-    const access_token = result ? result : token;
-
+  (token: string) =>
+  async (dispatch: Dispatch<IAuthType | IAlertType>) => {
     try {
       localStorage.removeItem("logged");
       dispatch({ type: AUTH, payload: {} });
-      await getAPI("logout", access_token);
-      // await getAPI("logout");
-      // window.location.href = "/";
+      await getAPI("logout");
     } catch (err: any) {
-      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+      dispatch({ type: ALERT, payload: { errors: err.response?.data?.msg ?? "Logout failed" } });
     }
   };
 
 export const googleLogin =
-  (id_token: string) => async (dispatch: Dispatch<IAuthType | IAlertType>) => {
-    try {
-      dispatch({ type: ALERT, payload: { loading: true } });
-      const res = await postAPI("google_login", { id_token });
-
-      dispatch({ type: AUTH, payload: res.data });
-
-      dispatch({ type: ALERT, payload: { success: res.data.msg } });
-      localStorage.setItem("logged", "hadaf");
-    } catch (err: any) {
-      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-    }
-  };
-
-export const facebookLogin =
-  (accessToken: string, userID: string) =>
+  (id_token: string) =>
   async (dispatch: Dispatch<IAuthType | IAlertType>) => {
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
-      const res = await postAPI("facebook_login", { accessToken, userID });
-
+      const res = await postAPI("google_login", { id_token });
       dispatch({ type: AUTH, payload: res.data });
-
       dispatch({ type: ALERT, payload: { success: res.data.msg } });
       localStorage.setItem("logged", "hadaf");
     } catch (err: any) {
-      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+      dispatch({ type: ALERT, payload: { errors: err.response?.data?.msg ?? "Google login failed" } });
     }
   };
 
 export const loginSMS =
-  (phone: string) => async (dispatch: Dispatch<IAuthType | IAlertType>) => {
-    const check = validatePhone(phone);
-    if (!check)
+  (phone: string) =>
+  async (dispatch: Dispatch<IAuthType | IAlertType>) => {
+    const valid = validatePhone(phone);
+    if (!valid)
       return dispatch({
         type: ALERT,
-        payload: { errors: "Phone number is incorrect" },
+        payload: { errors: "Phone number format is incorrect (+country code required)" },
       });
 
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
-
-      const res = await postAPI("login_sms", { phone });
-
-      if (!res.data.valid) verifySMS(phone, dispatch);
+      await postAPI("login_sms", { phone });
+      // Signal to LoginSMS component that code was sent
+      dispatch({ type: ALERT, payload: { success: "Code sent to your phone" } });
     } catch (err: any) {
-      dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
+      dispatch({ type: ALERT, payload: { errors: err.response?.data?.msg ?? "Failed to send code" } });
     }
   };
 
-export const verifySMS = async (
-  phone: string,
-  dispatch: Dispatch<IAuthType | IAlertType>
-) => {
-  const code = prompt("Enter your code");
-
-  if (!code) return;
-
-  try {
-    dispatch({ type: ALERT, payload: { loading: true } });
-
-    const res = await postAPI("sms_verify", { phone, code });
-
-    dispatch({ type: AUTH, payload: res.data });
-
-    dispatch({ type: ALERT, payload: { success: res.data.msg } });
-    localStorage.setItem("logged", "hadaf");
-  } catch (err: any) {
-    dispatch({ type: ALERT, payload: { errors: err.response.data.msg } });
-    setTimeout(() => {
-      verifySMS(phone, dispatch);
-    }, 100);
-  }
-};
+export const verifySMS =
+  (phone: string, code: string) =>
+  async (dispatch: Dispatch<IAuthType | IAlertType>) => {
+    try {
+      dispatch({ type: ALERT, payload: { loading: true } });
+      const res = await postAPI("sms_verify", { phone, code });
+      dispatch({ type: AUTH, payload: res.data });
+      dispatch({ type: ALERT, payload: { success: res.data.msg } });
+      localStorage.setItem("logged", "hadaf");
+    } catch (err: any) {
+      dispatch({ type: ALERT, payload: { errors: err.response?.data?.msg ?? "Invalid code" } });
+    }
+  };
