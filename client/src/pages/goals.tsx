@@ -8,7 +8,7 @@ import { createGoal } from "../redux/actions/goalAction";
 
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
-import { IItem } from "../utils/TypeScript";
+import { IItem } from "../types";
 import TimeReminder from "../components/workboard/TimeReminder";
 import ItemList from "../components/workboard/ItemList";
 import ItemInput from "../components/workboard/ItemInput";
@@ -49,7 +49,7 @@ const Goals = () => {
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
-    dispatch(createGoal(goal, auth.access_token));
+    dispatch(createGoal(goal));
     setMyGoals([...myGoals, goal]);
   };
 
