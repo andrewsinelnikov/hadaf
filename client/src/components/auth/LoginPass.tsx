@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import { useAppDispatch } from "../../utils/hooks";
 import { login } from "../../redux/actions/authAction";
-import { InputChange, FormSubmit } from "../../utils/TypeScript";
+import { InputChange, FormSubmit } from "../../types";
+
 
 const LoginPass = () => {
   const initialState = { account: "", password: "" };

@@ -1,4 +1,4 @@
-import { ICategory } from "../../utils/TypeScript";
+import { ICategory } from "../../types";
 
 export const CREATE_CATEGORY = "CREATE_CATEGORY";
 export const GET_CATEGORIES = "GET_CATEGORIES";

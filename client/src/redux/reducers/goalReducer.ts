@@ -6,7 +6,7 @@ import {
   UPDATE_GOAL,
   DELETE_GOAL,
 } from "../types/goalType";
-import { IItem } from "../../utils/TypeScript";
+import { IItem } from "../../types";
 
 const goalReducer = (state: IItem[] = [], action: IGoalType): IItem[] => {
   switch (action.type) {

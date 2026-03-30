@@ -1,5 +1,5 @@
 import React from "react";
-import { IJournalNote } from "../../utils/TypeScript";
+import { IJournalNote } from "../../types";
 import Note from "./Note";
 
 interface IProps {

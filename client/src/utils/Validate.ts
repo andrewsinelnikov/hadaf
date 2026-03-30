@@ -1,4 +1,4 @@
-import { IItem, IUserRegister } from "./TypeScript";
+import { IItem, IUserRegister } from "../types";
 
 export const validateRegister = (userRegister: IUserRegister) => {
   const { name, account, password, cf_password } = userRegister;

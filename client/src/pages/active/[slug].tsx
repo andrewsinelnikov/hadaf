@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { IParams } from "../../utils/TypeScript";
+import { IParams } from "../../types";
 import { postAPI } from "../../utils/FetchData";
 
 type Status = "loading" | "success" | "error";

@@ -1,4 +1,4 @@
-import { IDay } from "../../utils/TypeScript";
+import { IDay } from "../../types";
 
 export const CREATE_DAY = "CREATE_DAY";
 export const GET_DAY = "GET_DAY";

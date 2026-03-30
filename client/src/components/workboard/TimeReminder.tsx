@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { ButtonClick } from "../../utils/TypeScript";
+import { ButtonClick } from "../../types";
 import Countdown from "../global/Countdown";
 import { endOfDay, endOfSeason, endOfWeek } from "../../utils/FindEnd";
 

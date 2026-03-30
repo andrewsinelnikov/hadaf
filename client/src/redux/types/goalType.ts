@@ -1,4 +1,4 @@
-import { IItem } from "../../utils/TypeScript";
+import { IItem } from "../../types";
 
 export const CREATE_GOAL = "CREATE_GOAL";
 export const GET_GOALS = "GET_GOALS";

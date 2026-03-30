@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { RootState } from "../redux/store";
 import { useAppDispatch, useAppSelector } from "../utils/hooks";
-import { FormSubmit, ICategory } from "../utils/TypeScript";
+import { FormSubmit, ICategory } from "../types";
 import {
   createCategory,
   updateCategory,
@@ -29,9 +29,9 @@ const Category = () => {
     if (edit) {
       if (edit.name) return;
       const data = { ...edit, name };
-      dispatch(updateCategory(data, auth.access_token));
+      dispatch(updateCategory(data));
     } else {
-      dispatch(createCategory(name, auth.access_token));
+      dispatch(createCategory(name));
     }
 
     setName("");
@@ -41,7 +41,7 @@ const Category = () => {
   const handleDelete = (id: string) => {
     if (!auth.access_token) return;
     if (window.confirm("Are you sure to delete this category?")) {
-      dispatch(deleteCategory(id, auth.access_token));
+      dispatch(deleteCategory(id));
     }
   };
 

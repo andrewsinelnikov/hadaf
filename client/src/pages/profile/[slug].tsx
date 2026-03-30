@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 
 import { RootState } from "../../redux/store";
 import { useAppSelector } from "../../utils/hooks";
-import { IParams } from "../../utils/TypeScript";
+import { IParams } from "../../types";
 import UserLayout from "../../components/layouts/UserLayout";
 import Layout from "../../components/layouts/Layout";
 import UserInfo from "../../components/profile/UserInfo";

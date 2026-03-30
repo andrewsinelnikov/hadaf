@@ -1,4 +1,4 @@
-import { IItem } from "../../utils/TypeScript";
+import { IItem } from "../../types";
 
 export const CREATE_PLAN_ITEM = "CREATE_PLAN_ITEM";
 export const GET_CURRENT_PLANS = "GET_CURRENT_PLANS";

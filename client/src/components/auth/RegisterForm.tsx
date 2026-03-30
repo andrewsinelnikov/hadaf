@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch } from "../../utils/hooks";
 import { register } from "../../redux/actions/authAction";
-import { InputChange, FormSubmit } from "../../utils/TypeScript";
+import { InputChange, FormSubmit } from "../../types";
 
 const RegisterForm = () => {
   const initialState = { name: "", account: "", password: "", cf_password: "" };

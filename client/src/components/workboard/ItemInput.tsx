@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { IItem, InputChange } from "../../utils/TypeScript";
+import { IItem, InputChange } from "../../types";
 import Quantity from "./Quantity";
 
 interface IProps {
