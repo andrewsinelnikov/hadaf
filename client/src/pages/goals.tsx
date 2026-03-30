@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 import { RootState } from "../redux/store";
 import { useAppDispatch, useAppSelector } from "../utils/hooks";
@@ -32,14 +32,11 @@ const Goals = () => {
   const [goal, setGoal] = useState<IItem>(inialState);
   const [myGoals, setMyGoals] = useState<Array<IItem>>([]);
 
-  const navigate = useNavigate();
 
   const date = new Date();
   let season = getSeason(date);
 
-  useEffect(() => {
-    if (!auth.access_token) navigate("/login");
-  }, [auth.access_token, navigate]);
+
 
   const addGoal = (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,7 +50,6 @@ const Goals = () => {
     setMyGoals([...myGoals, goal]);
   };
 
-  // if (!auth.access_token) navigate("/login");
 
   return (
     <UserLayout navbarType={1}>

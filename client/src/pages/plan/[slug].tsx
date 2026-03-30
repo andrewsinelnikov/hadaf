@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { RootState } from "../../redux/store";
+import { IParams } from "../../types";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { ALERT } from "../../redux/types/alertType";
 import { createPlanItem, getPlansByGoal } from "../../redux/actions/planAction";
@@ -9,13 +10,12 @@ import { createPlanItem, getPlansByGoal } from "../../redux/actions/planAction";
 import UserLayout from "../../components/layouts/UserLayout";
 import UserInfo from "../../components/profile/UserInfo";
 import TimeReminder from "../../components/workboard/TimeReminder";
-import { IParams, IItem } from "../../types";
+import { IItem } from "../../types";
 import ItemList from "../../components/workboard/ItemList";
 import Footer from "../../components/global/Footer";
 import ItemInput from "../../components/workboard/ItemInput";
 import { validateItem } from "../../utils/Validate";
 import { updateGoal } from "../../redux/actions/goalAction";
-
 
 const PlanForGoal = () => {
   const { slug }: IParams = useParams<keyof IParams>() as IParams;
@@ -47,7 +47,6 @@ const PlanForGoal = () => {
   }, [slug, goals]);
 
   useEffect(() => {
-    if (!auth.access_token) navigate("/login");
     if (!activeGoal) return;
     if (plansGoal.every((item) => item.goal !== activeGoal._id)) {
       dispatch(getPlansByGoal(activeGoal._id!));

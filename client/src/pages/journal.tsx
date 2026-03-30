@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 import { RootState } from "../redux/store";
 import { useAppSelector } from "../utils/hooks";
@@ -9,15 +9,12 @@ import TimeReminder from "../components/workboard/TimeReminder";
 import JournalList from "../components/workboard/JournalList";
 import Footer from "../components/global/Footer";
 import AreaInput from "../components/workboard/AreaInput";
-import { IJournalNote } from "../utils/TypeScript";
+import { IJournalNote } from "../types";
 
 const Journal = () => {
   const { auth } = useAppSelector((state: RootState) => state);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!auth.access_token) navigate("/login");
-  }, [auth.access_token, navigate]);
+
 
   const [note, setNote] = useState<string>("");
   const [notes, setNotes] = useState<Array<IJournalNote>>([]);
