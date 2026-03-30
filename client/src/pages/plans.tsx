@@ -7,7 +7,7 @@ import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import TimeReminder from "../components/workboard/TimeReminder";
 import ItemInput from "../components/workboard/ItemInput";
-import { IItem, InputChange } from "../utils/TypeScript";
+import { IItem, InputChange } from "../types";
 import Footer from "../components/global/Footer";
 import { currentWeek } from "../utils/CurrentWeek";
 import Tab from "../components/global/Tabs/Tab";
@@ -66,7 +66,7 @@ const Plans: React.FC = () => {
 
       if (data.length > 0) {
         if (plans.every((item) => item.goal !== data[0]._id)) {
-          dispatch(getPlansByGoal(data[0]._id!, auth.access_token!));
+          dispatch(getPlansByGoal(data[0]._id!));
         } else {
           const data3 = plans.filter(
             (item) => item.goal === data[0]._id
@@ -100,7 +100,7 @@ const Plans: React.FC = () => {
     const selectedGoal = goalsWithPlans.find((item) => item._id === goal);
     if (selectedGoal) {
       if (plans.every((item) => item.goal !== selectedGoal._id)) {
-        dispatch(getPlansByGoal(selectedGoal._id!, auth.access_token!));
+        dispatch(getPlansByGoal(selectedGoal._id!));
       } else {
         const data4 = plans.filter((item) => item.goal === selectedGoal._id);
         if (!data4) return;
@@ -136,8 +136,7 @@ const Plans: React.FC = () => {
     if (auth.access_token)
       dispatch(
         getDay(
-          tabValues[selectedTab].date!.toISOString().split("T")[0],
-          auth.access_token
+          tabValues[selectedTab].date!.toISOString().split("T")[0]
         )
       );
   }, [dispatch, auth.access_token, selectedTab]);
@@ -146,8 +145,7 @@ const Plans: React.FC = () => {
     if ((!day || day === null) && selectedTab >= today) {
       dispatch(
         createDay(
-          tabValues[selectedTab].date!.toISOString().split("T")[0],
-          auth.access_token!
+          tabValues[selectedTab].date!.toISOString().split("T")[0]
         )
       );
     }
