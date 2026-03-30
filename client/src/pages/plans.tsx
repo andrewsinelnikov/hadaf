@@ -232,7 +232,7 @@ const Plans: React.FC = () => {
   useEffect(() => {
     planArr = [];
     if (day && day.plans) {
-      day.plans.map((plan) => {
+      day.plans.map((plan: { plan_id: string; done: boolean }) => {
         const planForDay = plans.find((item) => item._id === plan.plan_id);
         if (planForDay) planArr.push(planForDay);
       });
