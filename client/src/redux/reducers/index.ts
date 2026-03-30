@@ -3,10 +3,8 @@ import auth from "./authReducer";
 import alert from "./alertReducer";
 import categories from "./categoryReducer";
 import goals from "./goalReducer";
-import plans from "./planReducer";
-import plansGoal from "./plansGoalReducer";
-import planItem from "./planItemReducer";
 import day from "./dayReducer";
+import plans, { plansGoalReducer, planItemReducer } from "./planReducer";
 
 export default combineReducers({
   auth,
@@ -14,7 +12,7 @@ export default combineReducers({
   categories,
   goals,
   plans,
-  plansGoal,
-  planItem,
+  plansGoal: plansGoalReducer,
+  planItem: planItemReducer,
   day,
 });
