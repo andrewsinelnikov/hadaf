@@ -9,7 +9,7 @@ import {
   deletePlanItem,
 } from "../../redux/actions/planAction";
 
-import { IItem } from "../../utils/TypeScript";
+import { IItem } from "../../types";
 import { Link } from "react-router-dom";
 import Progress from "./Progress";
 
@@ -38,10 +38,10 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
         return setEdit(null);
       }
       const data = { ...edit, text };
-      if (action === "goals") dispatch(updateGoal(data, auth.access_token));
+      if (action === "goals") dispatch(updateGoal(data));
       if (action === "plans") {
-        dispatch(updatePlanItem(data, auth.access_token));
-        dispatch(getPlansByGoal(data.goal!, auth.access_token));
+        dispatch(updatePlanItem(data));
+        dispatch(getPlansByGoal(data.goal!));
       }
     }
 
@@ -51,15 +51,15 @@ const Item: React.FC<IProps> = ({ item, action, options }) => {
 
   const handleDelete = (id: string) => {
     if (!auth.access_token) return;
-    if (action === "goals") dispatch(deleteGoal(id, auth.access_token));
+    if (action === "goals") dispatch(deleteGoal(id));
     if (action === "plans") {
-      dispatch(deletePlanItem(id, auth.access_token));
+      dispatch(deletePlanItem(id));
       if (edit) {
         let data = edit;
         let count = -edit.count!;
         data = { ...data, count };
-        dispatch(updateGoal(data, auth.access_token, true));
-        dispatch(getPlansByGoal(edit.goal!, auth.access_token));
+        dispatch(updateGoal(data, true));
+        dispatch(getPlansByGoal(edit.goal!));
       }
     }
   };
