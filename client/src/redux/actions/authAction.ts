@@ -54,7 +54,7 @@ export const refreshToken =
   };
 
 export const logout =
-  (token: string) =>
+  () =>
   async (dispatch: Dispatch<IAuthType | IAlertType>) => {
     try {
       localStorage.removeItem("logged");
