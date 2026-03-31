@@ -9,94 +9,80 @@ const UserInfo = () => {
   const { pathname } = useLocation();
 
   const actions = [
-    { label: "Set goals", path: "/goals" },
-    { label: "Make plans", path: "/plans" },
-    { label: "Take actions", path: "/actions" },
+    { label: "Goals",   step: "01", path: "/goals" },
+    { label: "Plans",   step: "02", path: "/plans" },
+    { label: "Actions", step: "03", path: "/actions" },
   ];
 
   const tools = [
-    {
-      label: "Journal",
-      path: "/journal",
-      image: "<i className='fa-solid fa-file-pen fa-xl' />",
-    },
-    {
-      label: "Friends",
-      path: "/friends",
-      image: "<i className='fa-solid fa-users fa-xl' />",
-    },
-    {
-      label: "History",
-      path: "/history",
-      image: "<i className='fa-solid fa-book fa-xl' />",
-    },
+    { label: "Journal", path: "/journal", icon: "fa-file-pen" },
+    { label: "Friends", path: "/friends", icon: "fa-users" },
+    { label: "History", path: "/history", icon: "fa-book" },
   ];
 
-  const isActiveAction = (pn: string) => {
-    if (pn === pathname) return "action-active";
-  };
-
-  const isActiveTool = (pn: string) => {
-    if (pn === pathname) return "tool-active";
-  };
+  const isActiveAction = (pn: string) => pathname === pn ? "action-active" : "";
+  const isActiveTool   = (pn: string) => pathname === pn ? "tool-active"   : "";
 
   if (!auth.user) return <NotFound />;
 
   return (
-    <div className='profile-info'>
-      <div className='info-img'>
-        <div></div>
-        <div></div>
-        <img
-          src={auth.user.image}
-          // src={image ? URL.createObjectURL(image as Blob) : auth.user.image}
-          alt='user'
-        />
-      </div>
-      <div className='info-data'>
-        <div>
-          <p className='data-name'>{auth.user.name}</p>
-          <p className='data-links'>
-            <a href={auth.user.usta} target='_blank' rel='noreferrer'>
-              Usta
-            </a>
-            <span></span>
-            <a href={auth.user.bbook} target='_blank' rel='noreferrer'>
-              BBook
-            </a>
-          </p>
-        </div>
-        <div className='data-edit'>
-          <Link
-            to={`/profile/${auth.user._id}/edit`}
-            className='btn btn-md btn-dark'>
-            Edit
-          </Link>
+    <aside className="profile-info">
+
+      {/* ── Avatar ── */}
+      <div className="info-avatar">
+        <div className="info-avatar-frame">
+          <img src={auth.user.image} alt={auth.user.name} />
         </div>
       </div>
-      <div className='info-actions'>
-        {actions.map((action, index) => (
+
+      {/* ── User data ── */}
+      <div className="info-data">
+        <div className="info-data-left">
+          <p className="data-name">{auth.user.name}</p>
+          <div className="data-links">
+            {auth.user.usta && (
+              <a href={auth.user.usta} target="_blank" rel="noreferrer">Usta</a>
+            )}
+            {auth.user.bbook && (
+              <a href={auth.user.bbook} target="_blank" rel="noreferrer">BBook</a>
+            )}
+          </div>
+        </div>
+        <Link to={`/profile/${auth.user._id}/edit`} className="data-edit-btn">
+          <i className="fa-solid fa-pen" />
+        </Link>
+      </div>
+
+      {/* ── Main navigation ── */}
+      <nav className="info-actions">
+        {actions.map((action) => (
           <Link
+            key={action.path}
             to={action.path}
-            key={index}
-            className={`${isActiveAction(action.path)}`}>
-            <div className='step'>
-              <p className='title'>{action.label}</p>
-            </div>
+            className={`info-action-link ${isActiveAction(action.path)}`}>
+            <span className="action-step">{action.step}</span>
+            <span className="action-label">{action.label}</span>
+            <span className="action-arrow">
+              <i className="fa-solid fa-arrow-right" />
+            </span>
           </Link>
         ))}
-      </div>
-      <div className='info-tools'>
-        {tools.map((tool, index) => (
+      </nav>
+
+      {/* ── Tools ── */}
+      <div className="info-tools">
+        {tools.map((tool) => (
           <Link
+            key={tool.path}
             to={tool.path}
-            key={index}
-            className={`${isActiveTool(tool.path)}`}>
-            {tool.label}
+            className={`info-tool-link ${isActiveTool(tool.path)}`}>
+            <i className={`fa-solid ${tool.icon}`} />
+            <span>{tool.label}</span>
           </Link>
         ))}
       </div>
-    </div>
+
+    </aside>
   );
 };
 
