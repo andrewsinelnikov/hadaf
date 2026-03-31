@@ -45,9 +45,7 @@ const Menu = ({ openSearch, setOpenSearch }: IProps) => {
   };
 
   const handleLogout = () => {
-    if (!auth.access_token) return;
-
-    dispatch(logout(auth.access_token));
+    dispatch(logout());
   };
 
   return (
