@@ -57,11 +57,12 @@ export const logout =
   () =>
   async (dispatch: Dispatch<IAuthType | IAlertType>) => {
     try {
+      await getAPI("logout");
+    } catch {
+      // Even if the server call fails, clear the session locally
+    } finally {
       localStorage.removeItem("logged");
       dispatch({ type: AUTH, payload: {} });
-      await getAPI("logout");
-    } catch (err: any) {
-      dispatch({ type: ALERT, payload: { errors: err.response?.data?.msg ?? "Logout failed" } });
     }
   };
 
