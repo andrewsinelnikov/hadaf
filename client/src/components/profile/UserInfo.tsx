@@ -15,9 +15,9 @@ const UserInfo = () => {
   ];
 
   const tools = [
-    { label: "Journal", path: "/journal", icon: "fa-file-pen" },
-    { label: "Friends", path: "/friends", icon: "fa-users" },
-    { label: "History", path: "/history", icon: "fa-book" },
+    { label: "Journal", path: "/journal" },
+    { label: "Friends", path: "/friends" },
+    { label: "History", path: "/history" },
   ];
 
   const isActiveAction = (pn: string) => pathname === pn ? "action-active" : "";
@@ -76,7 +76,6 @@ const UserInfo = () => {
             key={tool.path}
             to={tool.path}
             className={`info-tool-link ${isActiveTool(tool.path)}`}>
-            <i className={`fa-solid ${tool.icon}`} />
             <span>{tool.label}</span>
           </Link>
         ))}
