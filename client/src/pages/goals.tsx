@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 
 import { RootState } from "../redux/store";
 import { useAppDispatch, useAppSelector } from "../utils/hooks";
@@ -17,7 +16,7 @@ import { validateItem } from "../utils/Validate";
 import { getSeason } from "../utils/getSeason";
 
 const Goals = () => {
-  const inialState = {
+  const initialState: IItem = {
     user: "",
     text: "",
     count: 1,
@@ -29,14 +28,8 @@ const Goals = () => {
   const { auth, goals } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
 
-  const [goal, setGoal] = useState<IItem>(inialState);
-  const [myGoals, setMyGoals] = useState<Array<IItem>>([]);
-
-
-  const date = new Date();
-  let season = getSeason(date);
-
-
+  const [goal, setGoal] = useState<IItem>(initialState);
+  const season = getSeason(new Date());
 
   const addGoal = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,31 +40,38 @@ const Goals = () => {
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
     dispatch(createGoal(goal));
-    setMyGoals([...myGoals, goal]);
+    setGoal(initialState);
   };
-
 
   return (
     <UserLayout navbarType={1}>
-      <div className='profile'>
+      <div className="profile">
         <UserInfo />
-        <div className='profile-content'>
-          <div className='content'>
-            <TimeReminder action='goals' />
-            <ItemList
-              items={goals}
-              setItems={setMyGoals}
-              action='goals'
-              season={season}
-            />
+        <div className="profile-content">
+          <div className="goals-header">
+            <TimeReminder action="goals" />
+            <div className="goals-meta">
+              <span className="goals-season">{season}</span>
+              <span className="goals-count">
+                {goals.length} <span>/ 3</span>
+              </span>
+            </div>
           </div>
+
+          <ItemList
+            items={goals}
+            action="goals"
+            season={season}
+          />
+
           <Footer />
         </div>
+
         {goals.length < 3 && (
           <ItemInput
             item={goal}
             setItem={setGoal}
-            itemType='Goal'
+            itemType="Goal"
             items={goals}
             handleAdd={addGoal}
           />
