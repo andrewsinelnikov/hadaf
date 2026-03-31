@@ -208,21 +208,15 @@
 .info-tool-link {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
   padding: 0.5rem 0.75rem;
   border-radius: 3px;
   text-decoration: none;
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--lightdark-30-color);
   transition: background 0.15s ease, color 0.15s ease;
-}
-
-.info-tool-link i {
-  font-size: 12px;
-  width: 16px;
-  text-align: center;
 }
 
 .info-tool-link:hover {
@@ -402,10 +396,7 @@
 
   .info-tool-link {
     padding: 0.5rem 0.5rem;
-  }
-
-  .info-tool-link span {
-    display: none;
+    font-size: 11px;
   }
 
   .profile-content {
