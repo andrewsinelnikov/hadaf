@@ -2,10 +2,11 @@
 .add-area {
   position: fixed;
   bottom: 0px;
-  max-width: 810px;
+  max-width: calc(100% - 260px);
   width: 100%;
-  margin-left: 330px;
+  margin-left: 260px;
   background-color: var(--dark-color);
+  border-top: 1px solid rgba(231, 224, 185, 0.06);
 }
 
 .add {
