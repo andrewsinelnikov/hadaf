@@ -1,57 +1,88 @@
+/* ── Time reminder bar ── */
+
 .reminder {
-  width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(231, 224, 185, 0.06);
+  margin-bottom: 0;
 }
 
 .reminder-time {
-  text-align: center;
-  min-width: 188px;
-  margin-right: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
 }
 
 .reminder-time p:nth-child(1) {
-  text-transform: uppercase;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lightdark-30-color);
+  margin-bottom: 0.25rem;
 }
 
 .reminder-time p:nth-child(2) {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--primary-color);
-  line-height: 1.2;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .countdown-days {
-  font-size: 1.4em;
+  font-size: 1.2em;
   display: block;
   line-height: 1;
   margin-bottom: 2px;
 }
 
 .reminder-message {
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 26px);
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: -0.02em;
   line-height: 1.2;
-  color: var(--dark-color);
-  text-shadow: -1px -1px 0 var(--primary-color), 1px -1px 0 var(--primary-color),
-    -1px 1px 0 var(--primary-color), 1px 1px 0 var(--primary-color);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--primary-color);
+}
+
+.btn-time {
+  width: auto;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--lightdark-30-color);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.25rem 0;
+  margin: 0;
+  margin-left: 1rem;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.btn-time:hover {
+  color: var(--lightdark-color);
+}
+
+.time-active {
+  color: var(--lightdark-color) !important;
+  border-bottom-color: var(--primary-color);
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
   .reminder {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
-  }
-
-  .reminder-time {
-    min-width: unset;
-    margin-right: 0;
-    text-align: left;
+    gap: 0.75rem;
   }
 
   .reminder-message {
