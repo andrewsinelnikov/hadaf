@@ -183,17 +183,37 @@ const ItemInput: React.FC<IProps> = ({
           if (items && items.length > 4) setAddInput(false);
         }
       }}>
-      {itemType === "Goal" &&
-        (items && items.length === 0 ? (
-          <div className='items-number'>max number - 3</div>
-        ) : (
-          items &&
-          3 - items.length > 0 && (
-            <div className='items-number'>
-              possible to add - {3 - items.length}
-            </div>
-          )
-        ))}
+      {itemType === "Goal" && (
+        <div className='add-goal-composer'>
+          <input
+            className='add-goal-input'
+            type='text'
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            autoComplete='off'
+            maxLength={200}
+            placeholder='What do you want to achieve this season?'
+          />
+          <button
+            type='submit'
+            className='add-goal-submit'
+            disabled={!text.trim()}>
+            Add goal
+          </button>
+        </div>
+      )}
+      {itemType === "Goal" && (
+        <div className='add-goal-hint'>
+          {items && items.length === 0
+            ? "3 goals max — choose wisely"
+            : items && 3 - items.length > 0
+              ? `${3 - items.length} slot${3 - items.length !== 1 ? "s" : ""} remaining`
+              : null
+          }
+        </div>
+      )}
       {itemType === "Plan" && addInput === false && (
         <span
           className='items-number'
@@ -262,7 +282,7 @@ const ItemInput: React.FC<IProps> = ({
           one more step
         </div>
       )}
-      {itemType !== "Plan" && (
+      {itemType !== "Plan" && itemType !== "Goal" && (
         <div
           className='add-item'
           style={{
@@ -362,7 +382,7 @@ const ItemInput: React.FC<IProps> = ({
         </div>
       )}
 
-      {text.length > 0 && (
+      {text.length > 0 && itemType !== "Goal" && (
         <div className='item-options'>
           {itemType === "Step" && addInput && (
             <>
