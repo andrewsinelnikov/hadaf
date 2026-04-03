@@ -9,6 +9,7 @@
   -webkit-backdrop-filter: blur(12px);
   color: var(--lightdark-color);
   padding: 0 2.5rem;
+  margin-top: 6px;
   position: sticky;
   top: 0;
   left: 0;
@@ -34,7 +35,7 @@
   gap: 0.5rem;
   text-decoration: none;
   color: var(--lightdark-color);
-  font-size: 24px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -46,8 +47,8 @@
 }
 
 .navbar-logo {
-  height: 22px;
-  width: 22px;
+  height: 28px;
+  width: 28px;
   opacity: 0.9;
 }
 
