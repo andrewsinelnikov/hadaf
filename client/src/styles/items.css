@@ -406,7 +406,7 @@
 }
 
 .goals-page {
-  padding-bottom: 120px; /* space for the add bar */
+  min-height: 100%;
 }
 
 /* ── Page header ── */
@@ -680,67 +680,128 @@
   border-radius: 1px;
 }
 
-/* ── Add goal bar ── */
 
-.goals-add {
-  position: fixed;
-  bottom: 0;
-  left: 260px;
-  right: 0;
-  background: rgba(15, 31, 47, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(231, 224, 185, 0.08);
-  padding: 0 2.5rem;
-  z-index: 50;
+
+
+
+/* ── Inline add goal ── */
+
+@keyframes goal-expand {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.goals-add-inner {
+.goals-inline-add {
+  border-bottom: 1px solid rgba(231, 224, 185, 0.06);
+}
+
+.goals-inline-add--open {
+  padding: 1.25rem 0;
+  animation: goal-expand 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Trigger button */
+.goals-inline-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  width: 100%;
+  padding: 1rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--lightdark-30-color);
+  transition: color 0.15s ease;
+  text-align: left;
+}
+
+.goals-inline-trigger:hover {
+  color: var(--lightdark-50-color);
+}
+
+.goals-inline-trigger-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px dashed rgba(231, 224, 185, 0.2);
+  border-radius: 50%;
+  font-size: 10px;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.goals-inline-trigger:hover .goals-inline-trigger-icon {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.goals-inline-trigger-label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.goals-inline-trigger-hint {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--lightdark-30-color);
+  letter-spacing: 0.06em;
+}
+
+/* Expanded form */
+.goals-inline-form {
   display: flex;
   align-items: center;
   gap: 1rem;
-  height: 72px;
   max-width: 720px;
 }
 
-.goals-add-num {
+.goals-inline-num {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--lightdark-30-color);
+  color: var(--primary-color);
   font-variant-numeric: tabular-nums;
+  width: 24px;
   flex-shrink: 0;
-  width: 48px;
 }
 
-.goals-add-input {
+.goals-inline-input {
   flex: 1;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(231, 224, 185, 0.15);
+  border-bottom: 1px solid var(--primary-color);
   font-size: 17px;
   font-weight: 600;
   font-family: inherit;
   letter-spacing: -0.01em;
   color: var(--lightdark-color);
   outline: none;
-  padding: 0.5rem 0;
-  transition: border-color 0.2s ease;
+  padding: 0.25rem 0;
 }
 
-.goals-add-input:focus {
-  border-bottom-color: var(--primary-color);
-}
-
-.goals-add-input::placeholder {
+.goals-inline-input::placeholder {
   color: rgba(231, 224, 185, 0.2);
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 15px;
 }
 
-.goals-add-btn {
+.goals-inline-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   flex-shrink: 0;
-  height: 36px;
-  padding: 0 1.25rem;
+}
+
+.goals-inline-submit {
+  height: 32px;
+  padding: 0 1rem;
   background: var(--primary-color);
   color: var(--dark-color);
   border: none;
@@ -754,272 +815,30 @@
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.goals-add-btn:hover {
+.goals-inline-submit:hover {
   background: #c4a870;
-  box-shadow: 0 2px 12px rgba(171, 145, 93, 0.3);
+  box-shadow: 0 2px 10px rgba(171, 145, 93, 0.3);
 }
 
-.goals-add-count {
-  font-size: 11px;
-  color: var(--lightdark-30-color);
-  text-align: right;
-  padding: 0 0 0.5rem;
-  font-variant-numeric: tabular-nums;
+.goals-inline-submit:disabled {
+  opacity: 0.3;
+  pointer-events: none;
 }
 
-/* ── Responsive ── */
-
-@media (max-width: 900px) {
-  .goals-add {
-    left: 0;
-    padding: 0 1.25rem;
-  }
-
-  .goals-page-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-  }
-
-  .goals-page-timer {
-    text-align: left;
-  }
-
-  .goals-page-timer .countdown-labeled {
-    justify-content: flex-start;
-  }
-
-  .goal-card {
-    grid-template-columns: 36px 1fr;
-  }
-
-  .goal-card-actions {
-    grid-column: 2;
-    flex-direction: row;
-    opacity: 1;
-    margin-top: 0.75rem;
-  }
-
-  .goal-card-action-btn,
-  .goal-card-cta {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .goals-add-inner {
-    height: 64px;
-  }
-
-  .goals-add-num {
-    display: none;
-  }
-}
-
-/* ── Goal card — done state ── */
-
-.goal-card--done .goal-card-text {
-  opacity: 0.35;
-  text-decoration: line-through;
-  text-decoration-color: var(--lightdark-30-color);
-}
-
-.goal-card--done .goal-card-check {
-  color: var(--primary-color);
-}
-
-/* ── Done toggle button ── */
-
-.goal-card-check {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--lightdark-30-color);
-  transition: color 0.2s ease, transform 0.15s ease;
-  padding-top: 0.2rem;
-  flex-shrink: 0;
-}
-
-.goal-card-check:hover {
-  color: var(--primary-color);
-  transform: scale(1.1);
-}
-
-/* ── Backlog section ── */
-
-.goals-backlog {
-  margin-top: 3rem;
-  max-width: 720px;
-}
-
-.goals-backlog-toggle {
+.goals-inline-cancel {
+  width: 28px;
+  height: 28px;
   display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--lightdark-30-color);
-  transition: color 0.15s ease;
-}
-
-.goals-backlog-toggle:hover {
-  color: var(--lightdark-color);
-}
-
-.goals-backlog-count {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
-  background: rgba(231, 224, 185, 0.08);
-  border-radius: 9px;
-  font-size: 10px;
-  font-weight: 700;
-}
-
-.goals-backlog-toggle i {
-  font-size: 9px;
-  margin-left: 2px;
-}
-
-.goals-backlog-list {
-  margin-top: 1rem;
-  border-top: 1px solid rgba(231, 224, 185, 0.06);
-  padding-top: 1rem;
-}
-
-.goals-backlog-hint {
+  background: none;
+  border: none;
   font-size: 12px;
   color: var(--lightdark-30-color);
-  letter-spacing: 0.02em;
-  margin-bottom: 1rem;
-  font-style: italic;
-}
-
-.goals-backlog-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(231, 224, 185, 0.04);
-}
-
-.goals-backlog-num {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--lightdark-30-color);
-  font-variant-numeric: tabular-nums;
-  width: 24px;
-  flex-shrink: 0;
-}
-
-.goals-backlog-text {
-  flex: 1;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--lightdark-color);
-  opacity: 0.5;
-  overflow-wrap: break-word;
-}
-
-.goals-backlog-promote {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--primary-color);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  flex-shrink: 0;
-  opacity: 0.7;
-  transition: opacity 0.15s ease;
-}
-
-.goals-backlog-promote:hover {
-  opacity: 1;
-  color: var(--primary-color);
-}
-
-/* ── Add goal bar — full state ── */
-
-.goals-add-full {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 720px;
-}
-
-.goals-add-full-icon {
-  font-size: 16px;
-  color: var(--primary-color);
-  opacity: 0.7;
-  flex-shrink: 0;
-}
-
-.goals-add-full-text {
-  flex: 1;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--lightdark-50-color);
-  letter-spacing: 0.01em;
-}
-
-.goals-add-backlog-btn {
-  background: transparent;
-  border: 1px solid rgba(231, 224, 185, 0.15);
-  border-radius: 3px;
-  padding: 0.375rem 0.875rem;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: inherit;
-  letter-spacing: 0.04em;
-  color: var(--lightdark-50-color);
   cursor: pointer;
-  flex-shrink: 0;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-.goals-add-backlog-btn:hover {
-  border-color: rgba(231, 224, 185, 0.3);
-  color: var(--lightdark-color);
-}
-
-/* ── Inline footer ── */
-
-.goals-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 4rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(231, 224, 185, 0.06);
-  font-size: 11px;
-  color: var(--lightdark-30-color);
-}
-
-.goals-footer-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.goals-footer a {
-  color: var(--lightdark-30-color);
-  text-decoration: none;
   transition: color 0.15s ease;
-  font-size: 11px;
 }
 
-.goals-footer a:hover {
-  color: var(--primary-color);
+.goals-inline-cancel:hover {
+  color: var(--lightdark-color);
 }
