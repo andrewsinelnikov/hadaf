@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { RootState } from "../redux/store";
 import { useAppDispatch, useAppSelector } from "../utils/hooks";
@@ -8,7 +9,6 @@ import { createGoal } from "../redux/actions/goalAction";
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import GoalCard from "../components/workboard/GoalCard";
-import Footer from "../components/global/Footer";
 import Countdown from "../components/global/Countdown";
 import { IItem } from "../types";
 import { validateItem } from "../utils/Validate";
@@ -28,25 +28,29 @@ const Goals = () => {
   const { auth, goals } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
 
-  const [goal, setGoal] = useState<IItem>(initialState);
   const [inputText, setInputText] = useState("");
   const [focused, setFocused] = useState(false);
+  const [showBacklog, setShowBacklog] = useState(false);
   const season = getSeason(new Date());
+
+  // Active = not done, max 3 shown as focus
+  const activeGoals = goals.filter((g) => !g.isDone).slice(0, 3);
+  // Backlog = completed goals waiting to be replaced, or overflow
+  const backlogGoals = goals.filter((g) => g.isDone || goals.indexOf(g) >= 3);
+  const hasSlot = activeGoals.length < 3;
 
   const addGoal = (e: React.FormEvent) => {
     e.preventDefault();
     if (!auth.access_token) return;
 
-    const check = validateItem({ ...goal, text: inputText }, "Please type your goal");
+    const goalData: IItem = { ...initialState, text: inputText };
+    const check = validateItem(goalData, "Please type your goal");
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
 
-    dispatch(createGoal({ ...goal, text: inputText }));
+    dispatch(createGoal(goalData));
     setInputText("");
-    setGoal(initialState);
   };
-
-  const canAdd = goals.length < 3;
 
   return (
     <UserLayout navbarType={1}>
@@ -67,9 +71,9 @@ const Goals = () => {
             </div>
           </header>
 
-          {/* ── Goals list ── */}
+          {/* ── Active goals ── */}
           <main className="goals-list-area">
-            {goals.length === 0 ? (
+            {activeGoals.length === 0 ? (
               <div className="goals-empty">
                 <p className="goals-empty-text">
                   What do you want to<br />
@@ -81,54 +85,113 @@ const Goals = () => {
               </div>
             ) : (
               <div className="goals-list">
-                {goals.map((item, index) => (
+                {activeGoals.map((item, index) => (
                   <GoalCard key={item._id} item={item} index={index} />
                 ))}
-                {/* Slot indicators */}
-                {Array.from({ length: 3 - goals.length }).map((_, i) => (
+                {/* Empty slots */}
+                {Array.from({ length: 3 - activeGoals.length }).map((_, i) => (
                   <div key={`slot-${i}`} className="goals-slot-empty">
-                    <span>{goals.length + i + 1}</span>
+                    <span>{activeGoals.length + i + 1}</span>
                   </div>
                 ))}
               </div>
             )}
           </main>
 
-          <Footer />
+          {/* ── Backlog ── */}
+          {backlogGoals.length > 0 && (
+            <section className="goals-backlog">
+              <button
+                className="goals-backlog-toggle"
+                onClick={() => setShowBacklog((v) => !v)}>
+                <span>Backlog</span>
+                <span className="goals-backlog-count">{backlogGoals.length}</span>
+                <i className={`fa-solid fa-chevron-${showBacklog ? "up" : "down"}`} />
+              </button>
+              {showBacklog && (
+                <div className="goals-backlog-list">
+                  <p className="goals-backlog-hint">
+                    Complete an active goal to promote one from the backlog.
+                  </p>
+                  {backlogGoals.map((item, index) => (
+                    <div key={item._id} className="goals-backlog-item">
+                      <span className="goals-backlog-num">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <p className="goals-backlog-text">{item.text}</p>
+                      {hasSlot && (
+                        <Link
+                          to={`/plan/${item._id}`}
+                          className="goals-backlog-promote">
+                          Promote →
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          )}
+
+          {/* ── Footer ── */}
+          <footer className="goals-footer">
+            <span>© {new Date().getFullYear()} Hadaf</span>
+            <div className="goals-footer-links">
+              <Link to="/about">About</Link>
+              <Link to="/privacy">Privacy</Link>
+              <Link to="/terms">Terms</Link>
+            </div>
+          </footer>
         </div>
 
         {/* ── Add goal bar ── */}
-        {canAdd && (
-          <form className="goals-add" onSubmit={addGoal}>
-            <div className="goals-add-inner">
-              <span className="goals-add-num">{goals.length + 1}</span>
-              <input
-                className="goals-add-input"
-                type="text"
-                value={inputText}
-                onChange={(e) => {
-                  setInputText(e.target.value);
-                  setGoal((g) => ({ ...g, text: e.target.value }));
-                }}
-                onFocus={() => setFocused(true)}
-                onBlur={() => setFocused(false)}
-                placeholder="Type your goal…"
-                autoComplete="off"
-                maxLength={200}
-              />
-              {inputText.length > 0 && (
-                <button type="submit" className="goals-add-btn">
-                  Add goal
+        <form className="goals-add" onSubmit={addGoal}>
+          <div className="goals-add-inner">
+            {activeGoals.length < 3 ? (
+              <>
+                <span className="goals-add-num">
+                  {String(activeGoals.length + 1).padStart(2, "0")}
+                </span>
+                <input
+                  className="goals-add-input"
+                  type="text"
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  onFocus={() => setFocused(true)}
+                  onBlur={() => setFocused(false)}
+                  placeholder="Type your next goal…"
+                  autoComplete="off"
+                  maxLength={200}
+                />
+                {inputText.trim().length > 0 && (
+                  <button type="submit" className="goals-add-btn">
+                    Add
+                  </button>
+                )}
+              </>
+            ) : (
+              <div className="goals-add-full">
+                <span className="goals-add-full-icon">
+                  <i className="fa-solid fa-fire" />
+                </span>
+                <p className="goals-add-full-text">
+                  3 goals set — now focus and execute.
+                </p>
+                <button
+                  type="button"
+                  className="goals-add-backlog-btn"
+                  onClick={() => setShowBacklog(true)}>
+                  Add to backlog
                 </button>
-              )}
-            </div>
-            {focused && inputText.length > 0 && (
-              <p className="goals-add-count">
-                {inputText.length} / 200
-              </p>
+              </div>
             )}
-          </form>
-        )}
+          </div>
+          {focused && inputText.length > 160 && (
+            <p className="goals-add-count">
+              {inputText.length} / 200
+            </p>
+          )}
+        </form>
       </div>
     </UserLayout>
   );
