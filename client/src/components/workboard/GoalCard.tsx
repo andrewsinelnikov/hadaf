@@ -23,10 +23,16 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
     ? 1
     : Math.round((item.completeness! * 100) / item.count!);
 
+  const isDone = item.isDone;
+
   const handleUpdate = () => {
     if (!text.trim() || text === item.text) return setEditing(false);
     dispatch(updateGoal({ ...item, text }));
     setEditing(false);
+  };
+
+  const handleToggleDone = () => {
+    dispatch(updateGoal({ ...item, isDone: !isDone }));
   };
 
   const handleDelete = () => {
@@ -35,10 +41,20 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
   };
 
   return (
-    <div className="goal-card">
+    <div className={`goal-card${isDone ? " goal-card--done" : ""}`}
+      style={{ animationDelay: `${index * 0.07}s` }}>
 
-      {/* ── Number ── */}
-      <span className="goal-card-num">{String(index + 1).padStart(2, "0")}</span>
+      {/* ── Done toggle ── */}
+      <button
+        className="goal-card-check"
+        type="button"
+        onClick={handleToggleDone}
+        aria-label={isDone ? "Mark as active" : "Mark as done"}>
+        {isDone
+          ? <i className="fa-solid fa-circle-check" />
+          : <i className="fa-regular fa-circle" />
+        }
+      </button>
 
       {/* ── Body ── */}
       <div className="goal-card-body">
@@ -48,7 +64,10 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
               className="goal-card-input"
               value={text}
               onChange={(e) => setText(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleUpdate()}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleUpdate();
+                if (e.key === "Escape") { setText(item.text); setEditing(false); }
+              }}
               autoFocus
               maxLength={200}
             />
@@ -66,20 +85,24 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
         )}
 
         {/* ── Progress ── */}
-        <div className="goal-card-progress">
-          <div className="goal-card-track">
-            <div className="goal-card-fill" style={{ width: `${pct}%` }} />
+        {!isDone && (
+          <div className="goal-card-progress">
+            <div className="goal-card-track">
+              <div className="goal-card-fill" style={{ width: `${pct}%` }} />
+            </div>
+            <span className="goal-card-pct">{pct}%</span>
           </div>
-          <span className="goal-card-pct">{pct}%</span>
-        </div>
+        )}
       </div>
 
       {/* ── Actions ── */}
       {!editing && (
         <div className="goal-card-actions">
-          <Link to={`/plan/${item._id}`} className="goal-card-cta">
-            Plan out →
-          </Link>
+          {!isDone && (
+            <Link to={`/plan/${item._id}`} className="goal-card-cta">
+              Plan →
+            </Link>
+          )}
           <button className="goal-card-action-btn" onClick={() => setEditing(true)}>
             Edit
           </button>
@@ -89,7 +112,7 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
                 Confirm
               </button>
               <button className="goal-card-action-btn" onClick={() => setConfirmDelete(false)}>
-                Cancel
+                ✕
               </button>
             </>
           ) : (
@@ -99,7 +122,6 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
           )}
         </div>
       )}
-
     </div>
   );
 };
