@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
 
 import { RootState } from "../redux/store";
 import { useAppDispatch, useAppSelector } from "../utils/hooks";
@@ -9,6 +8,7 @@ import { createGoal } from "../redux/actions/goalAction";
 import UserLayout from "../components/layouts/UserLayout";
 import UserInfo from "../components/profile/UserInfo";
 import GoalCard from "../components/workboard/GoalCard";
+import Footer from "../components/global/Footer";
 import Countdown from "../components/global/Countdown";
 import { IItem } from "../types";
 import { validateItem } from "../utils/Validate";
@@ -17,11 +17,8 @@ import { endOfSeason } from "../utils/FindEnd";
 
 const Goals = () => {
   const initialState: IItem = {
-    user: "",
-    text: "",
-    count: 1,
-    completeness: 1,
-    isDone: false,
+    user: "", text: "", count: 1,
+    completeness: 1, isDone: false,
     createdAt: new Date().toISOString(),
   };
 
@@ -29,37 +26,45 @@ const Goals = () => {
   const dispatch = useAppDispatch();
 
   const [inputText, setInputText] = useState("");
-  const [focused, setFocused] = useState(false);
+  const [addOpen, setAddOpen] = useState(false);
   const [showBacklog, setShowBacklog] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
   const season = getSeason(new Date());
 
-  // Active = not done, max 3 shown as focus
   const activeGoals = goals.filter((g) => !g.isDone).slice(0, 3);
-  // Backlog = completed goals waiting to be replaced, or overflow
   const backlogGoals = goals.filter((g) => g.isDone || goals.indexOf(g) >= 3);
   const hasSlot = activeGoals.length < 3;
+
+  useEffect(() => {
+    if (addOpen) inputRef.current?.focus();
+  }, [addOpen]);
+
+  const handleOpen = () => setAddOpen(true);
+
+  const handleClose = () => {
+    setAddOpen(false);
+    setInputText("");
+  };
 
   const addGoal = (e: React.FormEvent) => {
     e.preventDefault();
     if (!auth.access_token) return;
-
     const goalData: IItem = { ...initialState, text: inputText };
     const check = validateItem(goalData, "Please type your goal");
     if (check.errLength !== 0)
       return dispatch({ type: ALERT, payload: { errors: check.errMsg } });
-
     dispatch(createGoal(goalData));
     setInputText("");
+    setAddOpen(false);
   };
 
   return (
     <UserLayout navbarType={1}>
       <div className="profile">
         <UserInfo />
-
         <div className="profile-content goals-page">
 
-          {/* ── Page header ── */}
+          {/* ── Header ── */}
           <header className="goals-page-header">
             <div className="goals-page-title">
               <p className="goals-page-eyebrow">Season goals</p>
@@ -71,27 +76,76 @@ const Goals = () => {
             </div>
           </header>
 
-          {/* ── Active goals ── */}
+          {/* ── Goals list ── */}
           <main className="goals-list-area">
-            {activeGoals.length === 0 ? (
+            {activeGoals.length === 0 && !addOpen ? (
               <div className="goals-empty">
                 <p className="goals-empty-text">
                   What do you want to<br />
                   accomplish this {season.toLowerCase()}?
                 </p>
-                <p className="goals-empty-sub">
-                  Up to 3 goals. Make them count.
-                </p>
+                <p className="goals-empty-sub">Up to 3 goals. Make them count.</p>
               </div>
             ) : (
               <div className="goals-list">
                 {activeGoals.map((item, index) => (
                   <GoalCard key={item._id} item={item} index={index} />
                 ))}
-                {/* Empty slots */}
-                {Array.from({ length: 3 - activeGoals.length }).map((_, i) => (
+
+                {/* ── Inline add form ── */}
+                {hasSlot && (
+                  <div className={`goals-inline-add${addOpen ? " goals-inline-add--open" : ""}`}>
+                    {addOpen ? (
+                      <form className="goals-inline-form" onSubmit={addGoal}>
+                        <span className="goals-inline-num">
+                          {String(activeGoals.length + 1).padStart(2, "0")}
+                        </span>
+                        <input
+                          ref={inputRef}
+                          className="goals-inline-input"
+                          type="text"
+                          value={inputText}
+                          onChange={(e) => setInputText(e.target.value)}
+                          placeholder="What do you want to achieve?"
+                          autoComplete="off"
+                          maxLength={200}
+                          onKeyDown={(e) => e.key === "Escape" && handleClose()}
+                        />
+                        <div className="goals-inline-actions">
+                          <button
+                            type="submit"
+                            className="goals-inline-submit"
+                            disabled={!inputText.trim()}>
+                            Add
+                          </button>
+                          <button
+                            type="button"
+                            className="goals-inline-cancel"
+                            onClick={handleClose}>
+                            <i className="fa-solid fa-xmark" />
+                          </button>
+                        </div>
+                      </form>
+                    ) : (
+                      <button className="goals-inline-trigger" onClick={handleOpen}>
+                        <span className="goals-inline-trigger-icon">
+                          <i className="fa-solid fa-plus" />
+                        </span>
+                        <span className="goals-inline-trigger-label">
+                          Add goal
+                          <span className="goals-inline-trigger-hint">
+                            {3 - activeGoals.length} slot{3 - activeGoals.length !== 1 ? "s" : ""} left
+                          </span>
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                )}
+
+                {/* Empty slots (when not adding) */}
+                {!addOpen && Array.from({ length: Math.max(0, 2 - activeGoals.length) }).map((_, i) => (
                   <div key={`slot-${i}`} className="goals-slot-empty">
-                    <span>{activeGoals.length + i + 1}</span>
+                    <span>{activeGoals.length + i + 2}</span>
                   </div>
                 ))}
               </div>
@@ -101,9 +155,7 @@ const Goals = () => {
           {/* ── Backlog ── */}
           {backlogGoals.length > 0 && (
             <section className="goals-backlog">
-              <button
-                className="goals-backlog-toggle"
-                onClick={() => setShowBacklog((v) => !v)}>
+              <button className="goals-backlog-toggle" onClick={() => setShowBacklog(v => !v)}>
                 <span>Backlog</span>
                 <span className="goals-backlog-count">{backlogGoals.length}</span>
                 <i className={`fa-solid fa-chevron-${showBacklog ? "up" : "down"}`} />
@@ -115,17 +167,8 @@ const Goals = () => {
                   </p>
                   {backlogGoals.map((item, index) => (
                     <div key={item._id} className="goals-backlog-item">
-                      <span className="goals-backlog-num">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
+                      <span className="goals-backlog-num">{String(index + 1).padStart(2, "0")}</span>
                       <p className="goals-backlog-text">{item.text}</p>
-                      {hasSlot && (
-                        <Link
-                          to={`/plan/${item._id}`}
-                          className="goals-backlog-promote">
-                          Promote →
-                        </Link>
-                      )}
                     </div>
                   ))}
                 </div>
@@ -133,65 +176,8 @@ const Goals = () => {
             </section>
           )}
 
-          {/* ── Footer ── */}
-          <footer className="goals-footer">
-            <span>© {new Date().getFullYear()} Hadaf</span>
-            <div className="goals-footer-links">
-              <Link to="/about">About</Link>
-              <Link to="/privacy">Privacy</Link>
-              <Link to="/terms">Terms</Link>
-            </div>
-          </footer>
+          <Footer />
         </div>
-
-        {/* ── Add goal bar ── */}
-        <form className="goals-add" onSubmit={addGoal}>
-          <div className="goals-add-inner">
-            {activeGoals.length < 3 ? (
-              <>
-                <span className="goals-add-num">
-                  {String(activeGoals.length + 1).padStart(2, "0")}
-                </span>
-                <input
-                  className="goals-add-input"
-                  type="text"
-                  value={inputText}
-                  onChange={(e) => setInputText(e.target.value)}
-                  onFocus={() => setFocused(true)}
-                  onBlur={() => setFocused(false)}
-                  placeholder="Type your next goal…"
-                  autoComplete="off"
-                  maxLength={200}
-                />
-                {inputText.trim().length > 0 && (
-                  <button type="submit" className="goals-add-btn">
-                    Add
-                  </button>
-                )}
-              </>
-            ) : (
-              <div className="goals-add-full">
-                <span className="goals-add-full-icon">
-                  <i className="fa-solid fa-fire" />
-                </span>
-                <p className="goals-add-full-text">
-                  3 goals set — now focus and execute.
-                </p>
-                <button
-                  type="button"
-                  className="goals-add-backlog-btn"
-                  onClick={() => setShowBacklog(true)}>
-                  Add to backlog
-                </button>
-              </div>
-            )}
-          </div>
-          {focused && inputText.length > 160 && (
-            <p className="goals-add-count">
-              {inputText.length} / 200
-            </p>
-          )}
-        </form>
       </div>
     </UserLayout>
   );
