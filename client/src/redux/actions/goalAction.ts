@@ -52,7 +52,10 @@ export const updateGoal =
     try {
       dispatch({ type: UPDATE_GOAL, payload: data });
       if (!plan) {
-        await patchAPI(`goal/${data._id}`, { text: data.text });
+        await patchAPI(`goal/${data._id}`, {
+          text: data.text,
+          isDone: data.isDone,
+        });
       } else {
         await patchAPI(`goal/${data.goal}`, { count: data.count });
       }
