@@ -238,7 +238,6 @@
   flex-direction: column;
   margin-left: 260px;
   padding: 2rem 2.5rem;
-  padding-bottom: 160px;
   animation: content-in 0.6s 0.05s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
