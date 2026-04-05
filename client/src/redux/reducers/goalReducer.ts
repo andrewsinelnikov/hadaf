@@ -11,7 +11,7 @@ import { IItem } from "../../types";
 const goalReducer = (state: IItem[] = [], action: IGoalType): IItem[] => {
   switch (action.type) {
     case CREATE_GOAL:
-      return [action.payload, ...state];
+      return [...state, action.payload];
     case GET_GOALS:
     case GET_CURRENT_GOALS:
       return action.payload;

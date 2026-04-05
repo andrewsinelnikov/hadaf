@@ -37,7 +37,6 @@ const goalCtrl = {
 
     try {
       const date = new Date();
-
       const { seasonStart, nextSeasonStart } = getSeasonStartEndDates(date);
 
       const goals = await Goal.find({
@@ -45,101 +44,8 @@ const goalCtrl = {
           $gte: seasonStart,
           $lt: nextSeasonStart,
         },
-      });
+      }).sort("createdAt");   
       res.json({ goals });
-      // let date = new Date();
-      // let goals;
-      // switch (date.getMonth()) {
-      //   case 0:
-      //   case 1:
-      //     goals = await Goal.find({
-      //       $and: [
-      //         {
-      //           createdAt: {
-      //             $gte: new Date(`${date.getFullYear() - 1}-11-30`),
-      //           },
-      //         },
-      //         { createdAt: { $lte: new Date(`${date.getFullYear()}-02-01`) } },
-      //       ],
-      //     });
-      //     break;
-      //   case 11:
-      //     goals = await Goal.find({
-      //       $and: [
-      //         {
-      //           createdAt: {
-      //             $gte: new Date(`${date.getFullYear()}-11-30`),
-      //           },
-      //         },
-      //         {
-      //           createdAt: {
-      //             $lte: new Date(`${date.getFullYear() + 1}-02-01`),
-      //           },
-      //         },
-      //       ],
-      //     });
-      //     break;
-      //   case 2:
-      //   case 3:
-      //   case 4:
-      //     goals = await Goal.find({
-      //       $and: [
-      //         {
-      //           createdAt: {
-      //             $gte: new Date(
-      //               `${date.getFullYear()}-01-${
-      //                 leapYear(date.getFullYear()) ? 29 : 28
-      //               }`
-      //             ),
-      //           },
-      //         },
-      //         {
-      //           createdAt: {
-      //             $lte: new Date(`${date.getFullYear()}-05-01`),
-      //           },
-      //         },
-      //       ],
-      //     });
-      //     break;
-      //   case 5:
-      //   case 6:
-      //   case 7:
-      //     goals = await Goal.find({
-      //       $and: [
-      //         {
-      //           createdAt: {
-      //             $gte: new Date(`${date.getFullYear()}-04-31`),
-      //           },
-      //         },
-      //         {
-      //           createdAt: {
-      //             $lte: new Date(`${date.getFullYear()}-08-01`),
-      //           },
-      //         },
-      //       ],
-      //     });
-      //     break;
-      //   case 8:
-      //   case 9:
-      //   case 10:
-      //     goals = await Goal.find({
-      //       $and: [
-      //         {
-      //           createdAt: {
-      //             $gte: new Date(`${date.getFullYear()}-07-31`),
-      //           },
-      //         },
-      //         {
-      //           createdAt: {
-      //             $lte: new Date(`${date.getFullYear()}-11-01`),
-      //           },
-      //         },
-      //       ],
-      //     });
-      //     break;
-      // }
-
-      // res.json({ goals });
     } catch (err: any) {
       return res.status(500).json({ msg: err.message });
     }

@@ -85,6 +85,15 @@ const Goals = () => {
                   accomplish this {season.toLowerCase()}?
                 </p>
                 <p className="goals-empty-sub">Up to 3 goals. Make them count.</p>
+                <button className="goals-inline-trigger" onClick={handleOpen}>
+                  <span className="goals-inline-trigger-icon">
+                    <i className="fa-solid fa-plus" />
+                  </span>
+                  <span className="goals-inline-trigger-label">
+                    Add goal
+                    <span className="goals-inline-trigger-hint">3 slots left</span>
+                  </span>
+                </button>
               </div>
             ) : (
               <div className="goals-list">
