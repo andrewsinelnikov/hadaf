@@ -41,22 +41,34 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
   };
 
   return (
-    <div className={`goal-card${isDone ? " goal-card--done" : ""}`}
-      style={{ animationDelay: `${index * 0.07}s` }}>
+    <div
+      className={`goal-card${isDone ? " goal-card--done" : ""}`}
+      style={{ animationDelay: `${index * 0.07}s` }}
+    >
+      {/* ── Top row: identity + primary action ── */}
+      <div className="goal-card-top">
+        <div className="goal-card-identity">
+          <button
+            className="goal-card-check"
+            type="button"
+            onClick={handleToggleDone}
+            aria-label={isDone ? "Mark as active" : "Mark as done"}
+          >
+            {isDone
+              ? <i className="fa-solid fa-circle-check" />
+              : <i className="fa-regular fa-circle" />
+            }
+          </button>
+          <span className="goal-card-num">{String(index + 1).padStart(2, "0")}</span>
+        </div>
+        {!isDone && !editing && (
+          <Link to={`/plan/${item._id}`} className="goal-card-plan-cta">
+            Plan →
+          </Link>
+        )}
+      </div>
 
-      {/* ── Done toggle ── */}
-      <button
-        className="goal-card-check"
-        type="button"
-        onClick={handleToggleDone}
-        aria-label={isDone ? "Mark as active" : "Mark as done"}>
-        {isDone
-          ? <i className="fa-solid fa-circle-check" />
-          : <i className="fa-regular fa-circle" />
-        }
-      </button>
-
-      {/* ── Body ── */}
+      {/* ── Body: text or edit form ── */}
       <div className="goal-card-body">
         {editing ? (
           <div className="goal-card-edit">
@@ -72,10 +84,10 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
               maxLength={200}
             />
             <div className="goal-card-edit-actions">
-              <button className="goal-card-action-btn goal-card-confirm" onClick={handleUpdate}>
+              <button className="goal-card-btn goal-card-btn--primary" onClick={handleUpdate}>
                 Save
               </button>
-              <button className="goal-card-action-btn" onClick={() => { setText(item.text); setEditing(false); }}>
+              <button className="goal-card-btn" onClick={() => { setText(item.text); setEditing(false); }}>
                 Cancel
               </button>
             </div>
@@ -83,40 +95,37 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
         ) : (
           <p className="goal-card-text">{item.text}</p>
         )}
-
-        {/* ── Progress ── */}
-        {!isDone && (
-          <div className="goal-card-progress">
-            <div className="goal-card-track">
-              <div className="goal-card-fill" style={{ width: `${pct}%` }} />
-            </div>
-            <span className="goal-card-pct">{pct}%</span>
-          </div>
-        )}
       </div>
 
-      {/* ── Actions ── */}
+      {/* ── Progress ── */}
+      {!isDone && !editing && (
+        <div className="goal-card-progress">
+          <div className="goal-card-track">
+            <div className="goal-card-fill" style={{ width: `${pct}%` }} />
+          </div>
+          <span className="goal-card-pct">{pct}%</span>
+        </div>
+      )}
+
+      {/* ── Footer actions ── */}
       {!editing && (
         <div className="goal-card-actions">
-          {!isDone && (
-            <Link to={`/plan/${item._id}`} className="goal-card-cta">
-              Plan →
-            </Link>
-          )}
-          <button className="goal-card-action-btn" onClick={() => setEditing(true)}>
+          <button className="goal-card-btn" onClick={() => setEditing(true)}>
             Edit
           </button>
+          <span className="goal-card-dot">·</span>
           {confirmDelete ? (
             <>
-              <button className="goal-card-action-btn goal-card-danger" onClick={handleDelete}>
-                Confirm
+              <button className="goal-card-btn goal-card-btn--danger" onClick={handleDelete}>
+                Confirm delete
               </button>
-              <button className="goal-card-action-btn" onClick={() => setConfirmDelete(false)}>
-                ✕
+              <span className="goal-card-dot">·</span>
+              <button className="goal-card-btn" onClick={() => setConfirmDelete(false)}>
+                Cancel
               </button>
             </>
           ) : (
-            <button className="goal-card-action-btn" onClick={() => setConfirmDelete(true)}>
+            <button className="goal-card-btn goal-card-btn--delete" onClick={() => setConfirmDelete(true)}>
               Delete
             </button>
           )}
