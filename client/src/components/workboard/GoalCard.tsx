@@ -12,18 +12,22 @@ interface IProps {
 }
 
 const GoalCard: React.FC<IProps> = ({ item, index }) => {
-  const [editing, setEditing] = useState(false);
-  const [text, setText] = useState(item.text);
+  const [editing, setEditing]             = useState(false);
+  const [text, setText]                   = useState(item.text);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
   const { auth } = useAppSelector((state: RootState) => state);
-  const dispatch = useAppDispatch();
+  const dispatch  = useAppDispatch();
 
   const pct = item.completeness === 1
     ? 1
     : Math.round((item.completeness! * 100) / item.count!);
 
-  const isDone = item.isDone;
+  const isDone    = item.isDone;
+  const stepCount = item.count ?? 0;
+  const doneCount = stepCount > 0
+    ? Math.round((item.completeness! / 1) * stepCount)
+    : 0;
 
   const handleUpdate = () => {
     if (!text.trim() || text === item.text) return setEditing(false);
@@ -40,97 +44,97 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
     dispatch(deleteGoal(item._id!));
   };
 
+  const numLabel = String(index + 1).padStart(2, "0");
+
   return (
     <div
       className={`goal-card${isDone ? " goal-card--done" : ""}`}
-      style={{ animationDelay: `${index * 0.07}s` }}
+      style={{ animationDelay: `${index * 0.06}s` }}
     >
-      {/* ── Top row: identity + primary action ── */}
-      <div className="goal-card-top">
-        <div className="goal-card-identity">
-          <button
-            className="goal-card-check"
-            type="button"
-            onClick={handleToggleDone}
-            aria-label={isDone ? "Mark as active" : "Mark as done"}
-          >
-            {isDone
-              ? <i className="fa-solid fa-circle-check" />
-              : <i className="fa-regular fa-circle" />
-            }
-          </button>
-          <span className="goal-card-num">{String(index + 1).padStart(2, "0")}</span>
-        </div>
-        {!isDone && !editing && (
-          <Link to={`/plan/${item._id}`} className="goal-card-plan-cta">
-            Plan →
-          </Link>
-        )}
-      </div>
+      <span className="goal-card-ghost">{numLabel}</span>
 
-      {/* ── Body: text or edit form ── */}
-      <div className="goal-card-body">
-        {editing ? (
-          <div className="goal-card-edit">
+      {/* ── Main content ── */}
+      <div className="goal-card-main">
+
+        <div className="goal-card-top">
+          {editing ? (
             <input
               className="goal-card-input"
               value={text}
               onChange={(e) => setText(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter") handleUpdate();
+                if (e.key === "Enter")  handleUpdate();
                 if (e.key === "Escape") { setText(item.text); setEditing(false); }
               }}
+              onBlur={handleUpdate}
               autoFocus
               maxLength={200}
             />
-            <div className="goal-card-edit-actions">
-              <button className="goal-card-btn goal-card-btn--primary" onClick={handleUpdate}>
-                Save
-              </button>
-              <button className="goal-card-btn" onClick={() => { setText(item.text); setEditing(false); }}>
-                Cancel
-              </button>
-            </div>
-          </div>
-        ) : (
-          <p className="goal-card-text">{item.text}</p>
-        )}
-      </div>
-
-      {/* ── Progress ── */}
-      {!isDone && !editing && (
-        <div className="goal-card-progress">
-          <div className="goal-card-track">
-            <div className="goal-card-fill" style={{ width: `${pct}%` }} />
-          </div>
-          <span className="goal-card-pct">{pct}%</span>
-        </div>
-      )}
-
-      {/* ── Footer actions ── */}
-      {!editing && (
-        <div className="goal-card-actions">
-          <button className="goal-card-btn" onClick={() => setEditing(true)}>
-            Edit
-          </button>
-          <span className="goal-card-dot">·</span>
-          {confirmDelete ? (
-            <>
-              <button className="goal-card-btn goal-card-btn--danger" onClick={handleDelete}>
-                Confirm delete
-              </button>
-              <span className="goal-card-dot">·</span>
-              <button className="goal-card-btn" onClick={() => setConfirmDelete(false)}>
-                Cancel
-              </button>
-            </>
           ) : (
-            <button className="goal-card-btn goal-card-btn--delete" onClick={() => setConfirmDelete(true)}>
-              Delete
-            </button>
+            <p className="goal-card-text">{item.text}</p>
+          )}
+          <span className={`goal-card-badge${isDone ? " goal-card-badge--done" : " goal-card-badge--active"}`}>
+            {isDone ? "Done" : "Active"}
+          </span>
+        </div>
+
+        <div className="goal-card-bottom">
+          <div className="goal-card-bar-wrap">
+            <div className="goal-card-track">
+              <div className="goal-card-fill" style={{ width: `${pct}%` }} />
+            </div>
+            <span className="goal-card-pct">{pct}%</span>
+          </div>
+          {stepCount > 0 && (
+            <div className="goal-card-meta">
+              <span>{stepCount} step{stepCount !== 1 ? "s" : ""}</span>
+              {!isDone && doneCount > 0 && (
+                <>
+                  <span className="goal-card-meta-dot" />
+                  <span>{doneCount} done</span>
+                </>
+              )}
+            </div>
           )}
         </div>
-      )}
+
+        {isDone && <div className="goal-card-done-line" />}
+
+      </div>
+
+      {/* ── Action column ── */}
+      <div className="goal-card-actions">
+        {!isDone && (
+          <Link to={`/plan/${item._id}`} className="goal-card-act goal-card-act--plan">
+            Plan
+          </Link>
+        )}
+        {!editing && (
+          <button className="goal-card-act" onClick={() => setEditing(true)}>
+            Edit
+          </button>
+        )}
+        <button className="goal-card-act" onClick={handleToggleDone}>
+          {isDone ? "Reopen" : "Done"}
+        </button>
+        {confirmDelete ? (
+          <>
+            <button className="goal-card-act goal-card-act--danger" onClick={handleDelete}>
+              Confirm
+            </button>
+            <button className="goal-card-act" onClick={() => setConfirmDelete(false)}>
+              Cancel
+            </button>
+          </>
+        ) : (
+          <button
+            className="goal-card-act goal-card-act--delete"
+            onClick={() => setConfirmDelete(true)}
+          >
+            Delete
+          </button>
+        )}
+      </div>
     </div>
   );
 };
