@@ -27,21 +27,21 @@ const Goals = () => {
   const { auth, goals } = useAppSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
 
-  const [inputText, setInputText]     = useState("");
-  const [addOpen, setAddOpen]         = useState(false);
-  const [storeOpen, setStoreOpen]     = useState(false);
-  const [storeInput, setStoreInput]   = useState("");
-  const [storeAddOpen, setStoreAddOpen] = useState(false);
-  const [storeGoals, setStoreGoals]   = useState<string[]>([]);
+  const [inputText, setInputText]         = useState("");
+  const [addOpen, setAddOpen]             = useState(false);
+  const [storeOpen, setStoreOpen]         = useState(false);
+  const [storeInput, setStoreInput]       = useState("");
+  const [storeAddOpen, setStoreAddOpen]   = useState(false);
+  const [storeGoals, setStoreGoals]       = useState<string[]>([]);
 
   const inputRef      = useRef<HTMLInputElement>(null);
   const storeInputRef = useRef<HTMLInputElement>(null);
   const season        = getSeason(new Date());
 
-  const activeGoals  = goals.filter((g) => !g.isDone).slice(0, MAX_ACTIVE);
-  const doneGoals    = goals.filter((g) => g.isDone);
-  const slotsLeft    = MAX_ACTIVE - activeGoals.length;
-  const hasSlot      = slotsLeft > 0;
+  const activeGoals = goals.filter((g) => !g.isDone).slice(0, MAX_ACTIVE);
+  const doneGoals   = goals.filter((g) => g.isDone);
+  const slotsLeft   = MAX_ACTIVE - activeGoals.length;
+  const hasSlot     = slotsLeft > 0;
 
   useEffect(() => {
     if (addOpen) inputRef.current?.focus();
@@ -112,15 +112,9 @@ const Goals = () => {
           {/* ── Store toggle ── */}
           <div className="goals-store-toggle">
             <button
-              className="goals-store-btn"
+              className={`goals-store-btn${storeOpen ? " goals-store-btn--open" : ""}`}
               onClick={() => setStoreOpen((v) => !v)}
             >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                stroke="currentColor" strokeWidth="1.5"
-                strokeLinecap="round" strokeLinejoin="round">
-                <rect x="1" y="3" width="10" height="8" rx="1"/>
-                <path d="M4 3V2a2 2 0 014 0v1"/>
-              </svg>
               Goal store
               {storeGoals.length > 0 && (
                 <span className="goals-store-count">{storeGoals.length}</span>
@@ -133,7 +127,7 @@ const Goals = () => {
             <div className="goals-store-panel">
               <div className="goals-store-header">
                 <span className="goals-store-title">
-                  Goal store — promote when a slot opens
+                  Promote a goal when a slot opens
                 </span>
                 <button
                   className="goals-store-close"
@@ -209,10 +203,6 @@ const Goals = () => {
                   className="goals-store-add-trigger"
                   onClick={() => setStoreAddOpen(true)}
                 >
-                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"
-                    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                    <path d="M4.5 1v7M1 4.5h7"/>
-                  </svg>
                   Add to store
                 </button>
               )}
@@ -235,7 +225,6 @@ const Goals = () => {
                   <GoalCard key={item._id} item={item} index={index} />
                 ))}
 
-                {/* ── Inline add form ── */}
                 {hasSlot && (
                   addOpen ? (
                     <form className="goals-inline-form" onSubmit={addGoal}>
@@ -289,20 +278,6 @@ const Goals = () => {
               </div>
             )}
           </main>
-
-          {/* ── Done goals ── */}
-          {doneGoals.length > 0 && (
-            <section className="goals-backlog">
-              <button
-                className="goals-backlog-toggle"
-                onClick={() => setStoreOpen((v) => !v)}
-              >
-                <span>Completed</span>
-                <span className="goals-backlog-count">{doneGoals.length}</span>
-                <i className={`fa-solid fa-chevron-down`} />
-              </button>
-            </section>
-          )}
 
           <Footer />
         </div>

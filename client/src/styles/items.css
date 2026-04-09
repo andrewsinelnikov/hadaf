@@ -253,7 +253,6 @@
 /* ── Plan items ── */
 
 .item-select { background: transparent; border: none; outline: none; cursor: pointer; }
-
 .item-select option { color: var(--lightdark-color); background: var(--dark-color); }
 
 .item-noplan,
@@ -380,9 +379,9 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid rgba(231, 224, 185, 0.06);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .goals-page-eyebrow {
@@ -482,7 +481,6 @@
     #ab915d                 70%,
     rgba(171, 145, 93, 0)   100%
   );
-  transition: opacity 0.2s ease;
   z-index: 1;
 }
 
@@ -658,7 +656,7 @@
 }
 
 .goal-card:hover .goal-card-actions { opacity: 1; }
-.goal-card--done .goal-card-actions { border-left-color: rgba(171, 145, 93, 0.15); }
+.goal-card--done .goal-card-actions  { border-left-color: rgba(171, 145, 93, 0.15); }
 
 .goal-card-act {
   flex: 1;
@@ -680,22 +678,18 @@
   white-space: nowrap;
 }
 
-.goal-card-act + .goal-card-act { border-top: 1px solid rgba(231, 224, 185, 0.06); }
+.goal-card-act + .goal-card-act       { border-top: 1px solid rgba(231, 224, 185, 0.06); }
 .goal-card--done .goal-card-act + .goal-card-act { border-top-color: rgba(171, 145, 93, 0.12); }
 
-.goal-card-act:hover { background: rgba(231, 224, 185, 0.04); color: rgba(231, 224, 185, 0.7); }
-
-.goal-card-act--plan { color: rgba(171, 145, 93, 0.65); }
-.goal-card-act--plan:hover { background: rgba(171, 145, 93, 0.1); color: var(--primary-color); }
-
-.goal-card-act--done { color: rgba(171, 145, 93, 0.75); }
-.goal-card-act--done:hover { background: rgba(171, 145, 93, 0.12); color: var(--primary-color); }
-
-.goal-card-act--reopen:hover { background: rgba(171, 145, 93, 0.1); color: rgba(231, 224, 185, 0.7); }
-
-.goal-card-act--danger { color: var(--error-color); }
-.goal-card-act--danger:hover { background: rgba(214, 10, 10, 0.07); color: var(--error-color); }
-.goal-card-act--delete:hover { background: rgba(214, 10, 10, 0.07); color: var(--error-color); }
+.goal-card-act:hover           { background: rgba(231, 224, 185, 0.04); color: rgba(231, 224, 185, 0.7); }
+.goal-card-act--plan           { color: rgba(171, 145, 93, 0.65); }
+.goal-card-act--plan:hover     { background: rgba(171, 145, 93, 0.1); color: var(--primary-color); }
+.goal-card-act--done           { color: rgba(171, 145, 93, 0.75); }
+.goal-card-act--done:hover     { background: rgba(171, 145, 93, 0.12); color: var(--primary-color); }
+.goal-card-act--reopen:hover   { background: rgba(171, 145, 93, 0.1); color: rgba(231, 224, 185, 0.7); }
+.goal-card-act--danger         { color: var(--error-color); }
+.goal-card-act--danger:hover   { background: rgba(214, 10, 10, 0.07); color: var(--error-color); }
+.goal-card-act--delete:hover   { background: rgba(214, 10, 10, 0.07); color: var(--error-color); }
 
 /* ── Empty slots ── */
 
@@ -721,46 +715,46 @@
 
 
 /* ══════════════════════════════════════════════
-   GOAL STORE TOGGLE + PANEL
+   GOAL STORE
    ══════════════════════════════════════════════ */
 
+/* Toggle — right-aligned, no border, plain text link feel */
 .goals-store-toggle {
-  margin-bottom: 14px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
 .goals-store-btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   background: transparent;
-  border: 1px solid rgba(231, 224, 185, 0.1);
-  border-radius: 4px;
-  padding: 5px 12px;
+  border: none;
+  padding: 0;
   font-family: inherit;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(231, 224, 185, 0.35);
   cursor: pointer;
-  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  transition: color 0.15s ease;
 }
 
-.goals-store-btn:hover {
-  border-color: rgba(171, 145, 93, 0.3);
-  color: rgba(171, 145, 93, 0.7);
-  background: rgba(171, 145, 93, 0.04);
-}
+.goals-store-btn:hover { color: rgba(171, 145, 93, 0.8); }
+
+.goals-store-btn--open { color: rgba(171, 145, 93, 0.8); }
 
 .goals-store-count {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 16px; height: 16px;
-  padding: 0 4px;
-  border-radius: 8px;
+  min-width: 18px; height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
   background: rgba(171, 145, 93, 0.15);
-  font-size: 10px; font-weight: 700;
+  font-size: 11px; font-weight: 700;
   color: rgba(171, 145, 93, 0.7);
   font-variant-numeric: tabular-nums;
 }
@@ -909,9 +903,8 @@
   border: none; border-radius: 3px;
   font-family: inherit; font-size: 11px; font-weight: 700;
   letter-spacing: 0.07em; text-transform: uppercase;
-  cursor: pointer;
+  cursor: pointer; flex-shrink: 0;
   transition: background 0.15s ease;
-  flex-shrink: 0;
 }
 
 .goals-store-add-submit:hover    { background: #c4a870; }
@@ -923,9 +916,8 @@
   font-family: inherit; font-size: 11px; font-weight: 700;
   letter-spacing: 0.07em; text-transform: uppercase;
   color: rgba(231, 224, 185, 0.28);
-  cursor: pointer; border-radius: 3px;
+  cursor: pointer; border-radius: 3px; flex-shrink: 0;
   transition: color 0.12s ease, background 0.12s ease;
-  flex-shrink: 0;
 }
 
 .goals-store-add-cancel:hover { color: rgba(231, 224, 185, 0.6); background: rgba(231, 224, 185, 0.04); }
@@ -951,7 +943,6 @@
    INLINE ADD GOAL FORM
    ══════════════════════════════════════════════ */
 
-/* Trigger button — dashed, same width as cards */
 .goals-inline-trigger {
   display: flex;
   align-items: center;
@@ -1006,7 +997,7 @@
   letter-spacing: 0.04em;
 }
 
-/* Open form — matches card shell exactly */
+/* Open form — matches card shell */
 .goals-inline-form {
   border-radius: 8px;
   border: 1px solid rgba(231, 224, 185, 0.08);
@@ -1017,7 +1008,6 @@
   animation: goal-card-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* same left accent as cards */
 .goals-inline-form::before {
   content: '';
   position: absolute;
@@ -1032,7 +1022,6 @@
   );
 }
 
-/* input: same font size/weight/color as goal text */
 .goals-inline-input {
   display: block;
   width: 100%;
@@ -1057,7 +1046,6 @@
 
 .goals-inline-input:focus { border-bottom-color: var(--primary-color); }
 
-/* footer: slots label left, buttons right */
 .goals-inline-footer {
   display: flex;
   align-items: center;
@@ -1080,7 +1068,6 @@
   flex-shrink: 0;
 }
 
-/* Cancel — ghost style matching auth page secondary */
 .goals-inline-cancel {
   height: 44px;
   padding: 0 20px;
@@ -1102,7 +1089,6 @@
   color: rgba(231, 224, 185, 0.6);
 }
 
-/* Submit — solid gold, auth page style */
 .goals-inline-submit {
   height: 44px;
   padding: 0 28px;
@@ -1121,7 +1107,6 @@
   transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* gloss overlay matching auth .btn::after */
 .goals-inline-submit::after {
   content: '';
   position: absolute;
