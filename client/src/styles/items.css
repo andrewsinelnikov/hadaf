@@ -997,17 +997,23 @@
   letter-spacing: 0.04em;
 }
 
-/* Open form — matches card shell */
+/* Open form — transparent, no background, grid matches goal card */
 .goals-inline-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
   border-radius: 8px;
-  border: 1px solid rgba(231, 224, 185, 0.08);
-  background: rgba(10, 39, 73, 0.55);
+  border: none;
+  background: transparent;
   position: relative;
   overflow: hidden;
-  padding: 18px 20px 16px;
   animation: goal-card-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.goals-inline-form:focus-within {
+  border: none;
+}
+
+/* same left accent as cards */
 .goals-inline-form::before {
   content: '';
   position: absolute;
@@ -1022,6 +1028,7 @@
   );
 }
 
+/* input: same font/color as goal text, placeholder dimmer */
 .goals-inline-input {
   display: block;
   width: 100%;
@@ -1034,93 +1041,66 @@
   letter-spacing: -0.015em;
   color: var(--lightdark-color);
   outline: none;
-  padding: 2px 0 10px;
-  margin-bottom: 16px;
+  padding: 18px 20px 14px;
   transition: border-color 0.15s ease;
 }
 
 .goals-inline-input::placeholder {
-  color: rgba(231, 224, 185, 0.2);
-  font-weight: 400;
+  color: rgba(231, 224, 185, 0.55);
+  font-weight: 600;
 }
 
-.goals-inline-input:focus { border-bottom-color: var(--primary-color); }
+.goals-inline-input:focus { border-bottom-color: rgba(171, 145, 93, 0.6); }
 
-.goals-inline-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.goals-inline-slots {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(171, 145, 93, 0.45);
-}
-
+/* action column — identical pattern to .goal-card-actions */
 .goals-inline-actions {
   display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(231, 224, 185, 0.06);
+  min-width: 76px;
+}
+
+.goals-inline-act {
+  flex: 1;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.goals-inline-cancel {
-  height: 44px;
-  padding: 0 20px;
+  justify-content: center;
   background: transparent;
-  border: 1px solid rgba(231, 224, 185, 0.12);
-  border-radius: 3px;
+  border: none;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: rgba(231, 224, 185, 0.35);
+  color: rgba(231, 224, 185, 0.28);
   cursor: pointer;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  padding: 0 16px;
+  transition: background 0.12s ease, color 0.12s ease;
+  white-space: nowrap;
 }
 
-.goals-inline-cancel:hover {
-  border-color: rgba(231, 224, 185, 0.25);
-  color: rgba(231, 224, 185, 0.6);
+.goals-inline-act + .goals-inline-act {
+  border-top: 1px solid rgba(231, 224, 185, 0.06);
 }
 
-.goals-inline-submit {
-  height: 44px;
-  padding: 0 28px;
-  background: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  border-radius: 3px;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--dark-color);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
+.goals-inline-act:hover {
+  background: rgba(231, 224, 185, 0.04);
+  color: rgba(231, 224, 185, 0.7);
 }
 
-.goals-inline-submit::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+.goals-inline-act--add {
+  color: rgba(171, 145, 93, 0.65);
+}
+
+.goals-inline-act--add:hover {
+  background: rgba(171, 145, 93, 0.1);
+  color: var(--primary-color);
+}
+
+.goals-inline-act--add:disabled {
+  opacity: 0.3;
   pointer-events: none;
 }
-
-.goals-inline-submit:hover {
-  background: #c4a870;
-  box-shadow: 0 4px 20px rgba(171, 145, 93, 0.35);
-}
-
-.goals-inline-submit:disabled { opacity: 0.3; pointer-events: none; }
 
 
 /* ── Backlog ── */

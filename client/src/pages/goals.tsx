@@ -238,24 +238,21 @@ const Goals = () => {
                         maxLength={200}
                         onKeyDown={(e) => e.key === "Escape" && handleClose()}
                       />
-                      <div className="goals-inline-footer">
-                        <span className="goals-inline-slots">{slotLabel}</span>
-                        <div className="goals-inline-actions">
-                          <button
-                            type="button"
-                            className="goals-inline-cancel"
-                            onClick={handleClose}
-                          >
-                            Cancel
-                          </button>
-                          <button
-                            type="submit"
-                            className="goals-inline-submit"
-                            disabled={!inputText.trim()}
-                          >
-                            Add goal
-                          </button>
-                        </div>
+                      <div className="goals-inline-actions">
+                        <button
+                          type="submit"
+                          className="goals-inline-act goals-inline-act--add"
+                          disabled={!inputText.trim()}
+                        >
+                          Add
+                        </button>
+                        <button
+                          type="button"
+                          className="goals-inline-act"
+                          onClick={handleClose}
+                        >
+                          Cancel
+                        </button>
                       </div>
                     </form>
                   ) : (
