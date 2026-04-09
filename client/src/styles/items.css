@@ -487,6 +487,7 @@
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 
+/* left gold accent line */
 .goal-card::before {
   content: '';
   position: absolute;
@@ -500,6 +501,7 @@
     rgba(171, 145, 93, 0)   100%
   );
   transition: opacity 0.2s ease;
+  z-index: 1;
 }
 
 .goal-card:hover {
@@ -507,20 +509,28 @@
   background: rgba(10, 39, 73, 0.75);
 }
 
-/* Done state — full gold border accent, keep text bright */
+/* ── Done state ── */
+
 .goal-card--done {
-  background: rgba(10, 39, 73, 0.3);
-  border-color: rgba(171, 145, 93, 0.18);
+  border-color: rgba(171, 145, 93, 0.35);
+  background: linear-gradient(135deg, rgba(171, 145, 93, 0.18) 0%, rgba(171, 145, 93, 0.1) 100%);
 }
 
-.goal-card--done::before {
-  background: linear-gradient(
-    180deg,
-    rgba(171, 145, 93, 0)    0%,
-    rgba(171, 145, 93, 0.5)  30%,
-    rgba(171, 145, 93, 0.5)  70%,
-    rgba(171, 145, 93, 0)    100%
-  );
+/* subtle grid overlay on done card */
+.goal-card--done::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(171, 145, 93, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(171, 145, 93, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.goal-card--done:hover {
+  border-color: rgba(171, 145, 93, 0.5);
+  background: linear-gradient(135deg, rgba(171, 145, 93, 0.22) 0%, rgba(171, 145, 93, 0.13) 100%);
 }
 
 /* ── Ghost number ── */
@@ -542,12 +552,20 @@
   transition: opacity 0.2s ease;
 }
 
+.goal-card--done .goal-card-ghost {
+  -webkit-text-stroke: 1px rgba(171, 145, 93, 0.13);
+}
+
 .goal-card:hover .goal-card-ghost { opacity: 0; }
-.goal-card--done .goal-card-ghost  { opacity: 0; }
 
 /* ── Main content ── */
 
-.goal-card-main { padding: 18px 20px 16px; min-width: 0; }
+.goal-card-main {
+  padding: 18px 20px 16px;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
 
 .goal-card-top {
   display: flex;
@@ -555,6 +573,8 @@
   gap: 14px;
   margin-bottom: 14px;
 }
+
+.goal-card--done .goal-card-top { margin-bottom: 0; }
 
 .goal-card-text {
   flex: 1;
@@ -589,9 +609,9 @@
 }
 
 .goal-card-badge--done {
-  color: #0f1f2f;
-  border-color: #ab915d;
-  background: #ab915d;
+  color: #895602;
+  border-color: rgba(171, 145, 93, 0.5);
+  background: rgba(171, 145, 93, 0.25);
 }
 
 /* ── Inline edit input ── */
@@ -614,7 +634,7 @@
 
 .goal-card-input:focus { border-bottom-color: rgba(171, 145, 93, 0.8); }
 
-/* ── Bottom row: bar + meta ── */
+/* ── Bottom row ── */
 
 .goal-card-bottom {
   display: flex;
@@ -671,18 +691,6 @@
   flex-shrink: 0;
 }
 
-/* Done shimmer line */
-.goal-card-done-line {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(171, 145, 93, 0.35),
-    transparent
-  );
-  margin-top: 14px;
-}
-
 /* ── Action column ── */
 
 .goal-card-actions {
@@ -692,9 +700,15 @@
   opacity: 0;
   transition: opacity 0.15s ease;
   min-width: 76px;
+  position: relative;
+  z-index: 1;
 }
 
 .goal-card:hover .goal-card-actions { opacity: 1; }
+
+.goal-card--done .goal-card-actions {
+  border-left-color: rgba(171, 145, 93, 0.15);
+}
 
 .goal-card-act {
   flex: 1;
@@ -720,22 +734,35 @@
   border-top: 1px solid rgba(231, 224, 185, 0.06);
 }
 
+.goal-card--done .goal-card-act + .goal-card-act {
+  border-top-color: rgba(171, 145, 93, 0.12);
+}
+
 .goal-card-act:hover {
   background: rgba(231, 224, 185, 0.04);
   color: rgba(231, 224, 185, 0.7);
 }
 
 .goal-card-act--plan { color: rgba(171, 145, 93, 0.65); }
-
 .goal-card-act--plan:hover {
   background: rgba(171, 145, 93, 0.1);
   color: var(--primary-color);
 }
 
+.goal-card-act--done { color: rgba(171, 145, 93, 0.75); }
+.goal-card-act--done:hover {
+  background: rgba(171, 145, 93, 0.12);
+  color: var(--primary-color);
+}
+
+.goal-card-act--reopen:hover {
+  background: rgba(171, 145, 93, 0.1);
+  color: rgba(231, 224, 185, 0.7);
+}
+
 .goal-card-act--danger {
   color: var(--error-color);
 }
-
 .goal-card-act--danger:hover {
   background: rgba(214, 10, 10, 0.07);
   color: var(--error-color);
@@ -787,7 +814,6 @@
   animation: goal-expand 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Trigger button */
 .goals-inline-trigger {
   display: flex;
   align-items: center;
@@ -844,7 +870,6 @@
   letter-spacing: 0.06em;
 }
 
-/* Expanded form */
 .goals-inline-form {
   display: flex;
   align-items: center;

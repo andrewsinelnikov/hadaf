@@ -21,10 +21,11 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
   const { auth } = useAppSelector((state: RootState) => state);
   const dispatch  = useAppDispatch();
 
-  const count        = item.count  ?? 1;
-  const completeness = item.completeness ?? 1;
-  const pct          = Math.round((completeness / count) * 100);
-  const doneCount    = Math.round(completeness);
+  // count=1 / completeness=1 is the default "no steps yet" state — show 0%
+  const hasSteps     = (item.count ?? 1) > 1;
+  const pct          = hasSteps
+    ? Math.min(100, Math.round((item.completeness! * 100) / item.count!))
+    : 0;
   const isDone       = !!item.isDone;
   const nearDone     = !isDone && pct >= DONE_THRESHOLD * 100;
   const numLabel     = String(index + 1).padStart(2, "0");
@@ -83,13 +84,13 @@ const GoalCard: React.FC<IProps> = ({ item, index }) => {
               </div>
               <span className="goal-card-pct">{pct}%</span>
             </div>
-            {count > 1 && (
+            {hasSteps && (
               <div className="goal-card-meta">
-                <span>{count} step{count !== 1 ? "s" : ""}</span>
-                {doneCount > 0 && (
+                <span>{item.count} steps</span>
+                {item.completeness! > 0 && (
                   <>
                     <span className="goal-card-meta-dot" />
-                    <span>{doneCount} done</span>
+                    <span>{item.completeness} done</span>
                   </>
                 )}
               </div>
