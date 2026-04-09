@@ -209,71 +209,71 @@ const Goals = () => {
             </div>
           )}
 
-          {/* ── Goals list ── */}
+          {/* Goals list */}
           <main className="goals-list-area">
-            {activeGoals.length === 0 && !addOpen ? (
-              <div className="goals-empty">
-                <p className="goals-empty-text">
-                  What do you want to<br />
-                  accomplish this {season.toLowerCase()}?
-                </p>
-                <p className="goals-empty-sub">Up to 3 goals. Make them count.</p>
-              </div>
-            ) : (
-              <div className="goals-list">
-                {activeGoals.map((item, index) => (
-                  <GoalCard key={item._id} item={item} index={index} />
-                ))}
+            <div className="goals-list">
+              {activeGoals.length === 0 && !addOpen && (
+                <div className="goals-empty">
+                  <p className="goals-empty-text">
+                    What do you want to<br />
+                    accomplish this {season.toLowerCase()}?
+                  </p>
+                  <p className="goals-empty-sub">Up to 3 goals. Make them count.</p>
+                </div>
+              )}
 
-                {hasSlot && (
-                  addOpen ? (
-                    <form className="goals-inline-form" onSubmit={addGoal}>
-                      <input
-                        ref={inputRef}
-                        className="goals-inline-input"
-                        value={inputText}
-                        onChange={(e) => setInputText(e.target.value)}
-                        placeholder="What do you want to achieve this season?"
-                        autoComplete="off"
-                        maxLength={200}
-                        onKeyDown={(e) => e.key === "Escape" && handleClose()}
-                      />
-                      <div className="goals-inline-actions">
-                        <button
-                          type="submit"
-                          className="goals-inline-act goals-inline-act--add"
-                          disabled={!inputText.trim()}
-                        >
-                          Add
-                        </button>
-                        <button
-                          type="button"
-                          className="goals-inline-act"
-                          onClick={handleClose}
-                        >
-                          Cancel
-                        </button>
-                      </div>
-                    </form>
-                  ) : (
-                    <button className="goals-inline-trigger" onClick={handleOpen}>
-                      <span className="goals-inline-trigger-icon">
-                        <svg width="9" height="9" viewBox="0 0 9 9" fill="none"
-                          stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                          <path d="M4.5 1v7M1 4.5h7"/>
-                        </svg>
+              {activeGoals.map((item, index) => (
+                <GoalCard key={item._id} item={item} index={index} />
+              ))}
+
+              {hasSlot && (
+                addOpen ? (
+                  <form className="goals-inline-form" onSubmit={addGoal}>
+                    <input
+                      ref={inputRef}
+                      className="goals-inline-input"
+                      value={inputText}
+                      onChange={(e) => setInputText(e.target.value)}
+                      placeholder="What do you want to achieve this season?"
+                      autoComplete="off"
+                      maxLength={200}
+                      onKeyDown={(e) => e.key === "Escape" && handleClose()}
+                    />
+                    <div className="goals-inline-actions">
+                      <button
+                        type="submit"
+                        className="goals-inline-act goals-inline-act--add"
+                        disabled={!inputText.trim()}
+                      >
+                        Add
+                      </button>
+                      <button
+                        type="button"
+                        className="goals-inline-act"
+                        onClick={handleClose}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                ) : (
+                  <button className="goals-inline-trigger" onClick={handleOpen}>
+                    <span className="goals-inline-trigger-icon">
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none"
+                        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                        <path d="M4.5 1v7M1 4.5h7"/>
+                      </svg>
+                    </span>
+                    <span className="goals-inline-trigger-label">
+                      Add goal
+                      <span className="goals-inline-trigger-hint">
+                        · {slotLabel}
                       </span>
-                      <span className="goals-inline-trigger-label">
-                        Add goal
-                        <span className="goals-inline-trigger-hint">
-                          · {slotLabel}
-                        </span>
-                      </span>
-                    </button>
-                  )
-                )}
-              </div>
-            )}
+                    </span>
+                  </button>
+                )
+              )}
+            </div>
           </main>
 
           <Footer />
